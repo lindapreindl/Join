@@ -11,7 +11,7 @@ function signUpUser() {
         document.getElementById('sucessBoxSignUp').classList.remove('d-none');
         name.value = '';
         email.value = '';
-        password.value = ''
+        password.value = '';
         document.getElementById('signupConfirmPassword').value = '';
         window.location.href = 'login.html?msg=Sign up successful';
     } else { alert('Die Passwörter stimmen nicht überein!'); }    
