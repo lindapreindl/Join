@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popUpBox {
+    width: 400px;
+}
+
+input {
+    width: 250px;
+    border: 0;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 12px;
+}
+
+h1 {
+    margin-block-end: 0.2em;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.inputBox {
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+}
+
+.inputBox img {
+    height: 16px;
+}
+
+::placeholder {
+    color: lightgrey;  
+}
+
+.checkbox {
+    width: 32px !important;
+}
+
+.marginBottom {
+    margin-bottom: 16px;
+}
+
+.fontBlue {
+    color: #29ABE2;
+}
+
+.fontLightgrey {
+    color: lightgrey;
+}
+
+.line {
+    background-color: #29ABE2;
+    height: 2px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 8px 16px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #2A3647;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.arrowLeft {
+    height: 20px;
+    position: relative;
+    top: 55px;
+    left: -170px;
+}
+
+.loginButtons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.whiteButton {
+    border: 1px solid #2A3647 !important;
+    background-color: white !important;
+    color: #2A3647;
+}
