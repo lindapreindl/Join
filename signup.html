@@ -10,34 +10,38 @@
 </head>
 
 <body>
-    <div class="column popUpBox">
-        <img class="arrowLeft" src="./img/arrowLeft.png">
-        <h1>Sign up</h1>
-        <div class="line"></div>
-        <form class="column" onsubmit="signupUser(); return false;">
-            <div class="inputBox">
-                <input type="text" id="signupName" placeholder="Name">
-                <img src="./img/person.png">
-            </div>
-            <div class="inputBox">
-                <input type="email" id="signupEmail" placeholder="Email">
-                <img src="./img/mail.png">
-            </div>
-            <div class="inputBox">
-                <input type="password" id="signupPassword" placeholder="Password">
-                <img src="./img/lock.png">
-            </div>
-            <div class="inputBox">
-                <input type="password" id="signupConfirmPassword" placeholder="Confirm Password">
-                <img src="./img/lock.png">
-            </div>
-            <div class="row marginBottom">
-                <input type="checkbox" class="checkbox" id="signupCheck">
-                <p class ="fontLightgrey" style="margin-right: 5px;">I accept the</p>
-                <p class="fontBlue">Privacy policy</p>
-            </div>
-            <button>Sign up</button>
-        </form>
+    <div class="container">
+        <header>
+            <img class="logo" src="./img/logo.png">
+        </header>
+        <div class="column popUpBox">
+            <img class="arrowLeft" src="./img/arrowLeft.png">
+            <h1>Sign up</h1>
+            <div class="line"></div>
+            <form class="column" onsubmit="signUpUser(); return false;">
+                <div class="inputBox">
+                    <input type="text" id="signupName" placeholder="Name" required>
+                    <img src="./img/person.png">
+                </div>
+                <div class="inputBox">
+                    <input type="email" id="signupEmail" placeholder="Email" required>
+                    <img src="./img/mail.png">
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="signupPassword" placeholder="Password" required>
+                    <img src="./img/lock.png">
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+                    <img src="./img/lock.png">
+                </div>
+                <div class="row marginBottom16">
+                    <input type="checkbox" class="checkbox" id="signupCheck" required>
+                    <p class="fontLightgrey" style="margin-right: 5px;">I accept the <a href="policy.html">Privacy policy</a></p>
+                </div>
+                <button class="marginBottom32">Sign up</button>
+            </form>
+        </div>
     </div>
 </body>
 
