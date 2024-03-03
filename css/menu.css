@@ -15,7 +15,7 @@ nav{
 }
 
 
-nav img{
+.logo{
     width: 100px;
 }
 
@@ -23,11 +23,19 @@ nav img{
     gap: 15px;
     display: flex;
     flex-direction: column;
+    padding-top: 64px;
 }
+
+/*Bilder und Text noch auf gleiche Höhe bringen*/
 
 .menu a{
     text-decoration: none;
     color: white;
+}
+
+.menu img{
+    width: 30px;
+    padding-right: 8px;
 }
 
 .termsAndConditions{
