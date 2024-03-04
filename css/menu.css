@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 nav{
@@ -26,11 +27,11 @@ nav{
     padding-top: 64px;
 }
 
-/*Bilder und Text noch auf gleiche Höhe bringen*/
-
 .menu a{
     text-decoration: none;
     color: white;
+    display: flex;
+    align-items: center;
 }
 
 .menu img{

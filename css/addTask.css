@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-left {
+    width: 440px;
+    height: 376px;
+    top: 327px;
+    left: 328px;
+    gap: 16px;
+}
+
+.assignedTo {
+    display: flex;
+    flex-direction: column;
+}
+
+.line {
+    width: 0px;
+    height: 424px;
+    top: 327px;
+    left: 816.25px;
+    border: 1px solid #D1D1D1;
+}
+
+.form-right {
+    width: 440px;
+    height: 416px;
+    top: 327px;
+    left: 864.25px;
+    gap: 24px;
+}
+
+.dueDate {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-category {
+    display: flex;
+    flex-direction: column;
+}
