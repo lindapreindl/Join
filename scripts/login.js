@@ -1,6 +1,12 @@
 let users = [];
 let rememberUser;
 
+function initStart() {
+    let animatedLogo = document.getElementById('startLogo');
+    animatedLogo.style.animation = "animateLogo 2s ease-in-out 1s forwards";
+    animatedLogo.onanimationend = () => { window.location.href = 'login.html' };
+}
+
 async function initUsers() {
     loadUsers();
     rememberUser = localStorage.getItem('rememberUser');
