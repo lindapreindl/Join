@@ -48,10 +48,7 @@ input {
     justify-content: space-between;
     padding: 8px 12px;
     width: 300px;
-}
-
-input:focus { 
-    border-color: 1px solid #29ABE2;
+    outline-color: #29ABE2;
 }
 
 .inputBox {
@@ -94,7 +91,7 @@ input:focus {
 }
 
 .fontLightgrey {
-    color: lightgrey;
+    color: rgb(177, 177, 177);
 }
 
 .line {
@@ -191,6 +188,14 @@ header {
 p a{
     text-decoration: none;
     color: #29ABE2;
+}
+
+.alertNotification {
+    color: #FD1E39;
+    font-size: 12px;
+    margin-top: -15px;
+    margin-left: -120px;
+    margin-bottom: 16px;
 }
 
 
