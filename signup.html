@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/login.css">
     <script src="./scripts/login.js"></script>
+    <script src="./scripts/storage.js"></script>
     <title>Join | Sign up</title>
 </head>
 
-<body>
+<body onload="initUsers()">
     <div class="container">
         <header>
             <img class="logo" src="./img/logo.png">
         </header>
         <div class="column popUpBox">
-            <img class="arrowLeft" src="./img/arrowLeft.png">
+            <a href="login.html"><img class="arrowLeft" src="./img/arrowLeft.png"></a>
             <h1>Sign up</h1>
             <div class="line"></div>
             <form class="column" onsubmit="signUpUser(); return false;">
@@ -39,7 +40,7 @@
                     <input type="checkbox" class="checkbox" id="signupCheck" required>
                     <p class="fontLightgrey" style="margin-right: 5px;">I accept the <a href="policy.html">Privacy policy</a></p>
                 </div>
-                <button class="marginBottom32">Sign up</button>
+                <button class="marginBottom32" id="signUpButton">Sign up</button>
             </form>
         </div>
     </div>

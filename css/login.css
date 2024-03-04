@@ -18,11 +18,6 @@ body {
     filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.1));
 }
 
-input {
-    width: 300px;
-    border: 0;
-}
-
 .d-none {
     display: none;
 }
@@ -46,17 +41,28 @@ h1 {
     font-size: 42px;
 }
 
-.inputBox {
+input {
     border: 1px solid lightgrey;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     padding: 8px 12px;
-    margin-bottom: 16px;
+    width: 300px;
+}
+
+input:focus { 
+    border-color: 1px solid #29ABE2;
+}
+
+.inputBox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;    
 }
 
 .inputBox img {
     height: 16px;
+    margin-left: -30px;
 }
 
 ::placeholder {
@@ -109,6 +115,11 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: #29ABE2;
+    filter: drop-shadow(0px 4px 2px rgba(0,0,0,0.2));
+}
+
 .infoBox {
     padding: 12px 20px;
     border-radius: 12px;
@@ -140,6 +151,12 @@ button {
     border: 1px solid #2A3647 !important;
     background-color: white !important;
     color: #2A3647;
+}
+
+.whiteButton:hover {
+    color: #29ABE2 !important;
+    border-color: #29ABE2 !important;
+    filter: drop-shadow(0px 4px 2px rgba(0,0,0,0.2));
 }
 
 .container {

@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/login.css">
     <script src="./scripts/login.js"></script>
+    <script src="./scripts/storage.js"></script>
     <title>Join | Log in</title>
 </head>
 
-<body>
+<body onload="initUsers()">
     <div class="container">
         <header>
             <img class="logo" src="./img/logo.png">
@@ -36,7 +37,7 @@
                     <p>Remember me</p>
                 </div>
                 <div class="loginButtons marginBottom32 marginTop16">
-                    <button>Log in</button>
+                    <button id="logInButton">Log in</button>
                     <button class="whiteButton">Guest Log in</button>
                 </div>
             </form>
