@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./scripts/board.js"></script>
+    <script src="./scripts/storage.js"></script>
+    <script src="./scripts/templates.js"></script>
+    <title>Join | Board</title>
+</head>
+<body onload="initBoard()">
+    <div class="boardContainer w90">
+        <header>
+            <h1>Board</h1>
+            <div class="d-flex">
+                <div class="d-flex">
+                    <input>
+                    <img>
+                </div>
+                <button class="marginLR16">Add task +</button>
+            </div>
+        </header>
+        <div class="boardTable d-flex w90">
+            <div class="categoryBoard" id="categoryToDo">
+                <div>
+                    <h3>To do</h3>
+                    <img>
+                </div>
+                <div id="contentToDo" class="taskContentBox">
+                </div>
+            </div>
+            <div class="categoryBoard" id="categoryInProgress">
+                <div>
+                    <h3>In progress</h3>
+                    <img>
+                </div>
+                <div id="contentInProgress" class="taskContentBox">
+                </div>
+            </div>
+            <div class="categoryBoard" id="categoryAwaitFeedback">
+                <div>
+                    <h3>Await feedback</h3>
+                    <img>
+                </div>
+                <div id="contentAwaitFeedback" class="taskContentBox">
+                </div>
+            </div>
+            <div class="categoryBoard" id="categoryDone">
+                <div>
+                    <h3>Done</h3>
+                    <img>
+                </div>
+                <div id="contentDone" class="taskContentBox">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

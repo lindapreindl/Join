@@ -1,0 +1,71 @@
+.boardContainer {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.w90 {
+    width: 90%;
+}
+
+h1 h3 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.marginLR16 {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.widthTaskBox {
+    width: 200px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boardTable {
+    justify-content: space-between;
+}
+
+.categoryBoard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+input {
+    background-image: url(../img/lock.png);
+    background-position: 290px 8px; 
+    background-repeat: no-repeat;
+}
+
+.taskContentBox {
+    width: 100%;
+    min-height: 300px;
+    /* background-color: burlywood; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popUpBox:hover {
+    cursor: pointer;
+    transform: rotate(7deg);
+    /* transform-origin: top left; */
+}
+
