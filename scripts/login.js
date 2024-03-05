@@ -1,5 +1,6 @@
 let users = [];
 let rememberUser;
+let loginUser = [];
 
 function initStart() {
     let animatedLogo = document.getElementById('startLogo');
@@ -50,10 +51,11 @@ function logInUser() {
     let password = document.getElementById('loginPassword');
     let user = users.find(u => u.email == email.value && u.password == password.value);
     if (user) {
+        console.log(user);
         if (document.getElementById('rememberMeCheck').value = true) {
             localStorage.setItem('rememberUser', email.value);
         }
-        window.location.href = 'index.html?msg=Login successful';
+        window.location.href = 'summary.html?msg=Login successful';
     } else { wrongPassword() }
 }
 
