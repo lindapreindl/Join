@@ -5,8 +5,8 @@ let tasks = [
         'assigned': ['test'],
         'dueDate': '24.12.2024',
         'prio': 'test',
-        'category': 'test',
-        'position': 'ToDo',
+        'category': 'User Story',
+        'position': 'InProgress',
         'subtasks': [{
             'subtask': 'test',
             'finished': false
@@ -18,7 +18,7 @@ let tasks = [
         'assigned': ['test'],
         'dueDate': '24.12.2024',
         'prio': 'test',
-        'category': 'test',
+        'category': 'User Story',
         'position': 'InProgress',
         'subtasks': [{
             'subtask': 'test',
@@ -31,7 +31,7 @@ let tasks = [
         'assigned': ['test'],
         'dueDate': '24.12.2024',
         'prio': 'test',
-        'category': 'test',
+        'category': 'Technical Task',
         'position': 'InProgress',
         'subtasks': [{
             'subtask': 'test',
@@ -44,7 +44,7 @@ let tasks = [
         'assigned': ['test'],
         'dueDate': '24.12.2024',
         'prio': 'test',
-        'category': 'test',
+        'category': 'Technical Task',
         'position': 'InProgress',
         'subtasks': [{
             'subtask': 'test',
@@ -52,6 +52,7 @@ let tasks = [
         }]
     }
 ];
+let categoryColors = ['#0038FF', '#1FD7C1']
 let draggedTask;
 
 async function initBoard() {
@@ -64,8 +65,17 @@ function fillBoardWithTasks() {
     clearBoard();
     for (let i = 0; i < tasks.length; i++) {
         let process = tasks[i].position;
-        document.getElementById(`content${process}`).innerHTML += templateTasksInBoard(i);
+        let categoryColor = getCategoryColor(tasks[i].category);
+        document.getElementById(`content${process}`).innerHTML += templateTasksInBoard(i, categoryColor);
     }
+    checkForEmptyColums()
+}
+
+function getCategoryColor(category) {
+    let result;
+    if (category == "User Story") { result = categoryColors[0] };
+    if (category == "Technical Task") { result = categoryColors[1] };
+    return result;
 }
 
 function clearBoard() {
@@ -73,6 +83,13 @@ function clearBoard() {
     document.getElementById('contentInProgress').innerHTML = '';
     document.getElementById('contentAwaitFeedback').innerHTML = '';
     document.getElementById('contentDone').innerHTML = '';
+}
+
+function checkForEmptyColums() {
+    if (document.getElementById('contentToDo').innerHTML == '') { document.getElementById('contentToDo').innerHTML = noTasksPlaced('To Do') };
+    if (document.getElementById('contentInProgress').innerHTML == '') { document.getElementById('contentInProgress').innerHTML = noTasksPlaced('In progress') };
+    if (document.getElementById('contentAwaitFeedback').innerHTML == '') { document.getElementById('contentAwaitFeedback').innerHTML = noTasksPlaced('Await Feedback') };
+    if (document.getElementById('contentDone').innerHTML == '') { document.getElementById('contentDone').innerHTML = noTasksPlaced('Done') };
 }
 
 function startDragging(id) {
