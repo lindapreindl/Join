@@ -1,7 +1,7 @@
 let tasks = [
     {
-        'titel': 'test',
-        'description': 'test',
+        'titel': 'Zwiebeln schneiden',
+        'description': 'Rote Zwiebeln in kleine Würfel schneiden',
         'assigned': ['test'],
         'dueDate': '24.12.2024',
         'prio': 'test',
@@ -24,8 +24,35 @@ let tasks = [
             'subtask': 'test',
             'finished': false
         }]
+    },
+    {
+        'titel': 'Join programmieren',
+        'description': 'Ein cooles Programm schreiben zur Arbeitsplanung und Aufgabenverteilung in einem Team',
+        'assigned': ['test'],
+        'dueDate': '24.12.2024',
+        'prio': 'test',
+        'category': 'test',
+        'position': 'InProgress',
+        'subtasks': [{
+            'subtask': 'test',
+            'finished': false
+        }]
+    },
+    {
+        'titel': 'Nase putzen',
+        'description': 'Mit einem Taschentuch die Atemwege reinigen',
+        'assigned': ['test'],
+        'dueDate': '24.12.2024',
+        'prio': 'test',
+        'category': 'test',
+        'position': 'InProgress',
+        'subtasks': [{
+            'subtask': 'test',
+            'finished': false
+        }]
     }
 ];
+let draggedTask;
 
 async function initBoard() {
     // let loadedTasks = getItem(tasks);
@@ -47,4 +74,18 @@ function clearBoard() {
     document.getElementById('contentAwaitFeedback').innerHTML = '';
     document.getElementById('contentDone').innerHTML = '';
 }
+
+function startDragging(id) {
+    draggedTask = id;
+}
+
+function moveTaskTo(process) {
+    tasks[draggedTask].position = process;
+    fillBoardWithTasks();
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
 

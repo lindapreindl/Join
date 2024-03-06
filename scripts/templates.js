@@ -1,6 +1,6 @@
 function templateTasksInBoard(i) {
     return `
-    <div class="popUpBox widthTaskBox" id="task${i}">
+    <div draggable="true" ondragstart="startDragging(${i})" class="popUpBox widthTaskBox" id="task${i}">
         <div class="categoryLine">
             ${tasks[i].category}
         </div>

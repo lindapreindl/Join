@@ -35,6 +35,7 @@ h1 h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 12px;
 }
 
 .boardTable {
@@ -61,11 +62,16 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 150px;
 }
 
 .popUpBox:hover {
     cursor: pointer;
     transform: rotate(7deg);
     /* transform-origin: top left; */
+}
+
+.cursorGrab {
+    cursor: grab;
 }
 

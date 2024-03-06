@@ -28,7 +28,7 @@
                     <h3>To do</h3>
                     <img>
                 </div>
-                <div id="contentToDo" class="taskContentBox">
+                <div id="contentToDo" class="taskContentBox" ondrop="moveTaskTo('ToDo')" ondragover="allowDrop(event)">
                 </div>
             </div>
             <div class="categoryBoard" id="categoryInProgress">
@@ -36,7 +36,7 @@
                     <h3>In progress</h3>
                     <img>
                 </div>
-                <div id="contentInProgress" class="taskContentBox">
+                <div id="contentInProgress" class="taskContentBox" ondrop="moveTaskTo('InProgress')" ondragover="allowDrop(event)">
                 </div>
             </div>
             <div class="categoryBoard" id="categoryAwaitFeedback">
@@ -44,7 +44,7 @@
                     <h3>Await feedback</h3>
                     <img>
                 </div>
-                <div id="contentAwaitFeedback" class="taskContentBox">
+                <div id="contentAwaitFeedback" class="taskContentBox" ondrop="moveTaskTo('AwaitFeedback')" ondragover="allowDrop(event)">
                 </div>
             </div>
             <div class="categoryBoard" id="categoryDone">
@@ -52,7 +52,7 @@
                     <h3>Done</h3>
                     <img>
                 </div>
-                <div id="contentDone" class="taskContentBox">
+                <div id="contentDone" class="taskContentBox" ondrop="moveTaskTo('Done')" ondragover="allowDrop(event)">
                 </div>
             </div>
         </div>
