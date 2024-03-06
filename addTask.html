@@ -16,17 +16,17 @@
 
         <div class="form-left">
             <div class="title">
-                <p>Title</p>
-                <input type="text" name="title" id="titleAddTask">
+                <p>Title<mark>*</mark></p>
+                <input type="text" name="title" id="titleAddTask" placeholder="Enter a title">
             </div>
             <div class="description">
                 <p>Description</p>
-                <input type="text" name="description" id="descriptionAddTask">
+                <input type="text" name="description" id="descriptionAddTask" placeholder="Enter a description">
             </div>
             <div class="assignedTo">
                 <label for="assignedTo">Assigned to</label>
                 <select id="assignedToAddTask" name="assignedTo">
-                    <option value="person1">Person1</option>
+                    <option value="person1">Select contacts to assign</option>
                     <option value="person2">Person2</option>
                     <option value="person3">Person3</option>
                 </select>
@@ -37,8 +37,9 @@
 
         <div class="form-right">
             <div class="dueDate">
-                <label for="dueDate">Due date</label>
+                <label for="dueDate">Due date<mark>*</mark></label>
                 <input type="date" id="dueDateAddTask" name="dueDate">
+                <!-- Placeholder noch formatieren!!-->
             </div>
             <div class="prio">
                 <p>Prio</p>
@@ -49,19 +50,26 @@
                 </div>
             </div>
             <div class="task-category">
-                <label for="category">Category</label>
+                <label for="category">Category<mark>*</mark></label>
                 <select id="categoryAddTask" name="category">
-                    <option value="category1">Category1</option>
+                    <option value="category1">Select Task Category</option>
                     <option value="category2">Category2</option>
                     <option value="category3">Category3</option>
                 </select>
             </div>
             <div class="subtasks">
                 <p>Subtasks</p>
-                <input type="image" src="./img/add.png" name="subtasks" id="subtasksAddTask" placeholder="Add Subtasks">
+                <input type="text" name="subtasks" id="subtasksAddTask" placeholder="Add new subtask">
             </div>
         </div>
+    </div>
 
+    <div class="bottom">
+        <p class="black"><mark>*</mark>This field is required</p>
+        <div class="bottom-button">
+            <button class="clear">Clear <img src="./img/cancel.png" alt=""></button>
+            <button class="create">Create Task <img src="./img/check.png" alt=""></button>
+        </div>
     </div>
 
 </body>
