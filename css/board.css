@@ -62,7 +62,7 @@ h1, h3, p {
     width: 100%;
 }
 
-input {
+.boardContainer input {
     background-image: url(../img/lock.png);
     background-position: 290px 8px; 
     background-repeat: no-repeat;

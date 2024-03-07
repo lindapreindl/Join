@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/board.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/addTask.css">
     <script src="./scripts/board.js"></script>
     <script src="./scripts/storage.js"></script>
     <script src="./scripts/templates.js"></script>
+    <script src="./scripts/addTask.js"></script>
     <title>Join | Board</title>
 </head>
+
 <body onload="initBoard()">
     <div class="boardContainer w90">
         <header class="mb24">
@@ -19,7 +23,7 @@
                     <input>
                     <img>
                 </div>
-                <button class="marginLR16">Add task +</button>
+                <button onclick="openAddTaskInBoard()" class="marginLR16">Add task +</button>
             </div>
         </header>
         <div class="boardTable d-flex w90">
@@ -36,7 +40,8 @@
                     <h3>In progress</h3>
                     <img>
                 </div>
-                <div id="contentInProgress" class="taskContentBox" ondrop="moveTaskTo('InProgress')" ondragover="allowDrop(event)">
+                <div id="contentInProgress" class="taskContentBox" ondrop="moveTaskTo('InProgress')"
+                    ondragover="allowDrop(event)">
                 </div>
             </div>
             <div class="categoryBoard" id="categoryAwaitFeedback">
@@ -44,7 +49,8 @@
                     <h3>Await feedback</h3>
                     <img>
                 </div>
-                <div id="contentAwaitFeedback" class="taskContentBox" ondrop="moveTaskTo('AwaitFeedback')" ondragover="allowDrop(event)">
+                <div id="contentAwaitFeedback" class="taskContentBox" ondrop="moveTaskTo('AwaitFeedback')"
+                    ondragover="allowDrop(event)">
                 </div>
             </div>
             <div class="categoryBoard" id="categoryDone">
@@ -57,6 +63,69 @@
             </div>
         </div>
     </div>
-    
+
+    <div id="addTaskInBoard" class="d-none">
+        <div class="background">
+            <div class="addTask">
+                <h1>Add Task</h1>
+
+                <div class="form">
+
+                    <div class="form-left">
+                        <div class="title">
+                            <p>Title<mark>*</mark></p>
+                            <input type="text" name="title" id="titleAddTaskInBoard" placeholder="Enter a title">
+                        </div>
+                        <div class="description">
+                            <p>Description</p>
+                            <input type="text" name="description" id="descriptionAddTaskInBoard"
+                                placeholder="Enter a description">
+                        </div>
+                        <div class="assignedTo">
+                            <label for="assignedTo">Assigned to</label>
+                            <select id="assignedToAddTaskInBoard" name="assignedTo">
+                                <option value="person1">Select contacts to assign</option>
+                                <option value="person2">Person2</option>
+                                <option value="person3">Person3</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="form-right">
+                        <div class="dueDate">
+                            <label for="dueDate">Due date<mark>*</mark></label>
+                            <input type="date" id="dueDateAddTaskInBoard" name="dueDate">
+                            <!-- Placeholder noch formatieren!!-->
+                        </div>
+                        <div class="prio">
+                            <p>Prio</p>
+                            <div class="prio-button">
+                                <button>Urgent <img src="./img/urgent.png" alt=""></button>
+                                <button>Medium <img src="./img/medium.png" alt=""></button>
+                                <button>Low <img src="./img/low.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="task-category">
+                            <label for="category">Category<mark>*</mark></label>
+                            <select id="categoryAddTaskInBoard" name="category">
+                                <option value="category1">Select Task Category</option>
+                                <option value="category2">Category2</option>
+                                <option value="category3">Category3</option>
+                            </select>
+                        </div>
+                        <div class="subtasks">
+                            <p>Subtasks</p>
+                            <input type="text" name="subtasks" id="subtasksAddTaskInBoard"
+                                placeholder="Add new subtask">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>
