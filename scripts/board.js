@@ -71,13 +71,21 @@ let currentSubtaskDone;
 let currentSubtaskProgress;
 
 async function initBoard() {
-    // let loadedTasks = getItem(tasks);
-    // if (loadedTasks) { tasks = loadedTasks }
+    await loadTasksFromServer();
     fillBoardWithTasks();
+}
+
+async function loadTasksFromServer() {
+    try {
+        tasks = JSON.parse(await getItem('tasks'));
+    } catch (e) {
+        console.info('No tasks found.');
+    }
 }
 
 function fillBoardWithTasks() {
     clearBoard();
+    setItem('tasks', tasks);
     for (let i = 0; i < tasks.length; i++) {
         let process = tasks[i].position;
         let categoryColor = getCategoryColor(tasks[i].category);
@@ -142,6 +150,7 @@ function startDragging(id) {
 function moveTaskTo(process) {
     tasks[draggedTask].position = process;
     fillBoardWithTasks();
+    setItem('tasks', tasks);
 }
 
 function allowDrop(event) {
