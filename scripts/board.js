@@ -3,7 +3,7 @@ let tasks = [
         'titel': 'Zwiebeln schneiden',
         'description': 'Rote Zwiebeln in kleine Würfel schneiden',
         'assigned': ['CB', 'GV', 'PP'],
-        'dueDate': '24.12.2024',
+        'dueDate': '24/12/2024',
         'prio': 'urgent',
         'category': 'User Story',
         'position': 'ToDo',
@@ -26,7 +26,7 @@ let tasks = [
         'titel': 'Holz hacken',
         'description': 'Für ein nettes, kleines Lagerfeuer',
         'assigned': ['JC'],
-        'dueDate': '24.12.2024',
+        'dueDate': '24/12/2024',
         'prio': 'medium',
         'category': 'User Story',
         'position': 'InProgress',
@@ -45,7 +45,7 @@ let tasks = [
         'titel': 'Join programmieren',
         'description': 'Ein cooles Programm schreiben zur Arbeitsplanung und Aufgabenverteilung in einem Team',
         'assigned': ['AB', 'CD', 'EF', 'GH', 'JI', 'KL'],
-        'dueDate': '24.12.2024',
+        'dueDate': '24/12/2024',
         'prio': 'low',
         'category': 'Technical Task',
         'position': 'InProgress',
@@ -69,6 +69,10 @@ let categoryColors = ['#0038FF', '#1FD7C1']
 let draggedTask;
 let currentSubtaskDone;
 let currentSubtaskProgress;
+let process;
+let categoryColor;
+let currentSubtasks;
+let prio;
 
 async function initBoard() {
     await loadTasksFromServer();
@@ -87,15 +91,19 @@ function fillBoardWithTasks() {
     clearBoard();
     setItem('tasks', tasks);
     for (let i = 0; i < tasks.length; i++) {
-        let process = tasks[i].position;
-        let categoryColor = getCategoryColor(tasks[i].category);
-        let currentSubtasks = checkSubtasks(tasks[i].subtasks, i);
-        let prio = `${tasks[i].prio}.png`
+        getTasksInformation(i);        
         document.getElementById(`content${process}`).innerHTML += templateTasksInBoard(i, categoryColor, currentSubtasks, prio);
         fillAssignedStaff(i);
         if (tasks[i].subtasks.length == 0) { document.getElementById(`taskProgress${i}`).classList.add('d-none'); }
     }
     checkForEmptyColums()
+}
+
+function getTasksInformation(i) {
+    process = tasks[i].position;
+    categoryColor = getCategoryColor(tasks[i].category);
+    currentSubtasks = checkSubtasks(tasks[i].subtasks, i);
+    prio = `${tasks[i].prio}.png`
 }
 
 function getCategoryColor(category) {
@@ -123,9 +131,22 @@ function culcualteSubtasks(amount, i) {
     return amountDone;
 }
 
+function showDetailsSubtasks(i) {
+    let showSubtask = document.getElementById('subtasksDetails');
+    for (let j = 0; j < tasks[i].subtasks.length; j++) {
+        showSubtask.innerHTML += `<div>${tasks[i].subtasks[j].subtask}</div>`;
+    }
+}
+
 function fillAssignedStaff(i) {
     for (let j = 0; j < tasks[i].assigned.length; j++) {
-        document.getElementById(`assign${i}`).innerHTML += templateTasksAssignedStaff(i, j);
+        document.getElementById(`assign${i}`).innerHTML += templateTasksAssignedStaff(i, j);    
+    }
+}
+
+function fillDetailsAssignedStaff(i) {
+    for (let j = 0; j < tasks[i].assigned.length; j++) {
+         document.getElementById(`assignDetails`).innerHTML += templateTasksAssignedStaff(i, j);
     }
 }
 
@@ -155,6 +176,19 @@ function moveTaskTo(process) {
 
 function allowDrop(event) {
     event.preventDefault();
+}
+
+function openTaskDetails(i) {
+    let details = document.getElementById('taskDetailsBox');
+    details.classList.remove('d-none');
+    getTasksInformation(i)
+    details.innerHTML = templateTaskDetails(i, categoryColor, currentSubtasks, prio);
+    fillDetailsAssignedStaff(i);        
+    showDetailsSubtasks(i);
+}
+
+function closeTaskDetails() {
+    document.getElementById('taskDetailsBox').classList.add('d-none');
 }
 
 
