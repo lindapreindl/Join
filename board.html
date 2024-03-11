@@ -63,13 +63,14 @@
             </div>
         </div>
     </div>
-<<<<<<< Updated upstream
 
     <div id="addTaskInBoard" class="d-none">
         <div class="background">
             <div class="addTask">
-                <h1>Add Task</h1>
-
+                <div class="headerAddTaskInBoard">
+                    <h1>Add Task</h1>
+                    <img onclick="closeAddTaskInBoard()" src="./img/close.png" alt="">
+                </div>
                 <div class="form">
 
                     <div class="form-left">
@@ -123,14 +124,19 @@
                         </div>
                     </div>
                 </div>
+                <div class="bottom">
+                    <p class="black"><mark>*</mark>This field is required</p>
+                    <div class="bottom-button">
+                        <button onclick="clearTaskInBoard()" class="clear">Clear <img src="./img/cancel.png" alt=""></button>
+                        <button onclick="createTaskInBoard()" class="create">Create Task <img src="./img/check.png" alt=""></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-=======
     <div class="taskDetails d-none" id="taskDetailsBox" onclick="closeTaskDetails()"></div>
-    
->>>>>>> Stashed changes
+
 </body>
 
 </html>
