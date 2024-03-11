@@ -41,6 +41,11 @@ nav {
     font-size: 16px;
 }
 
+.nav-top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .logo {
     width: 100px;
@@ -50,18 +55,48 @@ nav {
     gap: 15px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding-top: 64px;
 }
 
-.menu a {
+.a1 {
     text-decoration: none;
     color: white;
     display: flex;
     align-items: center;
     height: 46px;
-    padding: 8px 100% 8px 100%;
     gap: 8px;
+    padding: 8px 54px;
+}
+
+.a2 {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 46px;
+    gap: 8px;
+    padding: 8px 56px;
+}
+
+.a3 {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 46px;
+    gap: 8px;
+    padding: 8px 67px;
+}
+
+.a4 {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 46px;
+    gap: 8px;
+    padding: 8px 57px;
 }
 
 .menu a:hover {
