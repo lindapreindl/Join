@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    padding: 50px;
+    gap: 24px;
+}
+
+h1{
+    font-size: 61px;
+}
+
+h2{
+    font-size: 27px;
+}
+
+h3{
+    font-size: 24px;
+}
+
+p{
+    font-size: 16px;
+}
+
+mark{
+    color: #29ABE2;
+    background-color: inherit;
+}
+
+.headline-consent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headline-consent img{
+    cursor: pointer;
+    height: 37px;
+    width: 37px;
+}
