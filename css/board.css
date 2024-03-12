@@ -239,3 +239,12 @@ progress[value] {
     font-weight: bold;
     cursor: pointer;
   }
+
+  .hover:hover {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+
+  .clickfinger {
+    cursor: pointer;
+  }

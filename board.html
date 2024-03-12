@@ -18,10 +18,10 @@
 <body onload="initBoard()">
     <div class="boardContainer w90">
         <header class="mb24">
-            <h1>Board</h1>
+            <h1 onclick="taskKiller()">Board</h1>
             <div class="d-flex">
                 <div class="d-flex">
-                    <input>
+                    <input id="searchField">
                     <img>
                 </div>
                 <button onclick="openAddTaskInBoard()" class="marginLR16">Add task +</button>
@@ -105,17 +105,16 @@
                         <div class="prio">
                             <p>Prio</p>
                             <div class="prio-button">
-                                <button>Urgent <img src="./img/urgent.png" alt=""></button>
-                                <button>Medium <img src="./img/medium.png" alt=""></button>
-                                <button>Low <img src="./img/low.png" alt=""></button>
+                                <button onclick="changePrio('urgent')">Urgent <img src="./img/urgent.png" alt=""></button>
+                                <button onclick="changePrio('medium')">Medium <img src="./img/medium.png" alt=""></button>
+                                <button onclick="changePrio('low')">Low <img src="./img/low.png" alt=""></button>
                             </div>
                         </div>
                         <div class="task-category">
                             <label for="category">Category<mark>*</mark></label>
                             <select id="categoryAddTaskInBoard" name="category">
-                                <option value="category1">Select Task Category</option>
-                                <option value="category2">Category2</option>
-                                <option value="category3">Category3</option>
+                                <option value="User Story">User Story</option>
+                                <option value="Technical Task">Technical Task</option>
                             </select>
                         </div>
                         <div class="subtasks">

@@ -204,4 +204,15 @@ function closeTaskDetails() {
     document.getElementById('taskDetailsBox').classList.add('d-none');
 }
 
+function changeBoolean(i, j) {
+    let changer = tasks[i].subtasks[j].finished;
+    changer = !changer;
+    reloadSubtasksDetails(i);
+}
+
+function reloadSubtasksDetails(i) {
+    document.getElementById('taskDetailsBox').innerHTML = '';
+    openTaskDetails(i);
+}
+
 

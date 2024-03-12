@@ -73,8 +73,15 @@ function templateAssignedPeople(i, j, template) {
 
 function templateShowDetailsSubtasks(i, j, status) {
     return `
-        <div class="d-flex align-center ml">
-            <div class="mr24"><img src="${status}"></div>
+        <div class="d-flex align-center ml hover">
+            <div class="mr24 clickfinger"><img src="${status}" onclick="changeBoolean(${i}, ${j})"></div>
             <div>${tasks[i].subtasks[j].subtask}</div>
         </div>`
+}
+
+function taskKiller() {
+    let killer = document.getElementById('searchField').value;
+    tasks.splice(killer, 1);
+    setItem('tasks', tasks);
+    console.log(tasks);
 }
