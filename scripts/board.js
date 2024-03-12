@@ -2,7 +2,7 @@ let tasks = [
     {
         'titel': 'Zwiebeln schneiden',
         'description': 'Rote Zwiebeln in kleine Würfel schneiden',
-        'assigned': ['CB', 'GV', 'PP'],
+        'assigned': ['Cill Phollins', 'Gefanie Straf', 'Clanta Saus'],
         'dueDate': '24/12/2024',
         'prio': 'urgent',
         'category': 'User Story',
@@ -25,7 +25,7 @@ let tasks = [
     {
         'titel': 'Holz hacken',
         'description': 'Für ein nettes, kleines Lagerfeuer',
-        'assigned': ['JC'],
+        'assigned': ['Ghomas Tottschalk'],
         'dueDate': '24/12/2024',
         'prio': 'medium',
         'category': 'User Story',
@@ -44,7 +44,7 @@ let tasks = [
     {
         'titel': 'Join programmieren',
         'description': 'Ein cooles Programm schreiben zur Arbeitsplanung und Aufgabenverteilung in einem Team',
-        'assigned': ['AB', 'CD', 'EF', 'GH', 'JI', 'KL'],
+        'assigned': ['Mangela Erkel', 'Woko Jinterscheidt', 'Refan Staab', 'Pebastian Suffpaff', 'Blontana Mack', 'Knens Jossalla'],
         'dueDate': '24/12/2024',
         'prio': 'low',
         'category': 'Technical Task',
@@ -57,7 +57,7 @@ let tasks = [
     {
         'titel': 'Nase putzen',
         'description': 'Mit einem Taschentuch die Atemwege reinigen',
-        'assigned': ['MN'],
+        'assigned': ['Boe Jiden'],
         'dueDate': '24.12.2024',
         'prio': 'low',
         'category': 'Technical Task',
@@ -79,6 +79,7 @@ async function initBoard() {
     fillBoardWithTasks();
 }
 
+// Load and update the current user-list from server
 async function loadTasksFromServer() {
     try {
         tasks = JSON.parse(await getItem('tasks'));
@@ -87,6 +88,7 @@ async function loadTasksFromServer() {
     }
 }
 
+// Clears and fills the board with the tasks from server, after saving the current tasks on server
 function fillBoardWithTasks() {
     clearBoard();
     setItem('tasks', tasks);
@@ -99,6 +101,7 @@ function fillBoardWithTasks() {
     checkForEmptyColums()
 }
 
+// Picks the task-details
 function getTasksInformation(i) {
     process = tasks[i].position;
     categoryColor = getCategoryColor(tasks[i].category);
@@ -106,6 +109,7 @@ function getTasksInformation(i) {
     prio = `${tasks[i].prio}.png`
 }
 
+// Picks the correct background color of the category-box
 function getCategoryColor(category) {
     let result;
     if (category == "User Story") { result = categoryColors[0] };
@@ -133,23 +137,30 @@ function culcualteSubtasks(amount, i) {
 
 function showDetailsSubtasks(i) {
     let showSubtask = document.getElementById('subtasksDetails');
+    let status;
     for (let j = 0; j < tasks[i].subtasks.length; j++) {
-        showSubtask.innerHTML += `<div>${tasks[i].subtasks[j].subtask}</div>`;
+        if (tasks[i].subtasks[j].finished == true) {status = '../img/checked.png'}
+        else {status = '../img/unchecked.png'}
+        showSubtask.innerHTML += templateShowDetailsSubtasks(i, j, status);
     }
 }
 
 function fillAssignedStaff(i) {
     for (let j = 0; j < tasks[i].assigned.length; j++) {
-        document.getElementById(`assign${i}`).innerHTML += templateTasksAssignedStaff(i, j);    
+        let initials = getInitials(tasks[i].assigned[j]);
+        document.getElementById(`assign${i}`).innerHTML += templateTasksAssignedStaff(i, initials);    
     }
 }
 
 function fillDetailsAssignedStaff(i) {
     for (let j = 0; j < tasks[i].assigned.length; j++) {
-         document.getElementById(`assignDetails`).innerHTML += templateTasksAssignedStaff(i, j);
+        let initials = getInitials(tasks[i].assigned[j]);
+        let template = templateTasksAssignedStaff(i, initials);
+        document.getElementById(`assignDetails`).innerHTML += templateAssignedPeople(i, j, template) 
     }
 }
 
+// cleras the board with all columns
 function clearBoard() {
     document.getElementById('contentToDo').innerHTML = '';
     document.getElementById('contentInProgress').innerHTML = '';
@@ -157,6 +168,7 @@ function clearBoard() {
     document.getElementById('contentDone').innerHTML = '';
 }
 
+// checks for any empty columns at the board
 function checkForEmptyColums() {
     if (document.getElementById('contentToDo').innerHTML == '') { document.getElementById('contentToDo').innerHTML = noTasksPlaced('To Do') };
     if (document.getElementById('contentInProgress').innerHTML == '') { document.getElementById('contentInProgress').innerHTML = noTasksPlaced('In progress') };
@@ -181,8 +193,9 @@ function allowDrop(event) {
 function openTaskDetails(i) {
     let details = document.getElementById('taskDetailsBox');
     details.classList.remove('d-none');
-    getTasksInformation(i)
-    details.innerHTML = templateTaskDetails(i, categoryColor, currentSubtasks, prio);
+    getTasksInformation(i);
+    let prioWritten = prio.charAt(0).toUpperCase() + prio.slice(1, -4);
+    details.innerHTML = templateTaskDetails(i, categoryColor, currentSubtasks, prio, prioWritten);
     fillDetailsAssignedStaff(i);        
     showDetailsSubtasks(i);
 }
