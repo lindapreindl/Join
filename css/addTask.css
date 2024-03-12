@@ -23,7 +23,7 @@ h1 {
 
 mark {
     color: #FF8190;
-    background-color: white;
+    background-color: inherit;
 }
 
 ::placeholder {

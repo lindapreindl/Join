@@ -28,6 +28,8 @@ function createTaskInBoard() {
 
     console.log(newTitle, newDescription, newAssignedTo, newDueDate, newCategory, newSubtask);
     
+    
+
     tasks.push({
         'titel': newTitle,
         'description': newDescription,
@@ -37,5 +39,10 @@ function createTaskInBoard() {
         'subtasks': [newSubtask]
     });
 
+    console.log(tasks);
+    setItem('tasks', tasks);
+    let taskstoshow = getItem('tasks');
+    console.log(taskstoshow);
     initBoard();
 }
+
