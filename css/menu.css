@@ -1,9 +1,34 @@
-body{
+body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    display: flex;
 }
 
-nav{
+header {
+    width: 100%;
+    height: 96px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px #0000001A;
+    font-size: 20px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+header img {
+    width: 20px;
+    height: 20px;
+}
+
+nav {
     height: calc(100vh - 128px);
     width: 232px;
     background-color: #2a3647;
@@ -13,39 +38,87 @@ nav{
     justify-content: space-between;
     padding-top: 64px;
     padding-bottom: 64px;
+    font-size: 16px;
 }
 
+.nav-top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-.logo{
+.logo {
     width: 100px;
 }
 
-.menu{
+.menu {
     gap: 15px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     padding-top: 64px;
 }
 
-.menu a{
+.a1 {
     text-decoration: none;
     color: white;
     display: flex;
     align-items: center;
+    height: 46px;
+    gap: 8px;
+    padding: 8px 54px;
 }
 
-.menu img{
+.a2 {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 46px;
+    gap: 8px;
+    padding: 8px 56px;
+}
+
+.a3 {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 46px;
+    gap: 8px;
+    padding: 8px 67px;
+}
+
+.a4 {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 46px;
+    gap: 8px;
+    padding: 8px 57px;
+}
+
+.menu a:hover {
+    background-color: #2a3d59;
+}
+
+.menu img {
     width: 30px;
-    padding-right: 8px;
 }
 
-.termsAndConditions{
+.termsAndConditions {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.termsAndConditions a{
+.termsAndConditions a {
     text-decoration: none;
     color: #a8a8a8;
+}
+
+.termsAndConditions a:hover {
+    font-weight: bold;
+    color: #29ABE2;
 }
