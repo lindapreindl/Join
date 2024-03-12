@@ -1,58 +1,40 @@
 // Array zum Speichern der Benutzerdaten
-let users = [];
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
 // Objekt zur Speicherung der Farben für jeden Benutzer
 let userColors = {};
 
 // Variable zur Speicherung des Overlay-Elements
 let overlay;
+
 const sampleUsers = [
   { name: "John Doe", email: "john@example.com", phone: "123-456-7890" },
   { name: "Jane Smith", email: "jane@example.com", phone: "987-654-3210" },
-  { name: "Alice Johnson", email: "alice@example.com", phone: "555-123-4567" },
-  { name: "Bob Brown", email: "bob@example.com", phone: "444-555-6666" },
-  { name: "Emily Davis", email: "emily@example.com", phone: "777-888-9999" },
-  {
-    name: "Michael Wilson",
-    email: "michael@example.com",
-    phone: "111-222-3333",
-  },
-  {
-    name: "Samantha Martinez",
-    email: "samantha@example.com",
-    phone: "999-888-7777",
-  },
-  { name: "David Anderson", email: "david@example.com", phone: "444-333-2222" },
-  { name: "Olivia Taylor", email: "olivia@example.com", phone: "666-777-8888" },
-  { name: "James White", email: "james@example.com", phone: "222-333-4444" },
-  { name: "Dodo Obe", email: "Obe@example.com", phone: "666-333-5544" },
 ];
 
-// Hinzufügen der Beispieldaten zu den Benutzern
-sampleUsers.forEach((user) => {
-  users.push(user);
-});
+// Hinzufügen der Beispieldaten zu den Benutzern, wenn kein Eintrag im lokalen Speicher vorhanden ist
+if (users.length === 0) {
+  sampleUsers.forEach((user) => {
+    users.push(user);
+  });
+}
 
+// Funktion zum Initialisieren der Anwendung
 function init() {
   renderUsersInfo();
 }
 
 // Funktion zum Öffnen des Overlays
 function openOverlay() {
-  // Overlay erstellen
   createOverlay();
-
-  // Overlay anzeigen
   overlay.style.display = "block";
 }
 
 // Funktion zum Erstellen des Overlays
 function createOverlay() {
-  // Overlay-Div erstellen
   overlay = document.createElement("div");
   overlay.className = "overlay";
-  overlay.style.display = "none"; // Overlay standardmäßig ausblenden
-
-  // HTML-Inhalt für das Overlay
+  overlay.style.display = "none";
   overlay.innerHTML = `
     <div class="overlay-content">
       <h2>Add New User</h2>
@@ -63,14 +45,12 @@ function createOverlay() {
       <button onclick="closeOverlay()">Cancel</button>
     </div>
   `;
-
-  // Overlay dem Dokument hinzufügen
   document.body.appendChild(overlay);
 }
 
 // Funktion zum Schließen des Overlays
 function closeOverlay() {
-  overlay.style.display = "none"; // Overlay ausblenden
+  overlay.style.display = "none";
 }
 
 // Funktion zum Hinzufügen eines neuen Benutzers
@@ -79,47 +59,41 @@ function addNewUser() {
   const email = document.getElementById("newUserEmail").value;
   const phone = document.getElementById("newUserPhone").value;
 
-  // Überprüfen, ob alle Felder ausgefüllt wurden
   if (name && email && phone) {
-    // Neuen Benutzer erstellen
     const newUser = { name, email, phone };
-
-    // Benutzer zum Array hinzufügen
     users.push(newUser);
 
-    // Benutzerliste neu rendern
+    saveUsers(); // Benutzerdaten speichern
+
     renderUsersInfo();
 
-    // Eingabefelder leeren
     document.getElementById("newUserName").value = "";
     document.getElementById("newUserEmail").value = "";
     document.getElementById("newUserPhone").value = "";
 
-    alert("User added successfully."); // Benutzer über erfolgreiche Hinzufügung informieren
+    alert("User added successfully.");
   } else {
-    alert("Please fill in all fields."); // Benutzer auffordern, alle Felder auszufüllen
+    alert("Please fill in all fields.");
   }
 }
 
 // Funktion zum Löschen eines Benutzers
 function deleteUser(name) {
-  // Benutzer anhand des Namens im Array finden und löschen
   const index = users.findIndex((user) => user.name === name);
   if (index !== -1) {
     users.splice(index, 1);
   }
-
-  // Benutzerliste neu rendern
+  saveUsers(); // Benutzerdaten speichern
   renderUsersInfo();
 }
 
 // Funktion zum Löschen der Benutzerinfo im userInfo-Element
 function clearUserInfo() {
   const userInfoElement = document.getElementById("userInfo");
-  userInfoElement.innerHTML = ""; // Alle Inhalte löschen
+  userInfoElement.innerHTML = "";
 }
 
-/* ---------------------------------------------------- */
+// Funktion zum Rendern der Benutzerliste
 
 // Funktion zum Rendern der Benutzerliste
 function renderUsersInfo() {
@@ -193,8 +167,6 @@ function getRandomColor() {
   return color;
 }
 
-/* -------------------------------------------------- */
-
 // Funktion zum Rendern der Benutzerinformationen
 function renderUserInfo(user, index) {
   const userInfoElement = document.getElementById("userInfo");
@@ -240,7 +212,10 @@ function renderUserInfo(user, index) {
   `;
 }
 
-/* ----------------- */
+// Funktion zum Speichern der Benutzerdaten im lokalen Speicher
+function saveUsers() {
+  localStorage.setItem("users", JSON.stringify(users));
+}
 // Funktion zum Erhalten der Initialen eines Benutzers
 function getInitials(name) {
   const names = name.split(" ");
