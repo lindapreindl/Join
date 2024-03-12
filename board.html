@@ -16,49 +16,49 @@
 </head>
 
 <body onload="initBoard()">
-    <div class="boardContainer w90">
+    <div class="boardContainer w100">
         <header class="mb24">
             <h1 onclick="taskKiller()">Board</h1>
             <div class="d-flex">
-                <div class="d-flex">
+                <div class="d-flex searchBox">
                     <input id="searchField">
-                    <img>
+                    <div class="verticalLine"></div>
+                    <img src="../img/search.png" class="icons">
                 </div>
                 <button onclick="openAddTaskInBoard()" class="marginLR16">Add task +</button>
             </div>
         </header>
+        <div class="w90 d-flex">
+            <div class="d-flex justify-between w25p">
+                <h3 class="topics">To do</h3>
+                <div class="addButton mr24" onclick="openAddTaskInBoard()">+</div>
+            </div>
+            <div class="d-flex justify-between w25p">
+                <h3 class="topics">In progress</h3>
+                <div class="addButton mr24" onclick="openAddTaskInBoard()">+</div>
+            </div>
+            <div class="d-flex justify-between w25p">
+                <h3 class="topics">Await feedback</h3>
+                <div class="addButton mr24" onclick="openAddTaskInBoard()">+</div>
+            </div>
+            <div class="d-flex justify-between w25p">
+                <h3>Done</h3>
+            </div>
+        </div>
         <div class="boardTable d-flex w90">
             <div class="categoryBoard" id="categoryToDo">
-                <div>
-                    <h3>To do</h3>
-                    <img>
-                </div>
                 <div id="contentToDo" class="taskContentBox" ondrop="moveTaskTo('ToDo')" ondragover="allowDrop(event)">
                 </div>
             </div>
             <div class="categoryBoard" id="categoryInProgress">
-                <div>
-                    <h3>In progress</h3>
-                    <img>
-                </div>
                 <div id="contentInProgress" class="taskContentBox" ondrop="moveTaskTo('InProgress')"
-                    ondragover="allowDrop(event)">
-                </div>
+                    ondragover="allowDrop(event)"></div>
             </div>
             <div class="categoryBoard" id="categoryAwaitFeedback">
-                <div>
-                    <h3>Await feedback</h3>
-                    <img>
-                </div>
                 <div id="contentAwaitFeedback" class="taskContentBox" ondrop="moveTaskTo('AwaitFeedback')"
-                    ondragover="allowDrop(event)">
-                </div>
+                    ondragover="allowDrop(event)"></div>
             </div>
             <div class="categoryBoard" id="categoryDone">
-                <div>
-                    <h3>Done</h3>
-                    <img>
-                </div>
                 <div id="contentDone" class="taskContentBox" ondrop="moveTaskTo('Done')" ondragover="allowDrop(event)">
                 </div>
             </div>
@@ -105,8 +105,10 @@
                         <div class="prio">
                             <p>Prio</p>
                             <div class="prio-button">
-                                <button onclick="changePrio('urgent')">Urgent <img src="./img/urgent.png" alt=""></button>
-                                <button onclick="changePrio('medium')">Medium <img src="./img/medium.png" alt=""></button>
+                                <button onclick="changePrio('urgent')">Urgent <img src="./img/urgent.png"
+                                        alt=""></button>
+                                <button onclick="changePrio('medium')">Medium <img src="./img/medium.png"
+                                        alt=""></button>
                                 <button onclick="changePrio('low')">Low <img src="./img/low.png" alt=""></button>
                             </div>
                         </div>
@@ -127,8 +129,10 @@
                 <div class="bottom">
                     <p class="black"><mark>*</mark>This field is required</p>
                     <div class="bottom-button">
-                        <button onclick="clearTaskInBoard()" class="clear">Clear <img src="./img/cancel.png" alt=""></button>
-                        <button onclick="createTaskInBoard()" class="create">Create Task <img src="./img/check.png" alt=""></button>
+                        <button onclick="clearTaskInBoard()" class="clear">Clear <img src="./img/cancel.png"
+                                alt=""></button>
+                        <button onclick="createTaskInBoard()" class="create">Create Task <img src="./img/check.png"
+                                alt=""></button>
                     </div>
                 </div>
             </div>

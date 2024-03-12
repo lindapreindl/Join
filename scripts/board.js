@@ -193,6 +193,7 @@ function allowDrop(event) {
 function openTaskDetails(i) {
     let details = document.getElementById('taskDetailsBox');
     details.classList.remove('d-none');
+    details.innerHTML = '';
     getTasksInformation(i);
     let prioWritten = prio.charAt(0).toUpperCase() + prio.slice(1, -4);
     details.innerHTML = templateTaskDetails(i, categoryColor, currentSubtasks, prio, prioWritten);
@@ -204,15 +205,13 @@ function closeTaskDetails() {
     document.getElementById('taskDetailsBox').classList.add('d-none');
 }
 
-function changeBoolean(i, j) {
+async function changeBoolean(i, j) {
     let changer = tasks[i].subtasks[j].finished;
     changer = !changer;
-    reloadSubtasksDetails(i);
-}
-
-function reloadSubtasksDetails(i) {
-    document.getElementById('taskDetailsBox').innerHTML = '';
+    tasks[i].subtasks[j].finished = changer;
     openTaskDetails(i);
+    await setItem('tasks', tasks);
+    await initBoard();
 }
 
 
