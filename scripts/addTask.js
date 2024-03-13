@@ -10,14 +10,14 @@ function closeAddTaskInBoard() {
 }
 
 
-/*function clearTaskInBoard() {
+function clearAddTaskInBoard() {
     document.getElementById('titleAddTaskInBoard').innerHTML = '';
     document.getElementById('descriptionAddTaskInBoard').innerHTML = '';
     document.getElementById('assignedToAddTaskInBoard').innerHTML = '';
     document.getElementById('dueDateAddTaskInBoard').innerHTML = '';
     document.getElementById('categoryAddTaskInBoard').innerHTML = '';
     document.getElementById('subtasksAddTaskInBoard').innerHTML = '';
-}*/
+}
 
 
 function createTaskInBoard() {
@@ -43,14 +43,19 @@ function createTaskInBoard() {
     });
     if (tasks[(tasks.length - 1)].subtasks[0] == '') {tasks[(tasks.length - 1)].subtasks = '';}
 
-    console.log(tasks);
     setItem('tasks', tasks);
-    let taskstoshow = getItem('tasks');
-    console.log(taskstoshow);
     initBoard();
 }
 
+
 function changePrio(value) {
     prioButton = value;
+}
+
+
+function deleteTask(i){
+    tasks.splice(i,1);
+    setItem('tasks', tasks);
+    initBoard();
 }
 

@@ -55,7 +55,7 @@ function templateTaskDetails(i, categoryColor, subtasks, prio, prioWritten) {
             <div id="subtasksDetails" class="subtasksDetails mb24"></div>
         </div>
         <div class="w100 d-flex mb24 justify-end">
-            <div class="d-flex ml align-center detailsButton"><img class="mr8" src="../img/deleteIcon.png"><p>Delete</p></div>
+            <div onclick="deleteTask(${i})" class="d-flex ml align-center detailsButton"><img class="mr8" src="../img/deleteIcon.png"><p>Delete</p></div>
             <div class="d-flex ml align-center detailsButton"><img class="mr8" src="../img/editIcon.png"><p>Edit</p></div>
         </div>
     </div>
