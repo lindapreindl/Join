@@ -12,13 +12,14 @@
     <script src="./scripts/templates.js"></script>
     <script src="./scripts/addTask.js"></script>
     <script src="./scripts/contactPage.js"></script>
+    <script src="./scripts/login.js"></script>
     <title>Join | Board</title>
 </head>
 
 <body onload="initBoard()">
     <div class="boardContainer w100">
         <header class="mb24">
-            <h1 onclick="taskKiller()">Board</h1>
+            <h1>Board</h1>
             <div class="d-flex">
                 <div class="d-flex searchBox">
                     <input id="searchField">
@@ -28,7 +29,7 @@
                 <button onclick="openAddTaskInBoard()" class="marginLR16">Add task +</button>
             </div>
         </header>
-        <div class="w90 d-flex">
+        <div class="w90 d-flex titleLine">
             <div class="d-flex justify-between w25p">
                 <h3 class="topics">To do</h3>
                 <div class="addButton mr24" onclick="openAddTaskInBoard()">+</div>

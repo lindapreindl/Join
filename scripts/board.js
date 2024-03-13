@@ -94,7 +94,7 @@ function fillBoardWithTasks() {
     clearBoard();
     setItem('tasks', tasks);
     for (let i = 0; i < tasks.length; i++) {
-        getTasksInformation(i);        
+        getTasksInformation(i);
         document.getElementById(`content${process}`).innerHTML += templateTasksInBoard(i, categoryColor, currentSubtasks, prio);
         fillAssignedStaff(i);
         if (tasks[i].subtasks.length == 0) { document.getElementById(`taskProgress${i}`).classList.add('d-none'); }
@@ -121,7 +121,7 @@ function getCategoryColor(category) {
 function checkSubtasks(subtasks, i) {
     let amount = subtasks.length;
     let tasksDone = culcualteSubtasks(amount, i);
-    if (amount > 0) { 
+    if (amount > 0) {
         currentSubtaskProgress = (100 / amount) * tasksDone;
     }
     return amount;
@@ -140,8 +140,8 @@ function showDetailsSubtasks(i) {
     let showSubtask = document.getElementById('subtasksDetails');
     let status;
     for (let j = 0; j < tasks[i].subtasks.length; j++) {
-        if (tasks[i].subtasks[j].finished == true) {status = '../img/checked.png'}
-        else {status = '../img/unchecked.png'}
+        if (tasks[i].subtasks[j].finished == true) { status = '../img/checked.png' }
+        else { status = '../img/unchecked.png' }
         showSubtask.innerHTML += templateShowDetailsSubtasks(i, j, status);
     }
 }
@@ -149,7 +149,7 @@ function showDetailsSubtasks(i) {
 function fillAssignedStaff(i) {
     for (let j = 0; j < tasks[i].assigned.length; j++) {
         let initials = getInitials(tasks[i].assigned[j]);
-        document.getElementById(`assign${i}`).innerHTML += templateTasksAssignedStaff(i, initials);    
+        document.getElementById(`assign${i}`).innerHTML += templateTasksAssignedStaff(i, initials);
     }
 }
 
@@ -157,11 +157,11 @@ function fillDetailsAssignedStaff(i) {
     for (let j = 0; j < tasks[i].assigned.length; j++) {
         let initials = getInitials(tasks[i].assigned[j]);
         let template = templateTasksAssignedStaff(i, initials);
-        document.getElementById(`assignDetails`).innerHTML += templateAssignedPeople(i, j, template) 
+        document.getElementById(`assignDetails`).innerHTML += templateAssignedPeople(i, j, template)
     }
 }
 
-// cleras the board with all columns
+// clears the board with all columns
 function clearBoard() {
     document.getElementById('contentToDo').innerHTML = '';
     document.getElementById('contentInProgress').innerHTML = '';
@@ -181,7 +181,8 @@ function startDragging(id) {
     draggedTask = id;
 }
 
-function moveTaskTo(process) {
+async function moveTaskTo(process) {
+    await loadTasksFromServer();
     tasks[draggedTask].position = process;
     fillBoardWithTasks();
     setItem('tasks', tasks);
@@ -198,7 +199,7 @@ function openTaskDetails(i) {
     getTasksInformation(i);
     let prioWritten = prio.charAt(0).toUpperCase() + prio.slice(1, -4);
     details.innerHTML = templateTaskDetails(i, categoryColor, currentSubtasks, prio, prioWritten);
-    fillDetailsAssignedStaff(i);        
+    fillDetailsAssignedStaff(i);
     showDetailsSubtasks(i);
 }
 
@@ -221,26 +222,31 @@ function rotateBox(i) {
 
 function searchTasks() {
     let search = document.getElementById('searchField');
-    let searchValue = search.value.toLowerCase();
-    foundTasks = [];
-    console.log(searchValue);
-    for (let j = 0; j < tasks.length; j++) {
-        if (tasks[j].titel.toLowerCase().includes(searchValue) || tasks[j].description.toLowerCase().includes(searchValue)) { 
-            foundTasks.push(j);
-            console.log(j);
-         }
-    }
-    if (foundTasks.length > 0) {
-        clearBoard();
-        for (let i = 0; i < foundTasks.length; i++) {
-            getTasksInformation(foundTasks[i]);        
-            document.getElementById(`content${process}`).innerHTML += templateFoundTasksInBoard(i, categoryColor, currentSubtasks, prio);
-            fillAssignedStaff(foundTasks[i]);
-            if (tasks[foundTasks[i]].subtasks.length == 0) { document.getElementById(`taskProgress${i}`).classList.add('d-none'); }
+    if (search.value.length > 0) {
+        let searchValue = search.value.toLowerCase();
+        foundTasks = [];
+        console.log(searchValue);
+        for (let j = 0; j < tasks.length; j++) {
+            if (tasks[j].titel.toLowerCase().includes(searchValue) || tasks[j].description.toLowerCase().includes(searchValue)) {
+                foundTasks.push(j);
+                console.log(j);
+            }
         }
-        checkForEmptyColums()
+        if (foundTasks.length > 0) {
+            clearBoard();
+            fillSearchedTaskInBoard();
+        }
+        search.value = ''
     }
-    search.value = ''
+}
+
+function fillSearchedTaskInBoard() {
+    for (let l = 0; l < foundTasks.length; l++) {
+        getTasksInformation(foundTasks[l]);
+        document.getElementById(`content${process}`).innerHTML += templateFoundTasksInBoard(foundTasks[l]);
+        fillAssignedStaff(foundTasks[l]);
+        if (tasks[foundTasks[l]].subtasks.length == 0) { document.getElementById(`taskProgress${l}`).classList.add('d-none'); }
+    }
 }
 
 

@@ -18,7 +18,7 @@ function templateTasksInBoard(i, categoryColor, subtasks, prio) {
     `
 }
 
-function templateFoundTasksInBoard(i, categoryColor, subtasks, prio) {
+function templateFoundTasksInBoard(i) {
     return `
     <div draggable="true" ondragstart="startDragging(${i}), rotateBox(${i})" class="popUpBox widthTaskBox" id="task${i}" onclick="openTaskDetails(${i})">
         <div class="categoryLine">
@@ -28,7 +28,7 @@ function templateFoundTasksInBoard(i, categoryColor, subtasks, prio) {
         <p class="mb24 fontLightgrey">${tasks[i].description}</p>
         <div id="taskProgress${i}" class="w100 d-flex align-center justify-between mb24">
             <progress value="${currentSubtaskProgress}" max="100"></progress>
-            <p style="font-size:12px;">${currentSubtaskDone}/${subtasks} Subtasks</p>
+            <p style="font-size:12px;">${currentSubtaskDone}/${currentSubtasks} Subtasks</p>
         </div>
         <div class="d-flex justify-between align-center w100">
             <div id="assign${i}" class="d-flex"></div>

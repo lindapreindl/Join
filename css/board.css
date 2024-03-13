@@ -23,7 +23,11 @@ header {
 }
 
 .w25p {
-    width: 25%;
+    width: 300px;
+}
+
+.titleLine {
+    justify-content: space-around;
 }
 
 .w90 {
