@@ -98,10 +98,3 @@ function templateShowDetailsSubtasks(i, j, status) {
             <div>${tasks[i].subtasks[j].subtask}</div>
         </div>`
 }
-
-function taskKiller() {
-    let killer = document.getElementById('searchField').value;
-    tasks.splice(killer, 1);
-    setItem('tasks', tasks);
-    console.log(tasks);
-}
