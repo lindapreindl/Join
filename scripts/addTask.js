@@ -44,6 +44,7 @@ function createTaskInBoard() {
     if (tasks[(tasks.length - 1)].subtasks[0] == '') {tasks[(tasks.length - 1)].subtasks = '';}
 
     setItem('tasks', tasks);
+    closeAddTaskInBoard();
     initBoard();
 }
 
@@ -69,6 +70,7 @@ function changePrio(value) {
 function deleteTask(i){
     tasks.splice(i,1);
     setItem('tasks', tasks);
+    closeTaskDetails();
     initBoard();
 }
 

@@ -72,14 +72,14 @@
                     <h1>Add Task</h1>
                     <img onclick="closeAddTaskInBoard()" src="./img/close.png" alt="">
                 </div>
-                <form action="">
+                <form action="createTaskInBoard()">
                 
                 <div class="form">
 
                     <div class="form-left">
                         <div class="title">
                             <p>Title<mark>*</mark></p>
-                            <input type="text" name="title" id="titleAddTaskInBoard" placeholder="Enter a title">
+                            <input type="text" name="title" id="titleAddTaskInBoard" placeholder="Enter a title" required>
                         </div>
                         <div class="description">
                             <p>Description</p>
@@ -101,7 +101,7 @@
                     <div class="form-right">
                         <div class="dueDate">
                             <label for="dueDate">Due date<mark>*</mark></label>
-                            <input type="date" id="dueDateAddTaskInBoard" name="dueDate">
+                            <input type="date" id="dueDateAddTaskInBoard" name="dueDate" required>
                             <!-- Placeholder noch formatieren!!-->
                         </div>
                         <div class="prio">
@@ -116,7 +116,7 @@
                         </div>
                         <div class="task-category">
                             <label for="category">Category<mark>*</mark></label>
-                            <select id="categoryAddTaskInBoard" name="category">
+                            <select id="categoryAddTaskInBoard" name="category" required>
                                 <option selected disabled hidden value="selectCategory">Select Category</option>
                                 <option value="User Story">User Story</option>
                                 <option value="Technical Task">Technical Task</option>
