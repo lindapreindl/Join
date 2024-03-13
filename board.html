@@ -23,7 +23,7 @@
                 <div class="d-flex searchBox">
                     <input id="searchField">
                     <div class="verticalLine"></div>
-                    <img src="../img/search.png" class="icons">
+                    <img src="../img/search.png" class="icons" onmousedown="this.src='./img/searchHover.png';" onmouseup="this.src='./img/search.png';" onclick="searchTasks()">
                 </div>
                 <button onclick="openAddTaskInBoard()" class="marginLR16">Add task +</button>
             </div>
@@ -42,7 +42,7 @@
                 <div class="addButton mr24" onclick="openAddTaskInBoard()">+</div>
             </div>
             <div class="d-flex justify-between w25p">
-                <h3>Done</h3>
+                <h3 class="topics">Done</h3>
             </div>
         </div>
         <div class="boardTable d-flex w90">
