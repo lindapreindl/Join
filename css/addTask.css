@@ -28,9 +28,9 @@ mark {
 
 ::placeholder {
     padding-left: 20px;
-   }
+}
 
-select{
+select {
     padding-left: 20px;
 }
 
@@ -166,12 +166,32 @@ label {
     border: none;
 }
 
-.prio button img {
-    width: 20px;
+#button-low:hover{
+    background-color: #7AE229;
 }
 
-.prio button:hover {
-    background-color: #FFA800;
+#button-medium:hover {
+    background-color: #FFA800
+}
+
+#button-urgent:hover {
+    background-color: #FF3D00;
+}
+
+.low {
+    background-color: #7AE229;
+}
+
+.medium {
+    background-color: #FFA800
+}
+
+.urgent {
+    background-color: #FF3D00;
+}
+
+.prio button img {
+    width: 20px;
 }
 
 .task-category {
@@ -223,7 +243,7 @@ label {
     color: black;
 }
 
-.bottom-button{
+.bottom-button {
     display: flex;
     gap: 16px;
 }
@@ -256,13 +276,13 @@ label {
     border: none;
 }
 
-.addTask{
+.addTask {
     height: 80vh;
     width: 80vw;
     background-color: white;
 }
 
-.background{
+.background {
     z-index: 999;
     position: fixed;
     top: 0;
@@ -275,13 +295,13 @@ label {
     align-items: center;
 }
 
-.headerAddTaskInBoard{
+.headerAddTaskInBoard {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.headerAddTaskInBoard img{
+.headerAddTaskInBoard img {
     cursor: pointer;
 }

@@ -73,7 +73,6 @@
                     <img onclick="closeAddTaskInBoard()" src="./img/close.png" alt="">
                 </div>
                 <form action="">
-                    <input class="clear" type="reset" value="Reset" />
                 
                 <div class="form">
 
@@ -90,7 +89,7 @@
                         <div class="assignedTo">
                             <label for="assignedTo">Assigned to</label>
                             <select id="assignedToAddTaskInBoard" name="assignedTo">
-                                <option value="select contact">Select contacts to assign</option>
+                                <option selected disabled hidden value="selectContact">Select contacts to assign</option>
                                 <option value="person2">Person2</option>
                                 <option value="person3">Person3</option>
                             </select>
@@ -108,17 +107,17 @@
                         <div class="prio">
                             <p>Prio</p>
                             <div class="prio-button">
-                                <button onclick="changePrio('urgent')">Urgent <img src="./img/urgent.png"
+                                <button id="button-urgent" onclick="changePrio('urgent')">Urgent <img src="./img/urgent.png"
                                         alt=""></button>
-                                <button onclick="changePrio('medium')">Medium <img src="./img/medium.png"
+                                <button id="button-medium" onclick="changePrio('medium')">Medium <img src="./img/medium.png"
                                         alt=""></button>
-                                <button onclick="changePrio('low')">Low <img src="./img/low.png" alt=""></button>
+                                <button id="button-low" onclick="changePrio('low')">Low <img src="./img/low.png" alt=""></button>
                             </div>
                         </div>
                         <div class="task-category">
                             <label for="category">Category<mark>*</mark></label>
                             <select id="categoryAddTaskInBoard" name="category">
-                                <option value="selct category">Select Category</option>
+                                <option selected disabled hidden value="selectCategory">Select Category</option>
                                 <option value="User Story">User Story</option>
                                 <option value="Technical Task">Technical Task</option>
                             </select>
@@ -130,11 +129,14 @@
                         </div>
                     </div>
                 </div>
+                
             </form>
                 <div class="bottom">
                     <p class="black"><mark>*</mark>This field is required</p>
                     <div class="bottom-button">
-                        <button type="reset" onclick="clearAddTaskInBoard()" class="clear">Clear <img src="./img/cancel.png"
+                        
+                    
+                        <button onclick="clearAddTaskInBoard()" class="clear">Clear <img src="./img/cancel.png"
                                 alt=""></button>
                         <button onclick="createTaskInBoard()" class="create">Create Task <img src="./img/check.png"
                                 alt=""></button>

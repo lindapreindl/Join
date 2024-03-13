@@ -13,9 +13,9 @@ function closeAddTaskInBoard() {
 function clearAddTaskInBoard() {
     document.getElementById('titleAddTaskInBoard').value = '';
     document.getElementById('descriptionAddTaskInBoard').value = '';
-    document.getElementById('assignedToAddTaskInBoard').value = 'Select Contacts to assign';
+    document.getElementById('assignedToAddTaskInBoard').value = 'selectContact';
     document.getElementById('dueDateAddTaskInBoard').value = '';
-    document.getElementById('categoryAddTaskInBoard').innerHTML = 'Select Category';
+    document.getElementById('categoryAddTaskInBoard').value = 'selectCategory';
     document.getElementById('subtasksAddTaskInBoard').value = '';
 }
 
@@ -49,7 +49,20 @@ function createTaskInBoard() {
 
 
 function changePrio(value) {
+
     prioButton = value;
+
+    if (value == 'low') {
+        document.getElementById('button-low').classList.add('low');
+    }
+
+    if (value == 'medium') {
+        document.getElementById('button-medium').classList.add('medium');
+    }
+
+    if (value == 'urgent') {
+        document.getElementById('button-medium').classList.add('urgent');
+    }
 }
 
 
