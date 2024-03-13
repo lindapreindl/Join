@@ -1,12 +1,9 @@
-// Array zum Speichern der Benutzerdaten
-users = [];
-
 // Objekt zur Speicherung der Farben für jeden Benutzer
 let userColors = {};
 
 // Variable zur Speicherung des Overlay-Elements
 let overlay;
-
+/* 
 const sampleUsers = [
   { name: "John Doe", email: "john@example.com", phone: "123-456-7890" },
   { name: "Jane Smith", email: "jane@example.com", phone: "987-654-3210" },
@@ -17,10 +14,10 @@ if (users.length === 0) {
   sampleUsers.forEach((user) => {
     users.push(user);
   });
-}
+} */
 
 // Funktion zum Initialisieren der Anwendung
-async function init() {
+async function initContacts() {
   await loadUsers();
   renderUsersInfo();
 }
@@ -225,7 +222,7 @@ function renderUserInfo(user, index) {
     <hr />
   `;
 }
-function editUser() {
+async function editUser() {
   const name = document.getElementById("editUserName").value;
   const email = document.getElementById("editUserEmail").value;
   const phone = document.getElementById("editUserPhone").value;
