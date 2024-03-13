@@ -11,12 +11,12 @@ function closeAddTaskInBoard() {
 
 
 function clearAddTaskInBoard() {
-    document.getElementById('titleAddTaskInBoard').innerHTML = '';
-    document.getElementById('descriptionAddTaskInBoard').innerHTML = '';
-    document.getElementById('assignedToAddTaskInBoard').innerHTML = '';
-    document.getElementById('dueDateAddTaskInBoard').innerHTML = '';
-    document.getElementById('categoryAddTaskInBoard').innerHTML = '';
-    document.getElementById('subtasksAddTaskInBoard').innerHTML = '';
+    document.getElementById('titleAddTaskInBoard').value = '';
+    document.getElementById('descriptionAddTaskInBoard').value = '';
+    document.getElementById('assignedToAddTaskInBoard').value = 'Select Contacts to assign';
+    document.getElementById('dueDateAddTaskInBoard').value = '';
+    document.getElementById('categoryAddTaskInBoard').innerHTML = 'Select Category';
+    document.getElementById('subtasksAddTaskInBoard').value = '';
 }
 
 

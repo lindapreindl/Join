@@ -72,6 +72,9 @@
                     <h1>Add Task</h1>
                     <img onclick="closeAddTaskInBoard()" src="./img/close.png" alt="">
                 </div>
+                <form action="">
+                    <input class="clear" type="reset" value="Reset" />
+                
                 <div class="form">
 
                     <div class="form-left">
@@ -87,7 +90,7 @@
                         <div class="assignedTo">
                             <label for="assignedTo">Assigned to</label>
                             <select id="assignedToAddTaskInBoard" name="assignedTo">
-                                <option value="person1">Select contacts to assign</option>
+                                <option value="select contact">Select contacts to assign</option>
                                 <option value="person2">Person2</option>
                                 <option value="person3">Person3</option>
                             </select>
@@ -115,6 +118,7 @@
                         <div class="task-category">
                             <label for="category">Category<mark>*</mark></label>
                             <select id="categoryAddTaskInBoard" name="category">
+                                <option value="selct category">Select Category</option>
                                 <option value="User Story">User Story</option>
                                 <option value="Technical Task">Technical Task</option>
                             </select>
@@ -126,10 +130,11 @@
                         </div>
                     </div>
                 </div>
+            </form>
                 <div class="bottom">
                     <p class="black"><mark>*</mark>This field is required</p>
                     <div class="bottom-button">
-                        <button onclick="clearAddTaskInBoard()" class="clear">Clear <img src="./img/cancel.png"
+                        <button type="reset" onclick="clearAddTaskInBoard()" class="clear">Clear <img src="./img/cancel.png"
                                 alt=""></button>
                         <button onclick="createTaskInBoard()" class="create">Create Task <img src="./img/check.png"
                                 alt=""></button>
