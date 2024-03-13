@@ -18,13 +18,15 @@ body {
 }
 
 input {
-    border: 1px solid lightgrey;
+    /* border: 1px solid lightgrey; */
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     padding: 8px 12px;
     width: 300px;
-    outline-color: #29ABE2;
+    outline-width: 0;
+    font-size: 18px;
+    /* outline-color: #29ABE2; */
 }
 
 .inputBox {

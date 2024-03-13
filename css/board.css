@@ -153,7 +153,7 @@ h1, h3, p {
 }
 
 .searchBox:hover {
-    border-color: #4589FF;
+    border-color: #29ABE2;
 }
 
 .w100 {
@@ -171,8 +171,7 @@ h1, h3, p {
 
 .popUpBox:hover {
     cursor: pointer;
-    transform: rotate(7deg);
-    transform-origin: bottom left;
+    filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.3));
 }
 
 .popUpBox:active {
@@ -247,6 +246,15 @@ progress[value] {
     background-color: rgb(35, 127, 127);
     border: 1px solid white;
     padding: 8px;
+  }
+
+  .rotateBox {
+    transform: rotate(7deg);
+    transform-origin: bottom left;
+  }
+
+  .widthFixed {
+    width: 100px;
   }
 
   .prioItem {

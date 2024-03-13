@@ -65,6 +65,7 @@ let tasks = [
         'subtasks': ''
     }
 ];
+let foundTasks = [];
 let categoryColors = ['#0038FF', '#1FD7C1']
 let draggedTask;
 let currentSubtaskDone;
@@ -213,5 +214,34 @@ async function changeBoolean(i, j) {
     await setItem('tasks', tasks);
     await initBoard();
 }
+
+function rotateBox(i) {
+    document.getElementById(`task${i}`).classList.add('rotateBox');
+}
+
+function searchTasks() {
+    let search = document.getElementById('searchField');
+    let searchValue = search.value.toLowerCase();
+    foundTasks = [];
+    console.log(searchValue);
+    for (let j = 0; j < tasks.length; j++) {
+        if (tasks[j].titel.toLowerCase().includes(searchValue) || tasks[j].description.toLowerCase().includes(searchValue)) { 
+            foundTasks.push(j);
+            console.log(j);
+         }
+    }
+    if (foundTasks.length > 0) {
+        clearBoard();
+        for (let i = 0; i < foundTasks.length; i++) {
+            getTasksInformation(foundTasks[i]);        
+            document.getElementById(`content${process}`).innerHTML += templateFoundTasksInBoard(i, categoryColor, currentSubtasks, prio);
+            fillAssignedStaff(foundTasks[i]);
+            if (tasks[foundTasks[i]].subtasks.length == 0) { document.getElementById(`taskProgress${i}`).classList.add('d-none'); }
+        }
+        checkForEmptyColums()
+    }
+    search.value = ''
+}
+
 
 

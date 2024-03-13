@@ -125,7 +125,7 @@ main {
 /* Stil für die Benutzerliste */
 .user-list-container {
   display: flex;
-  height: 100vh;
+  height: 60vh;
   cursor: pointer;
 }
 

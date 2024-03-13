@@ -1,6 +1,26 @@
 function templateTasksInBoard(i, categoryColor, subtasks, prio) {
     return `
-    <div draggable="true" ondragstart="startDragging(${i})" class="popUpBox widthTaskBox" id="task${i}" onclick="openTaskDetails(${i})">
+    <div draggable="true" ondragstart="startDragging(${i}), rotateBox(${i})" class="popUpBox widthTaskBox" id="task${i}" onclick="openTaskDetails(${i})">
+        <div class="categoryLine">
+            <div class="categoryBox" style="background-color:${categoryColor}">${tasks[i].category}</div>
+        </div>
+        <h3 class="mb12">${tasks[i].titel}</h3>
+        <p class="mb24 fontLightgrey">${tasks[i].description}</p>
+        <div id="taskProgress${i}" class="w100 d-flex align-center justify-between mb24">
+            <progress value="${currentSubtaskProgress}" max="100"></progress>
+            <p style="font-size:12px;">${currentSubtaskDone}/${subtasks} Subtasks</p>
+        </div>
+        <div class="d-flex justify-between align-center w100">
+            <div id="assign${i}" class="d-flex"></div>
+            <div><img class="prioItem" src="../img/${prio}"></div>
+        </div>
+    </div>
+    `
+}
+
+function templateFoundTasksInBoard(i, categoryColor, subtasks, prio) {
+    return `
+    <div draggable="true" ondragstart="startDragging(${i}), rotateBox(${i})" class="popUpBox widthTaskBox" id="task${i}" onclick="openTaskDetails(${i})">
         <div class="categoryLine">
             <div class="categoryBox" style="background-color:${categoryColor}">${tasks[i].category}</div>
         </div>
@@ -55,8 +75,8 @@ function templateTaskDetails(i, categoryColor, subtasks, prio, prioWritten) {
             <div id="subtasksDetails" class="subtasksDetails mb24"></div>
         </div>
         <div class="w100 d-flex mb24 justify-end">
-            <div onclick="deleteTask(${i})" class="d-flex ml align-center detailsButton"><img class="mr8" src="../img/deleteIcon.png"><p>Delete</p></div>
-            <div class="d-flex ml align-center detailsButton"><img class="mr8" src="../img/editIcon.png"><p>Edit</p></div>
+            <div onclick="deleteTask(${i})" class="d-flex ml align-center detailsButton widthFixed"><img class="mr8" src="../img/delete.png" onmouseover="this.src='./img/deleteHover.png';" onmouseout="this.src='./img/delete.png';"></div>
+            <div class="d-flex ml align-center detailsButton widthFixed"><img class="mr8" src="../img/edit.png" onmouseover="this.src='./img/editHover.png';" onmouseout="this.src='./img/edit.png';"></div>
         </div>
     </div>
     `;
