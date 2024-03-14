@@ -20,6 +20,24 @@ function clearAddTaskInBoard() {
 }
 
 
+function changePrio(value) {
+
+    prioButton = value;
+
+    if (value == 'low') {
+        document.getElementById('button-low').classList.add('low');
+    }
+
+    if (value == 'medium') {
+        document.getElementById('button-medium').classList.add('medium');
+    }
+
+    if (value == 'urgent') {
+        document.getElementById('button-medium').classList.add('urgent');
+    }
+}
+
+
 function createTaskInBoard() {
     let newTitle = document.getElementById('titleAddTaskInBoard').value;
     let newDescription = document.getElementById('descriptionAddTaskInBoard').value;
@@ -37,7 +55,7 @@ function createTaskInBoard() {
         'assigned': [newAssignedTo],
         'dueDate': newDueDate,
         'position': 'ToDo',
-        'prio': prioButton,
+        //'prio': prioButton,
         'category': newCategory,
         'subtasks': [newSubtask]
     });
@@ -49,22 +67,7 @@ function createTaskInBoard() {
 }
 
 
-function changePrio(value) {
 
-    prioButton = value;
-
-    if (value == 'low') {
-        document.getElementById('button-low').classList.add('low');
-    }
-
-    if (value == 'medium') {
-        document.getElementById('button-medium').classList.add('medium');
-    }
-
-    if (value == 'urgent') {
-        document.getElementById('button-medium').classList.add('urgent');
-    }
-}
 
 
 function deleteTask(i){
