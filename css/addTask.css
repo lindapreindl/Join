@@ -159,30 +159,44 @@ label {
     font-size: 20px;
     background-color: white;
     border: none;
+    color: black;
+    font-weight: 400;
 }
 
 #button-low:hover{
     background-color: #7AE229;
+    color: white;
+    font-weight: 700;
 }
 
 #button-medium:hover {
-    background-color: #FFA800
+    background-color: #FFA800;
+    color: white;
+    font-weight: 700;
 }
 
 #button-urgent:hover {
     background-color: #FF3D00;
+    color: white;
+    font-weight: 700;
 }
 
 .low {
-    background-color: #7AE229;
+    background-color: #7AE229 !important;
+    color: white !important;
+    font-weight: 700 !important;
 }
 
 .medium {
-    background-color: #FFA800
+    background-color: #FFA800 !important;
+    color: white !important;
+    font-weight: 700 !important;
 }
 
 .urgent {
-    background-color: #FF3D00;
+    background-color: #FF3D00 !important;
+    color: white !important;
+    font-weight: 700 !important;
 }
 
 .prio button img {

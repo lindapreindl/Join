@@ -15,26 +15,66 @@ function clearAddTaskInBoard() {
     document.getElementById('descriptionAddTaskInBoard').value = '';
     document.getElementById('assignedToAddTaskInBoard').value = 'selectContact';
     document.getElementById('dueDateAddTaskInBoard').value = '';
+
+    document.getElementById('button-low').classList.remove('low');
+    document.getElementById('button-medium').classList.remove('medium');
+    document.getElementById('button-urgent').classList.remove('urgent');
+
+    changePrioToMedium();
+
     document.getElementById('categoryAddTaskInBoard').value = 'selectCategory';
     document.getElementById('subtasksAddTaskInBoard').value = '';
 }
 
 
-function changePrio(value) {
+function changePrioToUrgent() {
 
-    prioButton = value;
+    document.getElementById('img-urgent').classList.add('d-none');
+    document.getElementById('img-urgent-white').classList.remove('d-none');
+    document.getElementById('img-medium').classList.remove('d-none');
+    document.getElementById('img-medium-white').classList.add('d-none');
+    document.getElementById('img-low').classList.remove('d-none');
+    document.getElementById('img-low-white').classList.add('d-none');
 
-    if (value == 'low') {
-        document.getElementById('button-low').classList.add('low');
-    }
+    document.getElementById('button-low').classList.remove('low');
+    document.getElementById('button-medium').classList.remove('medium');
+    document.getElementById('button-urgent').classList.add('urgent');
 
-    if (value == 'medium') {
-        document.getElementById('button-medium').classList.add('medium');
-    }
+    prioButton = 'urgent';
+}
 
-    if (value == 'urgent') {
-        document.getElementById('button-medium').classList.add('urgent');
-    }
+
+function changePrioToMedium() {
+
+    document.getElementById('img-urgent').classList.remove('d-none');
+    document.getElementById('img-urgent-white').classList.add('d-none');
+    document.getElementById('img-medium').classList.add('d-none');
+    document.getElementById('img-medium-white').classList.remove('d-none');
+    document.getElementById('img-low').classList.remove('d-none');
+    document.getElementById('img-low-white').classList.add('d-none');
+
+    document.getElementById('button-low').classList.remove('low');
+    document.getElementById('button-medium').classList.add('medium');
+    document.getElementById('button-urgent').classList.remove('urgent');
+
+    prioButton = 'medium';
+}
+
+
+function changePrioToLow() {
+
+    document.getElementById('img-urgent').classList.remove('d-none');
+    document.getElementById('img-urgent-white').classList.add('d-none');
+    document.getElementById('img-medium').classList.remove('d-none');
+    document.getElementById('img-medium-white').classList.add('d-none');
+    document.getElementById('img-low').classList.add('d-none');
+    document.getElementById('img-low-white').classList.remove('d-none');
+
+    document.getElementById('button-low').classList.add('low');
+    document.getElementById('button-medium').classList.remove('medium');
+    document.getElementById('button-urgent').classList.remove('urgent');
+
+    prioButton = 'low';
 }
 
 
@@ -48,18 +88,18 @@ function createTaskInBoard() {
     let newPrio = prioButton;
 
     console.log(newTitle, newDescription, newAssignedTo, newDueDate, newCategory, newSubtask);
-    
+
     tasks.push({
         'titel': newTitle,
         'description': newDescription,
         'assigned': [newAssignedTo],
         'dueDate': newDueDate,
         'position': 'ToDo',
-        //'prio': prioButton,
+        'prio': newPrio,
         'category': newCategory,
         'subtasks': [newSubtask]
     });
-    if (tasks[(tasks.length - 1)].subtasks[0] == '') {tasks[(tasks.length - 1)].subtasks = '';}
+    if (tasks[(tasks.length - 1)].subtasks[0] == '') { tasks[(tasks.length - 1)].subtasks = ''; }
 
     setItem('tasks', tasks);
     closeAddTaskInBoard();
@@ -67,11 +107,8 @@ function createTaskInBoard() {
 }
 
 
-
-
-
-function deleteTask(i){
-    tasks.splice(i,1);
+function deleteTask(i) {
+    tasks.splice(i, 1);
     setItem('tasks', tasks);
     closeTaskDetails();
     initBoard();
