@@ -149,14 +149,16 @@ function showDetailsSubtasks(i) {
 function fillAssignedStaff(i) {
     for (let j = 0; j < tasks[i].assigned.length; j++) {
         let initials = getInitials(tasks[i].assigned[j]);
-        document.getElementById(`assign${i}`).innerHTML += templateTasksAssignedStaff(i, initials);
+        let initialColor = getRandomColor();
+        document.getElementById(`assign${i}`).innerHTML += templateTasksAssignedStaff(i, initials, initialColor);
     }
 }
 
 function fillDetailsAssignedStaff(i) {
     for (let j = 0; j < tasks[i].assigned.length; j++) {
         let initials = getInitials(tasks[i].assigned[j]);
-        let template = templateTasksAssignedStaff(i, initials);
+        let initialColor = getRandomColor();
+        let template = templateTasksAssignedStaff(i, initials, initialColor);
         document.getElementById(`assignDetails`).innerHTML += templateAssignedPeople(i, j, template)
     }
 }

@@ -36,6 +36,10 @@ body {
     display: none;
 }
 
+.borderGrey {
+    border-color: lightgrey !important;
+}
+
 .row {
     display: flex;
     flex-direction: row;
@@ -103,11 +107,11 @@ h1 {
     align-items: center;
 }
 
-.logo {
+.mainLogo {
     height: 96px;
 }
 
-header {
+.headPart {
     position: fixed;
     top: 20px;
     width: 90%;
@@ -122,9 +126,23 @@ header {
     align-items: center;
 }
 
-p a{
+a {
     text-decoration: none;
     color: #29ABE2;
+}
+
+.inputBox {
+    background-color: white;
+    padding: 4px 16px;
+    border-radius: 8px;
+    border: 1px solid black;
+    height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.inputBox:hover {
+    border-color: #29ABE2;
 }
 
 .alertNotification {

@@ -6,36 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/board.css">
     <script src="./scripts/login.js"></script>
     <script src="./scripts/storage.js"></script>
+    <script src="./scripts/contactPage.js"></script>
     <title>Join | Sign up</title>
 </head>
 
 <body onload="initUsers()">
     <div class="container">
-        <header>
-            <img class="logo" src="./img/logo.png">
-        </header>
+        <div class="headPart">
+            <img class="mainLogo" src="./img/logo.png">
+        </div>
         <div class="column popUpBox">
             <a href="login.html"><img class="arrowLeft" src="./img/arrowLeft.png"></a>
             <h1>Sign up</h1>
             <div class="line"></div>
             <form class="column" onsubmit="signUpUser(); return false;">
-                <div class="inputBox">
+                <div class="inputBox mb24 borderGrey">
                     <input type="text" id="signupName" placeholder="Name" required>
                     <img src="./img/person.png">
                 </div>
-                <div class="inputBox">
+                <div class="inputBox mb24 borderGrey">
                     <input type="email" id="signupEmail" placeholder="Email" required>
                     <img src="./img/mail.png">
                 </div>
-                <div class="inputBox">
-                    <input type="password" id="signupPassword" placeholder="Password" required>
-                    <img src="./img/lock.png">
+                <div class="inputBox mb24 borderGrey">
+                    <input type="password" id="signupPassword" placeholder="Password" required onclick="changePasswortIcon('unvisible', 'lockImg2', 'signupPassword')" onblur="changePasswortIcon('lock', 'lockImg2', 'signupPassword')">
+                    <img id="lockImg2" src="./img/lock.png" onclick="changePasswortIcon('visibility', 'lockImg2', 'signupPassword')">
                 </div>
-                <div class="inputBox">
-                    <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
-                    <img src="./img/lock.png">
+                <div class="inputBox mb24 borderGrey">
+                    <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required onclick="changePasswortIcon('unvisible', 'lockImg3', 'signupConfirmPassword')" onblur="changePasswortIcon('lock', 'lockImg3', 'signupConfirmPassword')">
+                    <img id="lockImg3" src="./img/lock.png" onclick="changePasswortIcon('visibility', 'lockImg3', 'signupConfirmPassword')">
                 </div>
                 <p class="alertNotification d-none" id="passwordNoMatch">Ups! Your password does not match</p>
                 <div class="row marginBottom16">

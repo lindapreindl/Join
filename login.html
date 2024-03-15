@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/board.css">
     <script src="./scripts/login.js"></script>
     <script src="./scripts/storage.js"></script>
     <title>Join | Log in</title>
@@ -13,25 +14,25 @@
 
 <body onload="initUsers(), message()">
     <div class="container">
-        <header>
-            <img class="logo" src="./img/logo.png">
+        <div class="headPart">
+            <img class="mainLogo" src="./img/logo.png">
             <div class="goToSignUp">
                 <p>Not a Join user?</p>
                 <a href="./signup.html"><button>Sign up</button></a>
             </div>
-        </header>
+        </div>
         <div class="infoBox d-none" id="sucessBoxSignUp">You Signed Up successfully</div>
         <div class="column popUpBox">
             <h1 class="marginTop32">Log in</h1>
             <div class="line"></div>
             <form class="column" onsubmit="logInUser(); return false;">
-                <div class="inputBox">
+                <div class="inputBox mb24 borderGrey">
                     <input type="email" id="loginEmail" placeholder="Email" required>
                     <img src="./img/mail.png">
                 </div>
-                <div class="inputBox">
-                    <input type="password" id="loginPassword" placeholder="Password" required>
-                    <img src="./img/lock.png">
+                <div class="inputBox mb24 borderGrey">
+                    <input type="password" id="loginPassword" placeholder="Password" required onclick="changePasswortIcon('unvisible', 'lockImg1', 'loginPassword')" onblur="changePasswortIcon('lock', 'lockImg1', 'loginPassword')">
+                    <img id="lockImg1" src="./img/lock.png" onclick="changePasswortIcon('visibility', 'lockImg1', 'loginPassword')">
                 </div>
                 <p class="alertNotification d-none" id="wrongPassword">Wrong password. Ups! Try again.</p>
                 <div class="row marginBottom" style="margin-left: -132px;">

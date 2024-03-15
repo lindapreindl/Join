@@ -44,8 +44,8 @@ function noTasksPlaced(process) {
     `;
 }
 
-function templateTasksAssignedStaff(i, initials) {
-    return `<div class="assigneInitials">${initials}</div>`;
+function templateTasksAssignedStaff(i, initials, bgColor) {
+    return `<div class="assigneInitials" style="background-color:${bgColor};">${initials}</div>`;
 }
 
 function templateTaskDetails(i, categoryColor, subtasks, prio, prioWritten) {

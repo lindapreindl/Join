@@ -1,6 +1,7 @@
 let users = [];
 let rememberUser;
 let loginUser = [];
+let visible = false;
 
 function initStart() {
     let animatedLogo = document.getElementById('startLogo');
@@ -27,7 +28,7 @@ async function signUpUser() {
     let email = document.getElementById('signupEmail');
     let password = document.getElementById('signupPassword');
     if (password.value == document.getElementById('signupConfirmPassword').value) {
-        users.push({ name: name.value, email: email.value, password: password.value });
+        users.push({ name: name.value, email: email.value, phone: '', password: password.value, color: getRandomColor() });
         await setItem('users', JSON.stringify(users));
         resetForm(name, email, password)
         window.location.href = 'login.html?msg=Sign up successful';
@@ -64,7 +65,6 @@ function wrongPassword() {
     document.getElementById('wrongPassword').classList.remove('d-none');
 }
 
-
 function message() {
     const urlMessage = new URLSearchParams(window.location.search);
     const msg = urlMessage.get('msg');
@@ -72,4 +72,27 @@ function message() {
         document.getElementById('sucessBoxSignUp').classList.remove('d-none');
         document.getElementById('sucessBoxSignUp').innerHTML = msg;
     }
+}
+
+function changePasswortIcon(value, location, inputID) {
+    let symbol = document.getElementById(location);
+    
+    if (value == 'unvisible') {
+        symbol.src = './img/visibility_off.png';
+    };
+    if (value == 'visibility') { 
+        visible = !visible;
+        if (visible) { 
+            symbol.src = './img/visibility.png';
+            document.getElementById(inputID).type = 'text';
+        } 
+        if (!visible) {
+            symbol.src = './img/visibility_off.png';
+            document.getElementById(inputID).type = 'password';
+        }   
+    };
+    if (value == 'lock') {
+        symbol.src = './img/lock.png';
+        document.getElementById(inputID).type = 'password';
+    };
 }
