@@ -97,6 +97,7 @@ function createTaskInBoard() {
         'position': 'ToDo',
         'prio': newPrio,
         'category': newCategory,
+        'position': 'ToDo',
         'subtasks': [newSubtask]
     });
     if (tasks[(tasks.length - 1)].subtasks[0] == '') { tasks[(tasks.length - 1)].subtasks = ''; }
