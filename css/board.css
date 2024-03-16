@@ -5,17 +5,29 @@
     align-items: center;
 }
 
-header {
+.headBox {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 95%;
+}
+
+header {
+    width: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 10;
+    background-color: #F6F7F8;
+    padding-top: 40px;
 }
 
 .verticalLine {
     height: 24px;
     width: 1px;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .w150px {
@@ -30,15 +42,17 @@ header {
     justify-content: space-around;
 }
 
-.w90 {
-    width: 90%;
+.w100 {
+    width: 100%;
 }
 
 .w100 {
     width: 100%;
 }
 
-h1, h3, p {
+h1,
+h3,
+p {
     margin-block-start: 0;
     margin-block-end: 0;
 }
@@ -103,7 +117,7 @@ h1, h3, p {
     align-items: flex-start;
     background-color: white;
     margin-bottom: 12px;
-    padding: 48px 40px  48px 40px;
+    padding: 48px 40px 48px 40px;
     border-radius: 30px;
 }
 
@@ -117,6 +131,7 @@ h1, h3, p {
 
 .boardTable {
     justify-content: space-between;
+    margin-top: 150px;
 }
 
 .icons {
@@ -127,7 +142,7 @@ h1, h3, p {
 }
 
 .icons:hover {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     cursor: pointer;
 }
@@ -175,7 +190,7 @@ h1, h3, p {
 
 .popUpBox:hover {
     cursor: pointer;
-    filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.3));
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.3));
 }
 
 .popUpBox:active {
@@ -186,7 +201,7 @@ h1, h3, p {
     width: 252px;
     display: flex;
     justify-content: center;
-    background-color: rgba(0,0,0,0.05);
+    background-color: rgba(0, 0, 0, 0.05);
     border: 1px dashed lightgray;
     padding: 12px;
     border-radius: 12px;
@@ -207,13 +222,13 @@ h1, h3, p {
 
 .categoryLine img:hover {
     border-radius: 50%;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
 
 progress[value] {
     --color: #4589FF;
-    --background: #F4F4F4; 
+    --background: #F4F4F4;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -223,50 +238,51 @@ progress[value] {
     margin: 0;
     border-radius: 10em;
     background: var(--background);
-  }
+}
 
-  progress[value]::-webkit-progress-bar {
+progress[value]::-webkit-progress-bar {
     border-radius: 10em;
     background: var(--background);
-  }
+}
 
-  progress[value]::-webkit-progress-value {
+progress[value]::-webkit-progress-value {
     border-radius: 10em;
     background: var(--color);
-  }
+}
 
-  .align-center {
+.align-center {
     align-items: center;
-  }
+}
 
-  .assigneInitials {
-    height: 18px;
-    width: 18px;
+.assigneInitials {
     color: white;
-    text-align: left;
     border-radius: 50%;
     position: relative;
     margin-left: -7px;
-    background-color: rgb(35, 127, 127);
     border: 1px solid white;
-    padding: 8px;
-  }
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+}
 
-  .rotateBox {
+.rotateBox {
     transform: rotate(7deg);
     transform-origin: bottom left;
-  }
+}
 
-  .widthFixed {
+.widthFixed {
     width: 100px;
-  }
+}
 
-  .prioItem {
+.prioItem {
     width: 20px;
     height: auto;
-  }
+}
 
-  .taskDetails {
+.taskDetails {
     position: absolute;
     top: 0;
     left: 0;
@@ -276,36 +292,36 @@ progress[value] {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.1);
-  }
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
-  .subtasksDetails {
+.subtasksDetails {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-  }
+}
 
-  .fontDarkGrey {
+.fontDarkGrey {
     color: #2A3647;
-  }
+}
 
-  .detailsButton:hover {
+.detailsButton:hover {
     color: #4589FF;
     font-weight: bold;
     cursor: pointer;
-  }
+}
 
-  .hover:hover {
-    background-color: rgba(0,0,0,0.1);
+.hover:hover {
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-  }
+}
 
-  .clickfinger {
+.clickfinger {
     cursor: pointer;
-  }
+}
 
-  .addButton {
+.addButton {
     border: 2px solid #2A3647;
     padding: 3px;
     border-radius: 8px;
@@ -317,11 +333,9 @@ progress[value] {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-  }
+}
 
-  .addButton:hover {
+.addButton:hover {
     color: #4589FF;
     border-color: #4589FF;
-  }
-
- 
+}

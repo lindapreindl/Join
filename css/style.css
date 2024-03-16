@@ -18,7 +18,7 @@ body {
 }
 
 input {
-    /* border: 1px solid lightgrey; */
+    border: 0;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
@@ -26,17 +26,10 @@ input {
     width: 300px;
     outline-width: 0;
     font-size: 18px;
-    /* outline-color: #29ABE2; */
-}
-
-.inputBox {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;    
 }
 
 .inputBox img {
-    height: 16px;
+    width: 16px;
     margin-left: -30px;
 }
 
@@ -65,11 +58,18 @@ button {
     color: white;
     font-weight: bold;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 button:hover {
     background-color: #29ABE2;
     filter: drop-shadow(0px 4px 2px rgba(0,0,0,0.2));
+}
+
+button img {
+    height: 14px;
+    margin-left: 8px;
 }
 
 .infoBox {
