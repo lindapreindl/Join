@@ -63,7 +63,7 @@ async function addNewUser() {
   // Überprüfen, ob alle Felder ausgefüllt sind
   if (name && email && phone) {
     // Wenn alle Felder ausgefüllt sind, ein neues Benutzerobjekt erstellen
-    const newUser = { name, email, phone };
+    const newUser = { name, email, phone, password: '', color: getRandomColor() };
 
     // Das neue Benutzerobjekt dem 'users'-Array hinzufügen
     users.push(newUser);

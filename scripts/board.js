@@ -1,70 +1,71 @@
-let tasks = [
-    {
-        'titel': 'Zwiebeln schneiden',
-        'description': 'Rote Zwiebeln in kleine Würfel schneiden',
-        'assigned': ['Cill Phollins', 'Gefanie Straf', 'Clanta Saus'],
-        'dueDate': '24/12/2024',
-        'prio': 'urgent',
-        'category': 'User Story',
-        'position': 'ToDo',
-        'subtasks': [
-            {
-                'subtask': 'Schäler spülen',
-                'finished': true
-            },
-            {
-                'subtask': 'Zwiebeln schälen',
-                'finished': true
-            },
-            {
-                'subtask': 'Zwiebeln würfeln',
-                'finished': false
-            }
-        ]
-    },
-    {
-        'titel': 'Holz hacken',
-        'description': 'Für ein nettes, kleines Lagerfeuer',
-        'assigned': ['Ghomas Tottschalk'],
-        'dueDate': '24/12/2024',
-        'prio': 'medium',
-        'category': 'User Story',
-        'position': 'InProgress',
-        'subtasks': [
-            {
-                'subtask': 'Axt schärfen',
-                'finished': true
-            },
-            {
-                'subtask': 'Holz spalten',
-                'finished': false
-            }
-        ]
-    },
-    {
-        'titel': 'Join programmieren',
-        'description': 'Ein cooles Programm schreiben zur Arbeitsplanung und Aufgabenverteilung in einem Team',
-        'assigned': ['Mangela Erkel', 'Woko Jinterscheidt', 'Refan Staab', 'Pebastian Suffpaff', 'Blontana Mack', 'Knens Jossalla'],
-        'dueDate': '24/12/2024',
-        'prio': 'low',
-        'category': 'Technical Task',
-        'position': 'InProgress',
-        'subtasks': [{
-            'subtask': 'Brainstorming',
-            'finished': false
-        }]
-    },
-    {
-        'titel': 'Nase putzen',
-        'description': 'Mit einem Taschentuch die Atemwege reinigen',
-        'assigned': ['Boe Jiden'],
-        'dueDate': '24.12.2024',
-        'prio': 'low',
-        'category': 'Technical Task',
-        'position': 'AwaitFeedback',
-        'subtasks': ''
-    }
-];
+// let tasks = [
+//     {
+//         'titel': 'Zwiebeln schneiden',
+//         'description': 'Rote Zwiebeln in kleine Würfel schneiden',
+//         'assigned': ['Cill Phollins', 'Gefanie Straf', 'Clanta Saus'],
+//         'dueDate': '24/12/2024',
+//         'prio': 'urgent',
+//         'category': 'User Story',
+//         'position': 'ToDo',
+//         'subtasks': [
+//             {
+//                 'subtask': 'Schäler spülen',
+//                 'finished': true
+//             },
+//             {
+//                 'subtask': 'Zwiebeln schälen',
+//                 'finished': true
+//             },
+//             {
+//                 'subtask': 'Zwiebeln würfeln',
+//                 'finished': false
+//             }
+//         ]
+//     },
+//     {
+//         'titel': 'Holz hacken',
+//         'description': 'Für ein nettes, kleines Lagerfeuer',
+//         'assigned': ['Ghomas Tottschalk'],
+//         'dueDate': '24/12/2024',
+//         'prio': 'medium',
+//         'category': 'User Story',
+//         'position': 'InProgress',
+//         'subtasks': [
+//             {
+//                 'subtask': 'Axt schärfen',
+//                 'finished': true
+//             },
+//             {
+//                 'subtask': 'Holz spalten',
+//                 'finished': false
+//             }
+//         ]
+//     },
+//     {
+//         'titel': 'Join programmieren',
+//         'description': 'Ein cooles Programm schreiben zur Arbeitsplanung und Aufgabenverteilung in einem Team',
+//         'assigned': ['Mangela Erkel', 'Woko Jinterscheidt', 'Refan Staab', 'Pebastian Suffpaff', 'Blontana Mack', 'Knens Jossalla'],
+//         'dueDate': '24/12/2024',
+//         'prio': 'low',
+//         'category': 'Technical Task',
+//         'position': 'InProgress',
+//         'subtasks': [{
+//             'subtask': 'Brainstorming',
+//             'finished': false
+//         }]
+//     },
+//     {
+//         'titel': 'Nase putzen',
+//         'description': 'Mit einem Taschentuch die Atemwege reinigen',
+//         'assigned': ['Boe Jiden'],
+//         'dueDate': '24.12.2024',
+//         'prio': 'low',
+//         'category': 'Technical Task',
+//         'position': 'AwaitFeedback',
+//         'subtasks': ''
+//     }
+// ];
+let tasks;
 let foundTasks = [];
 let categoryColors = ['#0038FF', '#1FD7C1']
 let draggedTask;
@@ -76,6 +77,7 @@ let currentSubtasks;
 let prio;
 
 async function initBoard() {
+    await loadUsers();
     await loadTasksFromServer();
     fillBoardWithTasks();
 }
@@ -90,7 +92,7 @@ async function loadTasksFromServer() {
 }
 
 // Clears and fills the board with the tasks from server, after saving the current tasks on server
-function fillBoardWithTasks() {
+async function fillBoardWithTasks() {
     clearBoard();
     setItem('tasks', tasks);
     for (let i = 0; i < tasks.length; i++) {
@@ -147,19 +149,29 @@ function showDetailsSubtasks(i) {
 }
 
 function fillAssignedStaff(i) {
+    let initialColor;
     for (let j = 0; j < tasks[i].assigned.length; j++) {
         let initials = getInitials(tasks[i].assigned[j]);
-        let initialColor = getRandomColor();
-        document.getElementById(`assign${i}`).innerHTML += templateTasksAssignedStaff(i, initials, initialColor);
+        let lookForName = tasks[i].assigned[j];
+        let userIndex = users.findIndex(user => user.name === lookForName);
+        if (userIndex >= 0) {
+            initialColor = users[userIndex].color;
+            document.getElementById(`assign${i}`).innerHTML += templateTasksAssignedStaff(i, initials, initialColor);
+        }
     }
 }
 
 function fillDetailsAssignedStaff(i) {
+    let initialColor;
     for (let j = 0; j < tasks[i].assigned.length; j++) {
         let initials = getInitials(tasks[i].assigned[j]);
-        let initialColor = getRandomColor();
-        let template = templateTasksAssignedStaff(i, initials, initialColor);
-        document.getElementById(`assignDetails`).innerHTML += templateAssignedPeople(i, j, template)
+        let lookForName = tasks[i].assigned[j];
+        let userIndex = users.findIndex(user => user.name === lookForName);
+        if (userIndex >= 0) {
+            initialColor = users[userIndex].color;
+            let template = templateTasksAssignedStaff(i, initials, initialColor);
+            document.getElementById(`assignDetails`).innerHTML += templateAssignedPeople(i, j, template)
+        }
     }
 }
 
@@ -195,12 +207,12 @@ function allowDrop(event) {
 }
 
 function openTaskDetails(i) {
-    let details = document.getElementById('taskDetailsBox');
-    details.classList.remove('d-none');
-    details.innerHTML = '';
+    let popUpDetails = document.getElementById('taskDetailsBox');
+    popUpDetails.classList.remove('d-none');
+    popUpDetails.innerHTML = '';
     getTasksInformation(i);
     let prioWritten = prio.charAt(0).toUpperCase() + prio.slice(1, -4);
-    details.innerHTML = templateTaskDetails(i, categoryColor, currentSubtasks, prio, prioWritten);
+    popUpDetails.innerHTML = templateTaskDetails(i, categoryColor, currentSubtasks, prio, prioWritten);
     fillDetailsAssignedStaff(i);
     showDetailsSubtasks(i);
 }
@@ -214,15 +226,15 @@ async function changeBoolean(i, j) {
     changer = !changer;
     tasks[i].subtasks[j].finished = changer;
     openTaskDetails(i);
-    await setItem('tasks', tasks);
-    await initBoard();
+    setItem('tasks', tasks);
+    initBoard();
 }
 
 function rotateBox(i) {
     document.getElementById(`task${i}`).classList.add('rotateBox');
 }
 
-function searchTasks() {
+async function searchTasks() {
     let search = document.getElementById('searchField');
     if (search.value.length > 0) {
         let searchValue = search.value.toLowerCase();
@@ -242,14 +254,15 @@ function searchTasks() {
     }
 }
 
-function fillSearchedTaskInBoard() {
+async function fillSearchedTaskInBoard() {
     for (let l = 0; l < foundTasks.length; l++) {
         getTasksInformation(foundTasks[l]);
         document.getElementById(`content${process}`).innerHTML += templateFoundTasksInBoard(foundTasks[l]);
-        fillAssignedStaff(foundTasks[l]);
+        await fillAssignedStaff(foundTasks[l]);
         if (tasks[foundTasks[l]].subtasks.length == 0) { document.getElementById(`taskProgress${l}`).classList.add('d-none'); }
     }
 }
+
 
 
 
