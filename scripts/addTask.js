@@ -1,4 +1,3 @@
-let prioButton = 'medium';
 
 function openAddTaskInBoard() {
     document.getElementById('addTaskInBoard').classList.remove('d-none');
@@ -27,7 +26,9 @@ function clearAddTaskInBoard() {
 }
 
 
-function changePrioToUrgent() {
+function changePrioToUrgent(event) {
+
+    event.stopPropagation();
 
     document.getElementById('img-urgent').classList.add('d-none');
     document.getElementById('img-urgent-white').classList.remove('d-none');
@@ -40,11 +41,14 @@ function changePrioToUrgent() {
     document.getElementById('button-medium').classList.remove('medium');
     document.getElementById('button-urgent').classList.add('urgent');
 
-    prioButton = 'urgent';
+    let urgent = document.getElementById('button-value').innerHTML = 'urgent';
+    console.log(urgent);
 }
 
 
-function changePrioToMedium() {
+function changePrioToMedium(event) {
+
+    event.stopPropagation();
 
     document.getElementById('img-urgent').classList.remove('d-none');
     document.getElementById('img-urgent-white').classList.add('d-none');
@@ -57,11 +61,14 @@ function changePrioToMedium() {
     document.getElementById('button-medium').classList.add('medium');
     document.getElementById('button-urgent').classList.remove('urgent');
 
-    prioButton = 'medium';
+    let medium = document.getElementById('button-value').innerHTML = 'medium';
+    console.log(medium);
 }
 
 
-function changePrioToLow() {
+function changePrioToLow(event) {
+
+    event.stopPropagation();
 
     document.getElementById('img-urgent').classList.remove('d-none');
     document.getElementById('img-urgent-white').classList.add('d-none');
@@ -74,7 +81,8 @@ function changePrioToLow() {
     document.getElementById('button-medium').classList.remove('medium');
     document.getElementById('button-urgent').classList.remove('urgent');
 
-    prioButton = 'low';
+    let low = document.getElementById('button-value').innerHTML = 'low';
+    console.log(low);
 }
 
 
@@ -85,7 +93,7 @@ function createTaskInBoard() {
     let newDueDate = document.getElementById('dueDateAddTaskInBoard').value;
     let newCategory = document.getElementById('categoryAddTaskInBoard').value;
     let newSubtask = document.getElementById('subtasksAddTaskInBoard').value;
-    let newPrio = prioButton;
+    let newPrio = document.getElementById('button-value').value;
 
     console.log(newTitle, newDescription, newAssignedTo, newDueDate, newCategory, newSubtask);
 
@@ -113,5 +121,62 @@ function deleteTask(i) {
     setItem('tasks', tasks);
     closeTaskDetails();
     initBoard();
+}
+
+
+function editTask(i) {
+    let details = document.getElementById('taskDetailsBox');
+    details.classList.remove('d-none');
+    details.innerHTML = '';
+    details.innerHTML = templateEditTask(i);
+}
+
+
+function templateEditTask(i) {
+    return /*html*/`
+    <div class="widthTaskDetails"> 
+        <div class="title">
+            <p>Title</p>
+            <input id="editTitle" type="text">
+        </div>
+        <div class="description">
+            <p>description</p>
+            <textarea name="editDescription" id="editDescription" cols="30" rows="10"></textarea>
+        </div>
+        <div class="dueDate">
+            <label for="editDueDate">Due date<mark>*</mark></label>
+            <input type="date" id="editDueDate" name="editDueDate" required>
+            <!-- Placeholder noch formatieren!!-->
+        </div>
+        <div class="prio">
+           <p>Prio</p>
+           <div class="prio-button">
+                <button id="edit-button-urgent" onclick="changePrioToUrgent(event)">Urgent <img
+                        id="edit-img-urgent" src="./img/urgent.png" alt=""> <img id="edit-img-urgent-white"
+                        class="d-none" src="./img/urgent_white.png" alt=""> </button>
+                <button id="edit-button-medium" class="medium" onclick="changePrioToMedium(event)">Medium <img
+                        id="edit-img-medium" class="d-none" src="./img/medium.png" alt=""> <img
+                        id="edit-img-medium-white" src="./img/medium_white.png" alt=""> </button>
+                <button id="edit-button-low" onclick="changePrioToLow(event)">Low <img id="edit-img-low"
+                        src="./img/low.png" alt=""> <img id="edit-img-low-white" class="d-none"
+                        src="./img/low_white.png" alt=""> </button>
+                <p id="edit-button-value" class="d-none">medium</p>
+            </div>
+        </div>
+        <div class="assignedTo">
+            <label for="ediAassignedTo">Assigned to</label>
+            <select id="editAssignedTo" name="assignedTo">
+                <option selected disabled hidden value="selectContact">Select contacts to assign</option>
+                <option value="person2">Person2</option>
+                <option value="person3">Person3</option>
+            </select>
+        </div>
+        <div class="subtasks">
+            <p>Subtasks</p>
+            <input type="text" name="subtasks" id="editsubtasks"
+                placeholder="Add new subtask">
+            </div>
+    </div>
+    `
 }
 
