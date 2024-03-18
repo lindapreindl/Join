@@ -80,6 +80,7 @@ async function initBoard() {
     await loadUsers();
     await loadTasksFromServer();
     fillBoardWithTasks();
+    loadActiveUser();
 }
 
 // Load and update the current user-list from server
@@ -102,6 +103,11 @@ async function fillBoardWithTasks() {
         if (tasks[i].subtasks.length == 0) { document.getElementById(`taskProgress${i}`).classList.add('d-none'); }
     }
     checkForEmptyColums()
+}
+
+function loadActiveUser() {
+    loginUser = 'CB';
+    document.getElementById('activeUserCircle').innerHTML = loginUser;
 }
 
 // Picks the task-details

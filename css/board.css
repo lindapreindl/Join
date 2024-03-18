@@ -9,20 +9,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
+    width: 100%;
+    padding-top: 64px;
+    background-color: #F6F7F8;
+    padding-bottom: 24px;
 }
 
-header {
+/* .boardHeader {
     width: 100%;
     top: 0;
+    left: 232px;
+    padding-right: 232px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: fixed;
     z-index: 10;
     background-color: #F6F7F8;
-    padding-top: 40px;
-}
+    padding-top: 0;
+} */
 
 .verticalLine {
     height: 24px;
@@ -40,10 +45,7 @@ header {
 
 .titleLine {
     justify-content: space-around;
-}
-
-.w100 {
-    width: 100%;
+    background-color: #F6F7F8;
 }
 
 .w100 {
@@ -131,7 +133,8 @@ p {
 
 .boardTable {
     justify-content: space-between;
-    margin-top: 160px;
+    margin-top: 16px;
+    width: 100%;
 }
 
 .icons {
@@ -173,10 +176,6 @@ p {
 
 .searchBox:hover {
     border-color: #29ABE2;
-}
-
-.w100 {
-    width: 100%;
 }
 
 .taskContentBox {

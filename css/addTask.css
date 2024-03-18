@@ -110,7 +110,7 @@ label {
 
 .form-right {
     width: 440px;
-    height: 416px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -123,7 +123,7 @@ label {
 }
 
 .dueDate input {
-    width: 440px;
+    width: 414px;
     height: 48px;
     padding: 12px, 16px, 12px, 16px;
     border-radius: 10px;
@@ -225,7 +225,7 @@ label {
 }
 
 .subtasks input {
-    width: 440px;
+    width: 414px;
     height: 48px;
     padding: 12px, 16px, 12px, 16px;
     border-radius: 10px;
@@ -238,9 +238,10 @@ label {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 8%;
+    margin-left: -537px;
     margin-right: 8%;
     margin-top: 5%;
+    width: 950px;
 }
 
 .bottom img {
@@ -272,7 +273,7 @@ label {
 }
 
 .create {
-    width: 183px;
+    width: 190px;
     height: 56px;
     padding: 16px;
     border-radius: 10px;
@@ -286,8 +287,8 @@ label {
 }
 
 .addTask {
-    height: fit-content;
-    width: fit-content;
+    height: 800px;
+    width: 1000px;
     padding: 10px 30px;
     background-color: white;
     border-radius: 30px;
@@ -311,6 +312,7 @@ label {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-top: 24px;
 }
 
 .headerAddTaskInBoard img {
