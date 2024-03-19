@@ -25,7 +25,7 @@ function createOverlay() {
   overlay.innerHTML = `
     <div class="overlay-content1">
     <div> <img class="editLook" src="./img/addContactPic.png" alt=""></div>
-  
+    <div class="addPersonPic"><img src="./img/addPerson.png" alt=""></div>
     <div class="addUserDaten">
       <h2>Add New User</h2>
       <input type="text" id="newUserName" placeholder="Name" required><br><br>
