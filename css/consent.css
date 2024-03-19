@@ -1,8 +1,8 @@
 body{
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    padding: 50px;
-    gap: 24px;
+    /* padding: 50px;
+    gap: 24px; */
 }
 
 h1{
@@ -36,6 +36,18 @@ mark{
     cursor: pointer;
     height: 37px;
     width: 37px;
+}
+
+.headline-consent h1 {
+    margin-left: 0;
+    margin-bottom: 32px;
+}
+
+.helpBorder {
+    margin-left: 96px;
+    margin-right: 96px;
+    margin-top: 128px;
+    margin-bottom: 64px;
 }
 
 .d-row{
