@@ -49,6 +49,11 @@ input {
     font-size: 18px;
 }
 
+.inputSearch {
+    width: 300px;
+    height: 20px;
+}
+
 .inputBox img {
     width: 16px;
     margin-left: -30px;
