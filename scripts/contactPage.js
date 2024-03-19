@@ -5,18 +5,6 @@ let userColors = {};
 // Variable zur Speicherung des Overlay-Elements
 let overlay;
 
-// Beispielnutzerdaten
-const sampleUsers = [
-  { name: "John Doe", email: "john@example.com", phone: "123-456-7890" },
-  { name: "Jane Smith", email: "jane@example.com", phone: "987-654-3210" },
-];
-// Überprüfung, ob das Benutzerarray leer ist; wenn ja, füge Beispielnutzer hinzu
-if (users.length === 0) {
-  sampleUsers.forEach((user) => {
-    users.push(user);
-  });
-}
-
 // Funktion zum Initialisieren der Anwendung; lädt Benutzerdaten und rendert die Benutzerinformationen
 async function initContacts() {
   await loadUsers(); // Lade Benutzerdaten
@@ -35,23 +23,27 @@ function createOverlay() {
   overlay.className = "overlay";
   overlay.style.display = "none";
   overlay.innerHTML = `
-    <div class="overlay-content">
+    <div class="overlay-content1">
+    <div> <img class="editLook" src="./img/addContactPic.png" alt=""></div>
+  
+    <div class="addUserDaten">
       <h2>Add New User</h2>
       <input type="text" id="newUserName" placeholder="Name" required><br><br>
       <input type="email" id="newUserEmail" placeholder="Email" required><br><br>
       <input type="text" id="newUserPhone" placeholder="Phone" required><br><br>
       <button onclick="addNewUser()">Add User</button>
       <button onclick="closeOverlay()">Cancel</button>
+      </div>
     </div>
   `;
   document.body.appendChild(overlay);
 }
 
-// Funktion zum Schließen des Overlays
+// Funktion zum Schließen des Overlays und Entfernen aus dem DOM
 function closeOverlay() {
   overlay.style.display = "none";
+  overlay.remove(); // Overlay aus dem DOM entfernen
 }
-
 // Funktion zum Hinzufügen eines neuen Benutzers
 async function addNewUser() {
   // Die Werte aus den Eingabefeldern für Name, E-Mail und Telefonnummer abrufen
@@ -63,7 +55,7 @@ async function addNewUser() {
   // Überprüfen, ob alle Felder ausgefüllt sind
   if (name && email && phone) {
     // Wenn alle Felder ausgefüllt sind, ein neues Benutzerobjekt erstellen
-    const newUser = { name, email, phone, password: '', color: getRandomColor() };
+    const newUser = { name, email, phone };
 
     // Das neue Benutzerobjekt dem 'users'-Array hinzufügen
     users.push(newUser);
@@ -88,12 +80,12 @@ async function addNewUser() {
 }
 
 // Funktion zum Löschen eines Benutzers
-function deleteUser(name) {
+async function deleteUser(name) {
   const index = users.findIndex((user) => user.name === name);
   if (index !== -1) {
     users.splice(index, 1);
   }
-  saveUsers(); // Benutzerdaten speichern
+  await saveUsers(); // Benutzerdaten speichern
   renderUsersInfo(); //Funktion zum Rendern der Benutzerliste
 }
 
@@ -118,7 +110,7 @@ async function renderUsersInfo() {
     }
     groupedUsers[firstLetter].push(user);
   });
-  // Farben für jeden Benutzer generieren und speichern
+  // Farben für jeden Benutzer generieren und speichern+++
   Object.keys(groupedUsers).forEach((letter) => {
     groupedUsers[letter].forEach((user) => {
       if (!userColors[user.name]) {
@@ -180,54 +172,7 @@ function getRandomColor() {
   return color;
 }
 
-/* // Funktion zum Rendern der Benutzerinfo beim Klick auf einen Benutzer
-function renderUserInfo(user, index) {
-  openOverlay();
-
-  document.getElementById("editUserName").value = user.name;
-  document.getElementById("editUserEmail").value = user.email;
-  document.getElementById("editUserPhone").value = user.phone;
-  const userInfoElement = document.getElementById("userInfo");
-
-  userInfoElement.innerHTML = /* HTML * `
-    <div class="frame40"><img src="/img/Contacts.png" alt="" /></div>
-    <div class="circle2-user">
-      <div
-        class="initials-circle-info"
-        style="background-color: ${userColors[user.name]}; color: white;"
-      >
-        ${getInitials(user.name)}
-      </div>
-      <div class="user-name-info">
-        <p>${user.name}</p>
-        <div>
-          <img class="img-edit" src="./img/edit.png" alt="" />
-          <img
-            class="img-delete"
-            onclick="deleteUser('${user.name}'), clearUserInfo()"
-            src="./img/Delete contact.png"
-            alt=""
-          />
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <h2>Contact Information</h2>
-      <div class="user-mail-info">
-        <h5>Email</h5>
-        <a href="#">${user.email}</a>
-      </div>
-      <div>
-        <h5>Phone</h5>
-        <span>${user.phone}</span>
-      </div>
-    </div>
-
-    <hr />
-  `;
-} */
-// Funktion zum Rendern der Benutzerinformationen
+// Funktion zum Rendern der Benutzerinformationen mit Bearbeitungsfunktion
 function renderUserInfo(user, index) {
   const userInfoElement = document.getElementById("userInfo");
   // Benutzerinformationen rendern
@@ -243,7 +188,12 @@ function renderUserInfo(user, index) {
       <div class="user-name-info">
         <p>${user.name}</p>
         <div>
-          <img class="img-edit" src="./img/edit.png" alt="" />
+          <img
+            class="img-edit"
+            onclick="openEditOverlay(${index})"
+            src="./img/edit.png"
+            alt=""
+          />
           <img
             class="img-delete"
             onclick="deleteUser('${user.name}'), clearUserInfo()"
@@ -271,9 +221,59 @@ function renderUserInfo(user, index) {
     <hr />
   `;
 }
+// Funktion zum Öffnen des Overlays für die Bearbeitung eines Benutzers
+function openEditOverlay(index) {
+  const user = users[index]; // Benutzer aus dem Index erhalten
+  createEditOverlay(user, index); // Übergebe den Benutzer und den Index an die createEditOverlay-Funktion
+  overlay.style.display = "block"; // Overlay anzeigen
+}
+
+/* ------------------------ createEditOverlay  --------------------------------- */
+// Funktion zum Erstellen des Overlays für die Bearbeitung eines Benutzers
+function createEditOverlay(user, index) {
+  // Sicherstellen, dass vorherige Overlay-Instanz entfernt wird, falls vorhanden
+  if (overlay) {
+    overlay.remove();
+  }
+
+  // Eindeutige ID für das Overlay erstellen
+  const overlayId = "editOverlay";
+
+  overlay = document.createElement("div");
+  overlay.className = "overlay";
+  overlay.id = overlayId; // Eindeutige ID für das Overlay setzen
+  overlay.style.display = "none";
+  overlay.innerHTML = `
+    <div class="overlay-content2">
+    <div> <img class="editLook" src="./img/editLook.png" alt=""></div>
+    <div
+    class="initials-circle-info initialsEdit"
+    style="background-color: ${userColors[user.name]}; color: white;"
+  >
+    ${getInitials(user.name)}
+  </div>
+    <div class="editUserDaten">
+      
+      <input type="text" id="editUserName" placeholder="Name" value="${
+        user.name
+      }" required><br><br>
+      <input  type="email" id="editUserEmail" placeholder="E-Mail" value="${
+        user.email
+      }" required><br><br>
+      <input type="text" id="editUserPhone" placeholder="Telefon" value="${
+        user.phone
+      }" required><br><br>
+      <button onclick="editUser(${index})">Benutzer aktualisieren</button>
+      <button onclick="closeOverlay()">Abbrechen</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+}
 
 // Funktion zum Bearbeiten eines Benutzers
-async function editUser() {
+async function editUser(index) {
   const name = document.getElementById("editUserName").value;
   const email = document.getElementById("editUserEmail").value;
   const phone = document.getElementById("editUserPhone").value;
@@ -282,7 +282,7 @@ async function editUser() {
     const editedUser = { name, email, phone };
     users[index] = editedUser;
 
-    saveUsers();
+    await saveUsers();
 
     renderUsersInfo();
 
@@ -314,5 +314,3 @@ function getInitials(name) {
   const initials = names.map((name) => name.charAt(0)).join("");
   return initials;
 }
-
-/* --------------------------- */
