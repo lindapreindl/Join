@@ -86,6 +86,30 @@ function changePrioToLow(event) {
 }
 
 
+function changeToSubtaskInputInBoard(){
+    document.getElementById('buttonAddSubtaskInBoard').classList.add('d-none');
+    document.getElementById('inputAddSubtaskInBoard').classList.remove('d-none');
+}
+
+
+function addSubtaskInBoard(){
+var input = document.getElementById('inputAddSubtaskInBoard');
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("myBtn").click();
+  }
+});
+
+let subtasklist = document.getElementById('subtasksAddTaskInBoard');
+let newsubtask = document.getElementById('inputAddSubtaskInBoard').value;
+
+subtasklist.innerHTML += /*html*/`
+    <ul>${newsubtask}</ul>
+`
+}
+
+
 function createTaskInBoard() {
     let newTitle = document.getElementById('titleAddTaskInBoard').value;
     let newDescription = document.getElementById('descriptionAddTaskInBoard').value;
@@ -125,14 +149,26 @@ function deleteTask(i) {
 
 
 function editTask(i) {
+    tasks = getItem('tasks');
+    let title = tasks[i]['titel'];
+    let description = tasks[i]['description'];
+    let dueDate = tasks[i]['dueDate'];
+    let prio = tasks[i]['prio'];
+    let assignedTo = [];
+    assignedTo.push(tasks[i]['assigned']);
+    let subtasks = [];
+    subtasks.push(tasks[i]['subtasks']);
+
     let details = document.getElementById('taskDetailsBox');
     details.classList.remove('d-none');
     details.innerHTML = '';
-    details.innerHTML = templateEditTask(i);
+    details.innerHTML = templateEditTask();
+
+    setOldValuesToEditTask(tasks, i, title, description, dueDate, prio, assignedTo, subtasks);
 }
 
 
-function templateEditTask(i) {
+function templateEditTask() {
     return /*html*/`
     <div class="widthTaskDetails"> 
         <div class="title">
@@ -175,8 +211,27 @@ function templateEditTask(i) {
             <p>Subtasks</p>
             <input type="text" name="subtasks" id="editsubtasks"
                 placeholder="Add new subtask">
+            <div id="showSubtasksInEdit"></div>
             </div>
     </div>
     `
 }
 
+
+function setOldValuesToEditTask(tasks, i, title, description, dueDate, prio, assignedTo, subtasks){
+    document.getElementById('editTitle').value = title;
+    document.getElementById('editDescription').value = description;
+    document.getElementById('editDueDate').value = dueDate;
+
+    // if else für prio button in edit
+    
+    // assignedTo Möglichkeiten von Jean einspielen, außer die, die bereits gewählt sind
+    // asignedTo anzeigen
+
+    for (let j = 0; j < tasks[i]['subtasks'].length; j++) {
+        let subtask = tasks[i]['subtasks'][j];
+        document.getElementById('showSubtasksInEdit').innerHTML += /*html*/`
+            <ul>${subtask}</ul>
+        `
+    }
+}
