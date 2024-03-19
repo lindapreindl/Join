@@ -5,6 +5,14 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F6F7F8;
+}
+
 .fullScreen {
     position: absolute;
     top: 0;
@@ -109,12 +117,13 @@ h1 {
 
 .mainLogo {
     height: 96px;
+    margin-left: 97px;
 }
 
 .headPart {
     position: fixed;
     top: 20px;
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/addTask.css">
     <link rel="stylesheet" href="./contactPage.css">
+    <link rel="stylesheet" href="./css/menu.css">
     <script src="./scripts/board.js"></script>
     <script src="./scripts/storage.js"></script>
     <script src="./scripts/templates.js"></script>
@@ -18,13 +19,34 @@
 </head>
 
 <body onload="initBoard()">
-    <div class="boardContainer w100">
-        <header>
-            <div class="mb24 headBox">
+    <div class="navigation">
+        <img class="logo" src="./img/logo_white.png">
+        <div class="menu">
+            <a class="a1" href="./summary.html"><img src="./img/summary.png" alt="">Summary</a>
+            <a class="a2" href="./addTask.html"><img src="./img/add_Task.png" alt="">Add Task</a>
+            <a class="a3" href="./board.html"><img src="./img/board.png" alt="">Board</a>
+            <a class="a4" href="./contactPage.html"><img src="./img/contac.png" alt="">Contacts</a>
+        </div>
+        <div class="termsAndConditions">
+            <a href="./consent/privacyPolicy.html">Privacy Policy</a>
+            <a href="./consent/legalNotice.html">Legal notice</a>
+        </div>
+    </div>
+
+    <div class="allContent">
+        <div class="upperBox">
+            <div class="headLine">
+                <p class="fontHeader spaceLeft">Kanban Project Management Tool</p>
+                <div class="header-right spaceRight">
+                    <a href="./consent/help.html"><img src="./img/help-icon.png"></a>
+                    <div id="activeUserCircle" class="activeUserInitials"></div>
+                </div>
+            </div>
+            <div class="headBox">
                 <h1>Board</h1>
-                <div class="d-flex">
+                <div class="d-flex mr24">
                     <div class="d-flex searchBox">
-                        <input id="searchField" placeholder="Find Task">
+                        <input class="inputSearch" id="searchField" placeholder="Find Task">
                         <div class="verticalLine"></div>
                         <img src="../img/search.png" class="icons" onmousedown="this.src='./img/searchHover.png';"
                             onmouseup="this.src='./img/search.png';" onclick="searchTasks()">
@@ -50,8 +72,9 @@
                     <h3 class="topics">Done</h3>
                 </div>
             </div>
-        </header>
-        <div class="boardTable d-flex w100">
+        </div>
+        <!--Content-Part-->
+        <div class="boardTable d-flex">
             <div class="categoryBoard" id="categoryToDo">
                 <div id="contentToDo" class="taskContentBox" ondrop="moveTaskTo('ToDo')" ondragover="allowDrop(event)">
                 </div>
@@ -70,7 +93,9 @@
             </div>
         </div>
     </div>
-
+    <!--Pop Up Task-Details-->
+    <div class="taskDetails d-none" id="taskDetailsBox"></div>
+    <!--Pop Up Add Task-->
     <div id="addTaskInBoard" class="d-none">
         <div class="background">
             <div class="addTask">
@@ -78,10 +103,8 @@
                     <h1>Add Task</h1>
                     <img onclick="closeAddTaskInBoard()" src="./img/close.png" alt="">
                 </div>
-                <form>
-
+                <form action="createTaskInBoard()">
                     <div class="form">
-
                         <div class="form-left">
                             <div class="title">
                                 <p>Title<mark>*</mark></p>
@@ -94,7 +117,7 @@
                                     placeholder="Enter a description">
                             </div>
                             <div class="assignedTo">
-                                <label for="assignedTo">Assigned to</label>
+                                <label for="assignedToAddTaskInBoard">Assigned to</label>
                                 <select id="assignedToAddTaskInBoard" name="assignedTo">
                                     <option selected disabled hidden value="selectContact">Select contacts to assign
                                     </option>
@@ -103,52 +126,68 @@
                                 </select>
                             </div>
                         </div>
+                            <div class="addTaskLine"></div>
 
-                        <div class="addTaskLine"></div>
+                            <div class="form-right">
+                                <div class="dueDate">
+                                    <label for="dueDateAddTaskInBoard">Due date<mark>*</mark></label>
+                                    <input type="date" id="dueDateAddTaskInBoard" name="dueDate" required>
 
-                        <div class="form-right">
-                            <div class="dueDate">
-                                <label for="dueDate">Due date<mark>*</mark></label>
-                                <input type="date" id="dueDateAddTaskInBoard" name="dueDate" required>
-                                <!-- Placeholder noch formatieren!!-->
-                            </div>
-                            <div class="prio">
-                                <p>Prio</p>
-                                <div class="prio-button">
-                                    <button id="button-urgent" onclick="changePrioToUrgent(event)">Urgent <img
-                                            id="img-urgent" src="./img/urgent.png" alt=""> <img id="img-urgent-white"
-                                            class="d-none" src="./img/urgent_white.png" alt=""> </button>
-                                    <button id="button-medium" class="medium" onclick="changePrioToMedium(event)">Medium <img
-                                            id="img-medium" class="d-none" src="./img/medium.png" alt=""> <img
-                                            id="img-medium-white" src="./img/medium_white.png" alt=""> </button>
-                                    <button id="button-low" onclick="changePrioToLow(event)">Low <img id="img-low"
-                                            src="./img/low.png" alt=""> <img id="img-low-white" class="d-none"
-                                            src="./img/low_white.png" alt=""> </button>
-                                    <p id="button-value" class="d-none">medium</p>
                                 </div>
-                            </div>
-                            <div class="task-category">
-                                <label for="category">Category<mark>*</mark></label>
-                                <select id="categoryAddTaskInBoard" name="category" required>
-                                    <option selected disabled hidden value="selectCategory">Select Category</option>
-                                    <option value="User Story">User Story</option>
-                                    <option value="Technical Task">Technical Task</option>
-                                </select>
-                            </div>
-                            <div class="subtasks">
-                                <p>Subtasks</p>
-                                <input type="text" name="subtasks" id="subtasksAddTaskInBoard"
-                                    placeholder="Add new subtask">
-                            </div>
-                        </div>
-                    </div>
+                                <div class="prio">
+                                    <p>Prio</p>
+                                    <div class="prio-button">
+                                        <button id="button-urgent" onclick="changePrioToUrgent()" type="button">Urgent <img
+                                                id="img-urgent" src="./img/urgent.png" alt=""> <img
+                                                id="img-urgent-white" class="d-none" src="./img/urgent_white.png"
+                                                alt=""> </button>
+                                        <button id="button-medium" class="medium" onclick="changePrioToMedium()" type="button">Medium
+                                            <img id="img-medium" class="d-none" src="./img/medium.png" alt=""> <img
+                                                id="img-medium-white" src="./img/medium_white.png" alt=""> </button>
+                                        <button id="button-low" onclick="changePrioToLow()" type="button">Low <img id="img-low"
+                                                src="./img/low.png" alt=""> <img id="img-low-white" class="d-none"
+                                                src="./img/low_white.png" alt=""> </button>
+                                    </div>
 
+                                    <!-- <div class="line"></div> -->
+
+                                    <div class="form-right">
+                                        <!-- <div class="dueDate">
+                                            <label for="dueDateAddTaskInBoard">Due date<mark>*</mark></label>
+                                            <input type="date" id="dueDateAddTaskInBoard" name="dueDate" required>
+
+                                        </div> 
+                                        <div class="prio">
+                                            <p>Prio</p>
+                                            <div class="prio-button">
+                                                <button id="button-urgent" onclick="changePrio('urgent')">Urgent <img
+                                                        src="./img/urgent.png" alt=""></button>
+                                                <button id="button-medium" onclick="changePrio('medium')">Medium <img
+                                                        src="./img/medium.png" alt=""></button>
+                                                <button id="button-low" onclick="changePrio('low')">Low <img
+                                                        src="./img/low.png" alt=""></button>
+                                            </div>
+                                        </div>-->
+                                        <div class="task-category">
+                                            <label for="categoryAddTaskInBoard">Category<mark>*</mark></label>
+                                            <select id="categoryAddTaskInBoard" name="category" required>
+                                                <option selected disabled hidden value="selectCategory">Select Category
+                                                </option>
+                                                <option value="User Story">User Story</option>
+                                                <option value="Technical Task">Technical Task</option>
+                                            </select>
+                                        </div>
+                                        <div class="subtasks">
+                                            <p>Subtasks</p>
+                                            <input type="text" name="subtasks" id="subtasksAddTaskInBoard"
+                                                placeholder="Add new subtask">
+                                        </div>
+                                    </div>
+                                </div>
                 </form>
                 <div class="bottom">
                     <p class="black"><mark>*</mark>This field is required</p>
                     <div class="bottom-button">
-
-
                         <button onclick="clearAddTaskInBoard()" class="clear">Clear <img src="./img/cancel.png"
                                 alt=""></button>
                         <button onclick="createTaskInBoard()" class="create">Create Task <img src="./img/check.png"
@@ -158,8 +197,6 @@
             </div>
         </div>
     </div>
-
-    <div class="taskDetails d-none" id="taskDetailsBox"></div>
 
 </body>
 

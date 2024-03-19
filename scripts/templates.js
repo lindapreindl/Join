@@ -55,7 +55,7 @@ function templateTaskDetails(i, categoryColor, subtasks, prio, prioWritten) {
             <div class="categoryBox" style="background-color:${categoryColor}">${tasks[i].category}</div>
             <div><img src="../img/close.png" onclick="closeTaskDetails()"></div>
         </div>
-        <h3 class="mb12">${tasks[i].titel}</h3>
+        <div class="mb12 fontTitle">${tasks[i].titel}</div>
         <p class="mb24">${tasks[i].description}</p>
         <div class="w100 d-flex mb24">
             <div class="w150px"><p class="fontDarkGrey">Due Date:</p></div>
@@ -85,7 +85,7 @@ function templateTaskDetails(i, categoryColor, subtasks, prio, prioWritten) {
 
 function templateAssignedPeople(i, j, template) {
     return `
-        <div class="d-flex align-center ml mb24">
+        <div class="d-flex align-center ml mb12">
             <div class="mr8">${template}</div>
             <p>${tasks[i].assigned[j]}</p>
         </div>`;

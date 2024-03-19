@@ -1,6 +1,6 @@
 let users = [];
 let rememberUser;
-let loginUser = [];
+let loginUser;
 let visible = false;
 
 function initStart() {
@@ -55,9 +55,19 @@ function logInUser() {
         console.log(user);
         if (document.getElementById('rememberMeCheck').value = true) {
             localStorage.setItem('rememberUser', email.value);
+            localStorage.setItem('activeUser', userLoggedIn(email.value));
         }
         window.location.href = 'summary.html?msg=Login successful';
     } else { wrongPassword() }
+}
+
+function userLoggedIn(loginEmail) {
+    let loginIndex = users.findIndex(user => user.email === loginEmail);
+    if (loginIndex >= 0) {
+        loginUser[0] = users[loginIndex].name;
+        loginUser[1] = getInitials(loginUser[0]);
+        return loginUser;
+    } else { return '' }
 }
 
 function wrongPassword() {
