@@ -224,6 +224,25 @@ label {
     gap: 8px;
 }
 
+#buttonAddSubtaskInBoard{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #D1D1D1;
+}
+
+/*
+geht nicht????
+#buttonAddSubtaskInBoard:hover{
+    box-shadow: none !important;
+}*/
+
+#buttonAddSubtaskInBoard p{
+    color: #D1D1D1;
+    font-size: 20px;
+}
+
 .subtasks input {
     width: 414px;
     height: 48px;

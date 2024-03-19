@@ -15,10 +15,6 @@ function clearAddTaskInBoard() {
     document.getElementById('assignedToAddTaskInBoard').value = 'selectContact';
     document.getElementById('dueDateAddTaskInBoard').value = '';
 
-    document.getElementById('button-low').classList.remove('low');
-    document.getElementById('button-medium').classList.remove('medium');
-    document.getElementById('button-urgent').classList.remove('urgent');
-
     changePrioToMedium();
 
     document.getElementById('categoryAddTaskInBoard').value = 'selectCategory';
@@ -26,9 +22,7 @@ function clearAddTaskInBoard() {
 }
 
 
-function changePrioToUrgent(event) {
-
-    event.stopPropagation();
+function changePrioToUrgent() {
 
     document.getElementById('img-urgent').classList.add('d-none');
     document.getElementById('img-urgent-white').classList.remove('d-none');
@@ -46,9 +40,7 @@ function changePrioToUrgent(event) {
 }
 
 
-function changePrioToMedium(event) {
-
-    event.stopPropagation();
+function changePrioToMedium() {
 
     document.getElementById('img-urgent').classList.remove('d-none');
     document.getElementById('img-urgent-white').classList.add('d-none');
@@ -66,9 +58,7 @@ function changePrioToMedium(event) {
 }
 
 
-function changePrioToLow(event) {
-
-    event.stopPropagation();
+function changePrioToLow() {
 
     document.getElementById('img-urgent').classList.remove('d-none');
     document.getElementById('img-urgent-white').classList.add('d-none');
@@ -149,6 +139,11 @@ function deleteTask(i) {
 
 
 function editTask(i) {
+    closeTaskDetails();
+    console.log('closedTaskDetails');
+
+    //??? geht nicht, warum?
+
     tasks = getItem('tasks');
     let title = tasks[i]['titel'];
     let description = tasks[i]['description'];
@@ -159,10 +154,10 @@ function editTask(i) {
     let subtasks = [];
     subtasks.push(tasks[i]['subtasks']);
 
-    let details = document.getElementById('taskDetailsBox');
-    details.classList.remove('d-none');
-    details.innerHTML = '';
-    details.innerHTML = templateEditTask();
+    let editTaskBox = document.getElementById('editTask');
+    editTaskBox.classList.remove('d-none');
+    editTaskBox.innerHTML = '';
+    editTaskBox.innerHTML = templateEditTask();
 
     setOldValuesToEditTask(tasks, i, title, description, dueDate, prio, assignedTo, subtasks);
 }
@@ -223,7 +218,9 @@ function setOldValuesToEditTask(tasks, i, title, description, dueDate, prio, ass
     document.getElementById('editDescription').value = description;
     document.getElementById('editDueDate').value = dueDate;
 
-    // if else für prio button in edit
+    if (prio == 'urgent') {
+        
+    }
     
     // assignedTo Möglichkeiten von Jean einspielen, außer die, die bereits gewählt sind
     // asignedTo anzeigen
