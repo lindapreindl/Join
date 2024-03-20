@@ -1,6 +1,6 @@
 let users = [];
 let rememberUser;
-let loginUser = ['test'];
+let loginUser = [];
 let visible = false;
 
 function initStart() {
