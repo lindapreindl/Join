@@ -264,19 +264,31 @@ a {
   height: 80vh;
 }
 /* --------------- */
+
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Halbtransparenter Hintergrund */
-  z-index: 1000; /* Stellen Sie sicher, dass das Overlay über anderen Inhalten liegt */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(226, 222, 222, 0.002);
+  z-index: 2;
+  cursor: pointer;
+
+  animation: slide-in 0.8s both;
 }
 
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
 .overlay-content2 {
   display: flex;
   width: 1212px;
@@ -301,7 +313,7 @@ a {
   border-radius: 8px 0px 0px 8px;
 }
 .addUserDaten {
-  margin-top: 14%;
+  margin-top: 4%;
   margin-left: 4%;
 }
 .editUserDaten {
@@ -336,6 +348,39 @@ input {
   padding-left: 8px;
 }
 .addPersonPic {
-  margin-top: 20%;
+  margin-top: 16%;
   margin-left: 4%;
 }
+/* ------------------------------------ img -------------------------- */
+.imgCheck {
+  margin-top: -8px;
+}
+
+.imgCancel {
+  margin-top: -4px;
+  width: 20px;
+  height: 20px;
+}
+.imgClose {
+  margin: 0px 320px 80px;
+}
+.iconPerson {
+  background: url("./img/person.png");
+  background-size: 20px;
+  background-position: 320px 10px;
+  background-repeat: no-repeat;
+}
+
+.iconMail {
+  background: url("./img/mail.png");
+  background-size: 20px;
+  background-position: 320px 10px;
+  background-repeat: no-repeat;
+}
+.iconCall {
+  background: url("./img/call.png");
+  background-size: 20px;
+  background-position: 320px 10px;
+  background-repeat: no-repeat;
+}
+/* ------------------------------------ End ---------------------------- */

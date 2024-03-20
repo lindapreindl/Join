@@ -10,13 +10,25 @@ async function initContacts() {
   await loadUsers(); // Lade Benutzerdaten
   renderUsersInfo(); // Rendere Benutzerinformationen
 }
+/* ———————————————————————————————————————————————————————————— */
+/* // Funktion zum Öffnen des Overlays
+function openOverlay() {
+  createOverlay(); // Erstelle das Overlay
+  overlay.style.display = "block"; // Zeige das Overlay an
+} */
 
 // Funktion zum Öffnen des Overlays
 function openOverlay() {
   createOverlay(); // Erstelle das Overlay
   overlay.style.display = "block"; // Zeige das Overlay an
-}
 
+  // Benutzerinformationen extrahieren
+  const firstUser = users[0]; // Hier wird das erste Element der Benutzerliste verwendet
+  if (firstUser) {
+    renderUserInfo(firstUser); // Benutzerinformationen rendern
+  }
+}
+/* -------------------------------------------------------------------- */
 // Funktion zum Erstellen des Overlays
 function createOverlay() {
   overlay = document.createElement("div");
@@ -26,13 +38,14 @@ function createOverlay() {
     <div class="overlay-content1">
     <div> <img class="editLook" src="./img/addContactPic.png" alt=""></div>
     <div class="addPersonPic"><img src="./img/addPerson.png" alt=""></div>
+   
     <div class="addUserDaten">
-      <h2>Add New User</h2>
-      <input type="text" id="newUserName" placeholder="Name" required><br><br>
-      <input type="email" id="newUserEmail" placeholder="Email" required><br><br>
-      <input type="text" id="newUserPhone" placeholder="Phone" required><br><br>
-      <button onclick="addNewUser()">Add User</button>
-      <button onclick="closeOverlay()">Cancel</button>
+      <div class="imgClose" onclick="closeOverlay()" ><img src="./img/close.png" alt=""></div>
+      <input class="iconPerson" type="text" id="newUserName" placeholder="Name" required><br><br>
+      <input class="iconMail"  type="email" id="newUserEmail" placeholder="Email" required><br><br>
+      <input class="iconCall"  type="text" id="newUserPhone" placeholder="Phone" required><br><br>
+      <button onclick="closeOverlay()">Cancel <img class="imgCancel" src="./img/cancel.png" alt=""></button>
+      <button onclick="addNewUser()">Create contact <img class="imgCheck" src="./img/check.png" alt=""></button>
       </div>
     </div>
   `;
@@ -140,7 +153,7 @@ async function renderUsersInfo() {
       listItem.insertBefore(circle, listItem.firstChild); // Vorname und Nachname in kleinen Kreisen anzeigen
 
       // Füge einen Event-Listener hinzu, der auf Klick reagiert und die Benutzerinformationen rendert
-      listItem.addEventListener("click", () => renderUserInfo(user, index));
+      listItem.addEventListener("click", () => renderUserInfo(user));
 
       // Füge das <li>-Element zur Benutzerliste hinzu
       userListElement.appendChild(listItem);
@@ -173,11 +186,13 @@ function getRandomColor() {
 }
 
 // Funktion zum Rendern der Benutzerinformationen mit Bearbeitungsfunktion
-function renderUserInfo(user, index) {
+function renderUserInfo(user) {
+  let contactName = user.name;
+  let contactIndex = users.findIndex((contact) => contact.name === contactName);
   const userInfoElement = document.getElementById("userInfo");
   // Benutzerinformationen rendern
   userInfoElement.innerHTML = /* HTML */ `
-    <div class="frame40"><img src="/img/Contacts.png" alt="" /></div>
+    <div class="frame40"><img src="./img/contacts.png" alt="" /></div>
     <div class="circle2-user">
       <div
         class="initials-circle-info"
@@ -190,7 +205,7 @@ function renderUserInfo(user, index) {
         <div>
           <img
             class="img-edit"
-            onclick="openEditOverlay(${index})"
+            onclick="openEditOverlay(${contactIndex})"
             src="./img/edit.png"
             alt=""
           />
@@ -253,18 +268,18 @@ function createEditOverlay(user, index) {
     ${getInitials(user.name)}
   </div>
     <div class="editUserDaten">
-      
-      <input type="text" id="editUserName" placeholder="Name" value="${
+   
+      <input class="iconPerson"  type="text" id="editUserName" placeholder="Name" value="${
         user.name
       }" required><br><br>
-      <input  type="email" id="editUserEmail" placeholder="E-Mail" value="${
+      <input class="iconMail"  type="email" id="editUserEmail" placeholder="E-Mail" value="${
         user.email
       }" required><br><br>
-      <input type="text" id="editUserPhone" placeholder="Telefon" value="${
+      <input class="iconCall"  type="text" id="editUserPhone" placeholder="Telefon" value="${
         user.phone
       }" required><br><br>
-      <button onclick="editUser(${index})">Benutzer aktualisieren</button>
-      <button onclick="closeOverlay()">Abbrechen</button>
+      <button onclick="closeOverlay()">Delete</button>
+      <button onclick="editUser(${index})">Save <img class="imgCheck" src="./img/check.png" alt=""></button>
       </div>
     </div>
   `;
