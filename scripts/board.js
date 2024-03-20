@@ -65,7 +65,7 @@
 //         'subtasks': ''
 //     }
 // ];
-let tasks;
+let tasks = [];
 let foundTasks = [];
 let categoryColors = ['#0038FF', '#1FD7C1']
 let draggedTask;

@@ -1,3 +1,5 @@
+let subtasks = [];
+
 
 function openAddTaskInBoard() {
     document.getElementById('addTaskInBoard').classList.remove('d-none');
@@ -77,26 +79,28 @@ function changePrioToLow() {
 
 
 function changeToSubtaskInputInBoard(){
-    document.getElementById('buttonAddSubtaskInBoard').classList.add('d-none');
-    document.getElementById('inputAddSubtaskInBoard').classList.remove('d-none');
+    document.getElementById('buttonAddSubtaskInBoard').style = 'display: none';
+    document.getElementById('inputDivAddSubtaskInBoard').classList.remove('d-none');
+}
+
+
+function cancelSubtaskInBoard(){
+    document.getElementById('inputAddSubtaskInBoard').value = '';
+    document.getElementById('buttonAddSubtaskInBoard').style = 'display: flex';
+    document.getElementById('inputDivAddSubtaskInBoard').classList.add('d-none');
 }
 
 
 function addSubtaskInBoard(){
-var input = document.getElementById('inputAddSubtaskInBoard');
-input.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    document.getElementById("myBtn").click();
-  }
-});
 
 let subtasklist = document.getElementById('subtasksAddTaskInBoard');
 let newsubtask = document.getElementById('inputAddSubtaskInBoard').value;
 
 subtasklist.innerHTML += /*html*/`
-    <ul>${newsubtask}</ul>
+    <li>${newsubtask}</li>
 `
+subtasks.push(newsubtask);
+document.getElementById('inputAddSubtaskInBoard').value = '';
 }
 
 
@@ -106,10 +110,9 @@ function createTaskInBoard() {
     let newAssignedTo = document.getElementById('assignedToAddTaskInBoard').value;
     let newDueDate = document.getElementById('dueDateAddTaskInBoard').value;
     let newCategory = document.getElementById('categoryAddTaskInBoard').value;
-    let newSubtask = document.getElementById('subtasksAddTaskInBoard').value;
     let newPrio = document.getElementById('button-value').value;
 
-    console.log(newTitle, newDescription, newAssignedTo, newDueDate, newCategory, newSubtask);
+    console.log(newTitle, newDescription, newAssignedTo, newDueDate, newCategory, subtasks);
 
     tasks.push({
         'titel': newTitle,
@@ -120,11 +123,14 @@ function createTaskInBoard() {
         'prio': newPrio,
         'category': newCategory,
         'position': 'ToDo',
-        'subtasks': [newSubtask]
+        'subtasks': [subtasks]
     });
     if (tasks[(tasks.length - 1)].subtasks[0] == '') { tasks[(tasks.length - 1)].subtasks = ''; }
 
     setItem('tasks', tasks);
+    while (subtasks.length > 0) {
+        subtasks.pop();
+      }
     closeAddTaskInBoard();
     initBoard();
 }
