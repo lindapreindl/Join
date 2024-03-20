@@ -3,6 +3,20 @@ let subtasks = [];
 
 function openAddTaskInBoard() {
     document.getElementById('addTaskInBoard').classList.remove('d-none');
+    loadUsersForAssignTo();
+}
+
+
+function loadUsersForAssignTo(){
+    loadUsers();
+    let options = document.getElementById('assignedToAddTaskInBoard');
+
+    for (let i = 0; i < users.length; i++) {
+        let username = users[i]['name'];
+        options.innerHTML += /*html*/`
+            <option>${username}</option>
+        `
+    }
 }
 
 
@@ -80,14 +94,14 @@ function changePrioToLow() {
 
 function changeToSubtaskInputInBoard(){
     document.getElementById('buttonAddSubtaskInBoard').style = 'display: none';
-    document.getElementById('inputDivAddSubtaskInBoard').classList.remove('d-none');
+    document.getElementById('inputDivAddSubtaskInBoard').style = 'display: flex';
 }
 
 
 function cancelSubtaskInBoard(){
     document.getElementById('inputAddSubtaskInBoard').value = '';
     document.getElementById('buttonAddSubtaskInBoard').style = 'display: flex';
-    document.getElementById('inputDivAddSubtaskInBoard').classList.add('d-none');
+    document.getElementById('inputDivAddSubtaskInBoard').style = 'display: none';
 }
 
 
