@@ -3,13 +3,26 @@ let subtasks = [];
 
 function openAddTaskInBoard() {
     document.getElementById('addTaskInBoard').classList.remove('d-none');
-    loadUsersForAssignTo();
+    loadUsersForAssignToInBoard();
+}
+
+
+function loadUsersForAssignToInBoard(){
+    loadUsers();
+    let options = document.getElementById('assignedToAddTaskInBoard');
+
+    for (let i = 0; i < users.length; i++) {
+        let username = users[i]['name'];
+        options.innerHTML += /*html*/`
+            <option>${username}</option>
+        `
+    }
 }
 
 
 function loadUsersForAssignTo(){
     loadUsers();
-    let options = document.getElementById('assignedToAddTaskInBoard');
+    let options = document.getElementById('assignedToAddTask');
 
     for (let i = 0; i < users.length; i++) {
         let username = users[i]['name'];
@@ -34,7 +47,24 @@ function clearAddTaskInBoard() {
     changePrioToMedium();
 
     document.getElementById('categoryAddTaskInBoard').value = 'selectCategory';
-    document.getElementById('subtasksAddTaskInBoard').value = '';
+    document.getElementById('subtasksAddTaskInBoard').innerHTML = '';
+
+    cancelSubtaskInBoard();
+}
+
+
+function clearAddTaskI() {
+    document.getElementById('titleAddTask').value = '';
+    document.getElementById('descriptionAddTask').value = '';
+    document.getElementById('assignedToAddTask').value = 'selectContact';
+    document.getElementById('dueDateAddTask').value = '';
+
+    changePrioToMediumAT();
+
+    document.getElementById('categoryAddTask').value = 'selectCategory';
+    document.getElementById('subtasksAddTask').innerHTML = '';
+
+    cancelSubtask();
 }
 
 
@@ -52,6 +82,24 @@ function changePrioToUrgent() {
     document.getElementById('button-urgent').classList.add('urgent');
 
     let urgent = document.getElementById('button-value').innerHTML = 'urgent';
+    console.log(urgent);
+}
+
+
+function changePrioToUrgentAT() {
+
+    document.getElementById('img-urgentAT').classList.add('d-none');
+    document.getElementById('img-urgent-whiteAT').classList.remove('d-none');
+    document.getElementById('img-mediumAT').classList.remove('d-none');
+    document.getElementById('img-medium-whiteAT').classList.add('d-none');
+    document.getElementById('img-lowAT').classList.remove('d-none');
+    document.getElementById('img-low-whiteAT').classList.add('d-none');
+
+    document.getElementById('button-lowAT').classList.remove('low');
+    document.getElementById('button-mediumAT').classList.remove('medium');
+    document.getElementById('button-urgentAT').classList.add('urgent');
+
+    let urgent = document.getElementById('button-valueAT').innerHTML = 'urgent';
     console.log(urgent);
 }
 
@@ -74,6 +122,24 @@ function changePrioToMedium() {
 }
 
 
+function changePrioToMediumAT() {
+
+    document.getElementById('img-urgentAT').classList.remove('d-none');
+    document.getElementById('img-urgent-whiteAT').classList.add('d-none');
+    document.getElementById('img-mediumAT').classList.add('d-none');
+    document.getElementById('img-medium-whiteAT').classList.remove('d-none');
+    document.getElementById('img-lowAT').classList.remove('d-none');
+    document.getElementById('img-low-whiteAT').classList.add('d-none');
+
+    document.getElementById('button-lowAT').classList.remove('low');
+    document.getElementById('button-mediumAT').classList.add('medium');
+    document.getElementById('button-urgentAT').classList.remove('urgent');
+
+    let medium = document.getElementById('button-valueAT').innerHTML = 'medium';
+    console.log(medium);
+}
+
+
 function changePrioToLow() {
 
     document.getElementById('img-urgent').classList.remove('d-none');
@@ -92,9 +158,33 @@ function changePrioToLow() {
 }
 
 
+function changePrioToLowAT() {
+
+    document.getElementById('img-urgentAT').classList.remove('d-none');
+    document.getElementById('img-urgent-whiteAT').classList.add('d-none');
+    document.getElementById('img-mediumAT').classList.remove('d-none');
+    document.getElementById('img-medium-whiteAT').classList.add('d-none');
+    document.getElementById('img-lowAT').classList.add('d-none');
+    document.getElementById('img-low-whiteAT').classList.remove('d-none');
+
+    document.getElementById('button-lowAT').classList.add('low');
+    document.getElementById('button-mediumAT').classList.remove('medium');
+    document.getElementById('button-urgentAT').classList.remove('urgent');
+
+    let low = document.getElementById('button-valueAT').innerHTML = 'low';
+    console.log(low);
+}
+
+
 function changeToSubtaskInputInBoard(){
     document.getElementById('buttonAddSubtaskInBoard').style = 'display: none';
     document.getElementById('inputDivAddSubtaskInBoard').style = 'display: flex';
+}
+
+
+function changeToSubtaskInput(){
+    document.getElementById('buttonAddSubtask').style = 'display: none';
+    document.getElementById('inputDivAddSubtask').style = 'display: flex';
 }
 
 
@@ -102,6 +192,13 @@ function cancelSubtaskInBoard(){
     document.getElementById('inputAddSubtaskInBoard').value = '';
     document.getElementById('buttonAddSubtaskInBoard').style = 'display: flex';
     document.getElementById('inputDivAddSubtaskInBoard').style = 'display: none';
+}
+
+
+function cancelSubtask(){
+    document.getElementById('inputAddSubtask').value = '';
+    document.getElementById('buttonAddSubtask').style = 'display: flex';
+    document.getElementById('inputDivAddSubtask').style = 'display: none';
 }
 
 
@@ -116,6 +213,19 @@ subtasklist.innerHTML += /*html*/`
 subtasks.push(newsubtask);
 document.getElementById('inputAddSubtaskInBoard').value = '';
 }
+
+
+function addSubtask(){
+
+    let subtasklist = document.getElementById('subtasksAddTask');
+    let newsubtask = document.getElementById('inputAddSubtask').value;
+    
+    subtasklist.innerHTML += /*html*/`
+        <li>${newsubtask}</li>
+    `
+    subtasks.push(newsubtask);
+    document.getElementById('inputAddSubtask').value = '';
+    }
 
 
 function createTaskInBoard() {
@@ -147,6 +257,38 @@ function createTaskInBoard() {
       }
     closeAddTaskInBoard();
     initBoard();
+}
+
+
+function createTask() {
+    let newTitle = document.getElementById('titleAddTask').value;
+    let newDescription = document.getElementById('descriptionAddTask').value;
+    let newAssignedTo = document.getElementById('assignedToAddTask').value;
+    let newDueDate = document.getElementById('dueDateAddTask').value;
+    let newCategory = document.getElementById('categoryAddTask').value;
+    let newPrio = document.getElementById('button-valueAT').value;
+
+    console.log(newTitle, newDescription, newAssignedTo, newDueDate, newCategory, subtasks);
+
+    tasks.push({
+        'titel': newTitle,
+        'description': newDescription,
+        'assigned': [newAssignedTo],
+        'dueDate': newDueDate,
+        'position': 'ToDo',
+        'prio': newPrio,
+        'category': newCategory,
+        'position': 'ToDo',
+        'subtasks': [subtasks]
+    });
+    if (tasks[(tasks.length - 1)].subtasks[0] == '') { tasks[(tasks.length - 1)].subtasks = ''; }
+
+    setItem('tasks', tasks);
+    while (subtasks.length > 0) {
+        subtasks.pop();
+      }
+    
+      console.log('task created successfully', tasks)
 }
 
 

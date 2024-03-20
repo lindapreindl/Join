@@ -6,70 +6,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join | Add Task</title>
     <link rel="stylesheet" href="./css/addTask.css">
+    <script src="./scripts/addTask.js"></script>
+    <script src="./scripts/board.js"></script>
+    <script src="./scripts/contactPage.js"></script>
+    <script src="./scripts/login.js"></script>
+    <script src="./scripts/storage.js"></script>
+    <script src="./scripts/templates.js"></script>
 </head>
 
-<body>
+<body onload="loadUsersForAssignTo()">
 
-    <h1>Add Task</h1>
+<h1 class="h1">Add Task</h1>
 
-    <div class="form">
+    <div class="bigAddTask">
+        <div class="form">
+            <div class="form-left">
+                <div class="title">
+                    <p>Title<mark>*</mark></p>
+                    <input type="text" name="title" id="titleAddTask" placeholder="Enter a title" required>
+                </div>
+                <div class="description">
+                    <p>Description</p>
+                    <input type="text" name="description" id="descriptionAddTask"
+                        placeholder="Enter a description">
+                </div>
+                <div class="assignedTo">
+                    <label for="assignedTo">Assigned to</label>
+                    <select id="assignedToAddTask" name="assignedTo">
+                        <option selected disabled hidden value="selectContact">Select contacts to assign
+                        </option>
 
-        <div class="form-left">
-            <div class="title">
-                <p>Title<mark>*</mark></p>
-                <input type="text" name="title" id="titleAddTask" placeholder="Enter a title" required>
-            </div>
-            <div class="description">
-                <p>Description</p>
-                <input type="text" name="description" id="descriptionAddTask" placeholder="Enter a description">
-            </div>
-            <div class="assignedTo">
-                <label for="assignedTo">Assigned to</label>
-                <select id="assignedToAddTask" name="assignedTo">
-                    <option value="person1">Select contacts to assign</option>
-                    <option value="person2">Person2</option>
-                    <option value="person3">Person3</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="line"></div>
-
-        <div class="form-right">
-            <div class="dueDate">
-                <label for="dueDate">Due date<mark>*</mark></label>
-                <input type="date" id="dueDateAddTask" name="dueDate">
-                <!-- Placeholder noch formatieren!!-->
-            </div>
-            <div class="prio">
-                <p>Prio</p>
-                <div class="prio-button">
-                    <button>Urgent <img src="./img/urgent.png" alt=""></button>
-                    <button>Medium <img src="./img/medium.png" alt=""></button>
-                    <button>Low <img src="./img/low.png" alt=""></button>
+                    </select>
                 </div>
             </div>
-            <div class="task-category">
-                <label for="category">Category<mark>*</mark></label>
-                <select id="categoryAddTask" name="category">
-                    <option value="category1">User Story</option>
-                    <option value="category2">Technical Task</option>
-                </select>
+
+            <div class="addTaskLine"></div>
+
+            <div class="form-right">
+                <div class="dueDate">
+                    <label for="dueDate">Due date<mark>*</mark></label>
+                    <input type="date" id="dueDateAddTask" name="dueDate" required>
+                    <!-- Placeholder noch formatieren!!-->
+                </div>
+                <div class="prio">
+                    <p>Prio</p>
+                    <div class="prio-button">
+                        <button id="button-urgentAT" onclick="changePrioToUrgentAT()">Urgent <img id="img-urgentAT"
+                                src="./img/urgent.png" alt=""> <img id="img-urgent-whiteAT" class="d-none"
+                                src="./img/urgent_white.png" alt=""> </button>
+                        <button id="button-mediumAT" class="medium" onclick="changePrioToMediumAT()">Medium
+                            <img id="img-mediumAT" class="d-none" src="./img/medium.png" alt=""> <img
+                                id="img-medium-whiteAT" src="./img/medium_white.png" alt=""> </button>
+                        <button id="button-lowAT" onclick="changePrioToLowAT()">Low <img id="img-lowAT"
+                                src="./img/low.png" alt=""> <img id="img-low-whiteAT" class="d-none"
+                                src="./img/low_white.png" alt=""> </button>
+                        <p id="button-valueAT" class="d-none">medium</p>
+                    </div>
+                </div>
+                <div class="task-category">
+                    <label for="category">Category<mark>*</mark></label>
+                    <select id="categoryAddTask" name="category" required>
+                        <option selected disabled hidden value="selectCategory">Select Category</option>
+                        <option value="User Story">User Story</option>
+                        <option value="Technical Task">Technical Task</option>
+                    </select>
+                </div>
+                <div class="subtasks">
+                    <p>Subtasks</p>
+                    <button id="buttonAddSubtask" onclick="changeToSubtaskInput()">
+                        <p>Add new subtask</p><img src="./img/add.png" alt="">
+                    </button>
+                    <div style="display: none;" id="inputDivAddSubtask">
+                        <input id="inputAddSubtask" type="text">
+                        <img onclick="cancelSubtask()" src="./img/cancel.png" alt="">
+                        <p>|</p>
+                        <img onclick="addSubtask()" src="./img/check_dark.png" alt="">
+                    </div>
+                    <!--d-none geht nicht????-->
+                    <ul id="subtasksAddTask"></ul>
+                </div>
             </div>
-            <div class="subtasks">
-                <p>Subtasks</p>
-                <input type="text" name="subtasks" id="subtasksAddTask" placeholder="Add new subtask">
+        </div>
+
+
+        <div class="bottom">
+            <p class="black"><mark>*</mark>This field is required</p>
+            <div class="bottom-button">
+                <button onclick="clearAddTask()" class="clear">Clear <img src="./img/cancel.png" alt=""></button>
+                <button onclick="createTask()" class="create">Create Task <img src="./img/check.png"
+                        alt=""></button>
             </div>
         </div>
     </div>
 
-    <div class="bottom">
-        <p class="black"><mark>*</mark>This field is required</p>
-        <div class="bottom-button">
-            <button class="clear">Clear <img src="./img/cancel.png" alt=""></button>
-            <button class="create">Create Task <img src="./img/check.png" alt=""></button>
-        </div>
-    </div>
 
 </body>
 
