@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/board.css">
     <script src="./scripts/login.js"></script>
     <script src="./scripts/storage.js"></script>
+    <script src="./scripts/contactPage.js"></script>
     <title>Join | Log in</title>
 </head>
 
@@ -27,11 +28,11 @@
             <div class="line"></div>
             <form class="column" onsubmit="logInUser(); return false;">
                 <div class="inputBox mb24 borderGrey">
-                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input class="inputField" type="email" id="loginEmail" placeholder="Email" required>
                     <img src="./img/mail.png">
                 </div>
                 <div class="inputBox mb24 borderGrey">
-                    <input type="password" id="loginPassword" placeholder="Password" required onclick="changePasswortIcon('unvisible', 'lockImg1', 'loginPassword')" onblur="changePasswortIcon('lock', 'lockImg1', 'loginPassword')">
+                    <input class="inputField" type="password" id="loginPassword" placeholder="Password" required onclick="changePasswortIcon('unvisible', 'lockImg1', 'loginPassword')" onblur="changePasswortIcon('lock', 'lockImg1', 'loginPassword')">
                     <img id="lockImg1" src="./img/lock.png" onclick="changePasswortIcon('visibility', 'lockImg1', 'loginPassword')">
                 </div>
                 <p class="alertNotification d-none" id="wrongPassword">Wrong password. Ups! Try again.</p>
@@ -41,7 +42,7 @@
                 </div>
                 <div class="loginButtons marginBottom32 marginTop16">
                     <button id="logInButton">Log in</button>
-                    <a href="./summary.html"><button type="button" class="whiteButton">Guest Log in</button></a>
+                    <a href="./summary.html"><button type="button" class="whiteButton" onclick="guestLogin()">Guest Log in</button></a>
                 </div>
             </form>
         </div>

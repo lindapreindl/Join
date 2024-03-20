@@ -1,6 +1,6 @@
 let users = [];
 let rememberUser;
-let loginUser;
+let loginUser = ['test'];
 let visible = false;
 
 function initStart() {
@@ -53,21 +53,28 @@ function logInUser() {
     let user = users.find(u => u.email == email.value && u.password == password.value);
     if (user) {
         console.log(user);
-        if (document.getElementById('rememberMeCheck').value = true) {
+        if (document.getElementById('rememberMeCheck').value == true) {
             localStorage.setItem('rememberUser', email.value);
             localStorage.setItem('activeUser', userLoggedIn(email.value));
         }
+        userLoggedIn(user.email);
         window.location.href = 'summary.html?msg=Login successful';
     } else { wrongPassword() }
 }
 
-function userLoggedIn(loginEmail) {
+async function userLoggedIn(loginEmail) {
     let loginIndex = users.findIndex(user => user.email === loginEmail);
     if (loginIndex >= 0) {
         loginUser[0] = users[loginIndex].name;
         loginUser[1] = getInitials(loginUser[0]);
-        return loginUser;
+        await setItem('loginUser', JSON.stringify(loginUser));
     } else { return '' }
+}
+
+async function guestLogin() {
+    loginUser[0] = '';
+    loginUser[1] = 'G';
+    await setItem('loginUser', JSON.stringify(loginUser));
 }
 
 function wrongPassword() {

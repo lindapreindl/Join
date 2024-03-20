@@ -24,19 +24,19 @@
             <div class="line"></div>
             <form class="column" onsubmit="signUpUser(); return false;">
                 <div class="inputBox mb24 borderGrey">
-                    <input type="text" id="signupName" placeholder="Name" required>
+                    <input class="inputField" type="text" id="signupName" placeholder="Name" required>
                     <img src="./img/person.png">
                 </div>
                 <div class="inputBox mb24 borderGrey">
-                    <input type="email" id="signupEmail" placeholder="Email" required>
+                    <input class="inputField" type="email" id="signupEmail" placeholder="Email" required>
                     <img src="./img/mail.png">
                 </div>
                 <div class="inputBox mb24 borderGrey">
-                    <input type="password" id="signupPassword" placeholder="Password" required onclick="changePasswortIcon('unvisible', 'lockImg2', 'signupPassword')" onblur="changePasswortIcon('lock', 'lockImg2', 'signupPassword')">
+                    <input class="inputField" type="password" id="signupPassword" placeholder="Password" required onclick="changePasswortIcon('unvisible', 'lockImg2', 'signupPassword')" onblur="changePasswortIcon('lock', 'lockImg2', 'signupPassword')">
                     <img id="lockImg2" src="./img/lock.png" onclick="changePasswortIcon('visibility', 'lockImg2', 'signupPassword')">
                 </div>
                 <div class="inputBox mb24 borderGrey">
-                    <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required onclick="changePasswortIcon('unvisible', 'lockImg3', 'signupConfirmPassword')" onblur="changePasswortIcon('lock', 'lockImg3', 'signupConfirmPassword')">
+                    <input class="inputField" type="password" id="signupConfirmPassword" placeholder="Confirm Password" required onclick="changePasswortIcon('unvisible', 'lockImg3', 'signupConfirmPassword')" onblur="changePasswortIcon('lock', 'lockImg3', 'signupConfirmPassword')">
                     <img id="lockImg3" src="./img/lock.png" onclick="changePasswortIcon('visibility', 'lockImg3', 'signupConfirmPassword')">
                 </div>
                 <p class="alertNotification d-none" id="passwordNoMatch">Ups! Your password does not match</p>

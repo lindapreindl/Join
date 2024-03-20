@@ -88,6 +88,11 @@ p {
     margin-right: 16px;
 }
 
+.boardTitle {
+    font-size: 64px;
+    margin-left: 64px;
+}
+
 .justify-between {
     justify-content: space-between;
 }

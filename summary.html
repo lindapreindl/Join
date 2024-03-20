@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join | Summary</title>
+    <link rel="stylesheet" href="./css/consent.css">
+    <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/addTask.css">
+    <link rel="stylesheet" href="./contactPage.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <script src="./scripts/board.js"></script>
+    <script src="./scripts/storage.js"></script>
+    <script src="./scripts/templates.js"></script>
+    <script src="./scripts/addTask.js"></script>
+    <script src="./scripts/contactPage.js"></script>
+    <script src="./scripts/login.js"></script>
+    <script src="./scripts/summary.js"></script>
+</head>
+
+<body onload="initSummary()">
+
+    <div class="navigation">
+        <img class="logo" src="./img/logo_white.png">
+        <div class="menu">
+            <a class="a1" href="./summary.html"><img src="./img/summary.png" alt="">Summary</a>
+            <a class="a2" href="./addTask.html"><img src="./img/add_Task.png" alt="">Add Task</a>
+            <a class="a3" href="./board.html"><img src="./img/board.png" alt="">Board</a>
+            <a class="a4" href="./contactPage.html"><img src="./img/contac.png" alt="">Contacts</a>
+        </div>
+        <div class="termsAndConditions">
+            <a href="./consent/privacyPolicy.html">Privacy Policy</a>
+            <a href="./consent/legalNotice.html">Legal notice</a>
+        </div>
+    </div>
+
+    <div class="allContent">
+        <div class="upperBox">
+            <div class="headLine">
+                <p class="fontHeader spaceLeft">Kanban Project Management Tool</p>
+                <div class="header-right spaceRight">
+                    <a href="./consent/help.html"><img src="../img/help-icon.png"></a>
+                    <div id="activeUserSummary" class="activeUserInitials"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="helpBorder">
+
+            <div class="headlineSummary">
+                <h1>Join 360</h1>
+                <div class="blueLine"></div>
+                <h3 style="font-weight: 100;">Key Metrics at a Glance</h3>
+            </div>
+            <div class="summaryOuterFrame">
+                <div class="summaryLeftFrame">
+                    <div class="summaryFrameTop">
+                        <div class="summaryBoxTop summaryToDo">
+                            <div class="horizontal">
+                                <img src="./img/summaryToDo.png" class="summaryIcon">
+                                <div class="vertical">
+                                    <h1 id="amountToDo"></h1>
+                                    <p>To-do</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="summaryBoxTop summaryDone">
+                            <div class="horizontal">
+                                <img src="./img/summaryDone.png" class="summaryIcon">
+                                <div class="vertical">
+                                    <h1 id="amountDone"></h1>
+                                    <p>Done</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summaryFrameCenter">
+                        <div class="summaryBoxCenter">
+                            <div class="horizontal">
+                                <img src="./img/summaryUrgent.png" class="summaryIcon">
+                                <div class="vertical">
+                                    <h1 id="amountUrgent"></h1>
+                                    <p>Urgent</p>
+                                </div>
+                                <div class="greyLine"></div>
+                                <div class="vertical">
+                                    <p class="mb12"><b>March 28, 2022</b></p>
+                                    <p>Upcoming Deadline</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summaryFrameBottom">
+                        <div class="summaryBoxBottom">
+                            <div class="vertical">
+                                <h1 id="amountTasks"></h1>
+                                <p>Tasks in Board</p>
+                            </div>
+                        </div>
+                        <div class="summaryBoxBottom">
+                            <div class="vertical">
+                                <h1 id="amountProgress"></h1>
+                                <p>Tasks In Progress</p>
+                            </div>
+                        </div>
+                        <div class="summaryBoxBottom">
+                            <div class="vertical">
+                                <h1 id="amountFeedback"></h1>
+                                <p>Awaiting Feedback</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summaryRightFrame">
+                    <p class="goodMorning" id="goodMorning">Good morning,</p>
+                    <p class="userName" id="userNameSummary"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

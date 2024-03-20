@@ -32,6 +32,11 @@ mark{
     align-items: center;
 }
 
+.headlinePrivatePolicy {
+    display: flex;
+    flex-direction: column;
+}
+
 .headline-consent img{
     cursor: pointer;
     height: 37px;
