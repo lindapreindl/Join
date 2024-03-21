@@ -465,3 +465,38 @@ button img {
 .summaryDone:hover img {
     content: url('../img/summaryDoneWhite.png');
 }
+
+.link a:visited {
+    color: #000000;
+}
+
+.userMenuBox {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 158px;
+    background-color: #2A3647;
+    padding: 10px;
+    border-radius: 20px 0px 20px 20px;
+    position: fixed;
+    z-index: 95;
+    box-shadow: 0px 0px 4px 0px #0000001A;
+    top: 105px;
+    right: 5px;
+}
+
+.userMenuOption {
+    display: flex;
+    align-items: center;
+    width: 120px;
+    height: 36px;
+    border-radius: 8px;
+    padding: 8px 16px 8px 16px;
+    gap: 8px;
+    color: white;
+}
+
+.userMenuOption:hover {
+    background-color: #37475e;
+    cursor: pointer;
+}

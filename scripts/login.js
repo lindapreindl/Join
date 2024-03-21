@@ -2,6 +2,7 @@ let users = [];
 let rememberUser;
 let loginUser = [];
 let visible = false;
+let showBox = false;
 
 function initStart() {
     let animatedLogo = document.getElementById('startLogo');
@@ -112,4 +113,16 @@ function changePasswortIcon(value, location, inputID) {
         symbol.src = './img/lock.png';
         document.getElementById(inputID).type = 'password';
     };
+}
+
+function userMenu() {
+    showBox = !showBox;
+    let box = document.getElementById('userMenuBox');
+    if (showBox) { box.classList.remove('d-none'); }
+    else { box.classList.add('d-none'); }
+}
+
+async function logout() {
+    loginUser = [];
+    await setItem('loginUser', JSON.stringify(loginUser));
 }

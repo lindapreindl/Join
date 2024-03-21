@@ -42,7 +42,7 @@
                 <p class="fontHeader spaceLeft">Kanban Project Management Tool</p>
                 <div class="header-right spaceRight">
                     <a href="./consent/help.html"><img src="../img/help-icon.png"></a>
-                    <div id="activeUserSummary" class="activeUserInitials"></div>
+                    <div id="activeUserSummary" class="activeUserInitials"  onclick="userMenu()"></div>
                 </div>
             </div>
         </div>
@@ -54,10 +54,10 @@
                 <div class="blueLine"></div>
                 <h3 style="font-weight: 100;">Key Metrics at a Glance</h3>
             </div>
-            <div class="summaryOuterFrame">
+            <div class="summaryOuterFrame link">
                 <div class="summaryLeftFrame">
                     <div class="summaryFrameTop">
-                        <div class="summaryBoxTop summaryToDo">
+                        <a href="./board.html"><div class="summaryBoxTop summaryToDo">
                             <div class="horizontal">
                                 <img src="./img/summaryToDo.png" class="summaryIcon">
                                 <div class="vertical">
@@ -65,8 +65,8 @@
                                     <p>To-do</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="summaryBoxTop summaryDone">
+                        </div></a> 
+                        <a href="./board.html"><div class="summaryBoxTop summaryDone">
                             <div class="horizontal">
                                 <img src="./img/summaryDone.png" class="summaryIcon">
                                 <div class="vertical">
@@ -74,10 +74,10 @@
                                     <p>Done</p>
                                 </div>
                             </div>
-                        </div>
+                        </div></a>
                     </div>
                     <div class="summaryFrameCenter">
-                        <div class="summaryBoxCenter">
+                        <a href="./board.html"><div class="summaryBoxCenter">
                             <div class="horizontal">
                                 <img src="./img/summaryUrgent.png" class="summaryIcon">
                                 <div class="vertical">
@@ -90,27 +90,27 @@
                                     <p>Upcoming Deadline</p>
                                 </div>
                             </div>
-                        </div>
+                        </div></a>
                     </div>
                     <div class="summaryFrameBottom">
-                        <div class="summaryBoxBottom">
+                        <a href="./board.html"><div class="summaryBoxBottom">
                             <div class="vertical">
                                 <h1 id="amountTasks"></h1>
                                 <p>Tasks in Board</p>
                             </div>
-                        </div>
-                        <div class="summaryBoxBottom">
+                        </div></a>
+                        <a href="./board.html"><div class="summaryBoxBottom">
                             <div class="vertical">
                                 <h1 id="amountProgress"></h1>
                                 <p>Tasks In Progress</p>
                             </div>
-                        </div>
-                        <div class="summaryBoxBottom">
+                        </div></a>
+                        <a href="./board.html"><div class="summaryBoxBottom">
                             <div class="vertical">
                                 <h1 id="amountFeedback"></h1>
                                 <p>Awaiting Feedback</p>
                             </div>
-                        </div>
+                        </div></a>
                     </div>
                 </div>
                 <div class="summaryRightFrame">
@@ -119,6 +119,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="userMenuBox d-none" id="userMenuBox">
+        <a href="./consent/privacyPolicy.html"><div class="userMenuOption" onclick="userMenu()">Pricacy Policy</div></a>
+        <a href="./consent/legalNotice.html"><div class="userMenuOption" onclick="userMenu()">Legal Notice</div></a>
+        <a href="./login.html"><div class="userMenuOption" onclick="userMenu(), logout()">Logout</div></a>
     </div>
 </body>
 

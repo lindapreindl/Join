@@ -33,9 +33,9 @@ function checkAmountFromJSON(category, value) {
         }
         if (category == 2) {
             if (tasks[i].prio == value) { result++; }
-        }
-        return result;
+        }       
     }
+    return result;
 }
 
     async function loadLoginUser() {
