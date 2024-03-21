@@ -178,6 +178,24 @@ nav {
         right: 0;
         position: fixed;
     }
+
+    .navigation {
+        height: 80px;
+        width: 100vw;
+        position: absolute;
+        bottom: 0;
+        background-color: #2a3647;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        padding: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: fixed;
+    }
     
     .logo {
         width: 100px;
