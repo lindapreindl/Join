@@ -8,7 +8,8 @@ let overlay;
 // Funktion zum Initialisieren der Anwendung; lädt Benutzerdaten und rendert die Benutzerinformationen
 async function initContacts() {
   await loadUsers(); // Lade Benutzerdaten
-  renderUsersInfo(); // Rendere Benutzerinformationen
+  /* 1 */
+  renderUsersList(); // Rendere Benutzerinformationen
 }
 /* ———————————————————————————————————————————————————————————— */
 /* // Funktion zum Öffnen des Overlays
@@ -77,7 +78,8 @@ async function addNewUser() {
     await saveUsers();
 
     // Die Benutzerinformationen erneut rendern
-    renderUsersInfo();
+    /* 2 */
+    renderUsersList();
 
     // Die Werte der Eingabefelder zurücksetzen
     document.getElementById("newUserName").value = "";
@@ -99,7 +101,8 @@ async function deleteUser(name) {
     users.splice(index, 1);
   }
   await saveUsers(); // Benutzerdaten speichern
-  renderUsersInfo(); //Funktion zum Rendern der Benutzerliste
+  /* 3 */
+  renderUsersList(); //Funktion zum Rendern der Benutzerliste
 }
 
 // Funktion zum Löschen der Benutzerinfo im userInfo-Element
@@ -109,7 +112,7 @@ function clearUserInfo() {
 }
 
 // Funktion zum Rendern der Benutzerliste
-async function renderUsersInfo() {
+async function renderUsersList() {
   const userListElement = document.getElementById("userList");
   userListElement.innerHTML = ""; // Vorherigen Inhalt löschen
   // Benutzerliste alphabetisch sortieren
@@ -126,9 +129,7 @@ async function renderUsersInfo() {
   // Farben für jeden Benutzer generieren und speichern+++
   Object.keys(groupedUsers).forEach((letter) => {
     groupedUsers[letter].forEach((user) => {
-      if (!userColors[user.name]) {
-        userColors[user.name] = getRandomColor();
-      }
+      userColors[user.name] = getColorForUser(user.name);
     });
   });
   // Für jeden Anfangsbuchstaben eine Überschrift und die Benutzerliste anzeigen
@@ -165,6 +166,22 @@ async function renderUsersInfo() {
   }
 }
 
+// Funktion zum Generieren einer Farbe basierend auf dem Benutzernamen
+function getColorForUser(username) {
+  // Berechne einen numerischen Hash-Wert aus dem Benutzernamen
+  let hash = 0;
+  for (let i = 0; i < username.length; i++) {
+    hash = username.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  // Konvertiere den Hash-Wert in eine hexadezimale Farbe
+  let color = "#";
+  for (let i = 0; i < 3; i++) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += ("00" + value.toString(16)).substr(-2);
+  }
+  return color;
+}
+
 // Funktion zum Erstellen eines Kreises für die Initialen mit angegebener Farbe
 function createInitialsCircle(initials, color) {
   const circle = document.createElement("div");
@@ -174,13 +191,19 @@ function createInitialsCircle(initials, color) {
   circle.style.color = "white"; // Schriftfarbe auf Weiß setzen
   return circle;
 }
-
-// Funktion zum Generieren einer zufälligen Farbe
-function getRandomColor() {
-  const letters = "0123456789ABCDEF";
+/* 1 */
+// Funktion zum Generieren einer Farbe basierend auf dem Benutzernamen
+function getColorForUser(username) {
+  // Berechne einen numerischen Hash-Wert aus dem Benutzernamen
+  let hash = 0;
+  for (let i = 0; i < username.length; i++) {
+    hash = username.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  // Konvertiere den Hash-Wert in eine hexadezimale Farbe
   let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
+  for (let i = 0; i < 3; i++) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += ("00" + value.toString(16)).substr(-2);
   }
   return color;
 }
@@ -193,47 +216,49 @@ function renderUserInfo(user) {
   // Benutzerinformationen rendern
   userInfoElement.innerHTML = /* HTML */ `
     <div class="frame40"><img src="./img/contacts.png" alt="" /></div>
-    <div class="circle2-user">
-      <div
-        class="initials-circle-info"
-        style="background-color: ${userColors[user.name]}; color: white;"
-      >
-        ${getInitials(user.name)}
-      </div>
-      <div class="user-name-info">
-        <p>${user.name}</p>
-        <div>
-          <img
-            class="img-edit"
-            onclick="openEditOverlay(${contactIndex})"
-            src="./img/edit.png"
-            alt=""
-          />
-          <img
-            class="img-delete"
-            onclick="deleteUser('${user.name}'), clearUserInfo()"
-            src="./img/Delete contact.png"
-            alt=""
-          />
+    <div class="userInfo-div">
+      <div class="circle2-user">
+        <div
+          class="initials-circle-info"
+          style="background-color: ${userColors[user.name]}; color: white;"
+        >
+          ${getInitials(user.name)}
+        </div>
+        <div class="user-name-info">
+          <p>${user.name}</p>
+          <div>
+            <img
+              class="img-edit"
+              onclick="openEditOverlay(${contactIndex})"
+              src="./img/edit.png"
+              alt=""
+            />
+            <img
+              class="img-delete"
+              onclick="deleteUser('${user.name}'), clearUserInfo()"
+              src="./img/Delete contact.png"
+              alt=""
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <!--  -->
-    <div>
-      <h2>Contact Information</h2>
-      <div class="user-mail-info">
-        <h5>Email</h5>
-        <a href="#">${user.email}</a>
-      </div>
+      <!--  -->
       <div>
-        <h5>Phone</h5>
-        <span>${user.phone}</span>
+        <h2>Contact Information</h2>
+        <div class="user-mail-info">
+          <h5>Email</h5>
+          <a href="#">${user.email}</a>
+        </div>
+        <div>
+          <h5>Phone</h5>
+          <span>${user.phone}</span>
+        </div>
       </div>
-    </div>
-    <!--  -->
+      <!--  -->
 
-    <!-- Löschen-Button hinzufügen -->
-    <hr />
+      <!-- Löschen-Button hinzufügen -->
+      <hr />
+    </div>
   `;
 }
 // Funktion zum Öffnen des Overlays für die Bearbeitung eines Benutzers
@@ -261,14 +286,16 @@ function createEditOverlay(user, index) {
   overlay.innerHTML = `
     <div class="overlay-content2">
     <div> <img class="editLook" src="./img/editLook.png" alt=""></div>
+    <div> 
     <div
     class="initials-circle-info initialsEdit"
     style="background-color: ${userColors[user.name]}; color: white;"
   >
     ${getInitials(user.name)}
   </div>
+  </div> 
     <div class="editUserDaten">
-   
+    <div class="imgClose" onclick="closeOverlay()" ><img src="./img/close.png" alt=""></div>
       <input class="iconPerson"  type="text" id="editUserName" placeholder="Name" value="${
         user.name
       }" required><br><br>
@@ -278,8 +305,12 @@ function createEditOverlay(user, index) {
       <input class="iconCall"  type="text" id="editUserPhone" placeholder="Telefon" value="${
         user.phone
       }" required><br><br>
-      <button onclick="closeOverlay()">Delete</button>
-      <button onclick="editUser(${index})">Save <img class="imgCheck" src="./img/check.png" alt=""></button>
+      <div class="delete-save-btn">
+      <button class="delete-btn"  onclick="deleteUser('${
+        user.name
+      }'), clearUserInfo()">Delete</button>
+      <button class="save-btn" onclick="editUser(${index})">Save <img class="imgCheck" src="./img/check.png" alt=""></button>
+      </div>
       </div>
     </div>
   `;
@@ -298,8 +329,8 @@ async function editUser(index) {
     users[index] = editedUser;
 
     await saveUsers();
-
-    renderUsersInfo();
+    /* 5 */
+    renderUsersList();
 
     closeOverlay();
 

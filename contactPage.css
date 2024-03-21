@@ -48,15 +48,7 @@
 }
 
 /* Stil für das Overlay */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-}
+
 .overlay-content {
   position: absolute;
   top: 50%;
@@ -174,19 +166,6 @@ main {
   border-top: 1px solid #ccc;
 }
 
-/* Stil für das Overlay */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
 .overlay-content1 {
   border-radius: 5px;
   display: flex;
@@ -250,7 +229,6 @@ a {
 #userInfo {
   position: fixed; /* Fixierte Position */
   top: 10; /* Oben fixieren */
-
   padding: 0 20px; /* Innenabstand festlegen */
   background-color: #f9f9f9; /* Hintergrundfarbe festlegen */
   border: 1px solid #ccc; /* Rand festlegen */
@@ -261,6 +239,12 @@ a {
   ); /* Breite festlegen (100% - Breite des Benutzerlistenbereichs) */
   height: 80vh;
 }
+
+.userInfo-div {
+  margin-top: 80px;
+  margin-left: 24px;
+}
+
 /* --------------- */
 
 .overlay {
@@ -314,14 +298,17 @@ a {
   margin-top: 4%;
   margin-left: 4%;
 }
+/* -------------------- */
 .editUserDaten {
-  margin-top: 14%;
+  margin-top: 4%;
   margin-left: 4%;
 }
+
 .initialsEdit {
-  margin-top: 18%;
-  margin-left: 8%;
+  margin-top: 216px;
+  margin-left: 40px;
 }
+/* -------------------------- */
 input {
   width: 360px;
   height: 48px;
@@ -382,3 +369,15 @@ input {
   background-repeat: no-repeat;
 }
 /* ------------------------------------ End ---------------------------- */
+.delete-save-btn {
+  display: flex;
+}
+.delete-btn {
+  margin-right: 8px;
+  width: auto;
+  height: auto;
+}
+.save-btn {
+  width: auto;
+  height: auto;
+}
