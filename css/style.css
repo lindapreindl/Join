@@ -1,5 +1,105 @@
+/* inter-100 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../fonts/inter-v13-latin-100.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-200 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../fonts/inter-v13-latin-200.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-300 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/inter-v13-latin-300.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/inter-v13-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-500 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/inter-v13-latin-500.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-600 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/inter-v13-latin-600.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-700 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/inter-v13-latin-700.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-800 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/inter-v13-latin-800.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-900 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/inter-v13-latin-900.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 body {
     margin: 0;
+    font-family: 'Inter', sans-serif;
 }
 
 .body {
@@ -35,7 +135,7 @@ header {
     width: 500px;
     background-color: white;
     border-radius: 20px;
-    filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.1));
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
 }
 
 .inputField {
@@ -60,7 +160,7 @@ header {
 }
 
 ::placeholder {
-    color: lightgrey;  
+    color: lightgrey;
 }
 
 .checkbox {
@@ -90,7 +190,7 @@ button {
 
 button:hover {
     background-color: #29ABE2;
-    filter: drop-shadow(0px 4px 2px rgba(0,0,0,0.2));
+    filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.2));
 }
 
 button img {
@@ -111,7 +211,7 @@ button img {
 }
 
 .activeUserInitials {
-    color:#29ABE2;
+    color: #29ABE2;
     border-radius: 50%;
     gap: 16px;
     border: 3px solid #2A3647;
@@ -128,7 +228,7 @@ button img {
 }
 
 .activeUserInitials:hover {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
@@ -141,7 +241,7 @@ button img {
 .whiteButton:hover {
     color: #29ABE2 !important;
     border-color: #29ABE2 !important;
-    filter: drop-shadow(0px 4px 2px rgba(0,0,0,0.2));
+    filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.2));
 }
 
 .d-none {
@@ -155,7 +255,7 @@ button img {
     margin: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(211,12,3,0.1);
+    background-color: rgba(211, 12, 3, 0.1);
     display: flex;
     flex-direction: row;
 }
@@ -185,13 +285,13 @@ button img {
 }
 
 .upperBox {
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  width: 100%;
-  position:sticky;
-  top: 0;
-  z-index: 50;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 50;
 }
 
 .headLine {
@@ -365,4 +465,3 @@ button img {
 .summaryDone:hover img {
     content: url('../img/summaryDoneWhite.png');
 }
-

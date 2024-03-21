@@ -220,6 +220,7 @@ function addSubtask(){
     let subtasklist = document.getElementById('subtasksAddTask');
     let newsubtask = document.getElementById('inputAddSubtask').value;
     
+    subtasklist.style = 'height: 200px';
     subtasklist.innerHTML += /*html*/`
         <li>${newsubtask}</li>
     `

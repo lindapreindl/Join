@@ -18,6 +18,7 @@ header {
     top: 0;
     left: 232px;
     position: fixed;
+    z-index: 997;
 }
 
 .header-right {
@@ -44,6 +45,7 @@ nav {
     font-size: 16px;
     left: 0;
     position: fixed;
+    z-index: 997;
 }
 
 .logo {
