@@ -126,14 +126,13 @@ async function renderUsersList() {
     }
     groupedUsers[firstLetter].push(user);
   });
-  // Farben für jeden Benutzer generieren und speichern+++
+  // Farben für jeden Benutzer generieren und speichern
   Object.keys(groupedUsers).forEach((letter) => {
     groupedUsers[letter].forEach((user) => {
       userColors[user.name] = getColorForUser(user.name);
     });
   });
   // Für jeden Anfangsbuchstaben eine Überschrift und die Benutzerliste anzeigen
-  // Iteriere durch jeden Anfangsbuchstaben (letter) im groupedUsers-Objekt
   for (const letter in groupedUsers) {
     // Erstelle ein <h2>-Element für den Buchstaben
     const letterHeader = document.createElement("h2");
@@ -156,8 +155,18 @@ async function renderUsersList() {
       // Füge einen Event-Listener hinzu, der auf Klick reagiert und die Benutzerinformationen rendert
       listItem.addEventListener("click", () => renderUserInfo(user));
 
-      // Füge das <li>-Element zur Benutzerliste hinzu
+      // Füge das <li>-Element für den Benutzernamen zur Benutzerliste hinzu
       userListElement.appendChild(listItem);
+
+      // Erstelle ein <li>-Element für die E-Mail
+      const emailListItem = document.createElement("li");
+      emailListItem.textContent = user.email;
+      emailListItem.style.listStyleType = "none"; // Entferne Aufzählungspunkte
+      emailListItem.style.marginLeft = "70px"; // Einrückung für die E-Mail
+      emailListItem.style.color = "rgb(128, 189, 246)"; // Setze die Schriftfarbe auf die angegebene RGB-Farbe
+
+      // Füge das <li>-Element für die E-Mail zur Benutzerliste hinzu
+      userListElement.appendChild(emailListItem);
 
       // Füge eine horizontale Linie nach jedem Benutzer hinzu
       const line = document.createElement("hr");
