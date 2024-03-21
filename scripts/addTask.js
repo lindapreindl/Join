@@ -53,7 +53,7 @@ function clearAddTaskInBoard() {
 }
 
 
-function clearAddTaskI() {
+function clearAddTask() {
     document.getElementById('titleAddTask').value = '';
     document.getElementById('descriptionAddTask').value = '';
     document.getElementById('assignedToAddTask').value = 'selectContact';
@@ -222,11 +222,20 @@ function addSubtask(){
     
     subtasklist.style = 'height: 200px';
     subtasklist.innerHTML += /*html*/`
-        <li>${newsubtask}</li>
+        <li id="${newsubtask}" onclick="editSubtaskBeforeCreateTask(${newsubtask})">${newsubtask}</li>
     `
     subtasks.push(newsubtask);
     document.getElementById('inputAddSubtask').value = '';
     }
+
+   
+function editSubtaskBeforeCreateTask(subtask){
+    let editsubtask = document.getElementById(`${subtask})`);
+    editsubtask.innerHTML = '';
+    editsubtask.innerHTML = /*html*/`
+        <input type="text" value="${subtask}">
+    `
+}    
 
 
 function createTaskInBoard() {
