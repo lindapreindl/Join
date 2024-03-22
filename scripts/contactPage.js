@@ -31,6 +31,7 @@ function openOverlay() {
 }
 /* -------------------------------------------------------------------- */
 // Funktion zum Erstellen des Overlays
+// Funktion zum Erstellen des Overlays
 function createOverlay() {
   overlay = document.createElement("div");
   overlay.className = "overlay";
@@ -45,8 +46,10 @@ function createOverlay() {
       <input class="iconPerson" type="text" id="newUserName" placeholder="Name" required><br><br>
       <input class="iconMail"  type="email" id="newUserEmail" placeholder="Email" required><br><br>
       <input class="iconCall"  type="text" id="newUserPhone" placeholder="Phone" required><br><br>
-      <button onclick="closeOverlay()">Cancel <img class="imgCancel" src="./img/cancel.png" alt=""></button>
+      <div class="cancel-createContact-btn ">
+      <button class="cancel-btn onclick="closeOverlay()">Cancel <img class="imgCancel" src="./img/cancel.png" alt=""></button>
       <button onclick="addNewUser()">Create contact <img class="imgCheck" src="./img/check.png" alt=""></button>
+      </div>
       </div>
     </div>
   `;
@@ -64,15 +67,19 @@ async function addNewUser() {
   const name = document.getElementById("newUserName").value;
   const email = document.getElementById("newUserEmail").value;
   const phone = document.getElementById("newUserPhone").value;
+
+  /* NEU */
   const password = ""; // Ein leeres Passwort wird vorerst definiert
+  const color = getColorForUser();
 
   // Überprüfen, ob alle Felder ausgefüllt sind
   if (name && email && phone) {
     // Wenn alle Felder ausgefüllt sind, ein neues Benutzerobjekt erstellen
-    const newUser = { name, email, phone };
+    const newUser = { name, email, phone, password, color };
 
     // Das neue Benutzerobjekt dem 'users'-Array hinzufügen
     users.push(newUser);
+    /* NEU END */
 
     // Benutzerdaten speichern und auf Abschluss warten
     await saveUsers();
@@ -332,9 +339,12 @@ async function editUser(index) {
   const name = document.getElementById("editUserName").value;
   const email = document.getElementById("editUserEmail").value;
   const phone = document.getElementById("editUserPhone").value;
+  /* NEU "" */
+  const password = "";
+  const color = getColorForUser();
 
   if (name && email && phone) {
-    const editedUser = { name, email, phone };
+    const editedUser = { name, email, phone, password, color };
     users[index] = editedUser;
 
     await saveUsers();
