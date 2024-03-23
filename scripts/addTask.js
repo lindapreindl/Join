@@ -219,10 +219,12 @@ function addSubtask(){
 
     let subtasklist = document.getElementById('subtasksAddTask');
     let newsubtask = document.getElementById('inputAddSubtask').value;
-    
+    let id = subtasklist.length;
+
     subtasklist.style = 'height: 200px';
+    
     subtasklist.innerHTML += /*html*/`
-        <li id="${newsubtask}" onclick="editSubtaskBeforeCreateTask(${newsubtask})">${newsubtask}</li>
+        <li class="subtaskstoedit" id="${id}" onclick="editSubtaskBeforeCreateTask(${newsubtask})">${newsubtask}</li>
     `
     subtasks.push(newsubtask);
     document.getElementById('inputAddSubtask').value = '';
@@ -230,8 +232,8 @@ function addSubtask(){
 
    
 function editSubtaskBeforeCreateTask(subtask){
-    let editsubtask = document.getElementById(`${subtask})`);
-    editsubtask.innerHTML = '';
+    console.log(subtask);
+    let editsubtask = document.getElementById(`${subtask}`);
     editsubtask.innerHTML = /*html*/`
         <input type="text" value="${subtask}">
     `
@@ -257,8 +259,15 @@ function createTaskInBoard() {
         'prio': newPrio,
         'category': newCategory,
         'position': 'ToDo',
-        'subtasks': [subtasks]
-    });
+        'subtasks': [
+                     {
+                         'subtask': `${subtasks}`,
+                         'finished': true
+                      }
+                    ]
+                })
+                    ;
+
     if (tasks[(tasks.length - 1)].subtasks[0] == '') { tasks[(tasks.length - 1)].subtasks = ''; }
 
     setItem('tasks', tasks);
