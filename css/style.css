@@ -511,6 +511,59 @@ button img {
     cursor: pointer;
 }
 
+@media (max-width: 1400px) {
+
+    .summaryOuterFrame {
+        flex-direction: column-reverse;
+    }
+
+}
+
+@media (max-width: 850px) {
+
+    .summaryLeftFrame {
+        width: 100%; 
+    }
+
+    .summaryRightFrame {
+        width: 100%; 
+    }
+
+    .summaryBoxTop {
+        width: 200px;
+        /* height: 130px; */
+        padding: 38px, 19px, 38px, 19px;
+    }
+
+    .summaryBoxCenter {
+        width: 430px;
+        /* height: 130px; */
+        padding: 38px, 19px, 38px, 19px;
+    }
+
+    .summaryBoxBottom {
+        width: 130px;
+        /* height: 130px; */
+        padding: 38px, 19px, 38px, 19px;
+    }
+
+    .summaryBoxTop:hover {
+        width: 220px;
+        /* height: 140px; */
+    }
+    
+    .summaryBoxCenter:hover {
+        width: 450px;
+        /* height: 140px; */
+    }
+    
+    .summaryBoxBottom:hover {
+        width: 150px;
+        /* height: 140px; */
+    }
+    
+}
+
 @media (max-width: 700px) {
 
     .inputField {
@@ -532,6 +585,80 @@ button img {
 
     .allContent {
         width: 100%;
+    }
+
+    .summaryLeftFrame {
+        width: 100%;
+    }
+
+    .summaryBoxCenter {
+        width: 100%;
+    }
+
+    .summaryBoxTop {
+        max-width: 140px;
+        /* height: 130px; */
+        padding: 38px, 19px, 38px, 19px;
+    }
+
+    .summaryBoxCenter {
+        min-width: 200px;
+        max-width: 90%;
+        /* height: 130px; */
+        padding: 38px, 19px, 38px, 19px;
+    }
+
+    .summaryBoxBottom {
+        max-width: 90px;
+        /* height: 130px; */
+        padding: 38px, 19px, 38px, 19px;
+    }
+
+    .summaryBoxTop:hover {
+        width: 220px;
+        /* height: 140px; */
+    }
+    
+    .summaryBoxCenter:hover {
+        width: 450px;
+        /* height: 140px; */
+    }
+    
+    .summaryBoxBottom:hover {
+        width: 150px;
+        /* height: 140px; */
+    }
+
+    .horizontal {
+        width: 100%;
+    }
+
+    .vertical p {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .summaryIcon {
+        width: 48px;
+    }
+
+    .greyLine {
+        width: 2px;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .summaryRightFrame {
+        padding-left: 0;
+    }
+
+    .helpBorder {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .summaryFrameCenter {
+        justify-content: center;
     }
 
 }
