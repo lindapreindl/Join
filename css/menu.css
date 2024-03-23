@@ -181,7 +181,7 @@ nav {
 
     .navigation {
         height: 80px;
-        width: 100vw;
+        width: 100%;
         position: absolute;
         bottom: 0;
         background-color: #2a3647;
@@ -195,6 +195,7 @@ nav {
         bottom: 0;
         right: 0;
         position: fixed;
+        z-index: 90;
     }
     
     .logo {
@@ -262,6 +263,9 @@ nav {
     
     .menu img {
         width: 30px;
+        height: 30px;
+        margin-top: -1px;
+        align-items: baseline;
     }
     
     .termsAndConditions {
@@ -290,18 +294,18 @@ nav {
 
 @media(max-width: 430px){
     .a1 {
-        padding: 17px 20px 17px 20px;
+        padding: 17px 5px 17px 5px;
     }
     
     .a2 {
-        padding: 17px 20px 17px 20px;
+        padding: 17px 5px 17px 5px;
     }
     
     .a3 {
-        padding: 17px 20px 17px 20px;
+        padding: 17px 5px 17px 5px;
     }
     
     .a4 {
-        padding: 17px 20px 17px 20px;
+        padding: 17px 5px 17px 5px;
     }
 }

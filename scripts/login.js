@@ -29,7 +29,7 @@ async function signUpUser() {
     let email = document.getElementById('signupEmail');
     let password = document.getElementById('signupPassword');
     if (password.value == document.getElementById('signupConfirmPassword').value) {
-        users.push({ name: name.value, email: email.value, phone: '', password: password.value, color: getRandomColor() });
+        users.push({ name: name.value, email: email.value, phone: '', password: password.value, color: getColorForUser() });
         await setItem('users', JSON.stringify(users));
         resetForm(name, email, password)
         window.location.href = 'login.html?msg=Sign up successful';
