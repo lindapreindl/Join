@@ -179,16 +179,28 @@ label {
     font-weight: 700;
 }
 
+#button-low:hover img{
+    content: url(../img/low_white.png);
+}
+
 #button-medium:hover {
     background-color: #FFA800;
     color: white;
     font-weight: 700;
 }
 
+#button-medium:hover img{
+    content: url(../img/medium_white.png);
+}
+
 #button-urgent:hover {
     background-color: #FF3D00;
     color: white;
     font-weight: 700;
+}
+
+#button-urgent:hover img{
+    content: url(../img/urgent_white.png);
 }
 
 .low {

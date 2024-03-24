@@ -1,4 +1,5 @@
 let subtasks = [];
+let chosenPrio = 'medium';
 
 
 function openAddTaskInBoard() {
@@ -7,7 +8,7 @@ function openAddTaskInBoard() {
 }
 
 
-function loadUsersForAssignToInBoard(){
+function loadUsersForAssignToInBoard() {
     loadUsers();
     let options = document.getElementById('assignedToAddTaskInBoard');
 
@@ -20,7 +21,7 @@ function loadUsersForAssignToInBoard(){
 }
 
 
-function loadUsersForAssignTo(){
+function loadUsersForAssignTo() {
     loadUsers();
     let options = document.getElementById('assignedToAddTask');
 
@@ -83,6 +84,8 @@ function changePrioToUrgent() {
 
     let urgent = document.getElementById('button-value').innerHTML = 'urgent';
     console.log(urgent);
+
+    chosenPrio = 'urgent';
 }
 
 
@@ -119,6 +122,8 @@ function changePrioToMedium() {
 
     let medium = document.getElementById('button-value').innerHTML = 'medium';
     console.log(medium);
+
+    chosenPrio = 'medium';
 }
 
 
@@ -155,6 +160,8 @@ function changePrioToLow() {
 
     let low = document.getElementById('button-value').innerHTML = 'low';
     console.log(low);
+
+    chosenPrio = 'low';
 }
 
 
@@ -175,75 +182,90 @@ function changePrioToLowAT() {
     console.log(low);
 }
 
+function changePrio(prio) {
+    chosenPrio = prio;
+    removePrioSymbols();
+    document.getElementById(`button-${prio}`).classList.add(prio);
+    document.getElementById(`img-${prio}-white`).classList.remove('d-none');
+    document.getElementById(`img-${prio}`).classList.add('d-none');
 
-function changeToSubtaskInputInBoard(){
+}
+
+function removePrioSymbols() {
+    document.getElementById('img-urgent').classList.remove('d-none');
+    document.getElementById('img-urgent-white').classList.add('d-none');
+    document.getElementById('img-medium').classList.remove('d-none');
+    document.getElementById('img-medium-white').classList.add('d-none');
+    document.getElementById('img-low').classList.remove('d-none');
+    document.getElementById('img-low-white').classList.add('d-none');
+    document.getElementById('button-low').classList.remove('low');
+    document.getElementById('button-medium').classList.remove('medium');
+    document.getElementById('button-urgent').classList.remove('urgent');
+}
+
+
+function changeToSubtaskInputInBoard() {
     document.getElementById('buttonAddSubtaskInBoard').style = 'display: none';
     document.getElementById('inputDivAddSubtaskInBoard').style = 'display: flex';
 }
 
 
-function changeToSubtaskInput(){
+function changeToSubtaskInput() {
     document.getElementById('buttonAddSubtask').style = 'display: none';
     document.getElementById('inputDivAddSubtask').style = 'display: flex';
 }
 
 
-function cancelSubtaskInBoard(){
+function cancelSubtaskInBoard() {
     document.getElementById('inputAddSubtaskInBoard').value = '';
     document.getElementById('buttonAddSubtaskInBoard').style = 'display: flex';
     document.getElementById('inputDivAddSubtaskInBoard').style = 'display: none';
 }
 
 
-function cancelSubtask(){
+function cancelSubtask() {
     document.getElementById('inputAddSubtask').value = '';
     document.getElementById('buttonAddSubtask').style = 'display: flex';
     document.getElementById('inputDivAddSubtask').style = 'display: none';
 }
 
 
-function addSubtaskInBoard(){
-
-let subtasklist = document.getElementById('subtasksAddTaskInBoard');
-let newsubtask = document.getElementById('inputAddSubtaskInBoard').value;
-
-subtasklist.innerHTML += /*html*/`
+function addSubtaskInBoard() {
+    let subtasklist = document.getElementById('subtasksAddTaskInBoard');
+    let newsubtask = document.getElementById('inputAddSubtaskInBoard').value;
+    subtasklist.innerHTML += /*html*/`
     <li>${newsubtask}</li>
 `
-subtasks.push(newsubtask);
-document.getElementById('inputAddSubtaskInBoard').value = '';
+    subtasks.push({ 'subtask': newsubtask, 'finished': false });
+    document.getElementById('inputAddSubtaskInBoard').value = '';
 }
 
 
-function addSubtask(){
+function addSubtask() {
 
     let subtasklist = document.getElementById('subtasksAddTask');
     let newsubtask = document.getElementById('inputAddSubtask').value;
-    let newsubtaskasString = `${newsubtask}`;
-    let subtaskarray = []
-    subtaskarray.push(newsubtask)
-    let id = subtaskarray.length;
+    let id = document.querySelectorAll("#subtasksAddTask li").length;
+
 
     subtasklist.style = 'height: 200px';
-    
+
     subtasklist.innerHTML += /*html*/`
-        <li class="subtaskstoedit" id="${id}" onclick="editSubtaskBeforeCreateTask(${newsubtaskasString}, ${id})">${newsubtask}</li>
+        <li class="subtaskstoedit" id="subtask${id}" onclick="editSubtaskBeforeCreateTask('${newsubtask}', 'subtask${id}')">${newsubtask}</li>
     `
     subtasks.push(newsubtask);
     document.getElementById('inputAddSubtask').value = '';
-    }
+}
 
-   
-function editSubtaskBeforeCreateTask(subtask, id){
-    console.log(subtask);
-    let editsubtask = document.getElementById(`${id}`);
-    editsubtask.innerHTML = /*html*/`
+
+function editSubtaskBeforeCreateTask(subtask, id) {
+    document.getElementById(id).innerHTML = /*html*/`
         <input type="text" value="${subtask}">
     `
-}    
+}
 
 
-function createTaskInBoard() {
+async function createTaskInBoard() {
     let newTitle = document.getElementById('titleAddTaskInBoard').value;
     let newDescription = document.getElementById('descriptionAddTaskInBoard').value;
     let newAssignedTo = document.getElementById('assignedToAddTaskInBoard').value;
@@ -259,24 +281,20 @@ function createTaskInBoard() {
         'assigned': [newAssignedTo],
         'dueDate': newDueDate,
         'position': 'ToDo',
-        'prio': newPrio,
+        'prio': chosenPrio,
         'category': newCategory,
         'position': 'ToDo',
-        'subtasks': [
-                     {
-                         'subtask': `${subtasks}`,
-                         'finished': true
-                      }
-                    ]
-                })
-                    ;
+        'subtasks': subtasks
+    })
+        ;
 
-    if (tasks[(tasks.length - 1)].subtasks[0] == '') { tasks[(tasks.length - 1)].subtasks = ''; }
+    if (tasks[(tasks.length - 1)].subtasks[0].subtask == '') { tasks[(tasks.length - 1)].subtasks = ''; }
 
-    setItem('tasks', tasks);
+    await setItem('tasks', tasks);
     while (subtasks.length > 0) {
         subtasks.pop();
-      }
+    }
+    clearAddTaskInBoard()
     closeAddTaskInBoard();
     initBoard();
 }
@@ -308,9 +326,9 @@ function createTask() {
     setItem('tasks', tasks);
     while (subtasks.length > 0) {
         subtasks.pop();
-      }
-    
-      console.log('task created successfully', tasks)
+    }
+
+    console.log('task created successfully', tasks)
 }
 
 
@@ -397,15 +415,15 @@ function templateEditTask() {
 }
 
 
-function setOldValuesToEditTask(tasks, i, title, description, dueDate, prio, assignedTo, subtasks){
+function setOldValuesToEditTask(tasks, i, title, description, dueDate, prio, assignedTo, subtasks) {
     document.getElementById('editTitle').value = title;
     document.getElementById('editDescription').value = description;
     document.getElementById('editDueDate').value = dueDate;
 
     if (prio == 'urgent') {
-        
+
     }
-    
+
     // assignedTo Möglichkeiten von Jean einspielen, außer die, die bereits gewählt sind
     // asignedTo anzeigen
 
