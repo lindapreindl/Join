@@ -12,7 +12,7 @@ body {
 .bigAddTask{
     margin-left: 250px;
     margin-top: 100px;
-    width: calc(100% - 60px);
+    width:95%;
     height: 100%;
 }
 
@@ -46,25 +46,16 @@ select {
     justify-content: space-between;
     align-items: center;
     font-size: 16px;
-<<<<<<< HEAD
     width: 95%;
-=======
-    height: fit-content;
->>>>>>> 3045a7552b5821bca13a8d73b2f08a050cd686b9
 }
 
 .form input:focus {
     border: 1px solid #29ABE2 !important;
-    background-color: #7AE229;
   }
 
 .form-left {
     width: 440px;
-<<<<<<< HEAD
     height: 500px;
-=======
-    height: fit-content;
->>>>>>> 3045a7552b5821bca13a8d73b2f08a050cd686b9
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -126,23 +117,14 @@ label {
 }
 
 .addTaskLine {
-<<<<<<< HEAD
     width: 0px;
     height: 450px;
-=======
-    width: fit-content;
-    height: 350px;
->>>>>>> 3045a7552b5821bca13a8d73b2f08a050cd686b9
     border: 1px solid #D1D1D1;
 }
 
 .form-right {
     width: 440px;
-<<<<<<< HEAD
     height: 500px;
-=======
-    height: fit-content;
->>>>>>> 3045a7552b5821bca13a8d73b2f08a050cd686b9
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -194,6 +176,10 @@ label {
     border: none;
     color: black;
     font-weight: 400;
+}
+
+.prio-button:hover{
+    background-color: white !important;
 }
 
 #button-low:hover{
@@ -363,13 +349,8 @@ label {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-<<<<<<< HEAD
     margin: 40px 0;
     width: 95%;
-=======
-    margin-top: 80px;
-    width: 100%;
->>>>>>> 3045a7552b5821bca13a8d73b2f08a050cd686b9
 }
 
 .bottom img {
@@ -406,6 +387,7 @@ label {
     padding: 16px;
     border-radius: 10px;
     display: flex;
+    justify-content: center;
     gap: 4px;
     background: #2A3647;
     font-size: 16px;
@@ -459,8 +441,8 @@ label {
     .bigAddTask{
         display: flex;
         flex-direction: column;
-        min-height: 2000px;
-        justify-content: space-around;
+        height: 1200px;
+        justify-content: flex-start;
         align-items: center;
     }
 
@@ -471,13 +453,29 @@ label {
         align-items: center;
     }
 
+    .form-left{
+        height: fit-content;
+        padding-bottom: 20px;
+    }
+
+    .form-right{
+        height: fit-content;
+    }
+
     .addTaskLine{
         display: none;
     }
 
-    .bottom{
-        width: 100%;
-        margin-top: 150px;
+    .bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 70%;
+        position: fixed;
+        bottom: 0px;
+        margin: 0;
+        padding: 20px;
+        background-color: white;
     }
 
     .addTask {
@@ -507,19 +505,13 @@ label {
     .bigAddTask{
         display: flex;
         flex-direction: column;
-        min-height: 2200px;
-        justify-content: space-around;
+        justify-content: flex-start
         align-items: center;
         margin-left: 0;
     }
 
     .bottom {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-        padding: 15px;
-        position: fixed;
+        width: 90%;
         bottom: 80px;
         background-color: white;
     }
