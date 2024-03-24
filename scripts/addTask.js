@@ -247,9 +247,6 @@ function addSubtask() {
     let newsubtask = document.getElementById('inputAddSubtask').value;
     let id = document.querySelectorAll("#subtasksAddTask li").length;
 
-
-    subtasklist.style = 'height: 200px';
-
     subtasklist.innerHTML += /*html*/`
         <li class="subtaskstoedit" id="subtask${id}" onclick="editSubtaskBeforeCreateTask('${newsubtask}', 'subtask${id}')">${newsubtask}</li>
     `
