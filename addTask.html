@@ -59,7 +59,7 @@
                     placeholder="Enter a description" cols="30" rows="10"></textarea>
                 </div>
                 <div class="assignedTo">
-                    <label for="assignedTo">Assigned to</label>
+                    <p>Assigned to</p>
                     <select id="assignedToAddTask" name="assignedTo">
                         <option selected disabled hidden value="selectContact">Select contacts to assign
                         </option>
@@ -72,8 +72,7 @@
 
             <div class="form-right">
                 <div class="dueDate">
-                    <!--<label for="dueDate">Due date<mark>*</mark></label>-->
-                    
+                    <p>Due Date<mark>*</mark></p>
                     <input type="date" id="dueDateAddTask" name="dueDate" required>
                     <!-- Placeholder noch formatieren!!-->
                 </div>
@@ -93,7 +92,7 @@
                     </div>
                 </div>
                 <div class="task-category">
-                    <label for="category">Category<mark>*</mark></label>
+                    <p>Category<mark>*</mark></p>
                     <select id="categoryAddTask" name="category" required>
                         <option selected disabled hidden value="selectCategory">Select Category</option>
                         <option value="User Story">User Story</option>

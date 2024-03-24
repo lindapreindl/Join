@@ -219,21 +219,24 @@ function addSubtask(){
 
     let subtasklist = document.getElementById('subtasksAddTask');
     let newsubtask = document.getElementById('inputAddSubtask').value;
-    let id = subtasklist.length;
+    let newsubtaskasString = `${newsubtask}`;
+    let subtaskarray = []
+    subtaskarray.push(newsubtask)
+    let id = subtaskarray.length;
 
     subtasklist.style = 'height: 200px';
     
     subtasklist.innerHTML += /*html*/`
-        <li class="subtaskstoedit" id="${id}" onclick="editSubtaskBeforeCreateTask(${newsubtask})">${newsubtask}</li>
+        <li class="subtaskstoedit" id="${id}" onclick="editSubtaskBeforeCreateTask(${newsubtaskasString}, ${id})">${newsubtask}</li>
     `
     subtasks.push(newsubtask);
     document.getElementById('inputAddSubtask').value = '';
     }
 
    
-function editSubtaskBeforeCreateTask(subtask){
+function editSubtaskBeforeCreateTask(subtask, id){
     console.log(subtask);
-    let editsubtask = document.getElementById(`${subtask}`);
+    let editsubtask = document.getElementById(`${id}`);
     editsubtask.innerHTML = /*html*/`
         <input type="text" value="${subtask}">
     `
