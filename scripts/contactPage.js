@@ -8,7 +8,7 @@ let overlay;
 // Funktion zum Initialisieren der Anwendung; lädt Benutzerdaten und rendert die Benutzerinformationen
 async function initContacts() {
   await loadUsers(); // Lade Benutzerdaten
-  /* 1 */
+
   renderUsersList(); // Rendere Benutzerinformationen
 }
 /* ———————————————————————————————————————————————————————————— */
@@ -36,20 +36,44 @@ function createOverlay() {
   overlay = document.createElement("div");
   overlay.className = "overlay";
   overlay.style.display = "none";
-  overlay.innerHTML = `
+  overlay.innerHTML = /* HTML */ `
     <div class="overlay-content1">
-    <div> <img class="editLook" src="./img/addContactPic.png" alt=""></div>
-    <div class="addPersonPic"><img src="./img/addPerson.png" alt=""></div>
-   
-    <div class="addUserDaten">
-      <div class="imgClose" onclick="closeOverlay()" ><img src="./img/close.png" alt=""></div>
-      <input class="iconPerson" type="text" id="newUserName" placeholder="Name" required><br><br>
-      <input class="iconMail"  type="email" id="newUserEmail" placeholder="Email" required><br><br>
-      <input class="iconCall"  type="text" id="newUserPhone" placeholder="Phone" required><br><br>
-      <div class="cancel-createContact-btn ">
-      <button class="cancel-btn onclick="closeOverlay()">Cancel <img class="imgCancel" src="./img/cancel.png" alt=""></button>
-      <button onclick="addNewUser()">Create contact <img class="imgCheck" src="./img/check.png" alt=""></button>
-      </div>
+      <div><img class="editLook" src="./img/addContactPic.png" alt="" /></div>
+      <div class="addPersonPic"><img src="./img/addPerson.png" alt="" /></div>
+
+      <div class="addUserDaten">
+        <div class="imgClose" onclick="closeOverlay()">
+          <img src="./img/close.png" alt="" />
+        </div>
+        <input
+          class="iconPerson"
+          type="text"
+          id="newUserName"
+          placeholder="Name"
+          required
+        /><br /><br />
+        <input
+          class="iconMail"
+          type="email"
+          id="newUserEmail"
+          placeholder="Email"
+          required
+        /><br /><br />
+        <input
+          class="iconCall"
+          type="text"
+          id="newUserPhone"
+          placeholder="Phone"
+          required
+        /><br /><br />
+        <div class="cancel-createContact-btn ">
+          <button class="cancel-btn" onclick="closeOverlay()">
+            Cancel <img class="imgCancel" src="./img/cancel.png" alt="" />
+          </button>
+          <button onclick="addNewUser()">
+            Create contact <img class="imgCheck" src="./img/check.png" alt="" />
+          </button>
+        </div>
       </div>
     </div>
   `;
@@ -68,7 +92,7 @@ async function addNewUser() {
   const email = document.getElementById("newUserEmail").value;
   const phone = document.getElementById("newUserPhone").value;
 
-  /* NEU */
+  /* NEU 1 */
   const password = ""; // Ein leeres Passwort wird vorerst definiert
   const color = getColorForUser();
 
@@ -79,13 +103,13 @@ async function addNewUser() {
 
     // Das neue Benutzerobjekt dem 'users'-Array hinzufügen
     users.push(newUser);
-    /* NEU END */
+    /* NEU 1 END */
 
     // Benutzerdaten speichern und auf Abschluss warten
     await saveUsers();
 
     // Die Benutzerinformationen erneut rendern
-    /* 2 */
+
     renderUsersList();
 
     // Die Werte der Eingabefelder zurücksetzen
@@ -108,7 +132,7 @@ async function deleteUser(name) {
     users.splice(index, 1);
   }
   await saveUsers(); // Benutzerdaten speichern
-  /* 3 */
+
   renderUsersList(); //Funktion zum Rendern der Benutzerliste
 }
 
@@ -207,14 +231,20 @@ function createInitialsCircle(initials, color) {
   circle.style.color = "white"; // Schriftfarbe auf Weiß setzen
   return circle;
 }
-/* 1 */
+
 // Funktion zum Generieren einer Farbe basierend auf dem Benutzernamen
 function getColorForUser(username) {
+  // Sicherstellen, dass der Benutzername vorhanden ist
+  if (!username) {
+    return "#000000"; // Rückgabe einer Standardfarbe, wenn kein Benutzername angegeben ist
+  }
+
   // Berechne einen numerischen Hash-Wert aus dem Benutzernamen
   let hash = 0;
   for (let i = 0; i < username.length; i++) {
     hash = username.charCodeAt(i) + ((hash << 5) - hash);
   }
+
   // Konvertiere den Hash-Wert in eine hexadezimale Farbe
   let color = "#";
   for (let i = 0; i < 3; i++) {
@@ -339,7 +369,7 @@ async function editUser(index) {
   const name = document.getElementById("editUserName").value;
   const email = document.getElementById("editUserEmail").value;
   const phone = document.getElementById("editUserPhone").value;
-  /* NEU "" */
+  /* NEU 3 */
   const password = "";
   const color = getColorForUser();
 
@@ -348,7 +378,7 @@ async function editUser(index) {
     users[index] = editedUser;
 
     await saveUsers();
-    /* 5 */
+    /* NEU 3 END */
     renderUsersList();
 
     closeOverlay();
@@ -370,6 +400,7 @@ async function loadUsers() {
     users = JSON.parse(usersData);
   } else {
     users = [];
+    await saveUsers(); // Speichere die Beispieldaten
   }
 }
 
