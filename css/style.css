@@ -338,19 +338,26 @@ button img {
     width: 100%;
 }
 
+.summaryOuterFrame a{
+    text-decoration: none;
+}
+
 .summaryFrameTop {
     display: flex;
     justify-content: space-between;
+    height: 190px;
 }
 
 .summaryFrameCenter {
     display: flex;
     justify-content: space-between;
+    height: 190px;
 }
 
 .summaryFrameBottom {
     display: flex;
     justify-content: space-between;
+    height: 190px;
 }
 
 .summaryLeftFrame {
@@ -358,7 +365,7 @@ button img {
     flex-direction: column;
     justify-content: space-between;
     width: 560px;
-    height: 562px;
+    height: 580px;
 }
 
 .summaryRightFrame {
@@ -402,6 +409,10 @@ button img {
     padding: 25px, 0px, 25px, 0px;
 }
 
+.fixed-width-bottom{
+    width: 190px;
+}
+
 .goodMorning {
     font-size: 42px;
 }
@@ -441,6 +452,7 @@ button img {
     width: 282px;
     height: 184px;
     cursor: pointer;
+    transition-delay: 0.05s;
 }
 
 .summaryBoxCenter:hover {
@@ -449,6 +461,7 @@ button img {
     width: 576px;
     height: 184px;
     cursor: pointer;
+    transition-delay: 0.05s;
 }
 
 .summaryBoxBottom:hover {
@@ -457,14 +470,17 @@ button img {
     width: 184px;
     height: 184px;
     cursor: pointer;
+    transition-delay: 0.05s;
 }
 
 .summaryToDo:hover img {
     content: url('../img/summaryToDoWhite.png');
+    transition-delay: 0.05s;
 }
 
 .summaryDone:hover img {
     content: url('../img/summaryDoneWhite.png');
+    transition-delay: 0.05s;
 }
 
 .link a:visited {

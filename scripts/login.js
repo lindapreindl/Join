@@ -71,6 +71,7 @@ function logInUser() {
   );
   if (user) {
     console.log(user);
+    //diese Zeile abändern, weil Checkbox images noch gefehlt haben
     if (document.getElementById("rememberMeCheck").value == true) {
       localStorage.setItem("rememberUser", email.value);
       localStorage.setItem("activeUser", userLoggedIn(email.value));

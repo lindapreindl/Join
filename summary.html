@@ -43,7 +43,7 @@
                 <img src="./img/logo.png" class="headerLogoSmall" id="headerLogo">
                 <div class="header-right spaceRight">
                     <a href="./consent/help.html"><img src="../img/help-icon.png"></a>
-                    <div id="activeUserSummary" class="activeUserInitials"  onclick="userMenu()"></div>
+                    <div id="activeUserSummary" class="activeUserInitials" onclick="userMenu()"></div>
                 </div>
             </div>
         </div>
@@ -58,60 +58,78 @@
             <div class="summaryOuterFrame link">
                 <div class="summaryLeftFrame">
                     <div class="summaryFrameTop">
-                        <a href="./board.html"><div class="summaryBoxTop summaryToDo">
-                            <div class="horizontal">
-                                <img src="./img/summaryToDo.png" class="summaryIcon">
-                                <div class="vertical">
-                                    <h1 id="amountToDo"></h1>
-                                    <p>To-do</p>
+                        <a href="./board.html">
+                            <div class="summaryBoxTop summaryToDo">
+                                <div class="horizontal">
+                                    <img src="./img/summaryToDo.png" class="summaryIcon">
+                                    <div class="vertical">
+                                        <h1 id="amountToDo"></h1>
+                                        <p>To-do</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div></a> 
-                        <a href="./board.html"><div class="summaryBoxTop summaryDone">
-                            <div class="horizontal">
-                                <img src="./img/summaryDone.png" class="summaryIcon">
-                                <div class="vertical">
-                                    <h1 id="amountDone"></h1>
-                                    <p>Done</p>
+                        </a>
+                        <a href="./board.html">
+                            <div class="summaryBoxTop summaryDone">
+                                <div class="horizontal">
+                                    <img src="./img/summaryDone.png" class="summaryIcon">
+                                    <div class="vertical">
+                                        <h1 id="amountDone"></h1>
+                                        <p>Done</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div></a>
+                        </a>
                     </div>
                     <div class="summaryFrameCenter">
-                        <a href="./board.html"><div class="summaryBoxCenter">
-                            <div class="horizontal">
-                                <img src="./img/summaryUrgent.png" class="summaryIcon">
-                                <div class="vertical">
-                                    <h1 id="amountUrgent"></h1>
-                                    <p>Urgent</p>
-                                </div>
-                                <div class="greyLine"></div>
-                                <div class="vertical">
-                                    <p class="mb12"><b>March 28, 2022</b></p>
-                                    <p>Upcoming Deadline</p>
+                        <a href="./board.html">
+                            <div class="summaryBoxCenter">
+                                <div class="horizontal">
+                                    <img src="./img/summaryUrgent.png" class="summaryIcon">
+                                    <div class="vertical">
+                                        <h1 id="amountUrgent"></h1>
+                                        <p>Urgent</p>
+                                    </div>
+                                    <div class="greyLine"></div>
+                                    <div class="vertical">
+                                        <p class="mb12"><b>March 28, 2022</b></p>
+                                        <p>Upcoming Deadline</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div></a>
+                        </a>
                     </div>
                     <div class="summaryFrameBottom">
-                        <a href="./board.html"><div class="summaryBoxBottom">
-                            <div class="vertical">
-                                <h1 id="amountTasks"></h1>
-                                <p>Tasks in Board</p>
-                            </div>
-                        </div></a>
-                        <a href="./board.html"><div class="summaryBoxBottom">
-                            <div class="vertical">
-                                <h1 id="amountProgress"></h1>
-                                <p>Tasks In Progress</p>
-                            </div>
-                        </div></a>
-                        <a href="./board.html"><div class="summaryBoxBottom">
-                            <div class="vertical">
-                                <h1 id="amountFeedback"></h1>
-                                <p>Awaiting Feedback</p>
-                            </div>
-                        </div></a>
+                        <div class="fixed-width-bottom">
+                            <a href="./board.html">
+                                <div class="summaryBoxBottom">
+                                    <div class="vertical">
+                                        <h1 id="amountTasks"></h1>
+                                        <p>Tasks in Board</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="fixed-width-bottom">
+                            <a href="./board.html">
+                                <div class="summaryBoxBottom">
+                                    <div class="vertical">
+                                        <h1 id="amountProgress"></h1>
+                                        <p>Tasks In Progress</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="fixed-width-bottom">
+                            <a href="./board.html">
+                                <div class="summaryBoxBottom">
+                                    <div class="vertical">
+                                        <h1 id="amountFeedback"></h1>
+                                        <p>Awaiting Feedback</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="summaryRightFrame">
@@ -122,9 +140,15 @@
         </div>
     </div>
     <div class="userMenuBox d-none" id="userMenuBox">
-        <a href="./consent/privacyPolicy.html"><div class="userMenuOption" onclick="userMenu()">Pricacy Policy</div></a>
-        <a href="./consent/legalNotice.html"><div class="userMenuOption" onclick="userMenu()">Legal Notice</div></a>
-        <a href="./login.html"><div class="userMenuOption" onclick="userMenu(), logout()">Logout</div></a>
+        <a href="./consent/privacyPolicy.html">
+            <div class="userMenuOption" onclick="userMenu()">Pricacy Policy</div>
+        </a>
+        <a href="./consent/legalNotice.html">
+            <div class="userMenuOption" onclick="userMenu()">Legal Notice</div>
+        </a>
+        <a href="./login.html">
+            <div class="userMenuOption" onclick="userMenu(), logout()">Logout</div>
+        </a>
     </div>
 </body>
 

@@ -36,8 +36,12 @@
                     <img id="lockImg1" src="./img/lock.png" onclick="changePasswortIcon('visibility', 'lockImg1', 'loginPassword')">
                 </div>
                 <p class="alertNotification d-none" id="wrongPassword">Wrong password. Ups! Try again.</p>
-                <div class="row marginBottom" style="margin-left: -132px;">
+                <div class="row marginBottom rememberMe" style="margin-left: -132px;">
+                    <img src="./img/unchecked.png" alt="">
+                    <img class="d-none" src="./img/checked.png" alt="">
+                    <!-- Script funktion noch umschreiben -> loginUser()
                     <input type="checkbox" class="checkbox" id="rememberMeCheck">
+                    -->
                     <p>Remember me</p>
                 </div>
                 <div class="loginButtons marginBottom32 marginTop16">
@@ -45,6 +49,10 @@
                     <a href="./summary.html"><button type="button" class="whiteButton" onclick="guestLogin()">Guest Log in</button></a>
                 </div>
             </form>
+        </div>
+        <div class="bottom-part">
+            <a href="./consent/privacyPolicy.html">Privacy Policy</a>
+            <a href="./consent/legalNotice.html">Legal Notice</a>
         </div>
     </div>
 </body>

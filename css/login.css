@@ -133,6 +133,10 @@ a {
     color: #29ABE2;
 }
 
+.rememberMe{
+    gap: 8px;
+}
+
 .inputBox {
     background-color: white;
     padding: 4px 16px;
@@ -144,7 +148,7 @@ a {
 }
 
 .inputBox:hover {
-    border-color: #29ABE2;
+    border-color: #29ABE2 !important;
 }
 
 .alertNotification {
@@ -155,4 +159,25 @@ a {
     margin-bottom: 16px;
 }
 
+.bottom-part {
+    position: absolute;
+    bottom: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.bottom-part a {
+    text-decoration: none;
+    color: #a8a8a8;
+    line-height: 19px;
+    width: 121px;
+    cursor: pointer;
+}
+
+.bottom-part a:hover {
+    font-weight: bold;
+    color: #29ABE2;
+}
 
