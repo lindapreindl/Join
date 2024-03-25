@@ -55,10 +55,6 @@ select {
     width: 95%;
 }
 
-.form input:focus {
-    border: 1px solid #29ABE2 !important;
-  }
-
 .form-left {
     width: 440px;
     height: 500px;
@@ -84,9 +80,10 @@ select {
     cursor: pointer;
 }
 
-.title input:hover{
-    border-color: #29ABE2 !important;
-}
+.title input[type=text]:focus {
+    border: 1px solid #29ABE2;
+    outline: none ;
+  }
 
 .description {
     display: flex;
@@ -105,6 +102,11 @@ select {
     cursor: pointer;
     font-family: inherit;
 }
+
+.description textarea[type=text]:focus {
+    border: 1px solid #29ABE2;
+    outline: none ;
+  }
 
 label {
     color: #2A3647;
@@ -125,6 +127,11 @@ label {
     font-size: 16px;
     cursor: pointer;
 }
+
+.assignedTo select:focus {
+    border: 1px solid #29ABE2;
+    outline: none ;
+  }
 
 .addTaskLine {
     width: 0px;
@@ -156,6 +163,11 @@ label {
     color: #D1D1D1;
     cursor: pointer;
 }
+
+.dueDate input[type=date]:focus {
+    border: 1px solid #29ABE2;
+    outline: none ;
+  }
 
 .prio {
     display: flex;
@@ -259,6 +271,11 @@ label {
     font-size: 16px;
     cursor: pointer;
 }
+
+.task-category select:focus {
+    border: 1px solid #29ABE2;
+    outline: none ;
+  }
 
 .subtasks {
     display: flex;
