@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/addTask.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/board.css">
     <script src="./scripts/addTask.js"></script>
     <script src="./scripts/board.js"></script>
     <script src="./scripts/contactPage.js"></script>
@@ -16,7 +17,7 @@
     <script src="./scripts/templates.js"></script>
 </head>
 
-<body onload="loadUsersForAssignTo()">
+<body onload="loadUsers()">
 
     <nav>
         <img class="logo" src="./img/logo_white.png" alt="">
@@ -51,20 +52,27 @@
             <div class="form-left">
                 <div class="title">
                     <p>Title<mark>*</mark></p>
-                    <input onclick="changeBorders('titleAddTask')" type="text" name="title" id="titleAddTask" placeholder="Enter a title" required>
+                    <input type="text" name="title" id="titleAddTask"
+                        placeholder="Enter a title" required>
                 </div>
                 <div class="description">
                     <p>Description</p>
-                    <textarea type="text" name="description" id="descriptionAddTask"
-                    placeholder="Enter a description" cols="30" rows="10"></textarea>
+                    <textarea type="text" name="description" id="descriptionAddTask" placeholder="Enter a description"
+                        cols="30" rows="10"></textarea>
                 </div>
                 <div class="assignedTo">
-                    <p>Assigned to</p>
-                    <select id="assignedToAddTask" name="assignedTo">
+                    <label for="assignedTo">Assigned to</label>
+                    <!-- <select id="assignedToAddTask" name="assignedTo">
                         <option selected disabled hidden value="selectContact">Select contacts to assign
                         </option>
 
-                    </select>
+                    </select> -->
+                    <div class="searchBox">
+                        <input class="inputSearch inputField" id="searchFieldAddTask" placeholder="Select contacs to assign" onclick="searchAssignedPeople()" onkeyup="searchSpecificUser()">
+                        <div class="icons" onclick="searchAssignedPeople()">&#9207;</div>
+                    </div>
+                    <div class="dropDownUserListToAssigne d-none" id="dropDownUserListToAssigne"></div>
+                    <div class="showAssignedUsersStickers" id="showAssignedUsersStickers"></div>
                 </div>
             </div>
 
@@ -79,15 +87,15 @@
                 <div class="prio">
                     <p>Prio</p>
                     <div class="prio-button">
-                        <button id="button-urgentAT" onclick="changePrioToUrgentAT()">Urgent <img id="img-urgentAT"
+                        <button id="button-urgentAT" onclick="changePrio('urgent', 'AT')">Urgent <img id="img-urgentAT"
                                 src="./img/urgent.png" alt=""> <img id="img-urgent-whiteAT" class="d-none"
                                 src="./img/urgent_white.png" alt=""> </button>
-                        <button id="button-mediumAT" class="medium" onclick="changePrioToMediumAT()">Medium
-                            <img id="img-mediumAT" class="d-none" src="./img/medium.png" alt=""> <img
+                        <button id="button-mediumAT" class="medium" onclick="changePrio('medium', 'AT')">Medium
+                                <img id="img-mediumAT" class="d-none" src="./img/medium.png" alt=""> <img
                                 id="img-medium-whiteAT" src="./img/medium_white.png" alt=""> </button>
-                        <button id="button-lowAT" onclick="changePrioToLowAT()">Low <img id="img-lowAT"
-                                src="./img/low.png" alt=""> <img id="img-low-whiteAT" class="d-none"
-                                src="./img/low_white.png" alt=""> </button>
+                        <button id="button-lowAT" onclick="changePrio('low', 'AT')">Low <img id="img-lowAT" src="./img/low.png"
+                                alt=""> <img id="img-low-whiteAT" class="d-none" src="./img/low_white.png" alt="">
+                        </button>
                         <p id="button-valueAT" class="d-none">medium</p>
                     </div>
                 </div>
@@ -101,14 +109,14 @@
                 </div>
                 <div class="subtasks">
                     <p>Subtasks</p>
-                    <button id="buttonAddSubtask" onclick="changeToSubtaskInput()">
+                    <button id="buttonAddSubtask" onclick="changeToSubtaskInput('')">
                         <p>Add new subtask</p><img src="./img/add.png" alt="">
                     </button>
                     <div style="display: none;" id="inputDivAddSubtask">
                         <input id="inputAddSubtask" type="text">
-                        <img onclick="cancelSubtask()" src="./img/cancel.png" alt="">
+                        <img onclick="cancelSubtask('')" src="./img/cancel.png" alt="">
                         <p>|</p>
-                        <img onclick="addSubtask()" src="./img/check_dark.png" alt="">
+                        <img onclick="addSubtask('')" src="./img/check_dark.png" alt="">
                     </div>
                     <ul id="subtasksAddTask"></ul>
                 </div>
@@ -119,9 +127,8 @@
         <div class="bottom">
             <p class="black"><mark>*</mark>This field is required</p>
             <div class="bottom-button">
-                <button onclick="clearAddTask()" class="clear">Clear <img src="./img/cancel.png" alt=""></button>
-                <button onclick="createTask()" class="create">Create Task <img src="./img/check.png"
-                        alt=""></button>
+                <button onclick="clearAddTask('')" class="clear">Clear <img src="./img/cancel.png" alt=""></button>
+                <button onclick="createTask('')" class="create">Create Task <img src="./img/check.png" alt=""></button>
             </div>
         </div>
     </div>

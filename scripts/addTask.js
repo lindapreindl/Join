@@ -1,37 +1,38 @@
 let subtasks = [];
 let chosenPrio = 'medium';
+let assignedUsers = [];
 
 
 function openAddTaskInBoard() {
     document.getElementById('addTaskInBoard').classList.remove('d-none');
-    loadUsersForAssignToInBoard();
+    // loadUsersForAssignTo('InBoard');
 }
 
 
-function loadUsersForAssignToInBoard() {
-    loadUsers();
-    let options = document.getElementById('assignedToAddTaskInBoard');
+// async function loadUsersForAssignTo(location) {
+//     await loadUsers();
+//     let options = document.getElementById('assignedToAddTask' + location);
 
-    for (let i = 0; i < users.length; i++) {
-        let username = users[i]['name'];
-        options.innerHTML += /*html*/`
-            <option>${username}</option>
-        `
-    }
-}
+//     for (let i = 0; i < users.length; i++) {
+//         let username = users[i]['name'];
+//         options.innerHTML += /*html*/`
+//             <option>${username}</option>
+//         `
+//     }
+// }
 
 
-function loadUsersForAssignTo() {
-    loadUsers();
-    let options = document.getElementById('assignedToAddTask');
+// function loadUsersForAssignTo() {
+//     loadUsers();
+//     let options = document.getElementById('assignedToAddTask');
 
-    for (let i = 0; i < users.length; i++) {
-        let username = users[i]['name'];
-        options.innerHTML += /*html*/`
-            <option>${username}</option>
-        `
-    }
-}
+//     for (let i = 0; i < users.length; i++) {
+//         let username = users[i]['name'];
+//         options.innerHTML += /*html*/`
+//             <option>${username}</option>
+//         `
+//     }
+// }
 
 
 function closeAddTaskInBoard() {
@@ -53,279 +54,304 @@ function clearAddTaskInBoard() {
     cancelSubtaskInBoard();
 }
 
-
-function clearAddTask() {
-    document.getElementById('titleAddTask').value = '';
-    document.getElementById('descriptionAddTask').value = '';
-    document.getElementById('assignedToAddTask').value = 'selectContact';
-    document.getElementById('dueDateAddTask').value = '';
-
-    changePrioToMediumAT();
-
-    document.getElementById('categoryAddTask').value = 'selectCategory';
-    document.getElementById('subtasksAddTask').innerHTML = '';
-
-    cancelSubtask();
-}
-
-
-function changePrioToUrgent() {
-
-    document.getElementById('img-urgent').classList.add('d-none');
-    document.getElementById('img-urgent-white').classList.remove('d-none');
-    document.getElementById('img-medium').classList.remove('d-none');
-    document.getElementById('img-medium-white').classList.add('d-none');
-    document.getElementById('img-low').classList.remove('d-none');
-    document.getElementById('img-low-white').classList.add('d-none');
-
-    document.getElementById('button-low').classList.remove('low');
-    document.getElementById('button-medium').classList.remove('medium');
-    document.getElementById('button-urgent').classList.add('urgent');
-
-    let urgent = document.getElementById('button-value').innerHTML = 'urgent';
-    console.log(urgent);
-
-    chosenPrio = 'urgent';
-}
-
-
-function changePrioToUrgentAT() {
-
-    document.getElementById('img-urgentAT').classList.add('d-none');
-    document.getElementById('img-urgent-whiteAT').classList.remove('d-none');
-    document.getElementById('img-mediumAT').classList.remove('d-none');
-    document.getElementById('img-medium-whiteAT').classList.add('d-none');
-    document.getElementById('img-lowAT').classList.remove('d-none');
-    document.getElementById('img-low-whiteAT').classList.add('d-none');
-
-    document.getElementById('button-lowAT').classList.remove('low');
-    document.getElementById('button-mediumAT').classList.remove('medium');
-    document.getElementById('button-urgentAT').classList.add('urgent');
-
-    let urgent = document.getElementById('button-valueAT').innerHTML = 'urgent';
-    console.log(urgent);
-}
-
-
-function changePrioToMedium() {
-
-    document.getElementById('img-urgent').classList.remove('d-none');
-    document.getElementById('img-urgent-white').classList.add('d-none');
-    document.getElementById('img-medium').classList.add('d-none');
-    document.getElementById('img-medium-white').classList.remove('d-none');
-    document.getElementById('img-low').classList.remove('d-none');
-    document.getElementById('img-low-white').classList.add('d-none');
-
-    document.getElementById('button-low').classList.remove('low');
-    document.getElementById('button-medium').classList.add('medium');
-    document.getElementById('button-urgent').classList.remove('urgent');
-
-    let medium = document.getElementById('button-value').innerHTML = 'medium';
-    console.log(medium);
+function clearAddTask(location) {
+    document.getElementById('titleAddTask' + location).value = '';
+    document.getElementById('descriptionAddTask' + location).value = '';
+    // document.getElementById('assignedToAddTask' + location).value = 'selectContact';
+    document.getElementById('dueDateAddTask' + location).value = '';
 
     chosenPrio = 'medium';
+
+    document.getElementById('categoryAddTask' + location).value = 'selectCategory';
+    document.getElementById('subtasksAddTask' + location).innerHTML = '';
+
+    cancelSubtask(location);
 }
 
-
-function changePrioToMediumAT() {
-
-    document.getElementById('img-urgentAT').classList.remove('d-none');
-    document.getElementById('img-urgent-whiteAT').classList.add('d-none');
-    document.getElementById('img-mediumAT').classList.add('d-none');
-    document.getElementById('img-medium-whiteAT').classList.remove('d-none');
-    document.getElementById('img-lowAT').classList.remove('d-none');
-    document.getElementById('img-low-whiteAT').classList.add('d-none');
-
-    document.getElementById('button-lowAT').classList.remove('low');
-    document.getElementById('button-mediumAT').classList.add('medium');
-    document.getElementById('button-urgentAT').classList.remove('urgent');
-
-    let medium = document.getElementById('button-valueAT').innerHTML = 'medium';
-    console.log(medium);
-}
-
-
-function changePrioToLow() {
-
-    document.getElementById('img-urgent').classList.remove('d-none');
-    document.getElementById('img-urgent-white').classList.add('d-none');
-    document.getElementById('img-medium').classList.remove('d-none');
-    document.getElementById('img-medium-white').classList.add('d-none');
-    document.getElementById('img-low').classList.add('d-none');
-    document.getElementById('img-low-white').classList.remove('d-none');
-
-    document.getElementById('button-low').classList.add('low');
-    document.getElementById('button-medium').classList.remove('medium');
-    document.getElementById('button-urgent').classList.remove('urgent');
-
-    let low = document.getElementById('button-value').innerHTML = 'low';
-    console.log(low);
-
-    chosenPrio = 'low';
-}
-
-
-function changePrioToLowAT() {
-
-    document.getElementById('img-urgentAT').classList.remove('d-none');
-    document.getElementById('img-urgent-whiteAT').classList.add('d-none');
-    document.getElementById('img-mediumAT').classList.remove('d-none');
-    document.getElementById('img-medium-whiteAT').classList.add('d-none');
-    document.getElementById('img-lowAT').classList.add('d-none');
-    document.getElementById('img-low-whiteAT').classList.remove('d-none');
-
-    document.getElementById('button-lowAT').classList.add('low');
-    document.getElementById('button-mediumAT').classList.remove('medium');
-    document.getElementById('button-urgentAT').classList.remove('urgent');
-
-    let low = document.getElementById('button-valueAT').innerHTML = 'low';
-    console.log(low);
-}
-
-function changePrio(prio) {
+function changePrio(prio, location) {
     chosenPrio = prio;
-    removePrioSymbols();
-    document.getElementById(`button-${prio}`).classList.add(prio);
-    document.getElementById(`img-${prio}-white`).classList.remove('d-none');
-    document.getElementById(`img-${prio}`).classList.add('d-none');
+    removePrioSymbols(location);
+    document.getElementById(`button-${prio}${location}`).classList.add(prio);
+    document.getElementById(`img-${prio}-white${location}`).classList.remove('d-none');
+    document.getElementById(`img-${prio}${location}`).classList.add('d-none');
 
 }
 
-function removePrioSymbols() {
-    document.getElementById('img-urgent').classList.remove('d-none');
-    document.getElementById('img-urgent-white').classList.add('d-none');
-    document.getElementById('img-medium').classList.remove('d-none');
-    document.getElementById('img-medium-white').classList.add('d-none');
-    document.getElementById('img-low').classList.remove('d-none');
-    document.getElementById('img-low-white').classList.add('d-none');
-    document.getElementById('button-low').classList.remove('low');
-    document.getElementById('button-medium').classList.remove('medium');
-    document.getElementById('button-urgent').classList.remove('urgent');
+function removePrioSymbols(location) {
+    document.getElementById('img-urgent' + location).classList.remove('d-none');
+    document.getElementById('img-urgent-white' + location).classList.add('d-none');
+    document.getElementById('img-medium' + location).classList.remove('d-none');
+    document.getElementById('img-medium-white' + location).classList.add('d-none');
+    document.getElementById('img-low' + location).classList.remove('d-none');
+    document.getElementById('img-low-white' + location).classList.add('d-none');
+    document.getElementById('button-low' + location).classList.remove('low');
+    document.getElementById('button-medium' + location).classList.remove('medium');
+    document.getElementById('button-urgent' + location).classList.remove('urgent');
 }
 
-
-function changeToSubtaskInputInBoard() {
-    document.getElementById('buttonAddSubtaskInBoard').style = 'display: none';
-    document.getElementById('inputDivAddSubtaskInBoard').style = 'display: flex';
+function changeToSubtaskInput(location) {
+    document.getElementById('buttonAddSubtask' + location).style = 'display: none';
+    document.getElementById('inputDivAddSubtask' + location).style = 'display: flex';
 }
 
-
-function changeToSubtaskInput() {
-    document.getElementById('buttonAddSubtask').style = 'display: none';
-    document.getElementById('inputDivAddSubtask').style = 'display: flex';
+function cancelSubtask(location) {
+    document.getElementById('inputAddSubtask' + location).value = '';
+    document.getElementById('buttonAddSubtask' + location).style = 'display: flex';
+    document.getElementById('inputDivAddSubtask' + location).style = 'display: none';
 }
 
-
-function cancelSubtaskInBoard() {
-    document.getElementById('inputAddSubtaskInBoard').value = '';
-    document.getElementById('buttonAddSubtaskInBoard').style = 'display: flex';
-    document.getElementById('inputDivAddSubtaskInBoard').style = 'display: none';
+async function searchAssignedPeople() {
+    let dropDown = document.getElementById('dropDownUserListToAssigne');
+    let thatIsMe = '';
+    dropDown.innerHTML = '';
+    if (dropDown.classList.contains('d-none')) { dropDown.classList.remove('d-none') }
+    else { dropDown.classList.add('d-none') };
+    
+    for (let i = 0; i < users.length; i++) {
+        let initials = getInitials(users[i].name);
+        let initialColor = users[i].color;
+        let checkValue = './img/unchecked.png';
+        if (users[i].name == loginUser[0]) { thatIsMe = " (You)" }
+        else { thatIsMe = '' };
+        if (assignedUsers.includes(users[i].name)) { checkValue = './img/checked.png' }
+        dropDown.innerHTML += templateUserListInDropDown(i, initialColor, initials, thatIsMe, checkValue);
+        ;
+    }
 }
 
-
-function cancelSubtask() {
-    document.getElementById('inputAddSubtask').value = '';
-    document.getElementById('buttonAddSubtask').style = 'display: flex';
-    document.getElementById('inputDivAddSubtask').style = 'display: none';
+function templateUserListInDropDown(i, initialColor, initials, me, checkValue) {
+    return `
+    <div class="userInDropDown" onclick="changeCheckerAssignedTo(${i})">
+        <div class="userInDropDown">
+            <div class="assigneListing" style="background-color:${initialColor};">${initials}</div>
+            <p>${users[i].name}${me}</p>
+        </div>
+        <img id="userListChecker${i}" src="${checkValue}">
+    </div>`;
 }
 
+function changeCheckerAssignedTo(i) {
+    let clickedUser = users[i].name;
+    if (assignedUsers.includes(clickedUser)) {
+        let userIndex = assignedUsers.findIndex(user => user === clickedUser);
+        assignedUsers.splice(userIndex, 2);
+        document.getElementById(`userListChecker${i}`).src='./img/unchecked.png';
 
-function addSubtaskInBoard() {
-    let subtasklist = document.getElementById('subtasksAddTaskInBoard');
-    let newsubtask = document.getElementById('inputAddSubtaskInBoard').value;
-    subtasklist.innerHTML += /*html*/`
-    <li>${newsubtask}</li>
-`
-    subtasks.push({ 'subtask': newsubtask, 'finished': false });
-    document.getElementById('inputAddSubtaskInBoard').value = '';
+    } else {
+        assignedUsers.push(clickedUser);
+        assignedUsers.push(users[i].color);
+        document.getElementById(`userListChecker${i}`).src='./img/checked.png'
+    }
+    showAssignedUsersStickers();
 }
 
-
-function addSubtask() {
-
-    let subtasklist = document.getElementById('subtasksAddTask');
-    let newsubtask = document.getElementById('inputAddSubtask').value;
-    let id = document.querySelectorAll("#subtasksAddTask li").length;
-
-    subtasklist.innerHTML += /*html*/`
-        <li class="subtaskstoedit" id="subtask${id}" onclick="editSubtaskBeforeCreateTask('${newsubtask}', 'subtask${id}')">${newsubtask}</li>
-    `
-    subtasks.push(newsubtask);
-    document.getElementById('inputAddSubtask').value = '';
+function showAssignedUsersStickers() {
+    let overview = document.getElementById('showAssignedUsersStickers');
+    overview.innerHTML = '';
+    for (let j = 0; j < (assignedUsers.length/2); j++) {
+        let initials = getInitials(assignedUsers[j*2]);
+        let initialColor = assignedUsers[(j*2)+1];
+        overview.innerHTML += `<div class="assigneListing" style="background-color:${initialColor}; margin-right:0;">${initials}</div>`
+    }
 }
 
-
-function editSubtaskBeforeCreateTask(subtask, id) {
-    document.getElementById(id).innerHTML = /*html*/`
-        <input type="text" value="${subtask}">
-    `
+async function searchSpecificUser() {
+    let search = document.getElementById('searchFieldAddTask');
+    if (search.value.length > 0) {
+        let searchValue = search.value.toLowerCase();
+        foundUsers = [];
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].name.toLowerCase().includes(searchValue)) {
+                foundUsers.push(i);
+            }
+        }
+        console.log(foundUsers);
+        if (foundUsers.length > 0) {
+            // document.getElementById('dropDownUserListToAssigne').innerHTML = '';
+            fillFoundUsersInDropDown(foundUsers);
+        }
+    }
 }
 
+function fillFoundUsersInDropDown(foundUsers) {
+    let dropDown = document.getElementById('dropDownUserListToAssigne');
+    let thatIsMe = '';
+    dropDown.innerHTML = '';
+    if (dropDown.classList.contains('d-none')) { dropDown.classList.remove('d-none') }
+    else { dropDown.classList.add('d-none') };
+    for (let j = 0; j < foundUsers.length; j++) {
+        let initials = getInitials(users[foundUsers[j]].name);
+        let initialColor = users[foundUsers[j]].color;
+        let checkValue = './img/unchecked.png';
+        if (users[foundUsers[j]].name == loginUser[0]) { thatIsMe = " (You)" }
+        else { thatIsMe = '' };
+        if (assignedUsers.includes(users[foundUsers[j]].name)) { checkValue = './img/checked.png' }
+        dropDown.innerHTML += templateUserListInDropDown(foundUsers[j], initialColor, initials, thatIsMe, checkValue);
+        ;
+    }
+}
 
-async function createTaskInBoard() {
-    let newTitle = document.getElementById('titleAddTaskInBoard').value;
-    let newDescription = document.getElementById('descriptionAddTaskInBoard').value;
-    let newAssignedTo = document.getElementById('assignedToAddTaskInBoard').value;
-    let newDueDate = document.getElementById('dueDateAddTaskInBoard').value;
-    let newCategory = document.getElementById('categoryAddTaskInBoard').value;
-    let newPrio = document.getElementById('button-value').value;
+// function addSubtask() {
 
-    console.log(newTitle, newDescription, newAssignedTo, newDueDate, newCategory, subtasks);
+//     let subtasklist = document.getElementById('subtasksAddTask');
+//     let newsubtask = document.getElementById('inputAddSubtask').value;
+//     let id = document.querySelectorAll("#subtasksAddTask li").length;
 
+//     subtasklist.innerHTML += /*html*/`
+//         <li class="subtaskstoedit" id="subtask${id}" onclick="editSubtaskBeforeCreateTask('${newsubtask}', 'subtask${id}')">${newsubtask}</li>
+//     `
+//     subtasks.push(newsubtask);
+//     document.getElementById('inputAddSubtask').value = '';
+// }
+
+
+// function editSubtaskBeforeCreateTask(subtask, id) {
+//     document.getElementById(id).innerHTML = /*html*/`
+//         <div class="subtaskLIST">
+//             <input type="text" value="${subtask}">
+//             <button>Edit</button>
+//             <button>Delete</button>
+//         </div>
+//     `
+// }
+
+// function addSubtask() {
+//     let newsubtask = document.getElementById('inputAddSubtask').value.trim();
+//     if (newsubtask !== "") {
+//         let subtasklist = document.getElementById("subtasksAddTask");
+//         let newItem = document.createElement("li");
+//         newItem.textContent = newsubtask;
+//         newItem.addEventListener("mouseover", function() {
+//             this.style.backgroundColor = "lightgray";
+//         });
+//         newItem.addEventListener("mouseout", function() {
+//             this.style.backgroundColor = "";
+//         });
+//         newItem.addEventListener("click", function() {
+//             let oldValue = this.textContent;
+//             this.innerHTML = `<input type="text" value="${oldValue}">`;
+//             let inputElement = this.querySelector("input");
+//             inputElement.focus();
+//             inputElement.addEventListener("blur", function() {
+//                 let newValue = this.value.trim();
+//                 if (newValue !== "") {
+//                     this.parentNode.textContent = newValue;
+//                 } else {
+//                     this.parentNode.textContent = oldValue;
+//                 }
+//             });
+//             inputElement.addEventListener("keypress", function(e) {
+//                 if (e.key === "Enter") {
+//                     this.blur();
+//                 }
+//             });
+//         });
+//         subtasklist.appendChild(newItem);
+//         document.getElementById("inputAddSubtask").value = "";
+//     }
+// }
+
+function addSubtask(location) {
+    let newsubtask = document.getElementById('inputAddSubtask' + location).value.trim();
+    if (newsubtask !== '') {
+        subtasks.push({ 'subtask': newsubtask, 'finished': false });
+        renderSubtasks(location);
+    }
+}
+
+function renderSubtasks(location) {
+    let list = document.getElementById('subtasksAddTask' + location);
+    list.innerHTML = '';
+    for (let id = 0; id < subtasks.length; id++) {
+        nextSubtaskInList = subtasks[id].subtask;
+        list.innerHTML += /*html*/`
+             <li id="subtask${id}">
+                <div class="subtaskLIST" id="listBox${id}" onmouseover="showSubtaskEditor(${id})" onmouseout="hideSubtaskEditor(${id})">
+                    <p id="subTitle${id}" onclick="openSubtaskEditor(${id})">${nextSubtaskInList}</p>
+                    <div class="subtaskEditor">
+                        <input class="d-none" id="subtaskEditInput${id}" value="${nextSubtaskInList}">
+                        <button class="d-none" id="btnEdit${id}" onclick="openSubtaskEditor(${id})">Edit</button>
+                        <button class="d-none" id="btnSave${id}" onclick="saveNewSubtaskEditor(${id}, ${location})">Save</button>
+                        <button class="d-none" id="btnDelete${id}" onclick="deleteSubtaskEditor(${id}, ${location})">Delete</button>
+                    </div>
+                </div>
+            </li>
+        `;
+    }
+    document.getElementById('inputAddSubtask' + location).value = '';
+}
+
+function showSubtaskEditor(id) {
+    document.getElementById('btnEdit' + id).classList.remove('d-none');
+    document.getElementById('btnDelete' + id).classList.remove('d-none');
+}
+
+function hideSubtaskEditor(id) {
+    document.getElementById('btnEdit' + id).classList.add('d-none');
+    document.getElementById('btnDelete' + id).classList.add('d-none');
+}
+
+function openSubtaskEditor(id) {
+    document.getElementById('listBox' + id).onmouseout = '';
+    document.getElementById('listBox' + id).onmouseover = '';
+    document.getElementById('subtaskEditInput' + id).classList.remove('d-none');
+    document.getElementById('subTitle' + id).classList.add('d-none');
+    document.getElementById('btnSave' + id).classList.remove('d-none');
+    document.getElementById('btnDelete' + id).classList.remove('d-none');
+    document.getElementById('btnEdit' + id).classList.add('d-none');
+    document.getElementById('subtaskEditInput' + id).focus();
+}
+
+function saveNewSubtaskEditor(id, location) {
+    let newsubtask = document.getElementById('subtaskEditInput' + id).value.trim();
+    subtasks[id].subtask = newsubtask;
+    document.getElementById('listBox' + id).onmouseout = `hideSubtaskEditor(${id})`;
+    document.getElementById('listBox' + id).onmouseover = `showSubtaskEditor(${id})`;
+    document.getElementById('subTitle' + id).classList.remove('d-none');
+    // document.getElementById('subTitle' + id).innerHTML = newsubtask;
+    document.getElementById('btnSave' + id).classList.add('d-none');
+    document.getElementById('btnDelete' + id).classList.add('d-none');
+    document.getElementById('subtaskEditInput' + id).classList.add('d-none');
+    document.getElementById('subtaskEditInput' + id).blur();
+    renderSubtasks(location);
+}
+
+function deleteSubtaskEditor(id, location) {
+    subtasks.splice(id, 1);
+    renderSubtasks(location);
+}
+
+async function createTask(location) {
+    console.log('Vorher:' + assignedUsers);
+    for (let i = 0; i < assignedUsers.length; i++) { assignedUsers.splice(i+1,1) };
+    console.log('Nachher:' + assignedUsers);
+    let newTitle = document.getElementById('titleAddTask' + location).value;
+    let newDescription = document.getElementById('descriptionAddTask' + location).value;
+    let newAssignedTo = assignedUsers;
+    let newDueDate = document.getElementById('dueDateAddTask' + location).value;
+    let newCategory = document.getElementById('categoryAddTask' + location).value;
+    await loadTasksFromServer();
     tasks.push({
         'titel': newTitle,
         'description': newDescription,
-        'assigned': [newAssignedTo],
+        'assigned': newAssignedTo,
         'dueDate': newDueDate,
         'position': 'ToDo',
         'prio': chosenPrio,
         'category': newCategory,
-        'position': 'ToDo',
         'subtasks': subtasks
-    })
-        ;
-
-    if (tasks[(tasks.length - 1)].subtasks[0].subtask == '') { tasks[(tasks.length - 1)].subtasks = ''; }
+    });
+    if (tasks[(tasks.length - 1)].subtasks == ['']) { tasks[(tasks.length - 1)].subtasks = ''; }
 
     await setItem('tasks', tasks);
     while (subtasks.length > 0) {
         subtasks.pop();
     }
-    clearAddTaskInBoard()
-    closeAddTaskInBoard();
+    clearAddTask(location);
+    // closeAddTaskInBoard();
     initBoard();
-}
 
-
-function createTask() {
-    let newTitle = document.getElementById('titleAddTask').value;
-    let newDescription = document.getElementById('descriptionAddTask').value;
-    let newAssignedTo = document.getElementById('assignedToAddTask').value;
-    let newDueDate = document.getElementById('dueDateAddTask').value;
-    let newCategory = document.getElementById('categoryAddTask').value;
-    let newPrio = document.getElementById('button-valueAT').value;
-
-    console.log(newTitle, newDescription, newAssignedTo, newDueDate, newCategory, subtasks);
-
-    tasks.push({
-        'titel': newTitle,
-        'description': newDescription,
-        'assigned': [newAssignedTo],
-        'dueDate': newDueDate,
-        'position': 'ToDo',
-        'prio': newPrio,
-        'category': newCategory,
-        'position': 'ToDo',
-        'subtasks': [subtasks]
-    });
-    if (tasks[(tasks.length - 1)].subtasks[0] == '') { tasks[(tasks.length - 1)].subtasks = ''; }
-
-    setItem('tasks', tasks);
-    while (subtasks.length > 0) {
-        subtasks.pop();
-    }
-
-    console.log('task created successfully', tasks)
+    // console.log('task created successfully', tasks)
 }
 
 
