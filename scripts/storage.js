@@ -16,3 +16,16 @@ async function getItem(key) {
         } throw `Could not find data with key "${key}".`;
     });
 }
+
+async function loadLoginUser() {
+    try {
+        loginUser = JSON.parse(await getItem('loginUser'));
+    } catch (e) {
+        console.info('No User found.');
+    }
+}
+
+
+function renderLoginUserName(location) {
+    document.getElementById('activeUser' + location).innerHTML = loginUser[1];
+}

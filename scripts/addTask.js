@@ -2,6 +2,11 @@ let subtasks = [];
 let chosenPrio = 'medium';
 let assignedUsers = [];
 
+async function initAddTask() {
+    loadUsers()
+    await loadLoginUser();
+    renderLoginUserName('AddTask');
+}
 
 function openAddTaskInBoard() {
     document.getElementById('addTaskInBoard').classList.remove('d-none');

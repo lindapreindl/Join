@@ -138,6 +138,10 @@ header {
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
 }
 
+.activePage {
+    background-color: #091931 !important;
+}
+
 .inputField {
     border: 0;
     border-radius: 8px;
@@ -309,6 +313,14 @@ button img {
 
 .fontHeader {
     font-size: 20px;
+}
+
+.helpIcon {
+    height: 20px;
+}
+
+.helpIcon:hover {
+    height: 24px;
 }
 
 .spaceLeft {

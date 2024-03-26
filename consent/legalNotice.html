@@ -20,7 +20,7 @@
     <script src="../scripts/login.js"></script>
 </head>
 
-<body>
+<body onload="initConsent('LegalNotice')">
 
     <div class="navigation">
         <img class="logo" src="../img/logo_white.png">
@@ -41,8 +41,8 @@
             <div class="headLine">
                 <p class="fontHeader spaceLeft">Kanban Project Management Tool</p>
                 <div class="header-right spaceRight">
-                    <a href="./help.html"><img src="../img/help-icon.png"></a>
-                    <div id="activeUserCircle" class="activeUserInitials"></div>
+                    <a href="./help.html"><img src="../img/help-icon.png" class="helpIcon"></a>
+                    <div id="activeUserLegalNotice" class="activeUserInitials" onclick="userMenu('LegalNotice')"></div>
                 </div>
             </div>
         </div>
@@ -105,6 +105,17 @@
             <p>For any questions or notices, please contact us at lindapreindl@gmail.com.</p>
             <p>Date: March 11, 2024 </p>
         </div>
+    </div>
+    <div class="userMenuBox d-none" id="userMenuBoxLegalNotice">
+        <a href="./consent/privacyPolicy.html">
+            <div class="userMenuOption" onclick="userMenu('LegalNotice')">Pricacy Policy</div>
+        </a>
+        <a href="./consent/legalNotice.html">
+            <div class="userMenuOption" onclick="userMenu('LegalNotice')">Legal Notice</div>
+        </a>
+        <a href="./login.html">
+            <div class="userMenuOption" onclick="userMenu('LegalNotice'), logout()">Logout</div>
+        </a>
     </div>
 </body>
 

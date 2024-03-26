@@ -20,7 +20,7 @@
     <script src="../scripts/login.js"></script>
 </head>
 
-<body>
+<body onload="initConsent('Policy')">
     <div class="navigation">
         <img class="logo" src="../img/logo_white.png">
         <div class="menu">
@@ -40,8 +40,8 @@
             <div class="headLine">
                 <p class="fontHeader spaceLeft">Kanban Project Management Tool</p>
                 <div class="header-right spaceRight">
-                    <a href="./help.html"><img src="../img/help-icon.png"></a>
-                    <div id="activeUserCircle" class="activeUserInitials"></div>
+                    <a href="./help.html"><img src="../img/help-icon.png" class="helpIcon"></a>
+                    <div id="activeUserPolicy" class="activeUserInitials" onclick="userMenu('Policy')"></div>
                 </div>
             </div>
         </div>
@@ -324,7 +324,17 @@
                 <p>Quelle:
                     https://www.e-recht24.de</p>
             </div>
-
+            <div class="userMenuBox d-none" id="userMenuBoxPolicy">
+                <a href="./consent/privacyPolicy.html">
+                    <div class="userMenuOption" onclick="userMenu('Policy')">Pricacy Policy</div>
+                </a>
+                <a href="./consent/legalNotice.html">
+                    <div class="userMenuOption" onclick="userMenu('Policy')">Legal Notice</div>
+                </a>
+                <a href="./login.html">
+                    <div class="userMenuOption" onclick="userMenu('Policy'), logout()">Logout</div>
+                </a>
+            </div>
 </body>
 
 </html>

@@ -1,70 +1,3 @@
-// let tasks = [
-//     {
-//         'titel': 'Zwiebeln schneiden',
-//         'description': 'Rote Zwiebeln in kleine Würfel schneiden',
-//         'assigned': ['Cill Phollins', 'Gefanie Straf', 'Clanta Saus'],
-//         'dueDate': '24/12/2024',
-//         'prio': 'urgent',
-//         'category': 'User Story',
-//         'position': 'ToDo',
-//         'subtasks': [
-//             {
-//                 'subtask': 'Schäler spülen',
-//                 'finished': true
-//             },
-//             {
-//                 'subtask': 'Zwiebeln schälen',
-//                 'finished': true
-//             },
-//             {
-//                 'subtask': 'Zwiebeln würfeln',
-//                 'finished': false
-//             }
-//         ]
-//     },
-//     {
-//         'titel': 'Holz hacken',
-//         'description': 'Für ein nettes, kleines Lagerfeuer',
-//         'assigned': ['Ghomas Tottschalk'],
-//         'dueDate': '24/12/2024',
-//         'prio': 'medium',
-//         'category': 'User Story',
-//         'position': 'InProgress',
-//         'subtasks': [
-//             {
-//                 'subtask': 'Axt schärfen',
-//                 'finished': true
-//             },
-//             {
-//                 'subtask': 'Holz spalten',
-//                 'finished': false
-//             }
-//         ]
-//     },
-//     {
-//         'titel': 'Join programmieren',
-//         'description': 'Ein cooles Programm schreiben zur Arbeitsplanung und Aufgabenverteilung in einem Team',
-//         'assigned': ['Mangela Erkel', 'Woko Jinterscheidt', 'Refan Staab', 'Pebastian Suffpaff', 'Blontana Mack', 'Knens Jossalla'],
-//         'dueDate': '24/12/2024',
-//         'prio': 'low',
-//         'category': 'Technical Task',
-//         'position': 'InProgress',
-//         'subtasks': [{
-//             'subtask': 'Brainstorming',
-//             'finished': false
-//         }]
-//     },
-//     {
-//         'titel': 'Nase putzen',
-//         'description': 'Mit einem Taschentuch die Atemwege reinigen',
-//         'assigned': ['Boe Jiden'],
-//         'dueDate': '24.12.2024',
-//         'prio': 'low',
-//         'category': 'Technical Task',
-//         'position': 'AwaitFeedback',
-//         'subtasks': ''
-//     }
-// ];
 let tasks = [];
 let foundTasks = [];
 let categoryColors = ['#0038FF', '#1FD7C1']
@@ -80,7 +13,8 @@ async function initBoard() {
     await loadUsers();
     await loadTasksFromServer();
     fillBoardWithTasks();
-    loadActiveUser();
+    await loadLoginUser();
+    renderLoginUserName('Board');
 }
 
 // Load and update the current user-list from server
@@ -105,10 +39,10 @@ async function fillBoardWithTasks() {
     checkForEmptyColums()
 }
 
-function loadActiveUser() {
-    loginUser = 'CB';
-    document.getElementById('activeUserCircle').innerHTML = loginUser;
-}
+// function loadActiveUser() {
+//     loginUser = 'CB';
+//     document.getElementById('activeUserCircle').innerHTML = loginUser;
+// }
 
 // Picks the task-details
 function getTasksInformation(i) {

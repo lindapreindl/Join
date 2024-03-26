@@ -61,7 +61,7 @@ async function logInUser() {
       localStorage.setItem("rememberUser", email.value); 
       rememberUser = email.value;
     }
-    userLoggedIn(email.value);
+    await userLoggedIn(email.value);
     window.location.href = "summary.html?msg=Login successful";
   } else {
     wrongPassword();
@@ -120,9 +120,9 @@ function changePasswortIcon(value, location, inputID) {
   }
 }
 
-function userMenu() {
+function userMenu(location) {
   showBox = !showBox;
-  let box = document.getElementById("userMenuBox");
+  let box = document.getElementById("userMenuBox" + location);
   if (showBox) {
     box.classList.remove("d-none");
   } else {
@@ -133,4 +133,9 @@ function userMenu() {
 async function logout() {
   loginUser = [];
   await setItem("loginUser", JSON.stringify(loginUser));
+}
+
+async function initConsent(location) {
+  await loadLoginUser();
+  renderLoginUserName(location);
 }

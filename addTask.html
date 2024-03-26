@@ -18,12 +18,12 @@
     <script src="./scripts/templates.js"></script>
 </head>
 
-<body onload="loadUsers()">
+<body onload="initAddTask()">
     <div class="navigation">
         <img class="logo" src="./img/logo_white.png">
         <div class="menu">
             <a class="a1" href="./summary.html"><img src="./img/summary.png" alt="">Summary</a>
-            <a class="a2" href="./addTask.html"><img src="./img/add_Task.png" alt="">Add Task</a>
+            <a class="a2 activePage" href="./addTask.html"><img src="./img/add_Task.png" alt="">Add Task</a>
             <a class="a3" href="./board.html"><img src="./img/board.png" alt="">Board</a>
             <a class="a4" href="./contactPage.html"><img src="./img/contac.png" alt="">Contacts</a>
         </div>
@@ -39,8 +39,8 @@
                 <p class="fontHeader spaceLeft">Kanban Project Management Tool</p>
                 <img src="./img/logo.png" class="headerLogoSmall" id="headerLogo">
                 <div class="header-right spaceRight">
-                    <a href="./consent/help.html"><img src="../img/help-icon.png"></a>
-                    <div id="activeUserSummary" class="activeUserInitials" onclick="userMenu()"></div>
+                    <a href="./consent/help.html"><img src="./img/help-icon.png" class="helpIcon"></a>
+                    <div id="activeUserAddTask" class="activeUserInitials" onclick="userMenu('AdTask')"></div>
                 </div>
             </div>
         </div>
@@ -133,6 +133,17 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="userMenuBox d-none" id="userMenuBoxAdTask">
+        <a href="./consent/privacyPolicy.html">
+            <div class="userMenuOption" onclick="userMenu('AdTask')">Pricacy Policy</div>
+        </a>
+        <a href="./consent/legalNotice.html">
+            <div class="userMenuOption" onclick="userMenu('AdTask')">Legal Notice</div>
+        </a>
+        <a href="./login.html">
+            <div class="userMenuOption" onclick="userMenu('AdTask'), logout()">Logout</div>
+        </a>
     </div>
 
 </body>

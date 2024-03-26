@@ -20,7 +20,7 @@
     <script src="../scripts/login.js"></script>
 </head>
 
-<body>
+<body onload="initConsent('Help')">
 
     <div class="navigation">
         <img class="logo" src="../img/logo_white.png">
@@ -41,8 +41,8 @@
             <div class="headLine">
                 <p class="fontHeader spaceLeft">Kanban Project Management Tool</p>
                 <div class="header-right spaceRight">
-                    <a href="./help.html"><img src="../img/help-icon.png"></a>
-                    <div id="activeUserCircle" class="activeUserInitials"></div>
+                    <a href="./help.html"><img src="../img/help-icon.png" class="helpIcon"></a>
+                    <div id="activeUserHelp" class="activeUserInitials" onclick="userMenu('Help')"></div>
                 </div>
             </div>
         </div>
@@ -153,6 +153,17 @@
             <p>Have more questions about <mark>Join</mark>? Feel free to contact us. We're here to help you!</p>
 
             <h2>Enjoy using Join!</h2>
+        </div>
+        <div class="userMenuBox d-none" id="userMenuBoxHelp">
+            <a href="./consent/privacyPolicy.html">
+                <div class="userMenuOption" onclick="userMenu('Help')">Pricacy Policy</div>
+            </a>
+            <a href="./consent/legalNotice.html">
+                <div class="userMenuOption" onclick="userMenu('Help')">Legal Notice</div>
+            </a>
+            <a href="./login.html">
+                <div class="userMenuOption" onclick="userMenu('Help'), logout()">Logout</div>
+            </a>
         </div>
 
 </body>

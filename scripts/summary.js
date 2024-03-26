@@ -9,6 +9,7 @@ async function initSummary() {
     await loadTasksFromServer();
     await loadLoginUser();
     renderLoginUserName('Summary');
+    greeting();
     amountTasks = tasks.length;
     amountToDo = checkAmountFromJSON(1, 'ToDo');
     amountDone = checkAmountFromJSON(1, 'Done');
@@ -18,11 +19,10 @@ async function initSummary() {
     fillSummary();
 }
 
-function renderLoginUserName(location) {
-    document.getElementById('activeUser' + location).innerHTML = loginUser[1];
+function greeting() {
     let daytime = findOutDayTime();
     document.getElementById('greeting').innerHTML = daytime + ',';
-    if (location == 'Summary') { document.getElementById('userNameSummary').innerHTML = loginUser[0]; }
+    document.getElementById('userNameSummary').innerHTML = loginUser[0];
     if (loginUser[0] == '') { document.getElementById('greeting').innerHTML = daytime + '!'; }
 }
 
@@ -46,14 +46,6 @@ function checkAmountFromJSON(category, value) {
         }
     }
     return result;
-}
-
-async function loadLoginUser() {
-    try {
-        loginUser = JSON.parse(await getItem('loginUser'));
-    } catch (e) {
-        console.info('No User found.');
-    }
 }
 
 function fillSummary() {
