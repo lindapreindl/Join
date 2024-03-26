@@ -40,31 +40,27 @@ function closeAddTaskInBoard() {
 }
 
 
-function clearAddTaskInBoard() {
-    document.getElementById('titleAddTaskInBoard').value = '';
-    document.getElementById('descriptionAddTaskInBoard').value = '';
-    document.getElementById('assignedToAddTaskInBoard').value = 'selectContact';
-    document.getElementById('dueDateAddTaskInBoard').value = '';
+// function clearAddTaskInBoard() {
+//     document.getElementById('titleAddTaskInBoard').value = '';
+//     document.getElementById('descriptionAddTaskInBoard').value = '';
+//     document.getElementById('assignedToAddTaskInBoard').value = 'selectContact';
+//     document.getElementById('dueDateAddTaskInBoard').value = '';
 
-    changePrioToMedium();
+//     changePrioToMedium();
 
-    document.getElementById('categoryAddTaskInBoard').value = 'selectCategory';
-    document.getElementById('subtasksAddTaskInBoard').innerHTML = '';
+//     document.getElementById('categoryAddTaskInBoard').value = 'selectCategory';
+//     document.getElementById('subtasksAddTaskInBoard').innerHTML = '';
 
-    cancelSubtaskInBoard();
-}
+//     cancelSubtaskInBoard();
+// }
 
 function clearAddTask(location) {
     document.getElementById('titleAddTask' + location).value = '';
     document.getElementById('descriptionAddTask' + location).value = '';
-    // document.getElementById('assignedToAddTask' + location).value = 'selectContact';
     document.getElementById('dueDateAddTask' + location).value = '';
-
     chosenPrio = 'medium';
-
     document.getElementById('categoryAddTask' + location).value = 'selectCategory';
     document.getElementById('subtasksAddTask' + location).innerHTML = '';
-
     cancelSubtask(location);
 }
 
@@ -100,13 +96,13 @@ function cancelSubtask(location) {
     document.getElementById('inputDivAddSubtask' + location).style = 'display: none';
 }
 
-async function searchAssignedPeople() {
-    let dropDown = document.getElementById('dropDownUserListToAssigne');
+async function searchAssignedPeople(location) {
+    let dropDown = document.getElementById('dropDownUserListToAssigne' + location);
     let thatIsMe = '';
     dropDown.innerHTML = '';
     if (dropDown.classList.contains('d-none')) { dropDown.classList.remove('d-none') }
     else { dropDown.classList.add('d-none') };
-    
+
     for (let i = 0; i < users.length; i++) {
         let initials = getInitials(users[i].name);
         let initialColor = users[i].color;
@@ -114,49 +110,38 @@ async function searchAssignedPeople() {
         if (users[i].name == loginUser[0]) { thatIsMe = " (You)" }
         else { thatIsMe = '' };
         if (assignedUsers.includes(users[i].name)) { checkValue = './img/checked.png' }
-        dropDown.innerHTML += templateUserListInDropDown(i, initialColor, initials, thatIsMe, checkValue);
+        dropDown.innerHTML += templateUserListInDropDown(i, initialColor, initials, thatIsMe, checkValue, location);
         ;
     }
 }
 
-function templateUserListInDropDown(i, initialColor, initials, me, checkValue) {
-    return `
-    <div class="userInDropDown" onclick="changeCheckerAssignedTo(${i})">
-        <div class="userInDropDown">
-            <div class="assigneListing" style="background-color:${initialColor};">${initials}</div>
-            <p>${users[i].name}${me}</p>
-        </div>
-        <img id="userListChecker${i}" src="${checkValue}">
-    </div>`;
-}
-
-function changeCheckerAssignedTo(i) {
+function changeCheckerAssignedTo(i, location) {
     let clickedUser = users[i].name;
     if (assignedUsers.includes(clickedUser)) {
         let userIndex = assignedUsers.findIndex(user => user === clickedUser);
         assignedUsers.splice(userIndex, 2);
-        document.getElementById(`userListChecker${i}`).src='./img/unchecked.png';
+        document.getElementById(`userListChecker${location}${i}`).src = './img/unchecked.png';
 
     } else {
         assignedUsers.push(clickedUser);
         assignedUsers.push(users[i].color);
-        document.getElementById(`userListChecker${i}`).src='./img/checked.png'
+        document.getElementById(`userListChecker${location}${i}`).src = './img/checked.png';
     }
-    showAssignedUsersStickers();
+    showAssignedUsersStickers(location);
 }
 
-function showAssignedUsersStickers() {
-    let overview = document.getElementById('showAssignedUsersStickers');
+function showAssignedUsersStickers(location) {
+    let overview = document.getElementById('showAssignedUsersStickers' + location);
     overview.innerHTML = '';
-    for (let j = 0; j < (assignedUsers.length/2); j++) {
-        let initials = getInitials(assignedUsers[j*2]);
-        let initialColor = assignedUsers[(j*2)+1];
+    for (let j = 0; j < (assignedUsers.length / 2); j++) {
+        let initials = getInitials(assignedUsers[j * 2]);
+        let initialColor = assignedUsers[(j * 2) + 1];
         overview.innerHTML += `<div class="assigneListing" style="background-color:${initialColor}; margin-right:0;">${initials}</div>`
     }
 }
 
-async function searchSpecificUser() {
-    let search = document.getElementById('searchFieldAddTask');
+async function searchSpecificUser(location) {
+    let search = document.getElementById('searchFieldAddTask' + location);
     if (search.value.length > 0) {
         let searchValue = search.value.toLowerCase();
         foundUsers = [];
@@ -168,13 +153,13 @@ async function searchSpecificUser() {
         console.log(foundUsers);
         if (foundUsers.length > 0) {
             // document.getElementById('dropDownUserListToAssigne').innerHTML = '';
-            fillFoundUsersInDropDown(foundUsers);
+            fillFoundUsersInDropDown(foundUsers, location);
         }
     }
 }
 
-function fillFoundUsersInDropDown(foundUsers) {
-    let dropDown = document.getElementById('dropDownUserListToAssigne');
+function fillFoundUsersInDropDown(foundUsers, location) {
+    let dropDown = document.getElementById('dropDownUserListToAssigne' + location);
     let thatIsMe = '';
     dropDown.innerHTML = '';
     if (dropDown.classList.contains('d-none')) { dropDown.classList.remove('d-none') }
@@ -186,70 +171,10 @@ function fillFoundUsersInDropDown(foundUsers) {
         if (users[foundUsers[j]].name == loginUser[0]) { thatIsMe = " (You)" }
         else { thatIsMe = '' };
         if (assignedUsers.includes(users[foundUsers[j]].name)) { checkValue = './img/checked.png' }
-        dropDown.innerHTML += templateUserListInDropDown(foundUsers[j], initialColor, initials, thatIsMe, checkValue);
+        dropDown.innerHTML += templateUserListInDropDown(foundUsers[j], initialColor, initials, thatIsMe, checkValue, location);
         ;
     }
 }
-
-// function addSubtask() {
-
-//     let subtasklist = document.getElementById('subtasksAddTask');
-//     let newsubtask = document.getElementById('inputAddSubtask').value;
-//     let id = document.querySelectorAll("#subtasksAddTask li").length;
-
-//     subtasklist.innerHTML += /*html*/`
-//         <li class="subtaskstoedit" id="subtask${id}" onclick="editSubtaskBeforeCreateTask('${newsubtask}', 'subtask${id}')">${newsubtask}</li>
-//     `
-//     subtasks.push(newsubtask);
-//     document.getElementById('inputAddSubtask').value = '';
-// }
-
-
-// function editSubtaskBeforeCreateTask(subtask, id) {
-//     document.getElementById(id).innerHTML = /*html*/`
-//         <div class="subtaskLIST">
-//             <input type="text" value="${subtask}">
-//             <button>Edit</button>
-//             <button>Delete</button>
-//         </div>
-//     `
-// }
-
-// function addSubtask() {
-//     let newsubtask = document.getElementById('inputAddSubtask').value.trim();
-//     if (newsubtask !== "") {
-//         let subtasklist = document.getElementById("subtasksAddTask");
-//         let newItem = document.createElement("li");
-//         newItem.textContent = newsubtask;
-//         newItem.addEventListener("mouseover", function() {
-//             this.style.backgroundColor = "lightgray";
-//         });
-//         newItem.addEventListener("mouseout", function() {
-//             this.style.backgroundColor = "";
-//         });
-//         newItem.addEventListener("click", function() {
-//             let oldValue = this.textContent;
-//             this.innerHTML = `<input type="text" value="${oldValue}">`;
-//             let inputElement = this.querySelector("input");
-//             inputElement.focus();
-//             inputElement.addEventListener("blur", function() {
-//                 let newValue = this.value.trim();
-//                 if (newValue !== "") {
-//                     this.parentNode.textContent = newValue;
-//                 } else {
-//                     this.parentNode.textContent = oldValue;
-//                 }
-//             });
-//             inputElement.addEventListener("keypress", function(e) {
-//                 if (e.key === "Enter") {
-//                     this.blur();
-//                 }
-//             });
-//         });
-//         subtasklist.appendChild(newItem);
-//         document.getElementById("inputAddSubtask").value = "";
-//     }
-// }
 
 function addSubtask(location) {
     let newsubtask = document.getElementById('inputAddSubtask' + location).value.trim();
@@ -270,9 +195,9 @@ function renderSubtasks(location) {
                     <p id="subTitle${id}" onclick="openSubtaskEditor(${id})">${nextSubtaskInList}</p>
                     <div class="subtaskEditor">
                         <input class="d-none" id="subtaskEditInput${id}" value="${nextSubtaskInList}">
-                        <button class="d-none" id="btnEdit${id}" onclick="openSubtaskEditor(${id})">Edit</button>
-                        <button class="d-none" id="btnSave${id}" onclick="saveNewSubtaskEditor(${id}, ${location})">Save</button>
-                        <button class="d-none" id="btnDelete${id}" onclick="deleteSubtaskEditor(${id}, ${location})">Delete</button>
+                        <img src="./img/editIcon.png" class="d-none" id="btnEdit${id}" onclick="openSubtaskEditor(${id})">
+                        <img src="./img/check_dark.png" class="d-none" id="btnSave${id}" onclick="saveNewSubtaskEditor(${id}, '${location}')">
+                        <img src="./img/deleteIcon.png" class="d-none" id="btnDelete${id}" onclick="deleteSubtaskEditor(${id}, '${location}')">
                     </div>
                 </div>
             </li>
@@ -304,7 +229,9 @@ function openSubtaskEditor(id) {
 
 function saveNewSubtaskEditor(id, location) {
     let newsubtask = document.getElementById('subtaskEditInput' + id).value.trim();
+    console.log(newsubtask);
     subtasks[id].subtask = newsubtask;
+    console.log('Neuer Eintrag: ' + subtasks[id].subtask);
     document.getElementById('listBox' + id).onmouseout = `hideSubtaskEditor(${id})`;
     document.getElementById('listBox' + id).onmouseover = `showSubtaskEditor(${id})`;
     document.getElementById('subTitle' + id).classList.remove('d-none');
@@ -323,7 +250,7 @@ function deleteSubtaskEditor(id, location) {
 
 async function createTask(location) {
     console.log('Vorher:' + assignedUsers);
-    for (let i = 0; i < assignedUsers.length; i++) { assignedUsers.splice(i+1,1) };
+    for (let i = 0; i < assignedUsers.length; i++) { assignedUsers.splice(i + 1, 1) };
     console.log('Nachher:' + assignedUsers);
     let newTitle = document.getElementById('titleAddTask' + location).value;
     let newDescription = document.getElementById('descriptionAddTask' + location).value;

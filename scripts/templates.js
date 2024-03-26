@@ -98,3 +98,14 @@ function templateShowDetailsSubtasks(i, j, status) {
             <div>${tasks[i].subtasks[j].subtask}</div>
         </div>`
 }
+
+function templateUserListInDropDown(i, initialColor, initials, me, checkValue, location) {
+    return `
+    <div class="userInDropDown" onclick="changeCheckerAssignedTo('${i}', '${location}')">
+        <div class="userInDropDown">
+            <div class="assigneListing" style="background-color:${initialColor};">${initials}</div>
+            <p>${users[i].name}${me}</p>
+        </div>
+        <img id="userListChecker${location}${i}" src="${checkValue}">
+    </div>`;
+}

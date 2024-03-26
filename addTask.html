@@ -18,121 +18,121 @@
 </head>
 
 <body onload="loadUsers()">
-
-    <nav>
-        <img class="logo" src="./img/logo_white.png" alt="">
+    <div class="navigation">
+        <img class="logo" src="./img/logo_white.png">
         <div class="menu">
-            <a class="a1" href="#"><img src="./img/summary.png" alt="">Summary</a>
-            <a class="a2" href="#"><img src="./img/add_Task.png" alt="">Add Task</a>
-            <a class="a3" href="#"><img src="./img/board.png" alt="">Board</a>
-            <a class="a4" href="#"><img src="./img/contac.png" alt="">Contacts</a>
-            <!--A-Elemente links noch auf eine Höhe bringen, flex-start geht nicht ?!-->
+            <a class="a1" href="./summary.html"><img src="./img/summary.png" alt="">Summary</a>
+            <a class="a2" href="./addTask.html"><img src="./img/add_Task.png" alt="">Add Task</a>
+            <a class="a3" href="./board.html"><img src="./img/board.png" alt="">Board</a>
+            <a class="a4" href="./contactPage.html"><img src="./img/contac.png" alt="">Contacts</a>
         </div>
-
         <div class="termsAndConditions">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Legal notice</a>
-        </div>
-    </nav>
-    <header>
-        <div class="header-left">
-            <p>Kanban Project Management Tool</p>
-            <img class="d-none" src="./img/logo.png" alt="">
-        </div>
-        <div class="header-right">
-            <img src="./img/help-icon.png" alt="">
-            <p>PB</p>
-            <!-- dynamisches Profilfoto noch einfügen-->
-        </div>
-    </header>
-
-    <div class="bigAddTask">
-        <h1 class="h1">Add Task</h1>
-        <div class="form">
-            <div class="form-left">
-                <div class="title">
-                    <p>Title<mark>*</mark></p>
-                    <input type="text" name="title" id="titleAddTask"
-                        placeholder="Enter a title" required>
-                </div>
-                <div class="description">
-                    <p>Description</p>
-                    <textarea type="text" name="description" id="descriptionAddTask" placeholder="Enter a description"
-                        cols="30" rows="10"></textarea>
-                </div>
-                <div class="assignedTo">
-                    <label for="assignedTo">Assigned to</label>
-                    <!-- <select id="assignedToAddTask" name="assignedTo">
-                        <option selected disabled hidden value="selectContact">Select contacts to assign
-                        </option>
-
-                    </select> -->
-                    <div class="searchBox">
-                        <input class="inputSearch inputField" id="searchFieldAddTask" placeholder="Select contacs to assign" onclick="searchAssignedPeople()" onkeyup="searchSpecificUser()">
-                        <div class="icons" onclick="searchAssignedPeople()">&#9207;</div>
-                    </div>
-                    <div class="dropDownUserListToAssigne d-none" id="dropDownUserListToAssigne"></div>
-                    <div class="showAssignedUsersStickers" id="showAssignedUsersStickers"></div>
-                </div>
-            </div>
-
-            <div class="addTaskLine"></div>
-
-            <div class="form-right">
-                <div class="dueDate">
-                    <p>Due Date<mark>*</mark></p>
-                    <input type="date" id="dueDateAddTask" name="dueDate" required>
-                    <!-- Placeholder noch formatieren!!-->
-                </div>
-                <div class="prio">
-                    <p>Prio</p>
-                    <div class="prio-button">
-                        <button id="button-urgentAT" onclick="changePrio('urgent', 'AT')">Urgent <img id="img-urgentAT"
-                                src="./img/urgent.png" alt=""> <img id="img-urgent-whiteAT" class="d-none"
-                                src="./img/urgent_white.png" alt=""> </button>
-                        <button id="button-mediumAT" class="medium" onclick="changePrio('medium', 'AT')">Medium
-                                <img id="img-mediumAT" class="d-none" src="./img/medium.png" alt=""> <img
-                                id="img-medium-whiteAT" src="./img/medium_white.png" alt=""> </button>
-                        <button id="button-lowAT" onclick="changePrio('low', 'AT')">Low <img id="img-lowAT" src="./img/low.png"
-                                alt=""> <img id="img-low-whiteAT" class="d-none" src="./img/low_white.png" alt="">
-                        </button>
-                        <p id="button-valueAT" class="d-none">medium</p>
-                    </div>
-                </div>
-                <div class="task-category">
-                    <p>Category<mark>*</mark></p>
-                    <select id="categoryAddTask" name="category" required>
-                        <option selected disabled hidden value="selectCategory">Select Category</option>
-                        <option value="User Story">User Story</option>
-                        <option value="Technical Task">Technical Task</option>
-                    </select>
-                </div>
-                <div class="subtasks">
-                    <p>Subtasks</p>
-                    <button id="buttonAddSubtask" onclick="changeToSubtaskInput('')">
-                        <p>Add new subtask</p><img src="./img/add.png" alt="">
-                    </button>
-                    <div style="display: none;" id="inputDivAddSubtask">
-                        <input id="inputAddSubtask" type="text">
-                        <img onclick="cancelSubtask('')" src="./img/cancel.png" alt="">
-                        <p>|</p>
-                        <img onclick="addSubtask('')" src="./img/check_dark.png" alt="">
-                    </div>
-                    <ul id="subtasksAddTask"></ul>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="bottom">
-            <p class="black"><mark>*</mark>This field is required</p>
-            <div class="bottom-button">
-                <button onclick="clearAddTask('')" class="clear">Clear <img src="./img/cancel.png" alt=""></button>
-                <button onclick="createTask('')" class="create">Create Task <img src="./img/check.png" alt=""></button>
-            </div>
+            <a href="./consent/privacyPolicy.html">Privacy Policy</a>
+            <a href="./consent/legalNotice.html">Legal notice</a>
         </div>
     </div>
 
+    <div class="allContent">
+        <div class="upperBox">
+            <div class="headLine">
+                <p class="fontHeader spaceLeft">Kanban Project Management Tool</p>
+                <img src="./img/logo.png" class="headerLogoSmall" id="headerLogo">
+                <div class="header-right spaceRight">
+                    <a href="./consent/help.html"><img src="../img/help-icon.png"></a>
+                    <div id="activeUserSummary" class="activeUserInitials" onclick="userMenu()"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bigAddTask">
+            <h1 class="h1">Add Task</h1>
+            <div class="form">
+                <div class="form-left">
+                    <div class="title">
+                        <p>Title<mark>*</mark></p>
+                        <div class="inputBoxAddTask">
+                            <input type="text" name="title" id="titleAddTask" placeholder="Enter a title" required>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <p>Description</p>
+                        <div class="inputBoxAddTask" style="height: 150px !important; display: table;">
+                            <textarea type="text" name="description" id="descriptionAddTask"
+                                placeholder="Enter a description" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="assignedTo">
+                        <label for="assignedTo">Assigned to</label>
+                        <div class="searchBoxAssigne">
+                            <input class="inputSearch inputField" id="searchFieldAddTaskAT"
+                                placeholder="Select contacs to assign" onclick="searchAssignedPeople('AT')"
+                                onkeyup="searchSpecificUser('AT')">
+                            <div class="icons" onclick="searchAssignedPeople('AT')">&#9207;</div>
+                        </div>
+                        <div class="dropDownUserListToAssigne d-none" id="dropDownUserListToAssigneAT"></div>
+                        <div class="showAssignedUsersStickers" id="showAssignedUsersStickersAT"></div>
+                    </div>
+                </div>
+
+                <div class="addTaskLine"></div>
+
+                <div class="form-right">
+                    <div class="dueDate">
+                        <p>Due Date<mark>*</mark></p>
+                        <div class="inputBoxAddTask">
+                            <input type="date" id="dueDateAddTask" name="dueDate" required>
+                        </div>
+                    </div>
+                    <div class="prio">
+                        <p>Prio</p>
+                        <div class="prio-button">
+                            <button id="button-urgentAT" onclick="changePrio('urgent', 'AT')">Urgent <img
+                                    id="img-urgentAT" src="./img/urgent.png" alt=""> <img id="img-urgent-whiteAT"
+                                    class="d-none" src="./img/urgent_white.png" alt=""> </button>
+                            <button id="button-mediumAT" class="medium" onclick="changePrio('medium', 'AT')">Medium
+                                <img id="img-mediumAT" class="d-none" src="./img/medium.png" alt=""> <img
+                                    id="img-medium-whiteAT" src="./img/medium_white.png" alt=""> </button>
+                            <button id="button-lowAT" onclick="changePrio('low', 'AT')">Low <img id="img-lowAT"
+                                    src="./img/low.png" alt=""> <img id="img-low-whiteAT" class="d-none"
+                                    src="./img/low_white.png" alt="">
+                            </button>
+                            <p id="button-valueAT" class="d-none">medium</p>
+                        </div>
+                    </div>
+                    <div class="task-category">
+                        <p>Category<mark>*</mark></p>
+                        <select id="categoryAddTask" name="category" class="noBorder" required>
+                            <option selected disabled hidden value="selectCategory">Select Category</option>
+                            <option value="User Story">User Story</option>
+                            <option value="Technical Task">Technical Task</option>
+                        </select>
+                    </div>
+                    <div class="subtasks">
+                        <p>Subtasks</p>
+                        <div class="inputBoxAddTask" id="buttonAddSubtaskAT" onclick="changeToSubtaskInput('AT')">
+                            <p>Add new subtask</p><img src="./img/add.png" alt="">
+                        </div>
+                        <div class="inputBoxAddTask" style="display: none;" id="inputDivAddSubtaskAT">
+                            <input id="inputAddSubtaskAT" type="text">
+                            <img onclick="cancelSubtask('AT')" src="./img/cancel.png" alt="">
+                            <p>|</p>
+                            <img onclick="addSubtask('AT')" src="./img/check_dark.png" alt="">
+                        </div>
+                        <ul id="subtasksAddTaskAT"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <p class="black"><mark>*</mark>This field is required</p>
+                <div class="bottom-button">
+                    <button onclick="clearAddTask('AT')" class="clear">Clear <img src="./img/cancel.png"
+                            alt=""></button>
+                    <button onclick="createTask('AT')" class="create">Create Task <img src="./img/check.png"
+                            alt=""></button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 

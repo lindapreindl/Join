@@ -10,14 +10,14 @@ body {
     margin-bottom: 20px;
 }
 
-.bigAddTask{
+.bigAddTask {
     margin-left: 250px;
     margin-top: 100px;
-    width:95%;
+    width: 95%;
     height: 100%;
 }
 
-.bigAddTask h1{
+.bigAddTask h1 {
     font-size: 61px;
     margin-left: 3%;
 }
@@ -53,12 +53,25 @@ select {
     align-items: center;
     font-size: 16px;
     width: 95%;
+    max-width: 1100px;
+    min-width: 900px;
 }
 
-.form input:focus {
+.noBorder:hover {
+    border-color: #29ABE2;
+}
+
+/* .task-category select:hover {
+    border:#29ABE2;
+} */
+
+/* .form input:focus {
+    border: 1px solid #29ABE2 !important;  
+}
+
+.form input:hover {
     border: 1px solid #29ABE2 !important;
-    background-color: #7AE229;
-  }
+} */
 
 .form-left {
     width: 440px;
@@ -76,19 +89,19 @@ select {
 
 .title input {
     width: 100%;
-    height: 48px;
-    padding: 12px, 21px, 12px, 21px;
+    height: 36px;
+    /* padding: 12px, 21px, 12px, 21px; */
     border-radius: 10px;
-    border: 1px solid #D1D1D1;
-    gap: 10px;
+    border: 0;
+    /* gap: 10px; */
     font-size: 16px;
     cursor: pointer;
 }
 
 .title input[type=text]:focus {
-    border: 1px solid #29ABE2;
-    outline: none ;
-  }
+    /* border: 1px solid #29ABE2; */
+    outline: none;
+}
 
 .description {
     display: flex;
@@ -101,7 +114,7 @@ select {
     height: 136px;
     padding: 12px, 21px, 12px, 21px;
     border-radius: 10px;
-    border: 1px solid #D1D1D1;
+    border: 0;
     gap: 10px;
     font-size: 16px;
     cursor: pointer;
@@ -109,9 +122,9 @@ select {
 }
 
 .description textarea[type=text]:focus {
-    border: 1px solid #29ABE2;
-    outline: none ;
-  }
+    border: 0;
+    outline: none;
+}
 
 label {
     color: #2A3647;
@@ -135,8 +148,29 @@ label {
 
 .assignedTo select:focus {
     border: 1px solid #29ABE2;
-    outline: none ;
-  }
+    outline: none;
+}
+
+.inputBoxAddTask img:hover {
+    cursor: pointer;
+    background-color: #d1d1d1;
+    border-radius: 50%;
+}
+
+.searchBoxAssigne {
+    background-color: white;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: 1px solid #d1d1d1;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.searchBoxAssigne:hover {
+    border-color: #29ABE2;
+}
 
 .addTaskLine {
     width: 0px;
@@ -160,19 +194,26 @@ label {
 
 .dueDate input {
     width: 100%;
-    height: 48px;
+    height: 36px;
     padding: 12px, 21px, 12px, 21px;
     border-radius: 10px;
-    border: 1px solid #D1D1D1;
+    border: 0;
     font-size: 16px;
-    color: #D1D1D1;
+    color: #000000;
     cursor: pointer;
 }
 
 .dueDate input[type=date]:focus {
-    border: 1px solid #29ABE2;
-    outline: none ;
-  }
+    outline: none;
+}
+
+.inputBoxAddTask input[type=text]:focus {
+    outline: none;
+}
+
+select:hover {
+    border:#29ABE2;
+}
 
 .prio {
     display: flex;
@@ -205,13 +246,13 @@ label {
     font-weight: 400;
 }
 
-#button-lowAT:hover{
+#button-lowAT:hover {
     background-color: #7AE229;
     color: white;
     font-weight: 700;
 }
 
-#button-lowAT:hover img{
+#button-lowAT:hover img {
     content: url(../img/low_white.png);
 }
 
@@ -221,7 +262,7 @@ label {
     font-weight: 700;
 }
 
-#button-mediumAT:hover img{
+#button-mediumAT:hover img {
     content: url(../img/medium_white.png);
 }
 
@@ -231,17 +272,17 @@ label {
     font-weight: 700;
 }
 
-#button-urgentAT:hover img{
+#button-urgentAT:hover img {
     content: url(../img/urgent_white.png);
 }
 
-#button-lowIB:hover{
+#button-lowIB:hover {
     background-color: #7AE229;
     color: white;
     font-weight: 700;
 }
 
-#button-lowIB:hover img{
+#button-lowIB:hover img {
     content: url(../img/low_white.png);
 }
 
@@ -251,7 +292,7 @@ label {
     font-weight: 700;
 }
 
-#button-mediumIB:hover img{
+#button-mediumIB:hover img {
     content: url(../img/medium_white.png);
 }
 
@@ -261,7 +302,7 @@ label {
     font-weight: 700;
 }
 
-#button-urgentIB:hover img{
+#button-urgentIB:hover img {
     content: url(../img/urgent_white.png);
 }
 
@@ -305,8 +346,8 @@ label {
 
 .task-category select:focus {
     border: 1px solid #29ABE2;
-    outline: none ;
-  }
+    outline: none;
+}
 
 .subtasks {
     display: flex;
@@ -314,7 +355,7 @@ label {
     gap: 8px;
 }
 
-#buttonAddSubtaskInBoard{
+#buttonAddSubtaskInBoard {
     width: 100%;
     background-color: white;
     display: flex;
@@ -324,7 +365,7 @@ label {
     cursor: pointer;
 }
 
-#buttonAddSubtask{
+#buttonAddSubtask {
     width: 100%;
     background-color: white;
     display: flex;
@@ -334,17 +375,17 @@ label {
     cursor: pointer;
 }
 
-#buttonAddSubtaskInBoard p{
+#buttonAddSubtaskInBoard p {
     color: #D1D1D1;
     font-size: 16px;
 }
 
-#buttonAddSubtask p{
+#buttonAddSubtask p {
     color: #D1D1D1;
     font-size: 16px;
 }
 
-#inputDivAddSubtaskInBoard{
+#inputDivAddSubtaskInBoard {
     width: 100%;
     height: 48px;
     padding: 12px, 16px, 12px, 16px;
@@ -356,7 +397,7 @@ label {
     align-items: center;
 }
 
-#inputDivAddSubtask{
+#inputDivAddSubtask {
     width: 100%;
     height: 48px;
     padding: 12px, 16px, 12px, 16px;
@@ -368,19 +409,19 @@ label {
     align-items: center;
 }
 
-#inputDivAddSubtaskInBoard img{
+#inputDivAddSubtaskInBoard img {
     cursor: pointer;
 }
 
-#inputDivAddSubtask img{
+#inputDivAddSubtask img {
     cursor: pointer;
 }
 
-#inputDivAddSubtaskInBoard p{
+#inputDivAddSubtaskInBoard p {
     color: #D1D1D1;
 }
 
-#inputDivAddSubtask p{
+#inputDivAddSubtask p {
     color: #D1D1D1;
 }
 
@@ -391,13 +432,13 @@ label {
     height: 100%;
 }
 
-#subtasksAddTask{
+#subtasksAddTask {
     height: fit-content;
     flex-grow: 1;
     margin-bottom: 30px;
 }
 
-.subtaskstoedit{
+.subtaskstoedit {
     cursor: pointer;
     width: 100%;
     height: 18px;
@@ -455,7 +496,7 @@ label {
 }
 
 .addTask {
-    height:max-content;
+    height: max-content;
     width: 1000px;
     padding: 10px 30px;
     background-color: white;
@@ -489,7 +530,7 @@ label {
     cursor: pointer;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
 
@@ -501,24 +542,23 @@ label {
 
 .subtaskLIST:hover {
     background-color: lightgrey;
+    justify-content: space-between;
+    width: 100%;
 }
-
-/* .subtaskEditor {
-    display: none;
-}*/
 
 .subtaskEditor {
     display: flex;
-} 
+    width: 100%;
+}
 
 .dropDownUserListToAssigne {
     display: flex;
     flex-direction: column;
     align-content: space-between;
     width: 440px;
-    height: 300px;
-    background-color: #f8a1a1;
-    filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.1));
+    height: 240px;
+    background-color: #ffffff;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
     margin-top: -12px;
     z-index: 1;
     border-radius: 0px 0px 12px 12px;
@@ -548,17 +588,32 @@ label {
 }
 
 .userInDropDown:hover {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .showAssignedUsersStickers {
     display: flex;
 }
 
+.inputBoxAddTask {
+    background-color: white;
+    padding: 4px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-@media(max-width: 1200px){
+.inputBoxAddTask:hover {
+    border-color: #29ABE2 !important;
+}
 
-    .bigAddTask{
+
+@media(max-width: 1200px) {
+
+    .bigAddTask {
         display: flex;
         flex-direction: column;
         height: 1200px;
@@ -573,16 +628,16 @@ label {
         align-items: center;
     }
 
-    .form-left{
+    .form-left {
         height: fit-content;
         padding-bottom: 20px;
     }
 
-    .form-right{
+    .form-right {
         height: fit-content;
     }
 
-    .addTaskLine{
+    .addTaskLine {
         display: none;
     }
 
@@ -600,11 +655,11 @@ label {
         background-color: white;
     }
 
-     .background {
+    .background {
         z-index: 999;
         width: 100%;
         height: 100vh;
-        position:fixed;
+        position: fixed;
         /* top: 0;
         right: 0;
         left: center;
@@ -617,10 +672,10 @@ label {
 
 }
 
-@media(max-width: 700px){
+@media(max-width: 700px) {
 
 
-    .bigAddTask{
+    .bigAddTask {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -636,40 +691,40 @@ label {
     }
 }
 
-@media(max-width: 500px){
+@media(max-width: 500px) {
 
-    .bigAddTask{
+    .bigAddTask {
         height: 1400px;
     }
 
-    .form-left{
+    .form-left {
         width: 90%;
     }
 
-    .form-right{
+    .form-right {
         width: 90%;
     }
 
-    .prio-button{
+    .prio-button {
         display: flex;
         flex-direction: column;
         height: fit-content;
         width: 100%;
     }
 
-    .prio-button button{
+    .prio-button button {
         width: 100%;
     }
 
-    .black{
+    .black {
         display: none;
     }
 
-    .bottom{
+    .bottom {
         justify-content: center;
     }
 
-    .bottom button{
+    .bottom button {
         width: fit-content;
     }
 }
