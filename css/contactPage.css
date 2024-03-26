@@ -1,4 +1,5 @@
 /* ---------------------- header ------------------------------ */
+
 .header {
   display: flex;
   margin-top: 16px;
@@ -67,9 +68,19 @@
   margin-left: 240px;
 }
 main {
-  margin: 80px;
+  margin: 120px;
 }
 .btn {
+  width: 352px;
+  height: 56px;
+  background-color: #2a3647;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  border-color: #2a3647;
+  font-size: 24px;
+  margin-left: 200px;
+}
+#addUserBtn {
   width: 352px;
   height: 56px;
   background-color: #2a3647;
@@ -192,8 +203,17 @@ main {
 
 .user-name-info {
   margin: 16px;
-  font-size: 40px;
+  font-family: inter;
+  font-size: 47px;
+  font-weight: 500;
   color: black;
+}
+.img-info-edit-delete {
+  margin-top: -24px;
+  margin-left: 16px;
+}
+.user-info-contactInformation {
+  margin-top: 40px;
 }
 
 .user-mail-info {
@@ -217,32 +237,6 @@ a {
   scale: 1.02;
 }
 /* --------------------- */
-/* CSS für den Benutzerlistenbereich */
-#userList {
-  overflow-y: auto; /* Vertikales Scrollen aktivieren */
-  max-height: 90vh; /* Maximale Höhe des Benutzerlistenbereichs festlegen */
-  width: 500px;
-}
-
-/* CSS für den Benutzerinfobereich */
-#userInfo {
-  position: fixed; /* Fixierte Position */
-  top: 10; /* Oben fixieren */
-  padding: 0 20px; /* Innenabstand festlegen */
-  background-color: #f9f9f9; /* Hintergrundfarbe festlegen */
-  border: 1px solid #ccc; /* Rand festlegen */
-  border-radius: 5px; /* Randradius festlegen */
-  margin-left: 520px; /* Linken Abstand festlegen */
-  width: calc(
-    80% - 240px
-  ); /* Breite festlegen (100% - Breite des Benutzerlistenbereichs) */
-  height: 80vh;
-}
-
-.userInfo-div {
-  margin-top: 80px;
-  margin-left: 24px;
-}
 
 /* --------------- */
 
@@ -349,20 +343,20 @@ input {
   margin: 0px 320px 80px;
 }
 .iconPerson {
-  background: url("./img/person.png");
+  background: url("/img/person.png");
   background-size: 20px;
   background-position: 320px 10px;
   background-repeat: no-repeat;
 }
 
 .iconMail {
-  background: url("./img/mail.png");
+  background: url("/img/mail.png");
   background-size: 20px;
   background-position: 320px 10px;
   background-repeat: no-repeat;
 }
 .iconCall {
-  background: url("./img/call.png");
+  background: url("/img/call.png");
   background-size: 20px;
   background-position: 320px 10px;
   background-repeat: no-repeat;
@@ -391,4 +385,49 @@ input {
 }
 a {
   color: rgb(128, 189, 246);
+}
+/* ------------------------------------------------------------------------- */
+.navi-all {
+  display: flex;
+}
+.navi {
+  width: 232px;
+  height: 100vh;
+  background-color: #2a3647;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  font-size: 16px;
+}
+/* CSS für den Benutzerlistenbereich */
+#userList {
+  overflow-y: auto; /* Vertikales Scrollen aktivieren */
+  height: 72vh; /* Maximale Höhe des Benutzerlistenbereichs festlegen */
+  width: 360px;
+  margin-left: 200px;
+}
+
+/* CSS für den Benutzerinfobereich */
+#userInfo {
+  position: fixed; /* Fixierte Position */
+  top: 10; /* Oben fixieren */
+  padding: 0 20px; /* Innenabstand festlegen */
+  background-color: #f9f9f9; /* Hintergrundfarbe festlegen */
+  border: 1px solid #ccc; /* Rand festlegen */
+  border-radius: 5px; /* Randradius festlegen */
+  margin-left: 592px; /* Linken Abstand festlegen */
+  width: calc(
+    80% - 240px
+  ); /* Breite festlegen (100% - Breite des Benutzerlistenbereichs) */
+  height: 90vh;
+}
+
+.userInfo-div {
+  /*  background: url("./img/contacts.png"); */
+  margin-top: 80px;
+  margin-left: 24px;
 }

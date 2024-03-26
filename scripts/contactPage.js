@@ -2,6 +2,7 @@
 users = [];
 // Objekt zur Speicherung der Farben für jeden Benutzer
 let userColors = {};
+
 // Variable zur Speicherung des Overlay-Elements
 let overlay;
 
@@ -270,9 +271,9 @@ function renderUserInfo(user) {
         >
           ${getInitials(user.name)}
         </div>
-        <div class="user-name-info">
-          <p>${user.name}</p>
-          <div>
+        <div>
+          <p class="user-name-info">${user.name}</p>
+          <div class="img-info-edit-delete">
             <img
               class="img-edit"
               onclick="openEditOverlay(${contactIndex})"
@@ -289,7 +290,7 @@ function renderUserInfo(user) {
         </div>
       </div>
       <!--  -->
-      <div>
+      <div class="user-info-contactInformation">
         <h2>Contact Information</h2>
         <div class="user-mail-info">
           <h5>Email</h5>
@@ -364,36 +365,11 @@ function createEditOverlay(user, index) {
   document.body.appendChild(overlay);
 }
 
-// Funktion zum Bearbeiten eines Benutzers
-async function editUser(index) {
-  const name = document.getElementById("editUserName").value;
-  const email = document.getElementById("editUserEmail").value;
-  const phone = document.getElementById("editUserPhone").value;
-  /* NEU 3 */
-  const password = "";
-  const color = getColorForUser();
-
-  if (name && email && phone) {
-    const editedUser = { name, email, phone, password, color };
-    users[index] = editedUser;
-
-    await saveUsers();
-    /* NEU 3 END */
-    renderUsersList();
-
-    closeOverlay();
-
-    alert("User updated successfully.");
-  } else {
-    alert("Please fill in all fields.");
-  }
-}
-
 // Funktion zum Speichern der Benutzerdaten im lokalen Speicher
 async function saveUsers() {
   await setItem("users", JSON.stringify(users));
 }
-// Funktion zum Laden der Benutzerdaten aus dem lokalen Speicher
+/* // Funktion zum Laden der Benutzerdaten aus dem lokalen Speicher
 async function loadUsers() {
   const usersData = await getItem("users");
   if (usersData) {
@@ -401,6 +377,54 @@ async function loadUsers() {
   } else {
     users = [];
     await saveUsers(); // Speichere die Beispieldaten
+  }
+} */
+async function loadUsers() {
+  const usersData = await getItem("users");
+  if (usersData) {
+    users = JSON.parse(usersData);
+
+    // Sichern Sie die Werte von password und color, falls vorhanden
+    if (users.length > 0) {
+      passwordBackup = users[0].password || "";
+      colorBackup = users[0].color || "";
+    }
+  } else {
+    users = [];
+    await saveUsers(); // Speichere die Beispieldaten
+  }
+}
+
+// Funktion zum Bearbeiten eines Benutzers
+async function editUser(index) {
+  const name = document.getElementById("editUserName").value;
+  const email = document.getElementById("editUserEmail").value;
+  const phone = document.getElementById("editUserPhone").value;
+  const password = document.getElementById("editUserPassword").value; // Passwort abrufen
+
+  if (name && email && phone) {
+    // Farbe des aktuellen Benutzers erhalten
+    const currentUser = users[index];
+    const color = currentUser.color;
+
+    // Passwort des aktuellen Benutzers erhalten (falls vorhanden)
+    const currentPassword = currentUser.password || "";
+
+    // Neues Passwort hinzufügen, wenn keines vorhanden ist
+    const newPassword = password || currentPassword;
+
+    const editedUser = { name, email, phone, password: newPassword, color };
+    users[index] = editedUser;
+
+    await saveUsers();
+
+    renderUsersList();
+
+    closeOverlay();
+
+    alert("User updated successfully.");
+  } else {
+    alert("Please fill in all fields.");
   }
 }
 

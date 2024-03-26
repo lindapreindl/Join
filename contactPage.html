@@ -17,46 +17,75 @@
       crossorigin="anonymous"
     ></script>
     <!-- ------------------------------------------------------------------------------ -->
+    <link rel="stylesheet" href="./css/menu.css" />
 
+    <link rel="stylesheet" href="./css/consent.css" />
     <link rel="stylesheet" href="./css/contactPage.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./scripts/contactPage.js"></script>
     <script src="./scripts/login.js"></script>
     <script src="./scripts/board.js"></script>
     <script src="./scripts/storage.js"></script>
+    <script src="./scripts/summary.js"></script>
+    <script src="./scripts/addTask.js"></script>
   </head>
 
   <body onload="initContacts()">
-    <header>
-      <div class="header">
-        <p class="header-headline">Kanban Project Management Tool</p>
-        <div class="helpIcon-userName">
-          <a><img class="help-icon" src="./img/help-icon.png" alt="" /></a>
-          <div class="user-icon">
-            <h1 class="user-name">GU</h1>
-          </div>
+    <div class="navi-all">
+      <div class="navi">
+        <img class="logo" src="./img/logo_white.png" alt="" />
+        <div class="menu">
+          <a class="a1" href="#"
+            ><img src="./img/summary.png" alt="" />Summary</a
+          >
+          <a class="a2" href="#"
+            ><img src="./img/add_Task.png" alt="" />Add Task</a
+          >
+          <a class="a3" href="#"><img src="./img/board.png" alt="" />Board</a>
+          <a class="a4" href="#"
+            ><img src="./img/contac.png" alt="" />Contacts</a
+          >
+          <!--A-Elemente links noch auf eine Höhe bringen, flex-start geht nicht ?!-->
         </div>
-      </div>
-    </header>
-    <div class="line"></div>
-    <main>
-      <!-- Button zum Öffnen des Overlays -->
-      <button class="btn btn-primary" onclick="openOverlay()">
-        Add New User
-      </button>
-      <!-- Bereich zur Anzeige der Benutzerliste -->
-      <h2></h2>
 
-      <div class="user-list-container">
-        <div id="userList">
-          <ul></ul>
-        </div>
-        <div id="userInfo" class="userInfo">
-          <div class="frame40"><img src="/img/Contacts.png" alt="" /></div>
-          <h2></h2>
+        <div class="termsAndConditions">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Legal notice</a>
         </div>
       </div>
-    </main>
+      <div class="all">
+        <header>
+          <div class="header">
+            <p class="header-headline">Kanban Project Management Tool</p>
+            <div class="helpIcon-userName">
+              <a><img class="help-icon" src="./img/help-icon.png" alt="" /></a>
+              <div class="user-icon">
+                <h1 class="user-name">GU</h1>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- <div class="line"></div> -->
+        <main>
+          <!-- Button zum Öffnen des Overlays -->
+          <button class="btn btn-primary" onclick="openOverlay()">
+            Add New User
+          </button>
+          <!-- Bereich zur Anzeige der Benutzerliste -->
+          <h2></h2>
+
+          <div class="user-list-container">
+            <div id="userList">
+              <ul></ul>
+            </div>
+            <div id="userInfo" class="userInfo">
+              <div class="frame40"><img src="/img/Contacts.png" alt="" /></div>
+              <h2></h2>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
     <footer></footer>
   </body>
 </html>
