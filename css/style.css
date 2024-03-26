@@ -322,6 +322,7 @@ button img {
 .headlineSummary {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 64px;
 }
 
@@ -336,6 +337,8 @@ button img {
 .summaryOuterFrame {
     display: flex;
     width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .summaryOuterFrame a{
@@ -345,19 +348,23 @@ button img {
 .summaryFrameTop {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 190px;
 }
 
 .summaryFrameCenter {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     height: 190px;
 }
 
 .summaryFrameBottom {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 190px;
+    width: 100%;
 }
 
 .summaryLeftFrame {
@@ -411,6 +418,17 @@ button img {
 
 .fixed-width-bottom{
     width: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fixed-width-bottom:first-child{
+    justify-content: flex-start;
+}
+
+.fixed-width-bottom:last-child{
+    justify-content: flex-end;
 }
 
 .goodMorning {
@@ -533,51 +551,161 @@ button img {
         flex-direction: column-reverse;
     }
 
-}
-
-@media (max-width: 850px) {
-
-    .summaryLeftFrame {
-        width: 100%; 
-    }
-
     .summaryRightFrame {
         width: 100%; 
+        flex-direction: row;
+        padding: 0;
+        margin-bottom: 50px;
+    }
+
+}
+
+@media(max-width: 1000px){
+
+    .headlineSummary h1{
+        font-size: 45px;
+    }
+
+    .headlineSummary h3{
+        font-size: 20px;
+    }
+
+    .blueLine{
+        height: 50px;
+    }
+
+    .summaryRightFrame p{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 860px) {
+
+    .summaryLeftFrame{
+        height: 510px;
+        width: 510px;
+    }
+
+    .summaryLeftFrame h1{
+        font-size: 50px;
+    }
+
+    .summaryFrameTop{
+        justify-content: space-between;
+        height: 170px;
     }
 
     .summaryBoxTop {
-        width: 200px;
-        /* height: 130px; */
-        padding: 38px, 19px, 38px, 19px;
+        width: 240px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .summaryBoxTop:hover {
+        width: 250px;
+        height: 160px;
+    }
+
+    .summaryFrameCenter{
+        height: 170px;
     }
 
     .summaryBoxCenter {
-        width: 430px;
-        /* height: 130px; */
-        padding: 38px, 19px, 38px, 19px;
+        width: 510px;
+        height: 150px;
+    }
+
+    .summaryBoxCenter:hover {
+        width: 510px;
+        height: 160px;
+    }
+
+    .summaryFrameBottom{
+        height: 170px;
     }
 
     .summaryBoxBottom {
-        width: 130px;
-        /* height: 130px; */
-        padding: 38px, 19px, 38px, 19px;
+        width: 150px;
+        height: 150px;
+    }
+
+    .summaryBoxBottom p{
+        width: 100px;
+        text-align: center;
+    }
+
+    .summaryBoxBottom:hover {
+        width: 150px;
+        height: 160px;
+    }
+
+}
+
+@media(max-width: 780px){
+
+    .summaryLeftFrame{
+        width: 430px;
+    }
+
+    .summaryLeftFrame h1{
+        font-size: 50px;
+    }
+
+    .summaryFrameTop{
+        justify-content: space-between;
+        height: 170px;
+        width: 430px;
+    }
+
+    .summaryBoxTop {
+        width: 210px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .summaryBoxTop:hover {
         width: 220px;
-        /* height: 140px; */
+        height: 160px;
     }
-    
+
+    .summaryFrameCenter{
+        height: 170px;
+        width: 430px;
+    }
+
+    .summaryBoxCenter {
+        width: 430px;
+        height: 150px;
+    }
+
     .summaryBoxCenter:hover {
-        width: 450px;
-        /* height: 140px; */
+        width: 430px;
+        height: 160px;
     }
-    
+
+    .summaryFrameBottom{
+        height: 170px;
+        width: 430px;
+    }
+
+    .summaryBoxBottom {
+        width: 135px;
+        height: 150px;
+    }
+
+    .summaryBoxBottom p{
+        width: 100px;
+        text-align: center;
+    }
+
     .summaryBoxBottom:hover {
-        width: 150px;
-        /* height: 140px; */
+        width: 140px;
+        height: 160px;
     }
-    
 }
 
 @media (max-width: 700px) {
@@ -603,48 +731,6 @@ button img {
         width: 100%;
     }
 
-    .summaryLeftFrame {
-        width: 100%;
-    }
-
-    .summaryBoxCenter {
-        width: 100%;
-    }
-
-    .summaryBoxTop {
-        max-width: 140px;
-        /* height: 130px; */
-        padding: 38px, 19px, 38px, 19px;
-    }
-
-    .summaryBoxCenter {
-        min-width: 200px;
-        max-width: 90%;
-        /* height: 130px; */
-        padding: 38px, 19px, 38px, 19px;
-    }
-
-    .summaryBoxBottom {
-        max-width: 90px;
-        /* height: 130px; */
-        padding: 38px, 19px, 38px, 19px;
-    }
-
-    .summaryBoxTop:hover {
-        width: 220px;
-        /* height: 140px; */
-    }
-    
-    .summaryBoxCenter:hover {
-        width: 450px;
-        /* height: 140px; */
-    }
-    
-    .summaryBoxBottom:hover {
-        width: 150px;
-        /* height: 140px; */
-    }
-
     .horizontal {
         width: 100%;
     }
@@ -664,17 +750,9 @@ button img {
         margin-right: 12px;
     }
 
-    .summaryRightFrame {
-        padding-left: 0;
-    }
-
     .helpBorder {
         margin-left: 10px;
         margin-right: 10px;
-    }
-
-    .summaryFrameCenter {
-        justify-content: center;
     }
 
 }
