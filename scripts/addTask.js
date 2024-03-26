@@ -254,9 +254,7 @@ function deleteSubtaskEditor(id, location) {
 }
 
 async function createTask(location) {
-    console.log('Vorher:' + assignedUsers);
     for (let i = 0; i < assignedUsers.length; i++) { assignedUsers.splice(i + 1, 1) };
-    console.log('Nachher:' + assignedUsers);
     let newTitle = document.getElementById('titleAddTask' + location).value;
     let newDescription = document.getElementById('descriptionAddTask' + location).value;
     let newAssignedTo = assignedUsers;
@@ -280,7 +278,7 @@ async function createTask(location) {
         subtasks.pop();
     }
     clearAddTask(location);
-    // closeAddTaskInBoard();
+    closeAddTaskInBoard();
     initBoard();
 
     // console.log('task created successfully', tasks)
