@@ -8,56 +8,13 @@ async function initAddTask() {
     renderLoginUserName('AddTask');
 }
 
-function openAddTaskInBoard() {
+function openAddTaskInBoard(use) {
     document.getElementById('addTaskInBoard').classList.remove('d-none');
-    // loadUsersForAssignTo('InBoard');
 }
-
-
-// async function loadUsersForAssignTo(location) {
-//     await loadUsers();
-//     let options = document.getElementById('assignedToAddTask' + location);
-
-//     for (let i = 0; i < users.length; i++) {
-//         let username = users[i]['name'];
-//         options.innerHTML += /*html*/`
-//             <option>${username}</option>
-//         `
-//     }
-// }
-
-
-// function loadUsersForAssignTo() {
-//     loadUsers();
-//     let options = document.getElementById('assignedToAddTask');
-
-//     for (let i = 0; i < users.length; i++) {
-//         let username = users[i]['name'];
-//         options.innerHTML += /*html*/`
-//             <option>${username}</option>
-//         `
-//     }
-// }
-
 
 function closeAddTaskInBoard() {
     document.getElementById('addTaskInBoard').classList.add('d-none');
 }
-
-
-// function clearAddTaskInBoard() {
-//     document.getElementById('titleAddTaskInBoard').value = '';
-//     document.getElementById('descriptionAddTaskInBoard').value = '';
-//     document.getElementById('assignedToAddTaskInBoard').value = 'selectContact';
-//     document.getElementById('dueDateAddTaskInBoard').value = '';
-
-//     changePrioToMedium();
-
-//     document.getElementById('categoryAddTaskInBoard').value = 'selectCategory';
-//     document.getElementById('subtasksAddTaskInBoard').innerHTML = '';
-
-//     cancelSubtaskInBoard();
-// }
 
 function clearAddTask(location) {
     document.getElementById('titleAddTask' + location).value = '';
@@ -278,8 +235,9 @@ async function createTask(location) {
         subtasks.pop();
     }
     clearAddTask(location);
-    closeAddTaskInBoard();
+    if (location == 'IB') { closeAddTaskInBoard(); }
     initBoard();
+    window.location.href = "board.html?msg=Task added to board";
 
     // console.log('task created successfully', tasks)
 }
@@ -293,28 +251,34 @@ function deleteTask(i) {
 }
 
 
-function editTask(i) {
+async function editTask(i) {
     closeTaskDetails();
-    console.log('closedTaskDetails');
-
-    //??? geht nicht, warum?
-
-    tasks = getItem('tasks');
+    await loadTasksFromServer();
     let title = tasks[i]['titel'];
     let description = tasks[i]['description'];
     let dueDate = tasks[i]['dueDate'];
     let prio = tasks[i]['prio'];
-    let assignedTo = [];
-    assignedTo.push(tasks[i]['assigned']);
-    let subtasks = [];
-    subtasks.push(tasks[i]['subtasks']);
+    let assignedTo = tasks[i]['assigned'];
+    // assignedTo.push();
+    let subtasks = tasks[i]['subtasks'];
+    // subtasks.push(tasks[i]['subtasks']);
 
-    let editTaskBox = document.getElementById('editTask');
-    editTaskBox.classList.remove('d-none');
-    editTaskBox.innerHTML = '';
-    editTaskBox.innerHTML = templateEditTask();
+    openAddTaskInBoard('edit');
+    fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks);
 
-    setOldValuesToEditTask(tasks, i, title, description, dueDate, prio, assignedTo, subtasks);
+    // let editTaskBox = document.getElementById('editTask');
+    // editTaskBox.classList.remove('d-none');
+    // editTaskBox.innerHTML = '';
+    // editTaskBox.innerHTML = templateEditTask();
+
+    // setOldValuesToEditTask(tasks, i, title, description, dueDate, prio, assignedTo, subtasks);
+}
+
+function fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks) {
+    document.getElementById('titleAddTaskIB').value = title;
+    document.getElementById('descriptionAddTaskIB').value = description;
+    document.getElementById('dueDateAddTaskIB').value = dueDate;
+ 
 }
 
 

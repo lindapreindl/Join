@@ -48,7 +48,7 @@
             <div class="headBox">
                 <div class="boardTitleBox">
                     <h1 class="boardTitle">Board</h1>
-                    <div class="boardTitleAddTaskResponsive" onclick="openAddTaskInBoard()"><img
+                    <div class="boardTitleAddTaskResponsive" onclick="openAddTaskInBoard('add')"><img
                             src="./img/addWhite.png"></div>
                 </div>
                 <div class="d-flex mr24">
@@ -58,22 +58,22 @@
                         <img src="../img/search.png" class="icons" onmousedown="this.src='./img/searchHover.png';"
                             onmouseup="this.src='./img/search.png';" onclick="searchTasks()">
                     </div>
-                    <button onclick="openAddTaskInBoard()" class="marginLR16 addTaskButton">Add task <img
+                    <button onclick="openAddTaskInBoard('add')" class="marginLR16 addTaskButton">Add task <img
                             src="./img/addWhite.png"></button>
                 </div>
             </div>
             <div class="w100 titleLine">
                 <div class="d-flex justify-between w25p">
                     <h3 class="topics">To do</h3>
-                    <div class="addButton mr24" onclick="openAddTaskInBoard()">+</div>
+                    <div class="addButton mr24" onclick="openAddTaskInBoard('add')">+</div>
                 </div>
                 <div class="d-flex justify-between w25p">
                     <h3 class="topics">In progress</h3>
-                    <div class="addButton mr24" onclick="openAddTaskInBoard()">+</div>
+                    <div class="addButton mr24" onclick="openAddTaskInBoard('add')">+</div>
                 </div>
                 <div class="d-flex justify-between w25p">
                     <h3 class="topics">Await feedback</h3>
-                    <div class="addButton mr24" onclick="openAddTaskInBoard()">+</div>
+                    <div class="addButton mr24" onclick="openAddTaskInBoard('add')">+</div>
                 </div>
                 <div class="d-flex justify-between w25p">
                     <h3 class="topics">Done</h3>
@@ -85,7 +85,7 @@
             <div class="categoryBoard" id="categoryToDo">
                 <div class="boardTopicResponsive">
                     <h3 class="topics">To do</h3>
-                    <div class="addButton mr24" onclick="openAddTaskInBoard()">+</div>
+                    <div class="addButton mr24" onclick="openAddTaskInBoard('add')">+</div>
                 </div>
                 <div id="contentToDo" class="taskContentBox" ondrop="moveTaskTo('ToDo')" ondragover="allowDrop(event)">
                 </div>
@@ -93,7 +93,7 @@
             <div class="categoryBoard" id="categoryInProgress">
                 <div class="boardTopicResponsive">
                     <h3 class="topics">In progress</h3>
-                    <div class="addButton mr24" onclick="openAddTaskInBoard()">+</div>
+                    <div class="addButton mr24" onclick="openAddTaskInBoard('add')">+</div>
                 </div>
                 <div id="contentInProgress" class="taskContentBox" ondrop="moveTaskTo('InProgress')"
                     ondragover="allowDrop(event)"></div>
@@ -101,7 +101,7 @@
             <div class="categoryBoard" id="categoryAwaitFeedback">
                 <div class="boardTopicResponsive">
                     <h3 class="topics">Await feedback</h3>
-                    <div class="addButton mr24" onclick="openAddTaskInBoard()">+</div>
+                    <div class="addButton mr24" onclick="openAddTaskInBoard('add')">+</div>
                 </div>
                 <div id="contentAwaitFeedback" class="taskContentBox" ondrop="moveTaskTo('AwaitFeedback')"
                     ondragover="allowDrop(event)"></div>
@@ -109,7 +109,7 @@
             <div class="categoryBoard" id="categoryDone">
                 <div class="boardTopicResponsive">
                     <h3 class="topics">Done</h3>
-                    <div class="addButton mr24" onclick="openAddTaskInBoard()">+</div>
+                    <div class="addButton mr24" onclick="openAddTaskInBoard('add')">+</div>
                 </div>
                 <div id="contentDone" class="taskContentBox mbDone" ondrop="moveTaskTo('Done')"
                     ondragover="allowDrop(event)">

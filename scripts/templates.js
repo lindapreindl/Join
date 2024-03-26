@@ -76,7 +76,7 @@ function templateTaskDetails(i, categoryColor, subtasks, prio, prioWritten) {
         </div>
         <div class="w100 d-flex mb24 justify-end">
             <div onclick="deleteTask(${i})" class="d-flex ml align-center detailsButton widthFixed"><img class="mr8" src="../img/delete.png" onmouseover="this.src='./img/deleteHover.png';" onmouseout="this.src='./img/delete.png';"></div>
-            <div onclidk="editTask(${i})" class="d-flex ml align-center detailsButton widthFixed"><img class="mr8" src="../img/edit.png" onmouseover="this.src='./img/editHover.png';" onmouseout="this.src='./img/edit.png';"></div>
+            <div onclick="editTask(${i})" class="d-flex ml align-center detailsButton widthFixed"><img class="mr8" src="../img/edit.png" onmouseover="this.src='./img/editHover.png';" onmouseout="this.src='./img/edit.png';"></div>
         </div>
     </div>
     `;
