@@ -873,4 +873,8 @@ button img {
         width: 28vw;
         height: 115px;
     }
+
+    .popUpBox {
+        width: 90%;
+    }
 }

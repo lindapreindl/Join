@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
+    <link rel="icon" type="image/png" href="favicon.png">
     <script src="./scripts/login.js"></script>
     <script src="./scripts/storage.js"></script>
     <script src="./scripts/contactPage.js"></script>
@@ -17,7 +18,7 @@
     <div class="container">
         <div class="headPart">
             <img class="mainLogo" src="./img/logo.png">
-            <div class="goToSignUp">
+            <div id="signUpBoxTop" class="goToSignUp">
                 <p>Not a Join user?</p>
                 <a href="./signup.html"><button>Sign up</button></a>
             </div>
@@ -37,11 +38,7 @@
                 </div>
                 <p class="alertNotification d-none" id="wrongPassword">Wrong password. Ups! Try again.</p>
                 <div class="row marginBottom rememberMe" style="margin-left: -132px;">
-                    <img src="./img/unchecked.png" alt="">
-                    <img class="d-none" src="./img/checked.png" alt="">
-                    <!-- Script funktion noch umschreiben -> loginUser()
                     <input type="checkbox" class="checkbox" id="rememberMeCheck">
-                    -->
                     <p>Remember me</p>
                 </div>
                 <div class="loginButtons marginBottom32 marginTop16">
@@ -50,9 +47,13 @@
                 </div>
             </form>
         </div>
+        <div id="signUpBoxBottom" class="goToSignUpBottom">
+            <p>Not a Join user?</p>
+            <a href="./signup.html"><button>Sign up</button></a>
+        </div>
         <div class="bottom-part">
-            <a href="./consent/privacyPolicy.html">Privacy Policy</a>
-            <a href="./consent/legalNotice.html">Legal Notice</a>
+            <a href="./consent/privacyPolicyGuests.html">Privacy Policy</a>
+            <a href="./consent/legalNoticeGuests.html">Legal Notice</a>
         </div>
     </div>
 </body>

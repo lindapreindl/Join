@@ -29,20 +29,19 @@ async function loadUsers() {
 }
 
 async function signUpUser() {
-    let name = document.getElementById('signupName');
-    let email = document.getElementById('signupEmail');
-    let password = document.getElementById('signupPassword');
-    if (password.value == document.getElementById('signupConfirmPassword').value) {
-        users.push({ name: name.value, email: email.value, phone: '', password: password.value, color: getColorForUser('') });
-        await setItem('users', JSON.stringify(users));
-        resetForm(name, email, password)
-        window.location.href = 'login.html?msg=Sign up successful';
-    } else { noMatchedPasswords() }
+  let name = document.getElementById('signupName');
+  let email = document.getElementById('signupEmail');
+  let password = document.getElementById('signupPassword');
+  if (password.value == document.getElementById('signupConfirmPassword').value) {
+    users.push({ name: name.value, email: email.value, phone: '', password: password.value, color: getColorForUser('') });
+    await setItem('users', JSON.stringify(users));
+    resetForm(name, email, password)
+    window.location.href = 'login.html?msg=Sign up successful';
+  } else { noMatchedPasswords() }
 }
 
 function noMatchedPasswords() {
-  document.getElementById("signupConfirmPassword").style.borderColor =
-    "#FD1E39";
+  document.getElementById("signupConfirmPassword").style.borderColor = "#FD1E39";
   document.getElementById("passwordNoMatch").classList.remove("d-none");
 }
 
@@ -53,20 +52,16 @@ function resetForm(name, email, password) {
   document.getElementById("signupConfirmPassword").value = "";
 }
 
-function logInUser() {
+async function logInUser() {
   let email = document.getElementById("loginEmail");
   let password = document.getElementById("loginPassword");
-  let user = users.find(
-    (u) => u.email == email.value && u.password == password.value
-  );
+  let user = users.find((u) => u.email == email.value && u.password == password.value);
   if (user) {
-    console.log(user);
-    //diese Zeile abändern, weil Checkbox images noch gefehlt haben
-    if (document.getElementById("rememberMeCheck").value == true) {
-      localStorage.setItem("rememberUser", email.value);
-      localStorage.setItem("activeUser", userLoggedIn(email.value));
+    if (document.getElementById("rememberMeCheck").checked == true) { 
+      localStorage.setItem("rememberUser", email.value); 
+      rememberUser = email.value;
     }
-    userLoggedIn(user.email);
+    userLoggedIn(email.value);
     window.location.href = "summary.html?msg=Login successful";
   } else {
     wrongPassword();
@@ -79,8 +74,6 @@ async function userLoggedIn(loginEmail) {
     loginUser[0] = users[loginIndex].name;
     loginUser[1] = getInitials(loginUser[0]);
     await setItem("loginUser", JSON.stringify(loginUser));
-  } else {
-    return "";
   }
 }
 
