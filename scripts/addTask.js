@@ -195,9 +195,9 @@ function renderSubtasks(location) {
                     <p id="subTitle${id}" onclick="openSubtaskEditor(${id})">${nextSubtaskInList}</p>
                     <div class="subtaskEditor">
                         <input class="d-none" id="subtaskEditInput${id}" value="${nextSubtaskInList}">
-                        <img src="./img/editIcon.png" class="d-none" id="btnEdit${id}" onclick="openSubtaskEditor(${id})">
-                        <img src="./img/check_dark.png" class="d-none" id="btnSave${id}" onclick="saveNewSubtaskEditor(${id}, '${location}')">
-                        <img src="./img/deleteIcon.png" class="d-none" id="btnDelete${id}" onclick="deleteSubtaskEditor(${id}, '${location}')">
+                        <img src="./img/editIcon.png" class="d-none miniIcons" id="btnEdit${id}" onclick="openSubtaskEditor(${id})">
+                        <img src="./img/check_dark.png" class="d-none miniIcons" id="btnSave${id}" onclick="saveNewSubtaskEditor(${id}, '${location}')">
+                        <img src="./img/deleteIcon.png" class="d-none miniIcons" id="btnDelete${id}" onclick="deleteSubtaskEditor(${id}, '${location}')">
                     </div>
                 </div>
             </li>

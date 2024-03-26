@@ -50,7 +50,7 @@ select {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     font-size: 16px;
     width: 95%;
     max-width: 1100px;
@@ -64,17 +64,14 @@ select {
 .title input {
     width: 100%;
     height: 36px;
-    /* padding: 12px, 21px, 12px, 21px; */
     border-radius: 10px;
     border: 0;
-    /* gap: 10px; */
     font-size: 16px;
     cursor: pointer;
 }
 
 .title input[type=text]:focus {
-    /* border: 1px solid #29ABE2; */
-    border: 1px solid #29ABE2;
+    border: 0;
     outline: none;
 }
 
@@ -102,16 +99,11 @@ select {
 
 .description textarea[type=text]:focus {
     border: 0;
-    border: 1px solid #29ABE2;
     outline: none;
 }
 
 label {
     color: #2A3647;
-}
-
-.searchBox {
-    border: 1px solid #D1D1D1 !important;
 }
 
 .assignedTo {
@@ -178,7 +170,6 @@ label {
 .dueDate {
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
 .dueDate input {
@@ -527,17 +518,20 @@ select:hover {
     width: 400px;
     display: flex;
     justify-content: space-between;
+    padding: 4px;
 }
 
 .subtaskLIST:hover {
-    background-color: lightgrey;
+    background-color: #d1d1d1;
     justify-content: space-between;
     width: 100%;
+    border-radius: 8px;
 }
 
 .subtaskEditor {
     display: flex;
     width: 100%;
+    justify-content: flex-end;
 }
 
 .dropDownUserListToAssigne {

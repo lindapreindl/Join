@@ -545,6 +545,15 @@ button img {
     cursor: pointer;
 }
 
+.miniIcons {
+    cursor: pointer;
+}
+
+.miniIcons:hover {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 50%;
+}
+
 @media (max-width: 1400px) {
 
     .summaryOuterFrame {
