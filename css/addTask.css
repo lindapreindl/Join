@@ -10,14 +10,14 @@ body {
     margin-bottom: 20px;
 }
 
-.bigAddTask{
+.bigAddTask {
     margin-left: 250px;
-    margin-top: 100px;
-    width:95%;
+    margin-top: 140px;
+    width: 95%;
     height: 100%;
 }
 
-.bigAddTask h1{
+.bigAddTask h1 {
     font-size: 61px;
     margin-left: 3%;
 }
@@ -49,7 +49,7 @@ select {
 .form {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     font-size: 16px;
     width: 95%;
@@ -57,8 +57,7 @@ select {
 
 .form input:focus {
     border: 1px solid #29ABE2 !important;
-    background-color: #7AE229;
-  }
+}
 
 .form-left {
     width: 440px;
@@ -87,8 +86,8 @@ select {
 
 .title input[type=text]:focus {
     border: 1px solid #29ABE2;
-    outline: none ;
-  }
+    outline: none;
+}
 
 .description {
     display: flex;
@@ -99,7 +98,7 @@ select {
 .description textarea {
     width: 100%;
     height: 136px;
-    padding: 12px, 21px, 12px, 21px;
+    padding: 12px 21px 12px 21px;
     border-radius: 10px;
     border: 1px solid #D1D1D1;
     gap: 10px;
@@ -108,13 +107,22 @@ select {
     font-family: inherit;
 }
 
+.description textarea::placeholder{
+    padding: 0;
+    margin: 0;
+}
+
 .description textarea[type=text]:focus {
     border: 1px solid #29ABE2;
-    outline: none ;
-  }
+    outline: none;
+}
 
 label {
     color: #2A3647;
+}
+
+.searchBox {
+    border: 1px solid #D1D1D1 !important;
 }
 
 .assignedTo {
@@ -135,8 +143,13 @@ label {
 
 .assignedTo select:focus {
     border: 1px solid #29ABE2;
-    outline: none ;
-  }
+    outline: none;
+}
+
+#searchFieldAddTask {
+    border: none !important;
+    outline: none;
+}
 
 .addTaskLine {
     width: 0px;
@@ -171,8 +184,8 @@ label {
 
 .dueDate input[type=date]:focus {
     border: 1px solid #29ABE2;
-    outline: none ;
-  }
+    outline: none;
+}
 
 .prio {
     display: flex;
@@ -205,13 +218,13 @@ label {
     font-weight: 400;
 }
 
-#button-lowAT:hover{
+#button-lowAT:hover {
     background-color: #7AE229;
     color: white;
     font-weight: 700;
 }
 
-#button-lowAT:hover img{
+#button-lowAT:hover img {
     content: url(../img/low_white.png);
 }
 
@@ -221,7 +234,7 @@ label {
     font-weight: 700;
 }
 
-#button-mediumAT:hover img{
+#button-mediumAT:hover img {
     content: url(../img/medium_white.png);
 }
 
@@ -231,17 +244,17 @@ label {
     font-weight: 700;
 }
 
-#button-urgentAT:hover img{
+#button-urgentAT:hover img {
     content: url(../img/urgent_white.png);
 }
 
-#button-lowIB:hover{
+#button-lowIB:hover {
     background-color: #7AE229;
     color: white;
     font-weight: 700;
 }
 
-#button-lowIB:hover img{
+#button-lowIB:hover img {
     content: url(../img/low_white.png);
 }
 
@@ -251,7 +264,7 @@ label {
     font-weight: 700;
 }
 
-#button-mediumIB:hover img{
+#button-mediumIB:hover img {
     content: url(../img/medium_white.png);
 }
 
@@ -261,7 +274,7 @@ label {
     font-weight: 700;
 }
 
-#button-urgentIB:hover img{
+#button-urgentIB:hover img {
     content: url(../img/urgent_white.png);
 }
 
@@ -305,8 +318,8 @@ label {
 
 .task-category select:focus {
     border: 1px solid #29ABE2;
-    outline: none ;
-  }
+    outline: none;
+}
 
 .subtasks {
     display: flex;
@@ -314,7 +327,7 @@ label {
     gap: 8px;
 }
 
-#buttonAddSubtaskInBoard{
+#buttonAddSubtaskInBoard {
     width: 100%;
     background-color: white;
     display: flex;
@@ -324,7 +337,7 @@ label {
     cursor: pointer;
 }
 
-#buttonAddSubtask{
+#buttonAddSubtask {
     width: 100%;
     background-color: white;
     display: flex;
@@ -334,17 +347,17 @@ label {
     cursor: pointer;
 }
 
-#buttonAddSubtaskInBoard p{
+#buttonAddSubtaskInBoard p {
     color: #D1D1D1;
     font-size: 16px;
 }
 
-#buttonAddSubtask p{
+#buttonAddSubtask p {
     color: #D1D1D1;
     font-size: 16px;
 }
 
-#inputDivAddSubtaskInBoard{
+#inputDivAddSubtaskInBoard {
     width: 100%;
     height: 48px;
     padding: 12px, 16px, 12px, 16px;
@@ -356,7 +369,7 @@ label {
     align-items: center;
 }
 
-#inputDivAddSubtask{
+#inputDivAddSubtask {
     width: 100%;
     height: 48px;
     padding: 12px, 16px, 12px, 16px;
@@ -368,19 +381,19 @@ label {
     align-items: center;
 }
 
-#inputDivAddSubtaskInBoard img{
+#inputDivAddSubtaskInBoard img {
     cursor: pointer;
 }
 
-#inputDivAddSubtask img{
+#inputDivAddSubtask img {
     cursor: pointer;
 }
 
-#inputDivAddSubtaskInBoard p{
+#inputDivAddSubtaskInBoard p {
     color: #D1D1D1;
 }
 
-#inputDivAddSubtask p{
+#inputDivAddSubtask p {
     color: #D1D1D1;
 }
 
@@ -391,13 +404,13 @@ label {
     height: 100%;
 }
 
-#subtasksAddTask{
+#subtasksAddTask {
     height: fit-content;
     flex-grow: 1;
     margin-bottom: 30px;
 }
 
-.subtaskstoedit{
+.subtaskstoedit {
     cursor: pointer;
     width: 100%;
     height: 18px;
@@ -455,7 +468,7 @@ label {
 }
 
 .addTask {
-    height:max-content;
+    height: max-content;
     width: 1000px;
     padding: 10px 30px;
     background-color: white;
@@ -489,7 +502,7 @@ label {
     cursor: pointer;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
 
@@ -509,7 +522,7 @@ label {
 
 .subtaskEditor {
     display: flex;
-} 
+}
 
 .dropDownUserListToAssigne {
     display: flex;
@@ -518,7 +531,7 @@ label {
     width: 440px;
     height: 300px;
     background-color: #f8a1a1;
-    filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.1));
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
     margin-top: -12px;
     z-index: 1;
     border-radius: 0px 0px 12px 12px;
@@ -548,7 +561,7 @@ label {
 }
 
 .userInDropDown:hover {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .showAssignedUsersStickers {
@@ -556,9 +569,9 @@ label {
 }
 
 
-@media(max-width: 1200px){
+@media(max-width: 1200px) {
 
-    .bigAddTask{
+    .bigAddTask {
         display: flex;
         flex-direction: column;
         height: 1200px;
@@ -573,16 +586,16 @@ label {
         align-items: center;
     }
 
-    .form-left{
+    .form-left {
         height: fit-content;
         padding-bottom: 20px;
     }
 
-    .form-right{
+    .form-right {
         height: fit-content;
     }
 
-    .addTaskLine{
+    .addTaskLine {
         display: none;
     }
 
@@ -598,13 +611,14 @@ label {
         margin: 0;
         padding: 20px;
         background-color: white;
+        z-index: 999;
     }
 
-     .background {
+    .background {
         z-index: 999;
         width: 100%;
         height: 100vh;
-        position:fixed;
+        position: fixed;
         /* top: 0;
         right: 0;
         left: center;
@@ -617,10 +631,10 @@ label {
 
 }
 
-@media(max-width: 700px){
+@media(max-width: 700px) {
 
 
-    .bigAddTask{
+    .bigAddTask {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -636,40 +650,40 @@ label {
     }
 }
 
-@media(max-width: 500px){
+@media(max-width: 500px) {
 
-    .bigAddTask{
+    .bigAddTask {
         height: 1400px;
     }
 
-    .form-left{
+    .form-left {
         width: 90%;
     }
 
-    .form-right{
+    .form-right {
         width: 90%;
     }
 
-    .prio-button{
+    .prio-button {
         display: flex;
         flex-direction: column;
         height: fit-content;
         width: 100%;
     }
 
-    .prio-button button{
+    .prio-button button {
         width: 100%;
     }
 
-    .black{
+    .black {
         display: none;
     }
 
-    .bottom{
+    .bottom {
         justify-content: center;
     }
 
-    .bottom button{
+    .bottom button {
         width: fit-content;
     }
 }

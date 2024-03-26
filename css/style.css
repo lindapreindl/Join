@@ -554,6 +554,8 @@ button img {
     .summaryRightFrame {
         width: 100%; 
         flex-direction: row;
+        align-items: center;
+        gap: 10px;
         padding: 0;
         margin-bottom: 50px;
     }
@@ -710,6 +712,15 @@ button img {
 
 @media (max-width: 700px) {
 
+    .helpBorder{
+        margin-top: 48px;
+        margin-bottom: 80px;
+    }
+
+    .headlineSummary{
+        margin-bottom: 30px;
+    }
+
     .inputField {
         width: 100%;
     }
@@ -755,4 +766,102 @@ button img {
         margin-right: 10px;
     }
 
+    .summaryBoxBottom p{
+        width: 90px;
+    }
+
+}
+
+@media(max-width: 500px){
+
+    .headlineSummary{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 5%;
+        gap: 16px;
+    }
+
+    .blueLine{
+        display: none;
+    }
+
+    .blueLineMobile {
+        height: 3px;
+        width: 80px;
+        background-color: #29ABE2;
+        display: block;
+    }
+
+    .summaryOuterFrame{
+        width: 100vw;
+    }
+
+    .summaryRightFrame{
+        display: none;
+    }
+
+    .summaryLeftFrame{
+        width: 90vw;
+        height: 80%;
+        padding: 5%;
+    }
+
+    .summaryLeftFrame h1{
+        font-size: 50px;
+    }
+
+    .summaryFrameTop{
+        justify-content: space-between;
+        height: 120px;
+        width: 100%;
+    }
+
+    .summaryBoxTop {
+        width: 42vw;
+        height: 110px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .summaryBoxTop:hover {
+        width: 43vw;
+        height: 115px;
+    }
+
+    .summaryFrameCenter{
+        height: 120px;
+        width: 100%;
+    }
+
+    .summaryBoxCenter {
+        width: 90vw;
+        height: 110px;
+    }
+
+    .summaryBoxCenter:hover {
+        width: 90vw;
+        height: 115px;
+    }
+
+    .summaryFrameBottom{
+        height: 120px;
+        width: 100%;
+    }
+
+    .summaryBoxBottom {
+        width: 27vw;
+        height: 110px;
+    }
+
+    .summaryBoxBottom p{
+        width: 100px;
+        text-align: center;
+    }
+
+    .summaryBoxBottom:hover {
+        width: 28vw;
+        height: 115px;
+    }
 }
