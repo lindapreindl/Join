@@ -259,28 +259,49 @@ async function editTask(i) {
     let dueDate = tasks[i]['dueDate'];
     let prio = tasks[i]['prio'];
     let assignedTo = tasks[i]['assigned'];
+    let category = tasks[i]['category'];
     // assignedTo.push();
     let subtasks = tasks[i]['subtasks'];
     // subtasks.push(tasks[i]['subtasks']);
-
     openAddTaskInBoard('edit');
-    fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks);
+    fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks, category);
 
-    // let editTaskBox = document.getElementById('editTask');
-    // editTaskBox.classList.remove('d-none');
-    // editTaskBox.innerHTML = '';
-    // editTaskBox.innerHTML = templateEditTask();
-
-    // setOldValuesToEditTask(tasks, i, title, description, dueDate, prio, assignedTo, subtasks);
 }
 
-function fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks) {
+function fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks, category) {
     document.getElementById('titleAddTaskIB').value = title;
     document.getElementById('descriptionAddTaskIB').value = description;
     document.getElementById('dueDateAddTaskIB').value = dueDate;
- 
+    document.getElementById('categoryAddTaskIB').value = category;
+    fillAssignedUsersToEdit(i, assignedTo);
+    showAssignedUsersStickers('IB');
+    fillPrioToEdit(i);
+    fillSubtasksToEdit(i);    
 }
 
+function fillAssignedUsersToEdit(i, assignedTo) {
+    let pickUserName = assignedTo;
+    assignedUsers = [];
+    for (let j = 0; j < pickUserName.length; j++) {
+        for (let k = 0; k < users.length; k++) {
+            if (pickUserName[j] == users[k].name) {
+                assignedUsers.push(pickUserName[j]);
+                assignedUsers.push(users[k].color);
+            }
+        }
+    }
+}
+
+function fillPrioToEdit(i) {
+    let prioEdit = tasks[i].prio;
+    changePrio(prioEdit, 'IB');
+}
+
+function fillSubtasksToEdit(i) {
+    let subtasksEdit = tasks[i].subtasks;
+    subtasks = subtasksEdit;
+    renderSubtasks('IB');
+}
 
 function templateEditTask() {
     return /*html*/`
