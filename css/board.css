@@ -112,6 +112,16 @@ p {
     padding: 12px 16px;
 }
 
+.widthTaskBox h3 {
+    overflow: hidden;
+    white-space: wrap;
+}
+
+.widthTaskBox p {
+    overflow: hidden;
+    white-space: wrap;
+}
+
 .topics {
     padding-left: 20px;
     margin-bottom: 16px;
@@ -301,7 +311,7 @@ progress[value]::-webkit-progress-value {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .subtasksDetails {
@@ -395,7 +405,7 @@ progress[value]::-webkit-progress-value {
         margin-top: 16px;
         width: 100%;
     }
-    
+
     .taskContentBox {
         flex-direction: row;
         align-items: flex-start;
@@ -407,6 +417,18 @@ progress[value]::-webkit-progress-value {
         overflow-y: hidden;
         white-space: nowrap;
         box-sizing: content-box;
+    }
+
+    .taskContentBox::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera */
+    }
+
+    .taskContentBox {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
     }
 
     .widthTaskBox {
@@ -440,13 +462,18 @@ progress[value]::-webkit-progress-value {
         display: none;
     }
 
+    .searchBoxInBoard {
+        width: 90% !important;
+        padding: 30px;
+    }
+
     .boardTitle {
         margin-left: 0px;
     }
 
     .boardTitleBox {
         justify-content: space-between;
-        width: 70%;
+        width: 95%;
     }
 
     .boardTitleAddTaskResponsive {
@@ -467,5 +494,5 @@ progress[value]::-webkit-progress-value {
         display: block;
     }
 
-   
+
 }

@@ -21,7 +21,7 @@ p{
 }
 
 mark{
-    color: #29ABE2;
+    color: #29ABE2 !important;
     background-color: inherit;
 }
 
