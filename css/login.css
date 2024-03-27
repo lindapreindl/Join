@@ -169,7 +169,7 @@ a {
 
 .bottom-part {
     position: absolute;
-    bottom: 70px;
+    bottom: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -227,5 +227,20 @@ a {
 
     .arrowLeft {
         left: -120px;
+    }
+}
+
+@media(max-height: 400px){
+
+    .mainLogo{
+        display: none;
+    }
+
+    .goToSignUp{
+        display: none;
+    }
+
+    .bottom-part{
+        display: none;
     }
 }
