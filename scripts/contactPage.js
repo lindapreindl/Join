@@ -330,34 +330,64 @@ function createEditOverlay(user, index) {
   overlay.className = "overlay";
   overlay.id = overlayId; // Eindeutige ID für das Overlay setzen
   overlay.style.display = "none";
-  overlay.innerHTML = `
+  overlay.innerHTML = /* HTML */ `
     <div class="overlay-content2">
-    <div> <img class="editLook" src="./img/editLook.png" alt=""></div>
-    <div> 
-    <div
-    class="initials-circle-info initialsEdit"
-    style="background-color: ${userColors[user.name]}; color: white;"
-  >
-    ${getInitials(user.name)}
-  </div>
-  </div> 
-    <div class="editUserDaten">
-    <div class="imgClose" onclick="closeOverlay()" ><img src="./img/close.png" alt=""></div>
-      <input class="iconPerson"  type="text" id="editUserName" placeholder="Name" value="${
-        user.name
-      }" required><br><br>
-      <input class="iconMail"  type="email" id="editUserEmail" placeholder="E-Mail" value="${
-        user.email
-      }" required><br><br>
-      <input class="iconCall"  type="text" id="editUserPhone" placeholder="Telefon" value="${
-        user.phone
-      }" required><br><br>
-      <div class="delete-save-btn">
-      <button class="delete-btn"  onclick="deleteUser('${
-        user.name
-      }'), clearUserInfo()">Delete</button>
-      <button class="save-btn" onclick="editUser(${index})">Save <img class="imgCheck" src="./img/check.png" alt=""></button>
+      <div><img class="editLook" src="./img/editLook.png" alt="" /></div>
+      <div>
+        <div
+          class="initials-circle-info initialsEdit"
+          style="background-color: ${userColors[user.name]}; color: white;"
+        >
+          ${getInitials(user.name)}
+        </div>
       </div>
+      <div class="editUserDaten">
+        <div class="imgClose" onclick="closeOverlay()">
+          <img src="./img/close.png" alt="" />
+        </div>
+        <input
+          class="iconPerson"
+          type="text"
+          id="editUserName"
+          placeholder="Name"
+          value="${user.name}"
+          required
+        /><br /><br />
+        <input
+          class="iconMail"
+          type="email"
+          id="editUserEmail"
+          placeholder="E-Mail"
+          value="${user.email}"
+          required
+        /><br /><br />
+        <input
+          class="iconCall"
+          type="text"
+          id="editUserPhone"
+          placeholder="Telefon"
+          value="${user.phone}"
+          required
+        /><br /><br />
+
+        <input
+          class="iconLock"
+          type="password"
+          id="editUserPassword"
+          placeholder="new Password"
+        /><br /><br />
+        <!-- Passwort-Eingabe hinzugefügt -->
+        <div class="delete-save-btn">
+          <button
+            class="delete-btn"
+            onclick="deleteUser('${user.name}'), clearUserInfo()"
+          >
+            Delete
+          </button>
+          <button class="save-btn" onclick="editUser(${index})">
+            Save <img class="imgCheck" src="./img/check.png" alt="" />
+          </button>
+        </div>
       </div>
     </div>
   `;
