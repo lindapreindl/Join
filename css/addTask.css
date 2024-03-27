@@ -6,12 +6,12 @@ body {
 .h1 {
     font-size: 45px;
     position: relative;
-    margin-left: 2%;
-    margin-bottom: 20px;
+    margin-left: 1%;
+    margin-bottom: 40px;
 }
 
 .bigAddTask {
-    margin-top: 100px;
+    margin-top: 140px;
     width: 95%;
     height: 100%;
 }
@@ -35,10 +35,6 @@ body {
 mark {
     color: #FF8190;
     background-color: inherit;
-}
-
-::placeholder {
-    padding-left: 20px;
 }
 
 select {
@@ -103,11 +99,6 @@ select {
     font-size: 16px;
     cursor: pointer;
     font-family: inherit;
-}
-
-.description textarea::placeholder{
-    padding: 0;
-    margin: 0;
 }
 
 .description textarea[type=text]:focus {
@@ -241,63 +232,27 @@ select:hover {
 }
 
 #button-lowAT:hover {
-    background-color: #7AE229;
-    color: white;
-    font-weight: 700;
-}
-
-#button-lowAT:hover img {
-    content: url(../img/low_white.png);
+    background-color: white;
 }
 
 #button-mediumAT:hover {
-    background-color: #FFA800;
-    color: white;
-    font-weight: 700;
-}
-
-#button-mediumAT:hover img {
-    content: url(../img/medium_white.png);
+    background-color: white;
 }
 
 #button-urgentAT:hover {
-    background-color: #FF3D00;
-    color: white;
-    font-weight: 700;
-}
-
-#button-urgentAT:hover img {
-    content: url(../img/urgent_white.png);
+    background-color: white;
 }
 
 #button-lowIB:hover {
-    background-color: #7AE229;
-    color: white;
-    font-weight: 700;
-}
-
-#button-lowIB:hover img {
-    content: url(../img/low_white.png);
+    background-color: white;
 }
 
 #button-mediumIB:hover {
-    background-color: #FFA800;
-    color: white;
-    font-weight: 700;
-}
-
-#button-mediumIB:hover img {
-    content: url(../img/medium_white.png);
+    background-color: white;
 }
 
 #button-urgentIB:hover {
-    background-color: #FF3D00;
-    color: white;
-    font-weight: 700;
-}
-
-#button-urgentIB:hover img {
-    content: url(../img/urgent_white.png);
+    background-color: white;
 }
 
 .low {
@@ -331,11 +286,16 @@ select:hover {
 .task-category select {
     width: 100%;
     height: 48px;
-    padding: 12px, 16px, 12px, 16px;
     border-radius: 10px;
     border: 1px solid #D1D1D1;
     font-size: 16px;
     cursor: pointer;
+}
+
+.task-category option:hover{
+    background-color: #7AE229;
+    padding: 0;
+    margin: 0;
 }
 
 .task-category select:focus {
@@ -359,14 +319,8 @@ select:hover {
     cursor: pointer;
 }
 
-#buttonAddSubtask {
-    width: 100%;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #D1D1D1;
-    cursor: pointer;
+#buttonAddSubtaskAT p{
+    color: #D1D1D1;
 }
 
 #buttonAddSubtaskInBoard p {
@@ -472,6 +426,16 @@ select:hover {
     font-size: 16px;
     color: #2A3647;
     font-weight: 400;
+}
+
+.clear:hover{
+    background-color: white !important;
+    color: #29ABE2 !important;
+    border-color: #29ABE2 !important;
+}
+
+.clear:hover img {
+    content: url(../img/close_lightblue.png);
 }
 
 .create {
@@ -619,6 +583,7 @@ select:hover {
     }
 
     .form {
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -681,6 +646,10 @@ select:hover {
         margin-left: 0;
     }
 
+    .form{
+        width: 100%;
+    }
+
     .bottom {
         width: calc(100% - 35px);
         bottom: 80px;
@@ -693,14 +662,19 @@ select:hover {
 
     .bigAddTask {
         height: 1400px;
+        width: 100vw;
+    }
+
+    .form{
+        width: 100vw;
     }
 
     .form-left {
-        width: 90%;
+        width: 90vw;
     }
 
     .form-right {
-        width: 90%;
+        width: 90vw;
     }
 
     .prio-button {
@@ -724,5 +698,15 @@ select:hover {
 
     .bottom button {
         width: fit-content;
+    }
+}
+
+@media(max-height: 400px){
+    .bigAddTask{
+        margin-top: 20px;
+    }
+
+    .bigAddTask h1{
+        font-size: 40px;
     }
 }

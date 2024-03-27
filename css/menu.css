@@ -3,11 +3,9 @@ body {
     display: flex;
 }
 
-header {
-    width: 100%;
+.upperBox {
+    width: calc(100% - 232px);
     height: 96px;
-    padding-left: 40px;
-    padding-right: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -130,26 +128,31 @@ nav {
     display: none;
 }
 
+@media (max-width: 750px){
+    .headLine p{
+        display: none;
+    }
+
+    .headLine{
+        justify-content: flex-end;
+    }
+}
+
 @media (max-width: 700px){
 
     body{
         display: block;
     }
 
-    header{
+    .upperBox{
         height: 80px;
-        width: calc(100vw - 80px);
+        width: 100vw;
         left: 0;
+        padding: 0;
     }
 
-    .header-left p{
-        display: none;
-    }
-
-    .header-left img{
-        display: block;
-        height: 32px;
-        width: 32px;
+    .headLine{
+        justify-content: space-between;
     }
 
     .header-right img{
@@ -306,5 +309,38 @@ nav {
     
     .a4 {
         padding: 17px 5px 17px 5px;
+    }
+}
+
+@media(max-height: 400px){
+    .logo{
+        display: none;
+    }
+
+    .navigation{
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        justify-content: space-between;
+    }
+
+    .menu{
+        padding: 0;
+        margin: 0;
+    }
+
+    .termsAndConditions{
+        padding: 20px;
+    }
+
+    .upperBox{
+        display: none;
+    }
+
+    .activeUserInitials{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 }
