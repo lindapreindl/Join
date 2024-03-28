@@ -1,7 +1,23 @@
 /* ---------------------- header ------------------------------ */
-
+.header1 {
+  width: 100%;
+  height: 96px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 4px 4px 0px #0000001a;
+  font-size: 20px;
+  top: 0;
+  left: 232px;
+  position: fixed;
+  z-index: 997;
+}
 .header {
   display: flex;
+
   margin-top: 16px;
 }
 
@@ -12,8 +28,10 @@
 }
 
 .helpIcon-userName {
+  margin-top: -20px;
   display: flex;
   justify-content: space-around;
+  margin-left: 1000px;
 }
 
 .help-icon {
@@ -47,18 +65,6 @@
   display: flex;
 }
 
-/* Stil für das Overlay */
-
-.overlay-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
 /*  */
 .userList-userInfo {
   display: flex;
@@ -70,16 +76,7 @@
 main {
   margin: 120px;
 }
-.btn {
-  width: 352px;
-  height: 56px;
-  background-color: #2a3647;
-  margin-bottom: 24px;
-  border-radius: 8px;
-  border-color: #2a3647;
-  font-size: 24px;
-  margin-left: 200px;
-}
+
 #addUserBtn {
   width: 352px;
   height: 56px;
@@ -100,6 +97,7 @@ main {
   gap: 30px;
   margin-bottom: 40px;
   margin-top: -96px;
+  margin-left: 20px;
 }
 /* --------------------------- */
 .user-info {
@@ -225,6 +223,8 @@ a {
 }
 .img-edit {
   color: black;
+  width: 62px;
+  height: 24px;
 }
 .img-edit:hover {
   scale: 1.02;
@@ -283,6 +283,8 @@ a {
   */
 }
 .editLook {
+  width: 453px;
+  height: 592px;
   margin-top: -20px;
   margin-left: -20px;
   border-radius: 8px 0px 0px 8px;
@@ -329,6 +331,8 @@ input {
   padding-left: 8px;
 }
 .addPersonPic {
+  width: 134px;
+  height: 134px;
   margin-top: 16%;
   margin-left: 4%;
 }
@@ -412,12 +416,23 @@ a {
   padding-bottom: 64px;
   font-size: 16px;
 }
+
+.btn {
+  width: 352px;
+  height: 56px;
+  background-color: #2a3647;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  border-color: #2a3647;
+  font-size: 24px;
+  margin-left: 144px;
+}
 /* CSS für den Benutzerlistenbereich */
 #userList {
   overflow-y: auto; /* Vertikales Scrollen aktivieren */
   height: 72vh; /* Maximale Höhe des Benutzerlistenbereichs festlegen */
-  width: 360px;
-  margin-left: 200px;
+  width: 300px;
+  margin-left: 180px;
 }
 
 /* CSS für den Benutzerinfobereich */
@@ -425,10 +440,14 @@ a {
   position: fixed; /* Fixierte Position */
   top: 10; /* Oben fixieren */
   padding: 0 20px; /* Innenabstand festlegen */
-  background-color: #f9f9f9; /* Hintergrundfarbe festlegen */
+  background-color: rgb(
+    238,
+    239,
+    240
+  ); /* Hintergrundfarbe festlegen */ /* Hintergrundfarbe festlegen */
   border: 1px solid #ccc; /* Rand festlegen */
   border-radius: 5px; /* Randradius festlegen */
-  margin-left: 592px; /* Linken Abstand festlegen */
+  margin-left: 520px; /* Linken Abstand festlegen */
   width: calc(
     80% - 240px
   ); /* Breite festlegen (100% - Breite des Benutzerlistenbereichs) */
@@ -439,4 +458,303 @@ a {
   /*  background: url("./img/contacts.png"); */
   margin-top: 80px;
   margin-left: 24px;
+}
+
+/* -------------------media queries */
+
+@media (max-width: 1570px) {
+  .helpIcon-userName {
+    margin-left: 800px;
+  }
+  .overlay-content2 {
+    margin-top: 184px;
+  }
+  .overlay-content1 {
+    margin-top: 184px;
+  }
+}
+/* ------------------------------------- 1024 */
+@media (max-width: 1024px) {
+  .helpIcon-userName {
+    margin-left: 280px;
+  }
+  .overlay-content2 {
+    margin-top: 184px;
+  }
+  .overlay-content1 {
+    margin-top: 184px;
+  }
+  .navi {
+    width: 200px;
+  }
+  header {
+    margin-left: -32px;
+  }
+  #userList {
+    width: 280px;
+    margin-left: 120px;
+  }
+  #userInfo {
+    margin-left: 440px; /* Linken Abstand festlegen */
+    width: calc(
+      80% - 240px
+    ); /* Breite festlegen (100% - Breite des Benutzerlistenbereichs) */
+  }
+  .btn {
+    width: 320px;
+    margin-left: 96px;
+  }
+  .frame40 {
+    width: 350px;
+    height: 70px;
+    margin-left: -20px;
+  }
+  .userInfo-div {
+    /* background: url(./img/contacts.png); */
+    margin-top: -8px;
+    margin-left: 0px;
+  }
+  .overlay-content2 {
+    display: flex;
+    width: 744px;
+    height: 412px;
+
+    margin-top: 208px; /*  */
+    margin-left: 216px; /*  */
+    /*   top: -2901px;
+    left: -1731px; */
+    gap: 0px;
+    border-radius: 30px 0px 0px 0px;
+    opacity: 0px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt für das Overlay 
+    */
+  }
+  .editLook {
+    width: 320px;
+    height: 412px;
+    margin-top: -20px;
+    margin-left: -20px;
+    border-radius: 8px 0px 0px 8px;
+  }
+  input {
+    width: 240px;
+  }
+  .editUserDaten {
+    margin-top: -64px;
+    margin-left: 16px;
+  }
+  .initialsEdit {
+    margin-top: 120px;
+    margin-left: 16px;
+  }
+  .imgClose {
+    margin: 56px 216px 16px;
+  }
+  .overlay-content1 {
+    border-radius: 5px;
+    display: flex;
+    width: 744px;
+    height: 412px;
+
+    margin-top: 208px; /*  */
+    margin-left: 216px; /*  */
+    /*   top: -2901px;
+    left: -1731px; */
+    gap: 0px;
+    border-radius: 30px 0px 0px 0px;
+    opacity: 0px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt für das Overlay 
+    */
+    background-color: white;
+    padding: 20px;
+  }
+  .addPersonPic {
+    margin-top: 120px;
+    margin-left: 16px;
+  }
+  .addUserDaten {
+    margin-top: -40px;
+    margin-left: 16px;
+  }
+  .cancel-createContact-btn {
+    margin-top: 40px;
+    margin-left: -64px;
+  }
+}
+/* --------------------------- 768 ----------------- */
+@media (max-width: 768px) {
+  .helpIcon-userName {
+    margin-left: 88px;
+  }
+  .overlay-content2 {
+    margin-top: 184px;
+  }
+  .overlay-content1 {
+    margin-top: 184px;
+  }
+  .navi {
+    width: 144px;
+  }
+
+  header {
+    margin-left: -88px;
+  }
+  #userList {
+    width: 232px;
+    margin-left: 56px;
+  }
+  #userInfo {
+    margin-left: 308px; /* Linken Abstand festlegen */
+    width: calc(
+      80% - 240px
+    ); /* Breite festlegen (100% - Breite des Benutzerlistenbereichs) */
+  }
+  .btn {
+    width: 256px;
+    margin-left: 32px;
+  }
+  .frame40 {
+    width: 300px;
+    height: 65px;
+    margin-left: -20px;
+  }
+  .userInfo-div {
+    /* background: url(./img/contacts.png); */
+    margin-top: -8px;
+    margin-left: 0px;
+  }
+  .user-name-info {
+    margin: 16px 16px 16px 8px;
+
+    font-family: inter;
+    font-size: 32px;
+    font-weight: 500;
+    color: black;
+  }
+  .initials-circle-info {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 80px;
+    font-size: 32px;
+  }
+  .overlay-content2 {
+    display: flex;
+    width: 600px;
+    height: 412px;
+
+    margin-top: 208px; /*  */
+    margin-left: 152px; /*  */
+    /*   top: -2901px;
+    left: -1731px; */
+    gap: 0px;
+    border-radius: 30px 0px 0px 0px;
+    opacity: 0px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt für das Overlay 
+    */
+  }
+  .editLook {
+    width: 256px;
+    height: 412px;
+    margin-top: -20px;
+    margin-left: -20px;
+    border-radius: 8px 0px 0px 8px;
+  }
+  input {
+    width: 224px;
+  }
+  .editUserDaten {
+    margin-top: -64px;
+    margin-left: 8px;
+  }
+  .initialsEdit {
+    margin-top: 120px;
+    margin-left: 8px;
+  }
+  .imgClose {
+    margin: 56px 196px 16px;
+  }
+  .overlay-content1 {
+    border-radius: 5px;
+    display: flex;
+    width: 600px;
+    height: 412px;
+
+    margin-top: 208px; /*  */
+    margin-left: 152px; /*  */
+    /*   top: -2901px;
+    left: -1731px; */
+    gap: 0px;
+    border-radius: 30px 0px 0px 0px;
+    opacity: 0px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt für das Overlay 
+    */
+    background-color: white;
+    padding: 20px;
+  }
+  .addPersonPic {
+    width: 80px;
+    height: 80px;
+    margin-top: 120px;
+    margin-left: 8px;
+  }
+  .addUserDaten {
+    margin-top: -40px;
+    margin-left: 16px;
+  }
+  .cancel-createContact-btn {
+    margin-top: 40px;
+    margin-left: -80px;
+  }
+}
+/* ---------------------------------- 700 ----------------------------- */
+@media (max-width: 700px) {
+  .navi {
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #2a3647;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    padding: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 90;
+  }
+  .menu {
+    margin-bottom: 32px;
+  }
+  .btn {
+    width: 256px;
+    margin-left: -88px;
+  }
+  #userList {
+    width: 232px;
+    margin-left: -80px;
+  }
+  header {
+    width: 1200px;
+    margin-left: 0px;
+    padding: 0 -40px;
+    width: 800px;
+  }
 }

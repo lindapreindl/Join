@@ -40,7 +40,7 @@ function createOverlay() {
   overlay.innerHTML = /* HTML */ `
     <div class="overlay-content1">
       <div><img class="editLook" src="./img/addContactPic.png" alt="" /></div>
-      <div class="addPersonPic"><img src="./img/addPerson.png" alt="" /></div>
+      <div><img class="addPersonPic" src="./img/addPerson.png" alt="" /></div>
 
       <div class="addUserDaten">
         <div class="imgClose" onclick="closeOverlay()">
@@ -262,7 +262,9 @@ function renderUserInfo(user) {
   const userInfoElement = document.getElementById("userInfo");
   // Benutzerinformationen rendern
   userInfoElement.innerHTML = /* HTML */ `
-    <div class="frame40"><img src="./img/contacts.png" alt="" /></div>
+    <div>
+      <img class="frame40" src="./img/contacts.png" alt="" />
+    </div>
     <div class="userInfo-div">
       <div class="circle2-user">
         <div

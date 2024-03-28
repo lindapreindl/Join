@@ -19,12 +19,12 @@
     <!-- ------------------------------------------------------------------------------ -->
     <link rel="stylesheet" href="./css/menu.css" />
 
-    <link rel="stylesheet" href="./css/board.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/addTask.css">
-    <link rel="stylesheet" href="./css/contactPage.css">
-    <link rel="stylesheet" href="./css/menu.css">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="./css/board.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/addTask.css" />
+    <link rel="stylesheet" href="./css/contactPage.css" />
+    <link rel="stylesheet" href="./css/menu.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
     <script src="./scripts/contactPage.js"></script>
     <script src="./scripts/login.js"></script>
     <script src="./scripts/board.js"></script>
@@ -59,11 +59,22 @@
       <div class="all">
         <header>
           <div class="header">
-            <p class="header-headline">Kanban Project Management Tool</p>
+            <div>
+              <p class="header-headline">Kanban Project Management Tool</p>
+            </div>
+
             <div class="helpIcon-userName">
-              <a><img class="help-icon" src="./img/help-icon.png" alt="" /></a>
-              <div class="user-icon">
-                <h1 class="user-name">GU</h1>
+              <div class="header-right spaceRight">
+                <a href="./consent/help.html"
+                  ><img src="./img/help-icon.png" class="helpIcon"
+                /></a>
+                <div
+                  id="activeUserSummary"
+                  class="activeUserInitials"
+                  onclick="userMenu('Summary')"
+                >
+                  G
+                </div>
               </div>
             </div>
           </div>
@@ -82,7 +93,7 @@
               <ul></ul>
             </div>
             <div id="userInfo" class="userInfo">
-              <div class="frame40"><img src="/img/Contacts.png" alt="" /></div>
+              <div><img class="frame40" src="/img/Contacts.png" alt="" /></div>
               <h2></h2>
             </div>
           </div>
