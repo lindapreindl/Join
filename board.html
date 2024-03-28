@@ -201,7 +201,7 @@
                                 <input id="inputAddSubtaskIB" type="text">
                                 <img onclick="cancelSubtask('IB')" src="./img/cancel.png" alt="">
                                 <p>|</p>
-                                <img onclick="addSubtask('IB')" src="./img/check_dark.png" alt="">
+                                <img onclick="addSubtask('IB')" src="./img/check_dark.png">
                             </div>
                             <ul id="subtasksAddTaskIB"></ul>
                         </div>
@@ -214,8 +214,10 @@
                     <div class="bottom-button">
                         <button onclick="clearAddTask('IB')" class="clear">Clear <img src="./img/cancel.png"
                                 alt=""></button>
-                        <button onclick="createTask('IB')" class="create">Create Task <img src="./img/check.png"
-                                alt=""></button>
+                        <button onclick="createTask('IB')" class="create" id="btnCreateTaskIB">Create Task <img
+                                src="./img/check.png" alt=""></button>
+                        <button class="create d-none" id="btnSaveChangesIB">Save Changes <img
+                                src="./img/check.png" alt=""></button>
                     </div>
                 </div>
             </div>

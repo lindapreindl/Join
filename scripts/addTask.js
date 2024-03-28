@@ -10,6 +10,10 @@ async function initAddTask() {
 
 function openAddTaskInBoard(use) {
     document.getElementById('addTaskInBoard').classList.remove('d-none');
+    if (use == "edit") {
+        document.getElementById('btnCreateTaskIB').classList.add('d-none');
+        document.getElementById('btnSaveChangesIB').classList.remove('d-none');
+    }
 }
 
 function closeAddTaskInBoard() {
@@ -242,6 +246,38 @@ async function createTask(location) {
     // console.log('task created successfully', tasks)
 }
 
+async function saveChanges(location) {
+    for (let i = 0; i < assignedUsers.length; i++) { assignedUsers.splice(i + 1, 1) };
+    let newTitle = document.getElementById('titleAddTask' + location).value;
+    let newDescription = document.getElementById('descriptionAddTask' + location).value;
+    let newAssignedTo = assignedUsers;
+    let newDueDate = document.getElementById('dueDateAddTask' + location).value;
+    let newCategory = document.getElementById('categoryAddTask' + location).value;
+    // await loadTasksFromServer();
+    // tasks.[j]({
+    //     'titel': newTitle,
+    //     'description': newDescription,
+    //     'assigned': newAssignedTo,
+    //     'dueDate': newDueDate,
+    //     'position': 'ToDo',
+    //     'prio': chosenPrio,
+    //     'category': newCategory,
+    //     'subtasks': subtasks
+    // });
+    if (tasks[(tasks.length - 1)].subtasks == ['']) { tasks[(tasks.length - 1)].subtasks = ''; }
+
+    await setItem('tasks', tasks);
+    while (subtasks.length > 0) {
+        subtasks.pop();
+    }
+    clearAddTask(location);
+    if (location == 'IB') { closeAddTaskInBoard(); }
+    initBoard();
+    window.location.href = "board.html?msg=Task added to board";
+
+    // console.log('task created successfully', tasks)
+}
+
 
 function deleteTask(i) {
     tasks.splice(i, 1);
@@ -273,6 +309,7 @@ function fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, su
     document.getElementById('descriptionAddTaskIB').value = description;
     document.getElementById('dueDateAddTaskIB').value = dueDate;
     document.getElementById('categoryAddTaskIB').value = category;
+    document.getElementById('btnSaveChangesIB').setAttribute("onclick", `saveChanges(${i})`); 
     fillAssignedUsersToEdit(i, assignedTo);
     showAssignedUsersStickers('IB');
     fillPrioToEdit(i);
