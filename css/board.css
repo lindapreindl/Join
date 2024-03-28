@@ -9,8 +9,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding-top: 30px;
+    width: calc(100% - 232px);
+    position: fixed;
+    right: 0;
+    left: 232px;
+    padding-top: 200px;
     background-color: #F6F7F8;
     padding-bottom: 10px;
 }
@@ -47,6 +50,7 @@
     display: flex;
     justify-content: space-around;
     background-color: #F6F7F8;
+    padding-top: 330px;
 }
 
 .w100 {
@@ -106,7 +110,7 @@ p {
     width: 252px !important;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     margin-bottom: 12px;
     padding: 12px 16px;
@@ -434,7 +438,8 @@ progress[value]::-webkit-progress-value {
     .widthTaskBox {
         margin-right: 6px;
         margin-top: 18px;
-        margin-left: 16px
+        margin-left: 16px;
+        min-width: 252px !important;
     }
 
     .boardTopicResponsive {
@@ -454,16 +459,13 @@ progress[value]::-webkit-progress-value {
 }
 
 @media (max-width: 1100px) {
-    .headBox {
-        flex-direction: column;
-    }
 
     .addTaskButton {
         display: none;
     }
 
     .searchBoxInBoard {
-        width: 90% !important;
+        width: 200px;
         padding: 10px;
     }
 
@@ -477,7 +479,7 @@ progress[value]::-webkit-progress-value {
 
     .boardTitleBox {
         justify-content: space-between;
-        width: 95%;
+        width: 500px;
     }
 
     .boardTitleAddTaskResponsive {
