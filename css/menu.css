@@ -168,6 +168,8 @@ nav {
 
     .headLine{
         justify-content: space-between;
+        left: 0;
+        width: 100%;
     }
 
     .header-right img{
