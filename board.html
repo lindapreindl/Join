@@ -48,10 +48,10 @@
             <div class="headBox">
                 <div class="boardTitleBox">
                     <h1 class="boardTitle">Board</h1>
-                    <div class="boardTitleAddTaskResponsive" onclick="openAddTaskInBoard('add')"><img
+                    <a href="./addTask.html"><div class="boardTitleAddTaskResponsive"><img
                             src="./img/addWhite.png"></div>
-                </div>
-                <div class="d-flex searchBoxInBoard">
+                </div></a>
+                <div class="d-flex mr24 searchBoxInBoard">
                     <div class="d-flex searchBox">
                         <input class="inputSearch inputField" id="searchField" placeholder="Find Task">
                         <div class="verticalLine"></div>
@@ -126,7 +126,8 @@
         <div class="background">
             <div class="addTask">
                 <div class="headerAddTaskInBoard">
-                    <h1 class="h1">Add Task</h1>
+                    <h1 id="titleAddTask" class="h1">Add Task</h1>
+                    <h1 id="titleEditTask" class="h1 d-none">Edit Task</h1>
                     <img onclick="closeAddTaskInBoard()" src="./img/close.png" alt="">
                 </div>
 

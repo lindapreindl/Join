@@ -76,7 +76,8 @@ function templateTaskDetails(i, categoryColor, subtasks, prio, prioWritten) {
         </div>
         <div class="w100 d-flex mb24 justify-end">
             <div onclick="deleteTask(${i})" class="d-flex ml align-center detailsButton widthFixed"><img class="mr8" src="../img/delete.png" onmouseover="this.src='./img/deleteHover.png';" onmouseout="this.src='./img/delete.png';"></div>
-            <div onclick="editTask(${i})" class="d-flex ml align-center detailsButton widthFixed"><img class="mr8" src="../img/edit.png" onmouseover="this.src='./img/editHover.png';" onmouseout="this.src='./img/edit.png';"></div>
+            <div id="btnEditBig" onclick="editTask(${i}, 'IB')" class="btnEditBig ml align-center detailsButton widthFixed"><img class="mr8" src="../img/edit.png" onmouseover="this.src='./img/editHover.png';" onmouseout="this.src='./img/edit.png';"></div>
+            <a href="editTask.html"><div id="btnEditSmall" onclick="editTask(${i}, 'AT')" class="btnEditSmall ml align-center detailsButton widthFixed"><img class="mr8" src="../img/edit.png" onmouseover="this.src='./img/editHover.png';" onmouseout="this.src='./img/edit.png';"></div></a>
         </div>
     </div>
     `;
@@ -101,7 +102,7 @@ function templateShowDetailsSubtasks(i, j, status) {
 
 function templateUserListInDropDown(i, initialColor, initials, me, checkValue, location) {
     return `
-    <div class="userInDropDown" onclick="changeCheckerAssignedTo('${i}', '${location}')">
+    <div id="userDropDown${i}" class="userInDropDown" onclick="changeCheckerAssignedTo('${i}', '${location}')">
         <div class="userInDropDown">
             <div class="assigneListing" style="background-color:${initialColor};">${initials}</div>
             <p>${users[i].name}${me}</p>

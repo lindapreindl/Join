@@ -1,6 +1,8 @@
 let subtasks = [];
 let chosenPrio = 'medium';
 let assignedUsers = [];
+let editPosition = '';
+let masterI;
 
 async function initAddTask() {
     loadUsers()
@@ -13,6 +15,16 @@ function openAddTaskInBoard(use) {
     if (use == "edit") {
         document.getElementById('btnCreateTaskIB').classList.add('d-none');
         document.getElementById('btnSaveChangesIB').classList.remove('d-none');
+        document.getElementById('titleAddTask').classList.add('d-none');
+        document.getElementById('titleEditTask').classList.remove('d-none');
+    }
+    if (use == "add") {
+        document.getElementById('btnCreateTaskIB').classList.remove('d-none');
+        document.getElementById('btnSaveChangesIB').classList.add('d-none');
+        document.getElementById('titleAddTask').classList.remove('d-none');
+        document.getElementById('titleEditTask').classList.add('d-none');
+        clearAddTask('IB');
+        clearAddTask('AT');
     }
 }
 
@@ -87,11 +99,12 @@ function changeCheckerAssignedTo(i, location) {
         let userIndex = assignedUsers.findIndex(user => user === clickedUser);
         assignedUsers.splice(userIndex, 2);
         document.getElementById(`userListChecker${location}${i}`).src = './img/unchecked.png';
-
+        document.getElementById(`userDropDown${i}`).classList.remove('userDropdownChosen');
     } else {
         assignedUsers.push(clickedUser);
         assignedUsers.push(users[i].color);
         document.getElementById(`userListChecker${location}${i}`).src = './img/checked.png';
+        document.getElementById(`userDropDown${i}`).classList.add('userDropdownChosen');
     }
     showAssignedUsersStickers(location);
 }
@@ -246,24 +259,23 @@ async function createTask(location) {
     // console.log('task created successfully', tasks)
 }
 
-async function saveChanges(location) {
-    for (let i = 0; i < assignedUsers.length; i++) { assignedUsers.splice(i + 1, 1) };
+async function saveChanges(location, i) {
+    for (let j = 0; j < assignedUsers.length; j++) { assignedUsers.splice(j + 1, 1) };
     let newTitle = document.getElementById('titleAddTask' + location).value;
     let newDescription = document.getElementById('descriptionAddTask' + location).value;
     let newAssignedTo = assignedUsers;
     let newDueDate = document.getElementById('dueDateAddTask' + location).value;
     let newCategory = document.getElementById('categoryAddTask' + location).value;
-    // await loadTasksFromServer();
-    // tasks.[j]({
-    //     'titel': newTitle,
-    //     'description': newDescription,
-    //     'assigned': newAssignedTo,
-    //     'dueDate': newDueDate,
-    //     'position': 'ToDo',
-    //     'prio': chosenPrio,
-    //     'category': newCategory,
-    //     'subtasks': subtasks
-    // });
+    tasks[i] = ({
+        'titel': newTitle,
+        'description': newDescription,
+        'assigned': newAssignedTo,
+        'dueDate': newDueDate,
+        'position': editPosition,
+        'prio': chosenPrio,
+        'category': newCategory,
+        'subtasks': subtasks
+    });
     if (tasks[(tasks.length - 1)].subtasks == ['']) { tasks[(tasks.length - 1)].subtasks = ''; }
 
     await setItem('tasks', tasks);
@@ -287,8 +299,8 @@ function deleteTask(i) {
 }
 
 
-async function editTask(i) {
-    closeTaskDetails();
+async function editTask(i, location) {
+    if (location == 'IB') { closeTaskDetails(); }
     await loadTasksFromServer();
     let title = tasks[i]['titel'];
     let description = tasks[i]['description'];
@@ -296,24 +308,31 @@ async function editTask(i) {
     let prio = tasks[i]['prio'];
     let assignedTo = tasks[i]['assigned'];
     let category = tasks[i]['category'];
-    // assignedTo.push();
     let subtasks = tasks[i]['subtasks'];
-    // subtasks.push(tasks[i]['subtasks']);
-    openAddTaskInBoard('edit');
-    fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks, category);
-
+    editPosition = tasks[i]['position'];    
+    if (location == 'IB') { openAddTaskInBoard('edit'); }
+    if (location == 'AT') { masterI = i; }
+    fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks, category, location);
+    
 }
 
-function fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks, category) {
-    document.getElementById('titleAddTaskIB').value = title;
-    document.getElementById('descriptionAddTaskIB').value = description;
-    document.getElementById('dueDateAddTaskIB').value = dueDate;
-    document.getElementById('categoryAddTaskIB').value = category;
-    document.getElementById('btnSaveChangesIB').setAttribute("onclick", `saveChanges(${i})`); 
+async function renderEditTask() {
+    loadUsers()
+    await loadLoginUser();
+    renderLoginUserName('EditTask');
+    editTask(masterI, 'AT');
+}
+
+function fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks, category, location) {
+    document.getElementById('titleAddTask' + location).value = title;
+    document.getElementById('descriptionAddTask' + location).value = description;
+    document.getElementById('dueDateAddTask' + location).value = dueDate;
+    document.getElementById('categoryAddTask' + location).value = category;
+    document.getElementById('btnSaveChanges' + location).setAttribute("onclick", `saveChanges('${location}'), ${i})`);
     fillAssignedUsersToEdit(i, assignedTo);
-    showAssignedUsersStickers('IB');
-    fillPrioToEdit(i);
-    fillSubtasksToEdit(i);    
+    showAssignedUsersStickers(location);
+    fillPrioToEdit(i, location);
+    fillSubtasksToEdit(i, location);
 }
 
 function fillAssignedUsersToEdit(i, assignedTo) {
@@ -329,83 +348,14 @@ function fillAssignedUsersToEdit(i, assignedTo) {
     }
 }
 
-function fillPrioToEdit(i) {
+function fillPrioToEdit(i, location) {
     let prioEdit = tasks[i].prio;
-    changePrio(prioEdit, 'IB');
+    changePrio(prioEdit, location);
 }
 
-function fillSubtasksToEdit(i) {
+function fillSubtasksToEdit(i, location) {
     let subtasksEdit = tasks[i].subtasks;
     subtasks = subtasksEdit;
-    renderSubtasks('IB');
+    renderSubtasks(location);
 }
 
-function templateEditTask() {
-    return /*html*/`
-    <div class="widthTaskDetails"> 
-        <div class="title">
-            <p>Title</p>
-            <input id="editTitle" type="text">
-        </div>
-        <div class="description">
-            <p>description</p>
-            <textarea name="editDescription" id="editDescription" cols="30" rows="10"></textarea>
-        </div>
-        <div class="dueDate">
-            <label for="editDueDate">Due date<mark>*</mark></label>
-            <input type="date" id="editDueDate" name="editDueDate" required>
-            <!-- Placeholder noch formatieren!!-->
-        </div>
-        <div class="prio">
-           <p>Prio</p>
-           <div class="prio-button">
-                <button id="edit-button-urgent" onclick="changePrioToUrgent(event)">Urgent <img
-                        id="edit-img-urgent" src="./img/urgent.png" alt=""> <img id="edit-img-urgent-white"
-                        class="d-none" src="./img/urgent_white.png" alt=""> </button>
-                <button id="edit-button-medium" class="medium" onclick="changePrioToMedium(event)">Medium <img
-                        id="edit-img-medium" class="d-none" src="./img/medium.png" alt=""> <img
-                        id="edit-img-medium-white" src="./img/medium_white.png" alt=""> </button>
-                <button id="edit-button-low" onclick="changePrioToLow(event)">Low <img id="edit-img-low"
-                        src="./img/low.png" alt=""> <img id="edit-img-low-white" class="d-none"
-                        src="./img/low_white.png" alt=""> </button>
-                <p id="edit-button-value" class="d-none">medium</p>
-            </div>
-        </div>
-        <div class="assignedTo">
-            <label for="ediAassignedTo">Assigned to</label>
-            <select id="editAssignedTo" name="assignedTo">
-                <option selected disabled hidden value="selectContact">Select contacts to assign</option>
-                <option value="person2">Person2</option>
-                <option value="person3">Person3</option>
-            </select>
-        </div>
-        <div class="subtasks">
-            <p>Subtasks</p>
-            <input type="text" name="subtasks" id="editsubtasks"
-                placeholder="Add new subtask">
-            <div id="showSubtasksInEdit"></div>
-            </div>
-    </div>
-    `
-}
-
-
-function setOldValuesToEditTask(tasks, i, title, description, dueDate, prio, assignedTo, subtasks) {
-    document.getElementById('editTitle').value = title;
-    document.getElementById('editDescription').value = description;
-    document.getElementById('editDueDate').value = dueDate;
-
-    if (prio == 'urgent') {
-
-    }
-
-    // assignedTo Möglichkeiten von Jean einspielen, außer die, die bereits gewählt sind
-    // asignedTo anzeigen
-
-    for (let j = 0; j < tasks[i]['subtasks'].length; j++) {
-        let subtask = tasks[i]['subtasks'][j];
-        document.getElementById('showSubtasksInEdit').innerHTML += /*html*/`
-            <ul>${subtask}</ul>
-        `
-    }
-}

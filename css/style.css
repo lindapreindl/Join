@@ -537,6 +537,7 @@ button img {
 
 .miniIcons {
     cursor: pointer;
+    height: 24px;
 }
 
 .miniIcons:hover {

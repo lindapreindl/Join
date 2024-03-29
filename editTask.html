@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join | Add Task</title>
+    <title>Join | Edit Task</title>
     <link rel="stylesheet" href="./css/addTask.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/menu.css">
@@ -18,7 +18,7 @@
     <script src="./scripts/templates.js"></script>
 </head>
 
-<body onload="initAddTask()">
+<body onload="renderEditTask()">
     <div class="navigation">
         <img class="logo" src="./img/logo_white.png">
         <div class="menu">
@@ -40,38 +40,38 @@
                 <img src="./img/logo.png" class="headerLogoSmall" id="headerLogo">
                 <div class="header-right spaceRight">
                     <a href="./consent/help.html"><img src="./img/help-icon.png" class="helpIcon"></a>
-                    <div id="activeUserAddTask" class="activeUserInitials" onclick="userMenu('AddTask')"></div>
+                    <div id="activeUserEditTask" class="activeUserInitials" onclick="userMenu('EditTask')"></div>
                 </div>
             </div>
         </div>
 
         <div class="bigAddTask">
-            <h1 class="h1">Add Task</h1>
+            <h1 class="h1">Edit Task</h1>
             <div class="form">
                 <div class="form-left">
                     <div class="title">
                         <p>Title<mark>*</mark></p>
                         <div class="inputBoxAddTask">
-                            <input type="text" name="title" id="titleAddTaskAT" placeholder="Enter a title" required>
+                            <input type="text" name="title" id="titleAddTaskET" placeholder="Enter a title" required>
                         </div>
                     </div>
                     <div class="description">
                         <p>Description</p>
                         <div class="inputBoxAddTask" style="height: 150px !important; display: table;">
-                            <textarea type="text" name="description" id="descriptionAddTaskAT"
+                            <textarea type="text" name="description" id="descriptionAddTaskET"
                                 placeholder="Enter a description" cols="30" rows="10"></textarea>
                         </div>
                     </div>
                     <div class="assignedTo">
                         <label for="assignedTo">Assigned to</label>
                         <div class="searchBoxAssigne">
-                            <input class="inputSearch inputField" id="searchFieldAddTaskAT"
-                                placeholder="Select contacs to assign" onclick="searchAssignedPeople('AT')"
-                                onkeyup="searchSpecificUser('AT')">
-                            <div class="icons" onclick="searchAssignedPeople('AT')">&#9207;</div>
+                            <input class="inputSearch inputField" id="searchFieldAddTaskET"
+                                placeholder="Select contacs to assign" onclick="searchAssignedPeople('ET')"
+                                onkeyup="searchSpecificUser('ET')">
+                            <div class="icons" onclick="searchAssignedPeople('ET')">&#9207;</div>
                         </div>
-                        <div class="dropDownUserListToAssigne d-none" id="dropDownUserListToAssigneAT"></div>
-                        <div class="showAssignedUsersStickers" id="showAssignedUsersStickersAT"></div>
+                        <div class="dropDownUserListToAssigne d-none" id="dropDownUserListToAssigneET"></div>
+                        <div class="showAssignedUsersStickers" id="showAssignedUsersStickersET"></div>
                     </div>
                 </div>
 
@@ -81,28 +81,28 @@
                     <div class="dueDate">
                         <p>Due Date<mark>*</mark></p>
                         <div class="inputBoxAddTask">
-                            <input type="date" id="dueDateAddTaskAT" name="dueDate" required>
+                            <input type="date" id="dueDateAddTaskET" name="dueDate" required>
                         </div>
                     </div>
                     <div class="prio">
                         <p>Prio</p>
                         <div class="prio-button">
-                            <button id="button-urgentAT" onclick="changePrio('urgent', 'AT')">Urgent <img
-                                    id="img-urgentAT" src="./img/urgent.png" alt=""> <img id="img-urgent-whiteAT"
+                            <button id="button-urgentET" onclick="changePrio('urgent', 'ET')">Urgent <img
+                                    id="img-urgentET" src="./img/urgent.png" alt=""> <img id="img-urgent-whiteET"
                                     class="d-none" src="./img/urgent_white.png" alt=""> </button>
-                            <button id="button-mediumAT" class="medium" onclick="changePrio('medium', 'AT')">Medium
-                                <img id="img-mediumAT" class="d-none" src="./img/medium.png" alt=""> <img
-                                    id="img-medium-whiteAT" src="./img/medium_white.png" alt=""> </button>
-                            <button id="button-lowAT" onclick="changePrio('low', 'AT')">Low <img id="img-lowAT"
-                                    src="./img/low.png" alt=""> <img id="img-low-whiteAT" class="d-none"
+                            <button id="button-mediumET" class="medium" onclick="changePrio('medium', 'ET')">Medium
+                                <img id="img-mediumET" class="d-none" src="./img/medium.png" alt=""> <img
+                                    id="img-medium-whiteET" src="./img/medium_white.png" alt=""> </button>
+                            <button id="button-lowET" onclick="changePrio('low', 'ET')">Low <img id="img-lowET"
+                                    src="./img/low.png" alt=""> <img id="img-low-whiteET" class="d-none"
                                     src="./img/low_white.png" alt="">
                             </button>
-                            <p id="button-valueAT" class="d-none">medium</p>
+                            <p id="button-valueET" class="d-none">medium</p>
                         </div>
                     </div>
                     <div class="task-category">
                         <p>Category<mark>*</mark></p>
-                        <select id="categoryAddTaskAT" name="category" class="noBorder" required>
+                        <select id="categoryAddTaskET" name="category" class="noBorder" required>
                             <option selected disabled hidden value="selectCategory">Select Category</option>
                             <option value="User Story">User Story</option>
                             <option value="Technical Task">Technical Task</option>
@@ -110,39 +110,39 @@
                     </div>
                     <div class="subtasks">
                         <p>Subtasks</p>
-                        <div class="inputBoxAddTask" id="buttonAddSubtaskAT" onclick="changeToSubtaskInput('AT')">
+                        <div class="inputBoxAddTask" id="buttonAddSubtaskET" onclick="changeToSubtaskInput('ET')">
                             <p>Add new subtask</p><img src="./img/add.png" alt="">
                         </div>
-                        <div class="inputBoxAddTask" style="display: none;" id="inputDivAddSubtaskAT">
-                            <input id="inputAddSubtaskAT" type="text">
-                            <img onclick="cancelSubtask('AT')" src="./img/cancel.png" alt="">
+                        <div class="inputBoxAddTask" style="display: none;" id="inputDivAddSubtaskET">
+                            <input id="inputAddSubtaskET" type="text">
+                            <img onclick="cancelSubtask('ET')" src="./img/cancel.png" alt="">
                             <p>|</p>
-                            <img onclick="addSubtask('AT')" src="./img/check_dark.png" alt="">
+                            <img onclick="addSubtask('ET')" src="./img/check_dark.png" alt="">
                         </div>
-                        <ul id="subtasksAddTaskAT"></ul>
+                        <ul id="subtasksAddTaskET"></ul>
                     </div>
                 </div>
             </div>
             <div class="bottom">
                 <p class="black"><mark>*</mark>This field is required</p>
                 <div class="bottom-button">
-                    <button onclick="clearAddTask('AT')" class="clear">Clear <img src="./img/cancel.png"
+                    <button onclick="clearAddTask('ET')" class="clear">Clear <img src="./img/cancel.png"
                             alt=""></button>
-                    <button onclick="createTask('AT')" class="create">Create Task <img src="./img/check.png"
+                    <button onclick="createTask('ET')" class="create">Create Task <img src="./img/check.png"
                             alt=""></button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="userMenuBox d-none" id="userMenuBoxAddTask">
+    <div class="userMenuBox d-none" id="userMenuBoxEditTask">
         <a href="./consent/privacyPolicy.html">
-            <div class="userMenuOption" onclick="userMenu('AddTask')">Pricacy Policy</div>
+            <div class="userMenuOption" onclick="userMenu('EditTask')">Pricacy Policy</div>
         </a>
         <a href="./consent/legalNotice.html">
-            <div class="userMenuOption" onclick="userMenu('AddTask')">Legal Notice</div>
+            <div class="userMenuOption" onclick="userMenu('EditTask')">Legal Notice</div>
         </a>
         <a href="./login.html">
-            <div class="userMenuOption" onclick="userMenu('AddTask'), logout()">Logout</div>
+            <div class="userMenuOption" onclick="userMenu('EditTask'), logout()">Logout</div>
         </a>
     </div>
 

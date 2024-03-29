@@ -155,6 +155,7 @@ function openTaskDetails(i) {
     popUpDetails.innerHTML = templateTaskDetails(i, categoryColor, currentSubtasks, prio, prioWritten);
     fillDetailsAssignedStaff(i);
     showDetailsSubtasks(i);
+    masterI = i;
 }
 
 function closeTaskDetails() {
