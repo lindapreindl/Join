@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/menu.css">
     <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/contactPage.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <script src="./scripts/addTask.js"></script>
     <script src="./scripts/board.js"></script>
@@ -18,7 +19,7 @@
     <script src="./scripts/templates.js"></script>
 </head>
 
-<body onload="renderEditTask()">
+<body onload="initContacts()">
     <div class="navigation">
         <img class="logo" src="./img/logo_white.png">
         <div class="menu">
@@ -44,95 +45,35 @@
                 </div>
             </div>
         </div>
+        <main>
+            <!-- Button zum Öffnen des Overlays -->
 
-        <div class="bigAddTask">
-            <h1 class="h1">Edit Task</h1>
-            <div class="form">
-                <div class="form-left">
-                    <div class="title">
-                        <p>Title<mark>*</mark></p>
-                        <div class="inputBoxAddTask">
-                            <input type="text" name="title" id="titleAddTaskET" placeholder="Enter a title" required>
-                        </div>
-                    </div>
-                    <div class="description">
-                        <p>Description</p>
-                        <div class="inputBoxAddTask" style="height: 150px !important; display: table;">
-                            <textarea type="text" name="description" id="descriptionAddTaskET"
-                                placeholder="Enter a description" cols="30" rows="10"></textarea>
-                        </div>
-                    </div>
-                    <div class="assignedTo">
-                        <label for="assignedTo">Assigned to</label>
-                        <div class="searchBoxAssigne">
-                            <input class="inputSearch inputField" id="searchFieldAddTaskET"
-                                placeholder="Select contacs to assign" onclick="searchAssignedPeople('ET')"
-                                onkeyup="searchSpecificUser('ET')">
-                            <div class="icons" onclick="searchAssignedPeople('ET')">&#9207;</div>
-                        </div>
-                        <div class="dropDownUserListToAssigne d-none" id="dropDownUserListToAssigneET"></div>
-                        <div class="showAssignedUsersStickers" id="showAssignedUsersStickersET"></div>
-                    </div>
-                </div>
+            <a href="#" onclick="openOverlay()">
+                <img class="addNewUserPic" id="addUserImage" src="./img/Secondary mobile contact V1.png" alt="" />
+            </a>
 
-                <div class="addTaskLine"></div>
+            <!-- Bereich zur Anzeige der Benutzerliste -->
 
-                <div class="form-right">
-                    <div class="dueDate">
-                        <p>Due Date<mark>*</mark></p>
-                        <div class="inputBoxAddTask">
-                            <input type="date" id="dueDateAddTaskET" name="dueDate" required>
-                        </div>
-                    </div>
-                    <div class="prio">
-                        <p>Prio</p>
-                        <div class="prio-button">
-                            <button id="button-urgentET" onclick="changePrio('urgent', 'ET')">Urgent <img
-                                    id="img-urgentET" src="./img/urgent.png" alt=""> <img id="img-urgent-whiteET"
-                                    class="d-none" src="./img/urgent_white.png" alt=""> </button>
-                            <button id="button-mediumET" class="medium" onclick="changePrio('medium', 'ET')">Medium
-                                <img id="img-mediumET" class="d-none" src="./img/medium.png" alt=""> <img
-                                    id="img-medium-whiteET" src="./img/medium_white.png" alt=""> </button>
-                            <button id="button-lowET" onclick="changePrio('low', 'ET')">Low <img id="img-lowET"
-                                    src="./img/low.png" alt=""> <img id="img-low-whiteET" class="d-none"
-                                    src="./img/low_white.png" alt="">
-                            </button>
-                            <p id="button-valueET" class="d-none">medium</p>
-                        </div>
-                    </div>
-                    <div class="task-category">
-                        <p>Category<mark>*</mark></p>
-                        <select id="categoryAddTaskET" name="category" class="noBorder" required>
-                            <option selected disabled hidden value="selectCategory">Select Category</option>
-                            <option value="User Story">User Story</option>
-                            <option value="Technical Task">Technical Task</option>
-                        </select>
-                    </div>
-                    <div class="subtasks">
-                        <p>Subtasks</p>
-                        <div class="inputBoxAddTask" id="buttonAddSubtaskET" onclick="changeToSubtaskInput('ET')">
-                            <p>Add new subtask</p><img src="./img/add.png" alt="">
-                        </div>
-                        <div class="inputBoxAddTask" style="display: none;" id="inputDivAddSubtaskET">
-                            <input id="inputAddSubtaskET" type="text">
-                            <img onclick="cancelSubtask('ET')" src="./img/cancel.png" alt="">
-                            <p>|</p>
-                            <img onclick="addSubtask('ET')" src="./img/check_dark.png" alt="">
-                        </div>
-                        <ul id="subtasksAddTaskET"></ul>
+            <div class="contactLeft">
+                <div class="user-list-container">
+                    <button class="btn btn-primary" onclick="openOverlay()">
+                        Add New User
+                        <img class="person_add" src="./img/person_add.png" alt="" />
+                    </button>
+                    <div id="userList">
+                        <ul></ul>
                     </div>
                 </div>
             </div>
-            <div class="bottom">
-                <p class="black"><mark>*</mark>This field is required</p>
-                <div class="bottom-button">
-                    <button onclick="clearAddTask('ET')" class="clear">Clear <img src="./img/cancel.png"
-                            alt=""></button>
-                    <button onclick="createTask('ET')" class="create">Create Task <img src="./img/check.png"
-                            alt=""></button>
-                </div>
+            <div id="userInfo" class="userInfo">
+                <div><img class="frame40" src="/img/Contacts.png" alt="" /></div>
+                <h2></h2>
             </div>
-        </div>
+    </div>
+    </div>
+    </main>
+
+    <!-- </div> -->
     </div>
     <div class="userMenuBox d-none" id="userMenuBoxEditTask">
         <a href="./consent/privacyPolicy.html">

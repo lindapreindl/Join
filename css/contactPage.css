@@ -39,6 +39,7 @@
   text-align: left;
   margin-top: 16px;
 }
+
 .header-right-position {
   margin-right: 0px;
 }
@@ -46,12 +47,14 @@
 .help-icon {
   margin: 20px 8px 0 300px;
 }
+
 .user-name {
   font-size: 22px;
   color: #29abe2;
   font-weight: 800;
   margin-top: 12px;
 }
+
 .user-icon {
   height: 56px;
   width: 56px;
@@ -62,6 +65,7 @@
   align-items: center;
   cursor: pointer;
 }
+
 /* ---------------------- line --------------------------- */
 .line {
   width: 100%;
@@ -70,6 +74,7 @@
   margin-left: 232px;
   margin-bottom: auto;
 }
+
 /* ------------------------------------- */
 .UsersList-btn {
   display: flex;
@@ -83,10 +88,13 @@
 .userInfo {
   margin-left: 240px;
 }
+
 main {
   margin: 120px;
   height: 60vh;
   margin-top: 240px;
+  width: 100%;
+  overflow-y: hidden;
 }
 
 #addUserBtn {
@@ -120,6 +128,7 @@ main {
   opacity: 0px;
   margin-top: 96px;
 }
+
 /* --------------------------- */
 
 .initials-circle {
@@ -137,6 +146,7 @@ main {
 .user-details {
   flex-grow: 1;
 }
+
 /* ------------essay-------- */
 /* Stil für die Benutzerliste */
 .user-list-container {
@@ -146,6 +156,7 @@ main {
 
   /*  */
 }
+
 /* CSS für den Benutzerlistenbereich */
 /* #userList {
   width: 456px;
@@ -159,31 +170,36 @@ main {
 }
  */
 #userList {
-  width: calc(
-    100% - 180px
-  ); /* Breite des Containers abzüglich des linken Abstands */
-  height: 928px;
-  margin-top: -24px;
-  margin-left: 180px; /* Linker Abstand beibehalten */
+  width: 100%;
+  height: 100vh;
+  margin-top: 128px;
+  margin-left: 16px;
+  /* Linker Abstand beibehalten */
   gap: 0px;
   opacity: 0px;
-  overflow-y: auto; /* Vertikales Scrollen aktivieren */
+  overflow-y: auto;
+  /* Vertikales Scrollen aktivieren */
+  overflow-x: hidden;
   height: 76vh;
   cursor: pointer;
   padding: 40px;
 }
 
 hr {
-  width: 100%; /* Breite der horizontalen Linie anpassen */
-  margin-left: 1%; /* Linker Abstand der horizontalen Linie anpassen */
+  width: 100%;
+  /* Breite der horizontalen Linie anpassen */
+  margin-left: 1%;
+  /* Linker Abstand der horizontalen Linie anpassen */
 }
 
 /* Stil für die Benutzerliste */
 .user-list {
   flex: 1;
-  overflow-y: auto; /* Scrollen aktivieren */
+  overflow-y: auto;
+  /* Scrollen aktivieren */
   padding: 10px;
-  position: relative; /* relative Positionierung für Kinder */
+  position: relative;
+  /* relative Positionierung für Kinder */
 }
 
 /* .user-info {
@@ -196,31 +212,25 @@ hr {
 /* CSS für den Benutzerinfobereich */
 #userInfo {
   width: 752px;
-  position: fixed; /* Fixierte Position */
-  margin-top: -174px; /* Oben fixieren */
-  padding: 0 20px; /* Innenabstand festlegen */
-
-  background-color: hsl(
-    206,
-    37%,
-    96%
-  ); /* Hintergrundfarbe festlegen */ /* Hintergrundfarbe festlegen */
-  border: 4px solid #ccc; /* Rand festlegen */
-  border-radius: 5px; /* Randradius festlegen */
-  margin-left: 528px; /* Linken Abstand festlegen */
-  width: calc(
-    80% - 240px
-  ); /* Breite festlegen (100% - Breite des Benutzerlistenbereichs) */
+  position: fixed;
+  margin-top: -174px;
+  padding: 0px 256px;
+  background-color: hsl(206, 37%, 96%);
+  /* border: 4px solid #ccc; */
+  border-radius: 5px;
+  /* margin-left: 528px; */
+  width: calc(80% - 240px);
   height: 98vh;
   cursor: pointer;
-
+  
   /*  */
 }
+
 /* --------------- */
 
 /* -------------- */
 .userInfo-div {
-  height: 364pxpx;
+  height: 364px;
   top: 311px;
   left: 750px;
   gap: 21px;
@@ -230,6 +240,7 @@ hr {
   margin-left: 24px;
   margin-top: 40px;
 }
+
 /* Stil für die Initialen-Kreise */
 .initials-circle {
   display: inline-block;
@@ -241,6 +252,7 @@ hr {
   font-size: 18px;
   margin-right: 10px;
 }
+
 .initials-circle-info {
   display: inline-block;
   width: 120px;
@@ -251,9 +263,12 @@ hr {
   font-size: 40px;
   margin-right: 10px;
 }
+
 .selected {
-  background-color: #f0f0f0; /* Hintergrundfarbe für ausgewählten Benutzer */
-  cursor: pointer; /* Zeiger-Cursor */
+  background-color: #f0f0f0;
+  /* Hintergrundfarbe für ausgewählten Benutzer */
+  cursor: pointer;
+  /* Zeiger-Cursor */
 }
 
 /* Stil für die Linie zwischen den Benutzern */
@@ -279,11 +294,13 @@ hr {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt für das Overlay 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* Schatteneffekt für das Overlay 
   */
   background-color: white;
   padding: 20px;
 }
+
 .circle2-user {
   display: flex;
 }
@@ -295,10 +312,12 @@ hr {
   font-weight: 500;
   color: black;
 }
+
 .img-info-edit-delete {
   margin-top: -16px;
   margin-left: 16px;
 }
+
 .user-info-contactInformation {
   margin-top: 40px;
 }
@@ -310,11 +329,13 @@ hr {
 a {
   text-decoration: none;
 }
+
 .img-edit {
   color: black;
   width: 62px;
   height: 24px;
 }
+
 .img-edit:hover {
   scale: 1.02;
 }
@@ -322,9 +343,11 @@ a {
 .img-delete {
   margin-left: 8px;
 }
+
 .img-delete:hover {
   scale: 1.02;
 }
+
 /* --------------------- */
 
 /* --------------- */
@@ -353,6 +376,7 @@ a {
     transform: translateX(0);
   }
 }
+
 .overlay-content2 {
   display: flex;
   width: 1212px;
@@ -368,9 +392,11 @@ a {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt für das Overlay 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* Schatteneffekt für das Overlay 
   */
 }
+
 .editLook {
   width: 453px;
   height: 592px;
@@ -378,10 +404,12 @@ a {
   margin-left: -20px;
   border-radius: 8px 0px 0px 8px;
 }
+
 .addUserDaten {
   margin-top: 4%;
   margin-left: 4%;
 }
+
 /* -------------------- */
 .editUserDaten {
   margin-top: 4%;
@@ -392,6 +420,7 @@ a {
   margin-top: 216px;
   margin-left: 40px;
 }
+
 /* -------------------------- */
 input {
   width: 422px;
@@ -402,27 +431,35 @@ input {
   gap: 8px;
   opacity: 0px;
 }
+
 #editUserName {
   padding-left: 8px;
 }
+
 #newUserName {
   padding-left: 8px;
 }
+
 #editUserEmail {
   padding-left: 8px;
 }
+
 #newUserEmail {
   padding-left: 8px;
 }
+
 #editUserPhone {
   padding-left: 8px;
 }
+
 #newUserPhone {
   padding-left: 8px;
 }
+
 #editUserPassword {
   padding-left: 8px;
 }
+
 .addPersonPic {
   margin-top: 200px;
   margin-left: 24px;
@@ -436,6 +473,7 @@ input {
   border: 3px 0px 0px 0px;
   opacity: 0px;
 }
+
 /* ------------------------------------ img -------------------------- */
 .imgCheck {
   margin-top: -8px;
@@ -446,9 +484,11 @@ input {
   width: 20px;
   height: 20px;
 }
+
 .imgClose {
   margin: 0px 376px 80px;
 }
+
 .iconPerson {
   background: url("/img/person.png");
   background-size: 20px;
@@ -462,22 +502,26 @@ input {
   background-position: 376px 10px;
   background-repeat: no-repeat;
 }
+
 .iconCall {
   background: url("/img/call.png");
   background-size: 20px;
   background-position: 376px 10px;
   background-repeat: no-repeat;
 }
+
 .iconLock {
   background: url("/img/lock.png");
   background-size: 20px;
   background-position: 376px 10px;
   background-repeat: no-repeat;
 }
+
 /* ------------------------------------ End ---------------------------- */
 .delete-save-btn {
   display: flex;
 }
+
 .cancel-createContact-btn {
   display: flex;
 }
@@ -487,22 +531,27 @@ input {
   width: auto;
   height: auto;
 }
+
 .cancel-btn {
   margin-right: 8px;
   width: auto;
   height: auto;
 }
+
 .save-btn {
   width: auto;
   height: auto;
 }
+
 a {
   color: rgb(128, 189, 246);
 }
+
 /* ------------------------------------------------------------------------- */
 .navi-all {
   display: flex;
 }
+
 .navi {
   width: 232px;
   height: 100vh;
@@ -526,9 +575,10 @@ a {
   border-radius: 8px;
   border-color: #2a3647;
   font-size: 24px;
-  margin-left: 144px;
-  margin-top: -120px;
+  margin-left: 48px;
+  margin-top: 120px;
 }
+
 .person_add {
   width: 32px;
   height: 32px;
@@ -539,67 +589,95 @@ a {
   margin-bottom: -1200px;
   margin-left: -480px;
 }
+
+.contactLeft {
+  position: fixed;
+  background-color: white;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3));
+  /* margin-top: -185px; */
+  top: 0px;
+  background-color: white;
+  height: 100vh;
+  width: 450px;
+  z-index: 1;
+}
+
 /* -------------------media queries */
 
 @media (max-width: 1570px) {
   .helpIcon-userName {
     margin-left: 800px;
   }
+
   .overlay-content2 {
     margin-top: 184px;
   }
+
   .overlay-content1 {
     margin-top: 184px;
   }
 }
+
 /* ------------------------------------- 1024 */
 @media (max-width: 1024px) {
   .helpIcon-userName {
     margin-left: 280px;
   }
+
   .overlay-content2 {
     margin-top: 184px;
   }
+
   .overlay-content1 {
     margin-top: 184px;
   }
+
   .navi {
     width: 200px;
   }
+
   header {
     margin-left: -32px;
   }
+
   #userList {
     width: 280px;
     margin-left: 120px;
   }
+
   #userInfo {
-    margin-left: 440px; /* Linken Abstand festlegen */
-    width: calc(
-      80% - 240px
-    ); /* Breite festlegen (100% - Breite des Benutzerlistenbereichs) */
+    margin-left: 440px;
+    /* Linken Abstand festlegen */
+    width: calc(80% - 240px);
+    /* Breite festlegen (100% - Breite des Benutzerlistenbereichs) */
   }
+
   .btn {
     width: 320px;
     margin-left: 96px;
   }
+
   .frame40 {
     width: 350px;
     height: 70px;
     margin-left: -20px;
   }
+
   .userInfo-div {
     /* background: url(./img/contacts.png); */
     margin-top: -8px;
     margin-left: 0px;
   }
+
   .overlay-content2 {
     display: flex;
     width: 744px;
     height: 412px;
 
-    margin-top: 208px; /*  */
-    margin-left: 216px; /*  */
+    margin-top: 208px;
+    /*  */
+    margin-left: 216px;
+    /*  */
     /*   top: -2901px;
     left: -1731px; */
     gap: 0px;
@@ -608,9 +686,11 @@ a {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt für das Overlay 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Schatteneffekt für das Overlay 
     */
   }
+
   .editLook {
     width: 320px;
     height: 412px;
@@ -618,28 +698,35 @@ a {
     margin-left: -20px;
     border-radius: 8px 0px 0px 8px;
   }
+
   input {
     width: 240px;
   }
+
   .editUserDaten {
     margin-top: -64px;
     margin-left: 16px;
   }
+
   .initialsEdit {
     margin-top: 120px;
     margin-left: 16px;
   }
+
   .imgClose {
     margin: 56px 216px 16px;
   }
+
   .overlay-content1 {
     border-radius: 5px;
     display: flex;
     width: 744px;
     height: 412px;
 
-    margin-top: 208px; /*  */
-    margin-left: 216px; /*  */
+    margin-top: 208px;
+    /*  */
+    margin-left: 216px;
+    /*  */
     /*   top: -2901px;
     left: -1731px; */
     gap: 0px;
@@ -648,35 +735,43 @@ a {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt für das Overlay 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Schatteneffekt für das Overlay 
     */
     background-color: white;
     padding: 20px;
   }
+
   .addPersonPic {
     margin-top: 120px;
     margin-left: 16px;
   }
+
   .addUserDaten {
     margin-top: -40px;
     margin-left: 16px;
   }
+
   .cancel-createContact-btn {
     margin-top: 40px;
     margin-left: -64px;
   }
 }
+
 /* --------------------------- 768 ----------------- */
 @media (max-width: 768px) {
   .helpIcon-userName {
     margin-left: 88px;
   }
+
   .overlay-content2 {
     margin-top: 184px;
   }
+
   .overlay-content1 {
     margin-top: 184px;
   }
+
   .navi {
     width: 144px;
   }
@@ -684,30 +779,36 @@ a {
   header {
     margin-left: -88px;
   }
+
   #userList {
     width: 232px;
     margin-left: 56px;
   }
+
   #userInfo {
-    margin-left: 308px; /* Linken Abstand festlegen */
-    width: calc(
-      80% - 240px
-    ); /* Breite festlegen (100% - Breite des Benutzerlistenbereichs) */
+    margin-left: 308px;
+    /* Linken Abstand festlegen */
+    width: calc(80% - 240px);
+    /* Breite festlegen (100% - Breite des Benutzerlistenbereichs) */
   }
+
   .btn {
     width: 256px;
     margin-left: 32px;
   }
+
   .frame40 {
     width: 300px;
     height: 65px;
     margin-left: -20px;
   }
+
   .userInfo-div {
     /* background: url(./img/contacts.png); */
     margin-top: -8px;
     margin-left: 0px;
   }
+
   .user-name-info {
     margin: 16px 16px 16px 8px;
 
@@ -716,6 +817,7 @@ a {
     font-weight: 500;
     color: black;
   }
+
   .initials-circle-info {
     display: inline-block;
     width: 80px;
@@ -725,13 +827,16 @@ a {
     line-height: 80px;
     font-size: 32px;
   }
+
   .overlay-content2 {
     display: flex;
     width: 600px;
     height: 412px;
 
-    margin-top: 208px; /*  */
-    margin-left: 152px; /*  */
+    margin-top: 208px;
+    /*  */
+    margin-left: 152px;
+    /*  */
     /*   top: -2901px;
     left: -1731px; */
     gap: 0px;
@@ -740,9 +845,11 @@ a {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt für das Overlay 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Schatteneffekt für das Overlay 
     */
   }
+
   .editLook {
     width: 256px;
     height: 412px;
@@ -750,28 +857,35 @@ a {
     margin-left: -20px;
     border-radius: 8px 0px 0px 8px;
   }
+
   input {
     width: 224px;
   }
+
   .editUserDaten {
     margin-top: -64px;
     margin-left: 8px;
   }
+
   .initialsEdit {
     margin-top: 120px;
     margin-left: 8px;
   }
+
   .imgClose {
     margin: 56px 196px 16px;
   }
+
   .overlay-content1 {
     border-radius: 5px;
     display: flex;
     width: 600px;
     height: 412px;
 
-    margin-top: 208px; /*  */
-    margin-left: 152px; /*  */
+    margin-top: 208px;
+    /*  */
+    margin-left: 152px;
+    /*  */
     /*   top: -2901px;
     left: -1731px; */
     gap: 0px;
@@ -780,32 +894,39 @@ a {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt für das Overlay 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Schatteneffekt für das Overlay 
     */
     background-color: white;
     padding: 20px;
   }
+
   .addPersonPic {
     width: 80px;
     height: 80px;
     margin-top: 120px;
     margin-left: 8px;
   }
+
   .addUserDaten {
     margin-top: -40px;
     margin-left: 16px;
   }
+
   .cancel-createContact-btn {
     margin-top: 40px;
     margin-left: -80px;
   }
+
   .header-right-position {
     margin-right: 640px;
   }
+
   .header-headline {
     margin-left: -160px;
   }
 }
+
 /* ---------------------------------- 700 ----------------------------- */
 @media (max-width: 700px) {
   .navi {
@@ -825,29 +946,36 @@ a {
     position: fixed;
     z-index: 90;
   }
+
   .menu {
     margin-bottom: 32px;
   }
+
   .btn {
     width: 256px;
     margin-left: -88px;
   }
+
   #userList {
     width: 232px;
     margin-left: -80px;
   }
+
   header {
     width: 1200px;
     margin-left: 0px;
     padding: 0 -40px;
     width: 800px;
   }
+
   .header-right-position {
     margin-right: 800px;
   }
+
   .header-headline {
     display: none;
   }
+
   .headerLogoSmall-position {
     margin-left: -720px;
     margin-top: 8px;
@@ -857,6 +985,7 @@ a {
     opacity: 0px;
   }
 }
+
 /* ----------------------------------- 320 --------------- */
 
 @media (max-width: 430px) {
@@ -884,13 +1013,16 @@ a {
   #userInfo {
     display: none;
   }
+
   button.btn {
     display: none;
   }
+
   .addNewUserPic {
     margin-bottom: -1048px;
     padding-left: 590px;
   }
+
   #userList {
     width: 232px;
     height: 766px;
@@ -899,7 +1031,8 @@ a {
     gap: 0px;
     opacity: 0px;
 
-    overflow-y: auto; /* Vertikales Scrollen aktivieren */
+    overflow-y: auto;
+    /* Vertikales Scrollen aktivieren */
     height: 72vh;
     /*   top: 80px;*/
   }
@@ -909,6 +1042,7 @@ a {
     padding: 0 0px;
     width: 40px;
   }
+
   .overlay-content1 {
     border-radius: 5px;
     display: flex;
@@ -933,7 +1067,8 @@ opacity: 0px;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt für das Overlay 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Schatteneffekt für das Overlay 
     */
 
     padding: 20px;
@@ -948,10 +1083,12 @@ opacity: 0px;
     margin-top: -6px;
     margin-left: -20px;
   }
+
   .editLook {
     width: 380px;
     height: 351px;
   }
+
   .addPersonPic {
     height: 120px;
     width: 120px;
@@ -965,19 +1102,24 @@ opacity: 0px;
     border: 3px 0px 0px 0px;
     opacity: 0px;
   }
+
   input {
     width: 364px;
     height: 41px;
   }
+
   .imgClose {
     margin-left: 300px;
   }
+
   .cancel-createContact-btn {
     margin-left: -0px;
   }
+
   .cancel-btn {
     display: none;
   }
+
   .check-btn {
     width: 202px;
 
@@ -989,8 +1131,10 @@ opacity: 0px;
     border-radius: 10px 0px 0px 0px;
     opacity: 0px;
   }
+
   /* .............. */
 }
+
 /* ------------------------------------------------------------------ */
 @media (max-width: 320px) {
   .header-right-position {
@@ -1017,13 +1161,16 @@ opacity: 0px;
   #userInfo {
     display: none;
   }
+
   button.btn {
     display: none;
   }
+
   .addNewUserPic {
     margin-bottom: -1048px;
     padding-left: 590px;
   }
+
   #userList {
     width: 232px;
     height: 766px;
@@ -1032,7 +1179,8 @@ opacity: 0px;
     gap: 0px;
     opacity: 0px;
 
-    overflow-y: auto; /* Vertikales Scrollen aktivieren */
+    overflow-y: auto;
+    /* Vertikales Scrollen aktivieren */
     height: 72vh;
     /*   top: 80px;*/
   }
@@ -1061,7 +1209,8 @@ opacity: 0px;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt für das Overlay 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Schatteneffekt für das Overlay 
     */
 
     padding: 20px;
@@ -1076,10 +1225,12 @@ opacity: 0px;
     margin-top: -6px;
     margin-left: -20px;
   }
+
   .editLook {
     width: 300px;
     height: 351px;
   }
+
   .addPersonPic {
     height: 120px;
     width: 120px;
@@ -1093,19 +1244,24 @@ opacity: 0px;
     border: 3px 0px 0px 0px;
     opacity: 0px;
   }
+
   input {
     width: 304px;
     height: 41px;
   }
+
   .imgClose {
     margin-left: 240px;
   }
+
   .cancel-createContact-btn {
     margin-left: -0px;
   }
+
   .cancel-btn {
     display: none;
   }
+
   .check-btn {
     width: 202px;
 
@@ -1117,5 +1273,6 @@ opacity: 0px;
     border-radius: 10px 0px 0px 0px;
     opacity: 0px;
   }
+
   /* .............. */
 }

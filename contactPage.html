@@ -1,109 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join | Contacts</title>
-    <!----------------------------------- Bootstrap --------------------------------->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <!-- ------------------------------------------------------------------------------ -->
-    <link rel="stylesheet" href="./css/menu.css" />
 
-    <link rel="stylesheet" href="./css/board.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/addTask.css" />
-    <link rel="stylesheet" href="./css/contactPage.css" />
-    <link rel="stylesheet" href="./css/menu.css" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <script src="./scripts/board.js"></script>
-    <script src="./scripts/storage.js"></script>
-    <script src="./scripts/templates.js"></script>
-    <script src="./scripts/addTask.js"></script>
-    <script src="./scripts/contactPage.js"></script>
-    <script src="./scripts/login.js"></script>
-    <script src="./scripts/summary.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join | Contacts</title>
+  <!----------------------------------- Bootstrap --------------------------------->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <!-- ------------------------------------------------------------------------------ -->
+  <link rel="stylesheet" href="./css/menu.css" />
 
-  <body onload="initContacts()">
-    <div class="navi-all">
-      <div class="navi">
-        <img class="logo" src="./img/logo_white.png" alt="" />
-        <div class="menu">
-          <a class="a1 activePage" href="./summary.html"
-            ><img src="./img/summary.png" alt="" />Summary</a
-          >
-          <a class="a2" href="./addTask.html"
-            ><img src="./img/add_Task.png" alt="" />Add Task</a
-          >
-          <a class="a3" href="./board.html"
-            ><img src="./img/board.png" alt="" />Board</a
-          >
-          <a class="a4" href="./contactPage.html"
-            ><img src="./img/contac.png" alt="" />Contacts</a
-          >
-          <!--A-Elemente links noch auf eine Höhe bringen, flex-start geht nicht ?!-->
-        </div>
-        <div class="termsAndConditions">
-          <a href="./consent/privacyPolicy.html">Privacy Policy</a>
-          <a href="./consent/legalNotice.html">Legal notice</a>
-        </div>
+  <link rel="stylesheet" href="./css/board.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/addTask.css" />
+  <link rel="stylesheet" href="./css/contactPage.css" />
+  <link rel="stylesheet" href="./css/menu.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <script src="./scripts/board.js"></script>
+  <script src="./scripts/storage.js"></script>
+  <script src="./scripts/templates.js"></script>
+  <script src="./scripts/addTask.js"></script>
+  <script src="./scripts/contactPage.js"></script>
+  <script src="./scripts/login.js"></script>
+  <script src="./scripts/summary.js"></script>
+</head>
+
+<body onload="initContacts()">
+  <div class="navi-all">
+    <div class="navi">
+      <img class="logo" src="./img/logo_white.png" alt="" />
+      <div class="menu">
+        <a class="a1 activePage" href="./summary.html"><img src="./img/summary.png" alt="" />Summary</a>
+        <a class="a2" href="./addTask.html"><img src="./img/add_Task.png" alt="" />Add Task</a>
+        <a class="a3" href="./board.html"><img src="./img/board.png" alt="" />Board</a>
+        <a class="a4" href="./contactPage.html"><img src="./img/contac.png" alt="" />Contacts</a>
+        <!--A-Elemente links noch auf eine Höhe bringen, flex-start geht nicht ?!-->
       </div>
-      <div class="all">
-        <div class="header">
-          <div>
-            <p class="header-headline">Kanban Project Management Tool</p>
-          </div>
-          <img
-            src="./img/logo.png"
-            class="headerLogoSmall headerLogoSmall-position"
-            id="headerLogo"
-          />
-          <div class="header-right-position">
-            <div class="header-right spaceRight">
-              <a href="./consent/help.html"
-                ><img src="./img/help-icon.png" class="helpIcon"
-              /></a>
-              <div
-                id="activeUserSummary"
-                class="activeUserInitials"
-                onclick="userMenu('Summary')"
-              >
-                G
-              </div>
+      <div class="termsAndConditions">
+        <a href="./consent/privacyPolicy.html">Privacy Policy</a>
+        <a href="./consent/legalNotice.html">Legal notice</a>
+      </div>
+    </div>
+    <div class="all">
+      <div class="header">
+        <div>
+          <p class="header-headline">Kanban Project Management Tool</p>
+        </div>
+        <img src="./img/logo.png" class="headerLogoSmall headerLogoSmall-position" id="headerLogo" />
+        <div class="header-right-position">
+          <div class="header-right spaceRight">
+            <a href="./consent/help.html"><img src="./img/help-icon.png" class="helpIcon" /></a>
+            <div id="activeUserSummary" class="activeUserInitials" onclick="userMenu('Summary')">
+              G
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- <div class="line"></div> -->
-        <main>
-          <!-- Button zum Öffnen des Overlays -->
-          <button class="btn btn-primary" onclick="openOverlay()">
-            Add New User
-            <img class="person_add" src="./img/person_add.png" alt="" />
-          </button>
-          <a href="#" onclick="openOverlay()">
-            <img
-              class="addNewUserPic"
-              id="addUserImage"
-              src="./img/Secondary mobile contact V1.png"
-              alt=""
-            />
-          </a>
+      <!-- <div class="line"></div> -->
+      <main>
+        <!-- Button zum Öffnen des Overlays -->
 
-          <!-- Bereich zur Anzeige der Benutzerliste -->
-          <h2></h2>
+        <a href="#" onclick="openOverlay()">
+          <img class="addNewUserPic" id="addUserImage" src="./img/Secondary mobile contact V1.png" alt="" />
+        </a>
 
+        <!-- Bereich zur Anzeige der Benutzerliste -->
+        <h2></h2>
+        <div class="contactLeft">
           <div class="user-list-container">
+            <button class="btn btn-primary" onclick="openOverlay()">
+              Add New User
+              <img class="person_add" src="./img/person_add.png" alt="" />
+            </button>
             <div id="userList">
               <ul></ul>
             </div>
@@ -112,9 +85,11 @@
               <h2></h2>
             </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
-    <footer></footer>
-  </body>
+  </div>
+  <footer></footer>
+</body>
+
 </html>
