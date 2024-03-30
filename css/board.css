@@ -605,4 +605,8 @@ progress[value]::-webkit-progress-value {
     .boardTable{
         margin-top: 20px;
     }
+
+    .widthTaskDetails{
+        overflow-y: scroll;
+    }
 }

@@ -735,4 +735,8 @@ select:hover {
     .bigAddTask h1{
         font-size: 40px;
     }
+
+    .addTask{
+        overflow-y: scroll;
+    }
 }
