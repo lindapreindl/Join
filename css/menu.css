@@ -229,6 +229,7 @@ nav {
         height: 0px;
         width: 100vw;
         padding: 0px;
+        padding-top: 32px;
     }
 
     .menu img{

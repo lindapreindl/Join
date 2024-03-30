@@ -9,7 +9,6 @@ let overlay;
 // Funktion zum Initialisieren der Anwendung; lädt Benutzerdaten und rendert die Benutzerinformationen
 async function initContacts() {
   await loadUsers(); // Lade Benutzerdaten
-
   renderUsersList(); // Rendere Benutzerinformationen
 }
 /* ———————————————————————————————————————————————————————————— */
@@ -30,6 +29,8 @@ function openOverlay() {
     renderUserInfo(firstUser); // Benutzerinformationen rendern
   }
 }
+/* -------------test test -------------------------------------------- */
+
 /* -------------------------------------------------------------------- */
 // Funktion zum Erstellen des Overlays
 // Funktion zum Erstellen des Overlays
@@ -71,7 +72,7 @@ function createOverlay() {
           <button class="cancel-btn" onclick="closeOverlay()">
             Cancel <img class="imgCancel" src="./img/cancel.png" alt="" />
           </button>
-          <button onclick="addNewUser()">
+          <button onclick="addNewUser()" class="check-btn ">
             Create contact <img class="imgCheck" src="./img/check.png" alt="" />
           </button>
         </div>
@@ -254,6 +255,9 @@ function getColorForUser(username) {
   }
   return color;
 }
+/* ---------------test */
+
+/* ------------- */
 
 // Funktion zum Rendern der Benutzerinformationen mit Bearbeitungsfunktion
 function renderUserInfo(user) {
@@ -306,7 +310,7 @@ function renderUserInfo(user) {
       <!--  -->
 
       <!-- Löschen-Button hinzufügen -->
-      <hr />
+      <!-- <hr /> -->
     </div>
   `;
 }
