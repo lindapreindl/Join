@@ -16,6 +16,7 @@
     padding-top: 200px;
     background-color: #F6F7F8;
     padding-bottom: 10px;
+    padding-top: 220px;
 }
 
 /* .boardHeader {
@@ -436,6 +437,7 @@ progress[value]::-webkit-progress-value {
         justify-content: space-between;
         margin-top: 200px;
         width: 100%;
+        padding-top: 42px;
     }
 
     .taskContentBox {
@@ -488,13 +490,7 @@ progress[value]::-webkit-progress-value {
 
 @media (max-width: 1200px) {
 
-    .addTaskButton {
-        display: none;
-    }
-
-    .boardTitleAddTaskResponsive {
-        display: flex;
-    }
+    
 }
 
 @media (max-width: 1100px) {
@@ -521,12 +517,19 @@ progress[value]::-webkit-progress-value {
         width: 40vw;
     }
     
+    .addTaskButton {
+        display: none;
+    }
+
+    .boardTitleAddTaskResponsive {
+        display: flex;
+    }
 }
 
 @media(max-width: 900px){
     .headBox{
         flex-direction: column;
-        padding-top: 245px;
+        padding-top: 292px;
         padding-left: 0 !important;
     }
 
@@ -535,7 +538,7 @@ progress[value]::-webkit-progress-value {
     }
 
     .searchBox{
-        width: 100%;
+        width: 90%;
         display: flex;
         justify-content: space-between;
     }
