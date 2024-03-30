@@ -2,7 +2,6 @@ let subtasks = [];
 let chosenPrio = 'medium';
 let assignedUsers = [];
 let editPosition = '';
-let masterI;
 
 async function initAddTask() {
     loadUsers()
@@ -311,16 +310,8 @@ async function editTask(i, location) {
     let subtasks = tasks[i]['subtasks'];
     editPosition = tasks[i]['position'];    
     if (location == 'IB') { openAddTaskInBoard('edit'); }
-    if (location == 'AT') { masterI = i; }
     fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks, category, location);
     
-}
-
-async function renderEditTask() {
-    loadUsers()
-    await loadLoginUser();
-    renderLoginUserName('EditTask');
-    editTask(masterI, 'AT');
 }
 
 function fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks, category, location) {
@@ -328,7 +319,7 @@ function fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, su
     document.getElementById('descriptionAddTask' + location).value = description;
     document.getElementById('dueDateAddTask' + location).value = dueDate;
     document.getElementById('categoryAddTask' + location).value = category;
-    document.getElementById('btnSaveChanges' + location).setAttribute("onclick", `saveChanges('${location}'), ${i})`);
+    document.getElementById('btnSaveChanges' + location).setAttribute("onclick", `saveChanges('${location}', ${i})`);
     fillAssignedUsersToEdit(i, assignedTo);
     showAssignedUsersStickers(location);
     fillPrioToEdit(i, location);

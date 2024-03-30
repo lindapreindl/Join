@@ -430,12 +430,6 @@ progress[value]::-webkit-progress-value {
     display: flex;
 }
 
-.btnEditSmall {
-    display: none;
-}
-
-
-
 @media (max-width: 1430px) {
     .boardTable {
         flex-direction: column;
@@ -493,14 +487,6 @@ progress[value]::-webkit-progress-value {
 }
 
 @media (max-width: 1200px) {
-
-    .btnEditBig {
-        display: none;
-    }
-
-    .btnEditSmall {
-        display: flex;
-    }
 
     .addTaskButton {
         display: none;
