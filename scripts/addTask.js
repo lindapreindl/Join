@@ -11,6 +11,7 @@ async function initAddTask() {
 
 function openAddTaskInBoard(use) {
     document.getElementById('addTaskInBoard').classList.remove('d-none');
+    document.getElementById('body').style = 'overflow: hidden';
     if (use == "edit") {
         document.getElementById('btnCreateTaskIB').classList.add('d-none');
         document.getElementById('btnSaveChangesIB').classList.remove('d-none');
@@ -29,6 +30,7 @@ function openAddTaskInBoard(use) {
 
 function closeAddTaskInBoard() {
     document.getElementById('addTaskInBoard').classList.add('d-none');
+    document.getElementById('body').style = 'overflow-y: scroll';
 }
 
 function clearAddTask(location) {
@@ -299,6 +301,8 @@ function deleteTask(i) {
 
 
 async function editTask(i, location) {
+    document.getElementById('body').style = 'overflow: hidden';
+    
     if (location == 'IB') { closeTaskDetails(); }
     await loadTasksFromServer();
     let title = tasks[i]['titel'];
