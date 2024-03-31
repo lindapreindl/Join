@@ -150,7 +150,7 @@ main {
 #userList {
   width: 100%;
   height: 100vh;
-  margin-top: 128px;
+  margin-top: 145px;
   margin-left: 16px;
   /* Linker Abstand beibehalten */
   gap: 0px;
@@ -508,16 +508,26 @@ a {
   font-size: 16px;
 }
 
+.addUserButtonDiv{
+  position: fixed;
+  background-color: white;
+  width: 40vw;
+  height: 200px;
+}
+
 .btn {
   position: fixed;
-  width: 352px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
   height: 56px;
   background-color: #2a3647;
   margin-bottom: 24px;
   border-radius: 8px;
   border-color: #2a3647;
   font-size: 24px;
-  margin-left: 48px;
+  margin-left: calc(50% - 15vw);
   margin-top: 120px;
 }
 
@@ -530,6 +540,10 @@ a {
 .addNewUserPic {
   margin-bottom: -1200px;
   margin-left: -480px;
+}
+
+li{
+  word-wrap: break-word;
 }
 
 .contactLeft {
@@ -557,7 +571,7 @@ a {
 
   .user-name-info{
     font-size: 35px;
-  }
+}
 }
 
 @media(max-width: 1000px){
@@ -575,6 +589,10 @@ a {
   .img-info-edit-delete img{
     height: 20px;
     width: auto;
+  }
+
+  .btn{
+    font-size: 18px;
   }
 }
 
@@ -595,6 +613,21 @@ a {
 
   #userInfo{
     margin-left: 340px;
+  }
+
+  .addUserButtonDiv{
+    width: 300px;
+  }
+
+  .btn{
+    font-size: 16px;
+    width: 200px;
+    margin-left: calc(50% - 100px);
+  }
+
+  .btn img{
+    height: 30px;
+    width: auto;
   }
 }
 
@@ -617,5 +650,16 @@ a {
   .frame40{
     display: none;
     margin-top: 0;
+  }
+
+  .addUserButtonDiv{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn{
+    width: 90vw;
+    margin-left: 0;
   }
 }
