@@ -40,41 +40,47 @@ function createOverlay() {
   overlay.style.display = "none";
   overlay.innerHTML = /* HTML */ `
     <div class="overlay-content1">
-      <div><img class="editLook" src="./img/addContactPic.png" alt="" /></div>
-      <div><img class="addPersonPic" src="./img/addPerson.png" alt="" /></div>
+      <div class="contact-popup-left"> <img src="./img/logo_white.png" alt="">
+            <h1>Add Contact</h1>
+            <h3>Tasks are better with a Team!</h3>
+            <div class="blue-line-add-Contact"></div>
+      </div>
+      <div class="addPersonPic"><img src="./img/addPerson.png" alt="" /></div>
 
       <div class="addUserDaten">
         <div class="imgClose" onclick="closeOverlay()">
           <img src="./img/close.png" alt="" />
         </div>
-        <input
-          class="iconPerson"
-          type="text"
-          id="newUserName"
-          placeholder="Name"
-          required
-        /><br /><br />
-        <input
-          class="iconMail"
-          type="email"
-          id="newUserEmail"
-          placeholder="Email"
-          required
-        /><br /><br />
-        <input
-          class="iconCall"
-          type="text"
-          id="newUserPhone"
-          placeholder="Phone"
-          required
-        /><br /><br />
-        <div class="cancel-createContact-btn ">
-          <button class="cancel-btn" onclick="closeOverlay()">
-            Cancel <img class="imgCancel" src="./img/cancel.png" alt="" />
-          </button>
-          <button onclick="addNewUser()" class="check-btn ">
-            Create contact <img class="imgCheck" src="./img/check.png" alt="" />
-          </button>
+        <div class="center">
+          <input
+            class="iconPerson"
+            type="text"
+            id="newUserName"
+            placeholder="Name"
+            required/>
+
+          <input
+            class="iconMail"
+            type="email"
+            id="newUserEmail"
+            placeholder="Email"
+            required/>
+
+          <input
+            class="iconCall"
+            type="text"
+            id="newUserPhone"
+            placeholder="Phone"
+            required/>
+
+          <div class="cancel-createContact-btn ">
+            <button class="cancel-btn" onclick="closeOverlay()">
+              Cancel <img class="imgCancel" src="./img/cancel.png" alt="" />
+            </button>
+            <button onclick="addNewUser()" class="check-btn ">
+              Create contact <img class="imgCheck" src="./img/check.png" alt="" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
