@@ -41,7 +41,7 @@ function createOverlay() {
   overlay.innerHTML = /* HTML */ `
     <div class="overlay-content1">
       <div class="contact-popup-left"> <img src="./img/logo_white.png" alt="">
-            <h1>Add Contact</h1>
+            <h1>Add contact</h1>
             <h3>Tasks are better with a Team!</h3>
             <div class="blue-line-add-Contact"></div>
       </div>
@@ -344,8 +344,12 @@ function createEditOverlay(user, index) {
   overlay.style.display = "none";
   overlay.innerHTML = /* HTML */ `
     <div class="overlay-content2">
-      <div><img class="editLook" src="./img/editLook.png" alt="" /></div>
-      <div>
+    <div class="contact-popup-left"> <img src="./img/logo_white.png" alt="">
+            <h1>Edit contact</h1>
+            <h3>Tasks are better with a Team!</h3>
+            <div class="blue-line-add-Contact"></div>
+      </div>
+    <div>
         <div
           class="initials-circle-info initialsEdit"
           style="background-color: ${userColors[user.name]}; color: white;"

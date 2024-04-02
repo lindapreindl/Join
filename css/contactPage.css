@@ -370,11 +370,19 @@ a {
   width: 30vw;
   border-top-left-radius: 9px;
   border-bottom-left-radius: 9px;
-  padding-left: 30px;
+  padding-left: 5%;
 }
 
 .contact-popup-left img{
   width: 50px;
+}
+
+.contact-popup-left h3{
+  font-weight: lighter !important;
+}
+
+.contact-popup-left h1{
+  font-size: 40px;
 }
 
 .blue-line-add-Contact{
