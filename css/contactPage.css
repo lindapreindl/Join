@@ -251,6 +251,7 @@ hr {
 .img-info-edit-delete {
   margin-top: -16px;
   margin-left: 16px;
+  cursor: pointer;
 }
 
 .user-mail-info {

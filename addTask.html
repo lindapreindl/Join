@@ -46,6 +46,7 @@
         </div>
 
         <div class="bigAddTask">
+            <form onsubmit="createTask('AT'); return false">
             <h1 class="h1">Add Task</h1>
             <div class="form">
                 <div class="form-left">
@@ -87,13 +88,13 @@
                     <div class="prio">
                         <p>Prio</p>
                         <div class="prio-button">
-                            <button id="button-urgentAT" onclick="changePrio('urgent', 'AT')">Urgent <img
+                            <button id="button-urgentAT" onclick="changePrio('urgent', 'AT')" type="button">Urgent <img
                                     id="img-urgentAT" src="./img/urgent.png" alt=""> <img id="img-urgent-whiteAT"
                                     class="d-none" src="./img/urgent_white.png" alt=""> </button>
-                            <button id="button-mediumAT" class="medium" onclick="changePrio('medium', 'AT')">Medium
+                            <button id="button-mediumAT" class="medium" onclick="changePrio('medium', 'AT')" type="button">Medium
                                 <img id="img-mediumAT" class="d-none" src="./img/medium.png" alt=""> <img
                                     id="img-medium-whiteAT" src="./img/medium_white.png" alt=""> </button>
-                            <button id="button-lowAT" onclick="changePrio('low', 'AT')">Low <img id="img-lowAT"
+                            <button id="button-lowAT" onclick="changePrio('low', 'AT')" type="button">Low <img id="img-lowAT"
                                     src="./img/low.png" alt=""> <img id="img-low-whiteAT" class="d-none"
                                     src="./img/low_white.png" alt="">
                             </button>
@@ -126,12 +127,11 @@
             <div class="bottom">
                 <p class="black"><mark>*</mark>This field is required</p>
                 <div class="bottom-button">
-                    <button onclick="clearAddTask('AT')" class="clear">Clear <img src="./img/cancel.png"
-                            alt=""></button>
-                    <button onclick="createTask('AT')" class="create">Create Task <img src="./img/check.png"
-                            alt=""></button>
+                    <button onclick="clearAddTask('AT')" type="button" class="clear">Clear <img src="./img/cancel.png"></button>
+                    <button class="create">Create Task <img src="./img/check.png"></button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
     <div class="userMenuBox d-none" id="userMenuBoxAddTask">
