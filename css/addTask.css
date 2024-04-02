@@ -409,8 +409,8 @@ select:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 40px 0;
-    width: 95%;
+    margin: 20px 0;
+    width: 100%;
 }
 
 .bottomInBoard img {
@@ -662,6 +662,12 @@ select:hover {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .bottomInBoard {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
     }
 
 }

@@ -524,14 +524,17 @@ progress[value]::-webkit-progress-value {
     .boardTitleAddTaskResponsive {
         display: flex;
     }
-}
 
-@media(max-width: 900px){
     .headBox{
         flex-direction: column;
         padding-top: 292px;
         padding-left: 0 !important;
     }
+
+}
+
+@media(max-width: 900px){
+    
 
     .searchBoxInBoard{
         width: 95%;
@@ -587,7 +590,25 @@ progress[value]::-webkit-progress-value {
         height: 50px;
         overflow-y: scroll;
     }
+
+    #btnCreateTaskIB, #btnSaveChangesIB {
+        width: 150px;
+    }
+
+    .widthTaskDetails {
+        width: 90% !important;
+        padding: 36px 16px 12px 36px;
+    }
 }
+
+@media(max-height: 550px) {
+
+ .mb24 {
+    margin-bottom: 8px;
+ }  
+
+} 
+
 
 @media(max-height: 400px){
 

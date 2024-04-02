@@ -244,3 +244,29 @@ a {
         display: none;
     }
 }
+
+@media(max-height: 700px) {
+
+    .mainLogo {
+        height: 48px;
+        margin-top: 17px;
+        margin-left: 18px;
+    }
+
+}
+
+@media(max-height: 550px) {
+
+    .marginBottom16 {
+        margin-bottom: 8px;
+    }
+    
+    .marginBottom32 {
+        margin-bottom: 12px;
+    }
+
+    .bottom-part {
+        gap: 156px;
+    }
+
+}
