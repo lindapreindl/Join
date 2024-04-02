@@ -343,6 +343,7 @@ a {
   align-items: center;
   width: 90%;
   gap: 30px;
+  margin-bottom: 8vh;
 }
 
 .center input{
@@ -352,6 +353,10 @@ a {
   gap: 8px;
   border: 1px solid #D1D1D1;
   padding-left: 8px;
+}
+
+.center input:hover{
+  border-color: #29abe2;
 }
 
 .contact-popup-left{
@@ -449,6 +454,14 @@ a {
 
 .cancel-createContact-btn {
   display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.check-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .delete-btn {
@@ -461,6 +474,22 @@ a {
   margin-right: 8px;
   width: auto;
   height: auto;
+  background-color: white;
+  border: 1px solid #2A3647;
+  color: #2A3647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancel-btn:hover{
+  color: #29abe2;
+  border-color: #29abe2;
+  background-color: white !important;
+}
+
+.cancel-btn:hover img{
+  content: url(../img/cancel_lightblue.png);
 }
 
 .save-btn {
