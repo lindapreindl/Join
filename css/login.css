@@ -36,10 +36,6 @@ body {
     display: none;
 }
 
-.borderGrey {
-    border-color: lightgrey !important;
-}
-
 .row {
     display: flex;
     flex-direction: row;
@@ -143,20 +139,6 @@ a {
 
 .rememberMe{
     gap: 8px;
-}
-
-.inputBox {
-    background-color: white;
-    padding: 4px 16px;
-    border-radius: 8px;
-    border: 1px solid black;
-    height: 32px;
-    display: flex;
-    align-items: center;
-}
-
-.inputBox:hover {
-    border-color: #29ABE2 !important;
 }
 
 .alertNotification {

@@ -65,14 +65,20 @@ function removePrioSymbols(location) {
 }
 
 function changeToSubtaskInput(location) {
-    document.getElementById('buttonAddSubtask' + location).style = 'display: none';
-    document.getElementById('inputDivAddSubtask' + location).style = 'display: flex';
+    // document.getElementById('buttonAddSubtask' + location).style = 'display: none';
+    // document.getElementById('inputDivAddSubtask' + location).style = 'display: flex';
+    document.getElementById('addImg1' + location).classList.add('d-none');
+    document.getElementById('subtasksController' + location).classList.remove('d-none');
+    document.getElementById('subtasksController' + location).classList.add('d-flex');
+    document.getElementById('inputAddSubtask' + location).focus();
+
 }
 
 function cancelSubtask(location) {
     document.getElementById('inputAddSubtask' + location).value = '';
-    document.getElementById('buttonAddSubtask' + location).style = 'display: flex';
-    document.getElementById('inputDivAddSubtask' + location).style = 'display: none';
+    document.getElementById('addImg1' + location).classList.remove('d-none');
+    document.getElementById('subtasksController' + location).classList.add('d-none');
+    document.getElementById('subtasksController' + location).classList.remove('d-flex');
 }
 
 async function searchAssignedPeople(location) {
@@ -209,13 +215,10 @@ function openSubtaskEditor(id) {
 
 function saveNewSubtaskEditor(id, location) {
     let newsubtask = document.getElementById('subtaskEditInput' + id).value.trim();
-    console.log(newsubtask);
     subtasks[id].subtask = newsubtask;
-    console.log('Neuer Eintrag: ' + subtasks[id].subtask);
     document.getElementById('listBox' + id).onmouseout = `hideSubtaskEditor(${id})`;
     document.getElementById('listBox' + id).onmouseover = `showSubtaskEditor(${id})`;
     document.getElementById('subTitle' + id).classList.remove('d-none');
-    // document.getElementById('subTitle' + id).innerHTML = newsubtask;
     document.getElementById('btnSave' + id).classList.add('d-none');
     document.getElementById('btnDelete' + id).classList.add('d-none');
     document.getElementById('subtaskEditInput' + id).classList.add('d-none');

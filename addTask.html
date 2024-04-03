@@ -106,23 +106,24 @@
                         <div class="task-category">
                             <p>Category<mark>*</mark></p>
                             <select id="categoryAddTaskAT" name="category" class="noBorder" required>
-                                <option selected disabled hidden value="selectCategory">Select Category</option>
+                                <option selected disabled hidden value="">Select Category</option>
                                 <option value="User Story">User Story</option>
                                 <option value="Technical Task">Technical Task</option>
                             </select>
                         </div>
                         <div class="subtasks">
                             <p>Subtasks</p>
-                            <div class="inputBoxAddTask" id="buttonAddSubtaskAT" onclick="changeToSubtaskInput('AT')">
-                                <p>Add new subtask</p><img src="./img/add.png" alt="">
-                            </div>
-                            <div class="inputBoxAddTask" style="display: none;" id="inputDivAddSubtaskAT">
-                                <input id="inputAddSubtaskAT" type="text">
-                                <div class="d-flex">
-                                    <img onclick="cancelSubtask('AT')" src="./img/cancel.png" alt="">
-                                    <p>|</p>
-                                    <img onclick="addSubtask('AT')" src="./img/check_dark.png" alt="">
+                            <div class="inputBox borderGrey">
+                                <input class="inputField" type="text" id="inputAddSubtaskAT"
+                                    placeholder="Add new subtask" onclick="changeToSubtaskInput('AT')">
+                                <img id="addImg1AT" src="./img/add.png" onclick="changeToSubtaskInput('AT')"
+                                    class="cursorPointer">
+                                <div id="subtasksControllerAT" class="subtasksController d-none">
+                                    <p style="font-size: 20px;" onclick="addSubtask('AT')">&#10004;</p>
+                                    <h3> | </h3>
+                                    <p style="font-size: 20px;" onclick="cancelSubtask('AT')">&#128938;</p>
                                 </div>
+
                             </div>
                             <ul id="subtasksAddTaskAT"></ul>
                         </div>

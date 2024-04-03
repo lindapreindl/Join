@@ -125,104 +125,109 @@
     <div id="addTaskInBoard" class="d-none">
         <div class="background">
             <div class="addTask">
-                <div class="headerAddTaskInBoard">
-                    <h1 id="titleAddTask" class="h1">Add Task</h1>
-                    <h1 id="titleEditTask" class="h1 d-none">Edit Task</h1>
-                    <img onclick="closeAddTaskInBoard()" src="./img/close.png" alt="">
-                </div>
-
-                <div class="form">
-                    <div class="form-left">
-                        <div class="title">
-                            <p>Title<mark>*</mark></p>
-                            <div class="inputBoxAddTask">
-                                <input type="text" name="title" id="titleAddTaskIB" placeholder="Enter a title"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="description">
-                            <p>Description</p>
-                            <div class="inputBoxAddTask" style="height: 150px !important; display: table;">
-                                <textarea type="text" name="description" id="descriptionAddTaskIB"
-                                    placeholder="Enter a description" cols="30" rows="10"></textarea>
-                            </div>
-                        </div>
-                        <div class="assignedTo">
-                            <p>Assigned To</p>
-
-                            <div class="searchBoxAssigne">
-                                <input class="inputSearch inputField" id="searchFieldAddTaskIB"
-                                    placeholder="Select contacs to assign" onclick="searchAssignedPeople('IB')"
-                                    onkeyup="searchSpecificUser('IB')">
-                                <div class="icons" onclick="searchAssignedPeople('IB')">&#9207;</div>
-                            </div>
-                            <div class="dropDownUserListToAssigne d-none" id="dropDownUserListToAssigneIB"></div>
-                            <div class="showAssignedUsersStickers" id="showAssignedUsersStickersIB"></div>
-                        </div>
+                <form onsubmit="createTask('IB'); return false">
+                    <div class="headerAddTaskInBoard">
+                        <h1 id="titleAddTask" class="h1">Add Task</h1>
+                        <h1 id="titleEditTask" class="h1 d-none">Edit Task</h1>
+                        <img onclick="closeAddTaskInBoard()" src="./img/close.png" alt="">
                     </div>
 
-                    <div class="addTaskLine"></div>
-
-                    <div class="form-right">
-                        <div class="dueDate">
-                            <p>Due Date</p>
-                            <div class="inputBoxAddTask">
-                                <input type="date" id="dueDateAddTaskIB" name="dueDate" required>
-                            </div>
-                        </div>
-                        <div class="prio">
-                            <p>Prio</p>
-                            <div class="prio-button">
-                                <button id="button-urgentIB" onclick="changePrio('urgent', 'IB')">Urgent <img
-                                        id="img-urgentIB" src="./img/urgent.png" alt=""> <img id="img-urgent-whiteIB"
-                                        class="d-none" src="./img/urgent_white.png" alt=""> </button>
-                                <button id="button-mediumIB" class="medium" onclick="changePrio('medium', 'IB')">Medium
-                                    <img id="img-mediumIB" class="d-none" src="./img/medium.png" alt=""> <img
-                                        id="img-medium-whiteIB" src="./img/medium_white.png" alt=""> </button>
-                                <button id="button-lowIB" onclick="changePrio('low', 'IB')">Low <img id="img-lowIB"
-                                        src="./img/low.png" alt=""> <img id="img-low-whiteIB" class="d-none"
-                                        src="./img/low_white.png" alt=""> </button>
-                                <p id="button-valueIB" class="d-none">medium</p>
-                            </div>
-                        </div>
-                        <div class="task-category">
-                            <label for="category">Category<mark>*</mark></label>
-                            <select id="categoryAddTaskIB" name="category" required>
-                                <option selected disabled hidden value="selectCategory">Select Category</option>
-                                <option value="User Story">User Story</option>
-                                <option value="Technical Task">Technical Task</option>
-                            </select>
-                        </div>
-                        <div class="subtasks">
-                            <p>Subtasks</p>
-                            <div class="inputBoxAddTask" id="buttonAddSubtaskIB" onclick="changeToSubtaskInput('IB')">
-                                <p>Add new subtask</p><img src="./img/add.png" alt="">
-                            </div>
-                            <div class="inputBoxAddTask" style="display: none;" id="inputDivAddSubtaskIB">
-                                <input id="inputAddSubtaskIB" type="text">
-                                <div class="d-flex">
-                                    <img onclick="cancelSubtask('IB')" src="./img/cancel.png" alt="">
-                                    <p>|</p>
-                                    <img onclick="addSubtask('IB')" src="./img/check_dark.png">
+                    <div class="form">
+                        <div class="form-left">
+                            <div class="title">
+                                <p>Title<mark>*</mark></p>
+                                <div class="inputBoxAddTask">
+                                    <input type="text" name="title" id="titleAddTaskIB" placeholder="Enter a title"
+                                        required>
                                 </div>
                             </div>
-                            <ul id="subtasksAddTaskIB"></ul>
+                            <div class="description">
+                                <p>Description</p>
+                                <div class="inputBoxAddTask" style="height: 150px !important; display: table;">
+                                    <textarea type="text" name="description" id="descriptionAddTaskIB"
+                                        placeholder="Enter a description" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="assignedTo">
+                                <p>Assigned To</p>
+
+                                <div class="searchBoxAssigne">
+                                    <input class="inputSearch inputField" id="searchFieldAddTaskIB"
+                                        placeholder="Select contacs to assign" onclick="searchAssignedPeople('IB')"
+                                        onkeyup="searchSpecificUser('IB')">
+                                    <div class="icons" onclick="searchAssignedPeople('IB')">&#9207;</div>
+                                </div>
+                                <div class="dropDownUserListToAssigne d-none" id="dropDownUserListToAssigneIB"></div>
+                                <div class="showAssignedUsersStickers" id="showAssignedUsersStickersIB"></div>
+                            </div>
+                        </div>
+
+                        <div class="addTaskLine"></div>
+
+                        <div class="form-right">
+                            <div class="dueDate">
+                                <p>Due Date</p>
+                                <div class="inputBoxAddTask">
+                                    <input type="date" id="dueDateAddTaskIB" name="dueDate" required>
+                                </div>
+                            </div>
+                            <div class="prio">
+                                <p>Prio</p>
+                                <div class="prio-button">
+                                    <button id="button-urgentIB" onclick="changePrio('urgent', 'IB')">Urgent <img
+                                            id="img-urgentIB" src="./img/urgent.png" alt=""> <img
+                                            id="img-urgent-whiteIB" class="d-none" src="./img/urgent_white.png" alt="">
+                                    </button>
+                                    <button id="button-mediumIB" class="medium"
+                                        onclick="changePrio('medium', 'IB')">Medium
+                                        <img id="img-mediumIB" class="d-none" src="./img/medium.png" alt=""> <img
+                                            id="img-medium-whiteIB" src="./img/medium_white.png" alt=""> </button>
+                                    <button id="button-lowIB" onclick="changePrio('low', 'IB')">Low <img id="img-lowIB"
+                                            src="./img/low.png" alt=""> <img id="img-low-whiteIB" class="d-none"
+                                            src="./img/low_white.png" alt=""> </button>
+                                    <p id="button-valueIB" class="d-none">medium</p>
+                                </div>
+                            </div>
+                            <div class="task-category">
+                                <p>Category<mark>*</mark></p>
+                                <select id="categoryAddTaskIB" name="categoryIB" class="noBorder" required>
+                                    <option selected disabled hidden value="">Select Category</option>
+                                    <option value="User Story">User Story</option>
+                                    <option value="Technical Task">Technical Task</option>
+                                </select>
+                            </div>
+                            <div class="subtasks">
+                                <p>Subtasks</p>
+                                <div class="inputBox borderGrey">
+                                    <input class="inputField" type="text" id="inputAddSubtaskIB"
+                                        placeholder="Add new subtask" onclick="changeToSubtaskInput('IB')">
+                                    <img id="addImg1IB" src="./img/add.png" onclick="changeToSubtaskInput('IB')"
+                                        class="cursorPointer">
+                                    <div id="subtasksControllerIB" class="subtasksController d-none">
+                                        <p style="font-size: 20px;" onclick="addSubtask('IB')">&#10004;</p>
+                                        <h3> | </h3>
+                                        <p style="font-size: 20px;" onclick="cancelSubtask('IB')">&#128938;</p>
+                                    </div>
+
+                                </div>
+                                <ul id="subtasksAddTaskIB"></ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
-                <div class="bottomInBoard">
-                    <p class="black"><mark>*</mark>This field is required</p>
-                    <div class="bottom-button">
-                        <button onclick="clearAddTask('IB')" class="clear">Clear <img src="./img/cancel.png"
-                                alt=""></button>
-                        <button onclick="createTask('IB')" class="create" id="btnCreateTaskIB">Create Task <img
-                                src="./img/check.png" alt=""></button>
-                        <button class="create d-none" id="btnSaveChangesIB">Save Changes <img src="./img/check.png"
-                                alt=""></button>
+                    <div class="bottomInBoard">
+                        <p class="black"><mark>*</mark>This field is required</p>
+                        <div class="bottom-button">
+                            <button onclick="clearAddTask('IB')" class="clear" type="button">Clear <img src="./img/cancel.png"
+                                    alt=""></button>
+                            <button class="create" id="btnCreateTaskIB">Create Task <img
+                                    src="./img/check.png" alt=""></button>
+                            <button class="create d-none" id="btnSaveChangesIB">Save Changes <img src="./img/check.png"
+                                    alt=""></button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

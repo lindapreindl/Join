@@ -142,12 +142,26 @@ header {
     background-color: #091931 !important;
 }
 
+.cursorPointer {
+    cursor: pointer;
+    padding: 4px;
+}
+
+.borderGrey {
+    border-color: lightgrey !important;
+}
+
+.cursorPointer:hover {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 50%;
+}
+
 .inputField {
     border: 0;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
-    padding: 8px 12px;
+    padding: 2px 12px;
     width: 300px;
     outline-width: 0;
     font-size: 18px;
@@ -547,6 +561,20 @@ button img {
 
 .overflowYHidden {
     overflow-y: hidden;
+}
+
+.inputBox {
+    background-color: white;
+    padding: 4px 16px;
+    border-radius: 8px;
+    border: 1px solid black;
+    height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.inputBox:hover {
+    border-color: #29ABE2 !important;
 }
 
 @media (max-width: 1400px) {
