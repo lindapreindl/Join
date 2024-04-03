@@ -272,8 +272,10 @@ function renderUserInfo(user) {
   const userInfoElement = document.getElementById("userInfo");
   // Benutzerinformationen rendern
   userInfoElement.innerHTML = /* HTML */ `
-    <div>
-      <img class="frame40" src="./img/contacts.png" alt="" />
+    <div class="headlineUserInfo">
+      <h1>Contacts</h1>
+      <div class="blueLineUserInfo"></div>
+      <h2>Better with a team</h2>
     </div>
     <div class="userInfo-div">
       <div class="circle2-user">
@@ -313,10 +315,6 @@ function renderUserInfo(user) {
           <span>${user.phone}</span>
         </div>
       </div>
-      <!--  -->
-
-      <!-- Löschen-Button hinzufügen -->
-      <!-- <hr /> -->
     </div>
   `;
 }
