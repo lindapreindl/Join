@@ -330,7 +330,7 @@ nav {
     }
 }
 
-@media(max-height: 400px){
+@media(min-height: 400px){
     .logo{
         display: none;
     }

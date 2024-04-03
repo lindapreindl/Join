@@ -352,8 +352,7 @@ function createEditOverlay(user, index) {
     <div>
         <div
           class="initials-circle-info initialsEdit"
-          style="background-color: ${userColors[user.name]}; color: white;"
-        >
+          style="background-color: ${userColors[user.name]}; color: white;">
           ${getInitials(user.name)}
         </div>
       </div>
@@ -361,48 +360,48 @@ function createEditOverlay(user, index) {
         <div class="imgClose" onclick="closeOverlay()">
           <img src="./img/close.png" alt="" />
         </div>
-        <input
-          class="iconPerson"
-          type="text"
-          id="editUserName"
-          placeholder="Name"
-          value="${user.name}"
-          required
-        /><br /><br />
-        <input
-          class="iconMail"
-          type="email"
-          id="editUserEmail"
-          placeholder="E-Mail"
-          value="${user.email}"
-          required
-        /><br /><br />
-        <input
-          class="iconCall"
-          type="text"
-          id="editUserPhone"
-          placeholder="Telefon"
-          value="${user.phone}"
-          required
-        /><br /><br />
+        <div class="center">
+          <input
+            class="iconPerson"
+            type="text"
+            id="editUserName"
+            placeholder="Name"
+            value="${user.name}"
+            required/>
 
-        <input
-          class="iconLock"
-          type="password"
-          id="editUserPassword"
-          placeholder="new Password"
-        /><br /><br />
-        <!-- Passwort-Eingabe hinzugefügt -->
-        <div class="delete-save-btn">
+          <input
+            class="iconMail"
+            type="email"
+            id="editUserEmail"
+            placeholder="E-Mail"
+            value="${user.email}"
+            required/>
+
+          <input
+            class="iconCall"
+            type="text"
+            id="editUserPhone"
+            placeholder="Telefon"
+            value="${user.phone}"
+            required/>
+
+          <input
+            class="iconLock"
+            type="password"
+            id="editUserPassword"
+            placeholder="new Password"
+            required/>
+
+          <!-- Passwort-Eingabe hinzugefügt -->
+          <div class="delete-save-btn">
           <button
             class="delete-btn"
-            onclick="deleteUser('${user.name}'), clearUserInfo()"
-          >
-            Delete
-          </button>
+            onclick="deleteUser('${user.name}'), clearUserInfo()">
+            Delete</button>
           <button class="save-btn" onclick="editUser(${index})">
             Save <img class="imgCheck" src="./img/check.png" alt="" />
           </button>
+          </div>
         </div>
       </div>
     </div>
