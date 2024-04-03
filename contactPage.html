@@ -1,124 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join | Edit Task</title>
-    <link rel="stylesheet" href="./css/addTask.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/menu.css" />
-    <link rel="stylesheet" href="./css/board.css" />
-    <link rel="stylesheet" href="./css/contactPage.css" />
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="./css/addTask.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/contactPage.css">
+    <link rel="icon" type="image/png" href="favicon.png">
     <script src="./scripts/addTask.js"></script>
     <script src="./scripts/board.js"></script>
     <script src="./scripts/contactPage.js"></script>
     <script src="./scripts/login.js"></script>
     <script src="./scripts/storage.js"></script>
     <script src="./scripts/templates.js"></script>
-  </head>
+</head>
 
-  <body onload="initContacts()">
+<body onload="initContacts()">
     <div class="navigation">
-      <img class="logo" src="./img/logo_white.png" />
-      <div class="menu">
-        <a class="a1" href="./summary.html"
-          ><img src="./img/summary.png" alt="" />Summary</a
-        >
-        <a class="a2 activePage" href="./addTask.html"
-          ><img src="./img/add_Task.png" alt="" />Add Task</a
-        >
-        <a class="a3" href="./board.html"
-          ><img src="./img/board.png" alt="" />Board</a
-        >
-        <a class="a4" href="./contactPage.html"
-          ><img src="./img/contac.png" alt="" />Contacts</a
-        >
-      </div>
-      <div class="termsAndConditions">
-        <a href="./consent/privacyPolicy.html">Privacy Policy</a>
-        <a href="./consent/legalNotice.html">Legal notice</a>
-      </div>
+        <img class="logo" src="./img/logo_white.png">
+        <div class="menu">
+            <a class="a1" href="./summary.html"><img src="./img/summary.png" alt="">Summary</a>
+            <a class="a2" href="./addTask.html"><img src="./img/add_Task.png" alt="">Add Task</a>
+            <a class="a3" href="./board.html"><img src="./img/board.png" alt="">Board</a>
+            <a class="a4 activePage" href="./contactPage.html"><img src="./img/contac.png" alt="">Contacts</a>
+        </div>
+        <div class="termsAndConditions">
+            <a href="./consent/privacyPolicy.html">Privacy Policy</a>
+            <a href="./consent/legalNotice.html">Legal notice</a>
+        </div>
     </div>
 
-    <div class="allContent">
-      <div class="upperBox">
-        <div class="headLine">
-          <p class="fontHeader spaceLeft">Kanban Project Management Tool</p>
-          <img src="./img/logo.png" class="headerLogoSmall" id="headerLogo" />
-          <div class="header-right spaceRight">
-            <a href="./consent/help.html"
-              ><img src="./img/help-icon.png" class="helpIcon"
-            /></a>
-            <div
-              id="activeUserEditTask"
-              class="activeUserInitials"
-              onclick="userMenu('EditTask')"
-            ></div>
-          </div>
-        </div>
-      </div>
-      <main>
-        <!-- Add New User  -->
-        <!-- Button zum Öffnen des Overlays -->
-
-        <a href="#" onclick="openOverlay()">
-          <img
-            class="addNewUserPic"
-            id="addUserImage"
-            src="./img/Secondary mobile contact V1.png"
-            alt=""
-          />
-        </a>
-
-        <!-- Bereich zur Anzeige der Benutzerliste -->
-
-        <div class="contactLeft">
-          <div class="user-list-container">
-            <!-- Add New User  -->
-            <div class="addUserButtonDiv">
-              <button class="btn btn-primary" onclick="openOverlay()">
-                Add New User
-                <img class="person_add" src="./img/person_add.png" alt="" />
-              </button>
-              <img
-                onclick="openOverlay()"
-                class="addNewUserPic"
-                id="addUserImage"
-                src="./img/Secondary mobile contact V1.png"
-                alt=""
-              />
+    <div class="allContent overflowYHidden">
+        <div class="upperBox">
+            <div class="headLine">
+                <p class="fontHeader spaceLeft">Kanban Project Management Tool</p>
+                <img src="./img/logo.png" class="headerLogoSmall" id="headerLogo">
+                <div class="header-right spaceRight">
+                    <a href="./consent/help.html"><img src="./img/help-icon.png" class="helpIcon"></a>
+                    <div id="activeUserEditTask" class="activeUserInitials" onclick="userMenu('EditTask')"></div>
+                </div>
             </div>
+        </div>
+        <main>
+            <!-- Button zum Öffnen des Overlays -->
 
-            <div id="userList">
-              <ul></ul>
+            <a href="#" onclick="openOverlay()">
+                <img class="addNewUserPic" id="addUserImage" src="./img/Secondary mobile contact V1.png" alt="" />
+            </a>
+
+            <!-- Bereich zur Anzeige der Benutzerliste -->
+
+            <div class="contactLeft">
+                <div class="user-list-container">
+                    <div class="addUserButtonDiv">
+                        <button class="btn btn-primary" onclick="openOverlay()">
+                            Add New User
+                            <img class="person_add" src="./img/person_add.png" alt="" />
+                        </button>
+                    </div>
+                    <div id="userList">
+                        <ul></ul>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
+            <div id="userInfo" class="userInfo">
+                <div><img class="frame40" src="/img/Contacts.png" alt="" /></div>
+                <h2></h2>
+            </div>
+    </div>
+    </div>
+    </main>
 
-        <div id="userInfo" class="userInfo">
-          <div><img class="frame40" src="/img/Contacts.png" alt="" /></div>
-        </div>
-      </main>
-
-      <!-- </div> -->
+    <!-- </div> -->
     </div>
     <div class="userMenuBox d-none" id="userMenuBoxEditTask">
-      <a href="./consent/privacyPolicy.html">
-        <div class="userMenuOption" onclick="userMenu('EditTask')">
-          Pricacy Policy
-        </div>
-      </a>
-      <a href="./consent/legalNotice.html">
-        <div class="userMenuOption" onclick="userMenu('EditTask')">
-          Legal Notice
-        </div>
-      </a>
-      <a href="./login.html">
-        <div class="userMenuOption" onclick="userMenu('EditTask'), logout()">
-          Logout
-        </div>
-      </a>
+        <a href="./consent/privacyPolicy.html">
+            <div class="userMenuOption" onclick="userMenu('EditTask')">Pricacy Policy</div>
+        </a>
+        <a href="./consent/legalNotice.html">
+            <div class="userMenuOption" onclick="userMenu('EditTask')">Legal Notice</div>
+        </a>
+        <a href="./login.html">
+            <div class="userMenuOption" onclick="userMenu('EditTask'), logout()">Logout</div>
+        </a>
     </div>
-  </body>
+
+</body>
+
 </html>

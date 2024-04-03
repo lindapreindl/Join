@@ -1,4 +1,20 @@
 /* ---------------------- header ------------------------------ */
+/* .header1 {
+  width: 100%;
+  height: 96px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 4px 4px 0px #0000001a;
+  font-size: 20px;
+  top: 0;
+  left: 232px;
+  position: fixed;
+  z-index: 997;
+} */
 
 .header {
   display: flex;
@@ -50,6 +66,16 @@
   cursor: pointer;
 }
 
+/* ---------------------- line --------------------------- */
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: rgb(27, 25, 25);
+  margin-left: 232px;
+  margin-bottom: auto;
+}
+
+/* ------------------------------------- */
 .UsersList-btn {
   display: flex;
 }
@@ -62,6 +88,7 @@
 main {
   width: 100%;
   display: flex;
+
 }
 
 #addUserBtn {
@@ -79,35 +106,10 @@ main {
   height: 100%;
   margin-bottom: 30px;
 }
-.frame-overlay3 {
-  width: 213px;
-  height: 104px;
-  margin-top: 8px;
-}
-.contactsImg-closeImg {
-  display: flex;
-  justify-content: space-between;
-}
 
 /* --------------------------- */
 
 .initials-circle {
-  display: inline-block;
-  width: 48px;
-  height: 48px;
-  line-height: 48px;
-  border-radius: 50%;
-  background-color: #ccc;
-  text-align: center;
-  margin-right: 10px;
-  font-weight: bold;
-}
-
-.user-details {
-  flex-grow: 1;
-}
-
-.initials-circle-edit {
   display: inline-block;
   width: 48px;
   height: 48px;
@@ -185,7 +187,7 @@ hr {
   width: 100% !important;
   margin-right: 40px;
 }
-/* ------------- initials-circle-info ------- */
+
 /* Stil für die Initialen-Kreise */
 .initials-circle {
   display: inline-block;
@@ -199,37 +201,14 @@ hr {
 }
 
 .initials-circle-info {
-  display: inline-block;
   width: 120px;
   height: 120px;
   border-radius: 50%;
   text-align: center;
   line-height: 120px;
   font-size: 50px;
-  margin-right: 10px;
 }
 
-.initials-circle-info2 {
-  display: inline-block;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 120px;
-  font-size: 50px;
-  margin-right: 10px;
-}
-.initials-circle-info3 {
-  display: inline-block;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 120px;
-  font-size: 50px;
-  margin-right: 10px;
-}
-/* ------------------------------------- */
 .selected {
   background-color: #f0f0f0;
   /* Hintergrundfarbe für ausgewählten Benutzer */
@@ -244,6 +223,18 @@ hr {
   border-top: 1px solid #ccc;
 }
 
+.overlay-content1 {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 80vw;
+  height: 70vh;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: white;
+}
+
 .circle2-user {
   display: flex;
   gap: 10px;
@@ -254,15 +245,11 @@ hr {
   font-size: 47px;
   font-weight: 500;
 }
-.user-name-info3 {
-  margin: 16px;
-  font-size: 47px;
-  font-weight: 500;
-}
 
 .img-info-edit-delete {
   margin-top: -16px;
   margin-left: 16px;
+  cursor: pointer;
 }
 
 .user-mail-info {
@@ -290,29 +277,22 @@ a {
 .img-delete:hover {
   scale: 1.02;
 }
-.imgMenuOption {
-  position: fixed;
-  margin-bottom: -144px;
-  width: 56px;
-  height: 56px;
-  padding-left: 376px;
-}
+
 /* --------------------- */
 
-/* ---------------------------- Overlay */
+/* --------------- */
 
 .overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(226, 222, 222, 0.002);
-  z-index: 2;
-  cursor: pointer;
-
+  z-index: 999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
   animation: slide-in 0.8s both;
 }
 
@@ -325,166 +305,133 @@ a {
     transform: translateX(0);
   }
 }
-.overlay-content1 {
-  border-radius: 5px;
-  display: flex;
-  width: 1212px;
-  height: 550px;
 
-  margin-top: 11%;
-  margin-left: 6%;
-  /*   top: -2901px;
-  left: -1731px; */
-  gap: 0px;
-  border-radius: 30px 0px 0px 0px;
-  opacity: 0px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  /* Schatteneffekt für das Overlay 
-  */
-  background-color: white;
-  padding: 20px;
-  z-index: 2;
-}
 .overlay-content2 {
   display: flex;
-  width: 1212px;
-  height: 550px;
-
-  margin-top: 11%;
-  margin-left: 6%;
-  /*   top: -2901px;
-  left: -1731px; */
-  gap: 0px;
-  border-radius: 30px 0px 0px 0px;
-  opacity: 0px;
+  flex-direction: row;
+  gap: 20px;
+  width: 80vw;
+  height: 70vh;
   background-color: white;
-  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  /* Schatteneffekt für das Overlay 
-  */
+  background-color: white;
 }
-.overlay3 {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(226, 222, 222, 0.002);
-  z-index: 2;
-  cursor: pointer;
-  z-index: 1;
-  animation: slide-in 0.1s both;
-}
-.small-overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(226, 222, 222, 0.002);
-  z-index: 2;
-  cursor: pointer;
 
-  animation: slide-in 0.8s both;
+.addUserDaten{
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
-.small-overlay-content {
-  width: 116px;
-  height: 100px;
-  margin-top: -3267px;
-  margin-left: 9478px;
-  padding: 10px 0px 0px 0px;
-  gap: 0px;
-  border-radius: 20px 20px 0px 20px;
-  opacity: 0px;
+
+.editUserDaten{
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
-/* ---------------------------------------------END */
+
 .editLook {
-  width: 467px;
+  width: 453px;
   height: 592px;
   margin-top: -20px;
   margin-left: -20px;
   border-radius: 8px 0px 0px 8px;
 }
 
-.addUserDaten {
-  margin-top: 4%;
-  margin-left: 4%;
+.center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 30px;
+  margin-bottom: 8vh;
+}
+
+.center input{
+  width: 90%;
+  height: 50px;
+  border-radius: 8px;
+  gap: 8px;
+  border: 1px solid #D1D1D1;
+  padding-left: 8px;
+}
+
+.center input:hover{
+  border-color: #29abe2;
+}
+
+.contact-popup-left{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #2a3647;
+  color: white;
+  gap: 20px;
+  width: 30vw;
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
+  padding-left: 5%;
+}
+
+.contact-popup-left img{
+  width: 50px;
+}
+
+.contact-popup-left h3{
+  font-weight: lighter !important;
+}
+
+.contact-popup-left h1{
+  font-size: 40px;
+}
+
+.blue-line-add-Contact{
+  width: 10vw;
+  height: 4px;
+  background-color: #29abe2;
 }
 
 /* -------------------- */
-.editUserDaten {
-  margin-top: 16px;
-  margin-left: 24px;
-}
 
 .initialsEdit {
-  margin-top: 216px;
-  margin-left: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* -------------------------- */
-input {
-  width: 422px;
-  height: 50px;
-  border-radius: 8px;
-  /*  */
 
-  gap: 8px;
-  opacity: 0px;
-}
-/* ------------------------------------ ID -------------------------- */
-#editUserName {
-  padding-left: 8px;
+.addPersonPic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#newUserName {
-  padding-left: 8px;
-}
-
-#editUserEmail {
-  padding-left: 8px;
-}
-
-#newUserEmail {
-  padding-left: 8px;
-}
-
-#editUserPhone {
-  padding-left: 8px;
-}
-
-#newUserPhone {
-  padding-left: 8px;
-}
-
-#editUserPassword {
-  padding-left: 8px;
-}
-/* ------------------------------------ END -------------------------- */
 /* ------------------------------------ img -------------------------- */
 .imgCheck {
   margin-top: -8px;
+}
+
+.imgClose{
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
 }
 
 .imgCancel {
   margin-top: -4px;
   width: 20px;
   height: 20px;
-}
-
-.imgClose {
-  margin: 0px 376px 80px;
-}
-.imgCloseUserInfo {
-  padding-left: 24px;
 }
 
 .iconPerson {
@@ -514,66 +461,76 @@ input {
   background-position: 376px 10px;
   background-repeat: no-repeat;
 }
-.addPersonPic {
-  margin-top: 200px;
-  margin-left: 24px;
-  /*  */
-  width: 120px;
-  height: 120px;
-  top: 204px;
-  left: 550px;
-  gap: 0px;
-  border-radius: 70px 0px 0px 0px;
-  border: 3px 0px 0px 0px;
-  opacity: 0px;
-}
 
 /* ------------------------------------ End ---------------------------- */
-/* ------------------------------------ btn ---------------------------- */
-.btn {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30vw;
-  height: 56px;
-  background-color: #2a3647;
-  margin-bottom: 24px;
-  border-radius: 8px;
-  border-color: #2a3647;
-  font-size: 24px;
-  margin-left: calc(50% - 15vw);
-  margin-top: 120px;
-}
 .delete-save-btn {
   display: flex;
+  justify-content: space-between;
+  width: 95%;
 }
 
 .cancel-createContact-btn {
   display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.check-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .delete-btn {
   margin-right: 8px;
   width: auto;
   height: auto;
+  background-color: white;
+  border: 1px solid #2A3647;
+  color: #2A3647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-btn:hover{
+  color: #29abe2;
+  border-color: #29abe2;
+  background-color: white !important;
 }
 
 .cancel-btn {
   margin-right: 8px;
   width: auto;
   height: auto;
+  background-color: white;
+  border: 1px solid #2A3647;
+  color: #2A3647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancel-btn:hover{
+  color: #29abe2;
+  border-color: #29abe2;
+  background-color: white !important;
+}
+
+.cancel-btn:hover img{
+  content: url(../img/cancel_lightblue.png);
 }
 
 .save-btn {
-  width: auto;
-  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
   color: rgb(128, 189, 246);
 }
-/* ------------------------------------ End ---------------------------- */
+
 /* ------------------------------------------------------------------------- */
 .navi-all {
   display: flex;
@@ -593,11 +550,27 @@ a {
   font-size: 16px;
 }
 
-.addUserButtonDiv {
+.addUserButtonDiv{
   position: fixed;
   background-color: white;
   width: 40vw;
   height: 200px;
+}
+
+.btn {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 56px;
+  background-color: #2a3647;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  border-color: #2a3647;
+  font-size: 24px;
+  margin-left: calc(50% - 15vw);
+  margin-top: 120px;
 }
 
 .person_add {
@@ -607,14 +580,11 @@ a {
 }
 
 .addNewUserPic {
-  display: none;
-  width: 56px;
-  height: 56px;
-  margin-top: 758px;
-  margin-left: 356px;
+  margin-bottom: -1200px;
+  margin-left: -480px;
 }
 
-li {
+li{
   word-wrap: break-word;
 }
 
@@ -629,874 +599,109 @@ li {
   width: 40vw;
   z-index: 1;
 }
-.overlay-content3 {
-  width: 560px;
-  height: 364px;
-  margin-left: 968px;
-  margin-top: 240px;
-  background-color: #88ef54;
-  padding: 8px 40px;
-  cursor: pointer;
-}
 
 /* -------------------media queries */
-@media (max-width: 1800px) {
-  .overlay-content1 {
-    border-radius: 5px;
-    display: flex;
-    width: 1212px;
-    height: 550px;
 
-    margin-top: 120px;
-    margin-left: 240px;
-  }
-
-  .imgClose {
-    margin-left: 422px;
-  }
-}
-.editLook {
-  width: 467px;
-}
-/* --------------------------------1500*/
-@media (max-width: 1500px) {
-  .overlay-content1 {
-    border-radius: 5px;
-    display: flex;
-    width: 1212px;
-    height: 550px;
-
-    margin-top: 120px;
-    margin-left: 40px;
-  }
-
-  .imgClose {
-    margin-left: 422px;
-  }
-}
-.editLook {
-  width: 467px;
-}
-/* -------------------------- 1340 ------------------- */
-@media (max-width: 1340px) {
-  .overlay-content1 {
-    border-radius: 5px;
-    display: flex;
-    width: 1000px;
-    height: 550px;
-
-    margin-top: 120px;
-    margin-left: 40px;
-    /*   top: -2901px;
-  left: -1731px; */
-    gap: 0px;
-    border-radius: 30px 0px 0px 0px;
-    opacity: 0px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* Schatteneffekt für das Overlay 
-  */
-    background-color: white;
-    padding: 20px;
-    z-index: 2;
-  }
-  input {
-    width: 364px;
-  }
-}
-.imgClose {
-  margin-left: 320px;
-}
-.addUserDaten {
-  margin-top: 4%;
-  margin-left: 2%;
-}
-/*  */
-
-/* -------------------------------- 1290 -------------------- */
-
-/* --------------------------------  1100 ---------------------------- */
-@media (max-width: 1100px) {
-  @media (max-width: 1340px) {
-    .overlay-content1 {
-      border-radius: 5px;
-      display: flex;
-      width: 900px;
-      height: 550px;
-
-      margin-top: 120px;
-      margin-left: 40px;
-      /*   top: -2901px;
-    left: -1731px; */
-      gap: 0px;
-      border-radius: 30px 0px 0px 0px;
-      opacity: 0px;
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      /* Schatteneffekt für das Overlay 
-    */
-      background-color: white;
-      padding: 20px;
-      z-index: 2;
-    }
-    input {
-      width: 364px;
-    }
-  }
-  .imgClose {
-    margin-left: 320px;
-  }
-  .addUserDaten {
-    margin-top: 4%;
-    margin-left: 2%;
-  }
-  .editLook {
-    width: 300px;
-  }
-  /*  */
-  .initials-circle-info {
+@media(max-width: 1100px){
+  
+  .initials-circle-info{
     width: 100px;
     height: 100px;
     line-height: 100px;
     font-size: 40px;
   }
 
-  .user-name-info {
+  .user-name-info{
     font-size: 35px;
-  }
 }
-/* ---------------------- 1000 */
-@media (max-width: 1000px) {
-  .overlay-content1 {
-    border-radius: 5px;
-    display: flex;
-    width: 800px;
-    height: 550px;
-  }
-  input {
-    width: 300px;
-  }
-  .imgClose {
-    margin-left: 280px;
-  }
-  /*  */
-  .circle2-user {
+}
+
+@media(max-width: 1000px){
+  
+  .circle2-user{
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-  .user-name-info {
+  .user-name-info{
     font-size: 30px;
   }
 
-  .img-info-edit-delete img {
+  .img-info-edit-delete img{
     height: 20px;
     width: auto;
   }
 
-  .btn {
+  .btn{
     font-size: 18px;
   }
 }
-/* ------------------------------900 */
-@media (max-width: 900px) {
-  .overlay-content1 {
-    border-radius: 5px;
-    display: flex;
-    width: 700px;
-    height: 550px;
-  }
-  input {
-    width: 300px;
-  }
-  .imgClose {
-    margin-left: 280px;
-  }
-  .editLook {
-    width: 240px;
-  }
-}
-/* --------------------------- 800 */
-@media (max-width: 800px) {
-  .overlay-content1 {
-    border-radius: 5px;
-    margin-left: 8px;
-    width: 640px;
-    height: 550px;
-  }
-  input {
-    width: 240px;
-  }
-  .imgClose {
-    margin-left: 216px;
-  }
-  .editLook {
-    width: 240px;
-  }
-  .cancel-createContact-btn {
-    width: 40px;
-  }
-}
-/* --------------------------- 725 */
-@media (max-width: 725px) {
-  .img-info-edit-delete {
+
+@media(max-width: 725px){
+  .img-info-edit-delete{
     margin-left: 0;
   }
 }
-/* --------------------------------------- 700 */
-@media (max-width: 700px) {
-  .overlay-content1 {
-    width: 496px;
-    height: 760px;
-    margin-top: 120px;
-    margin-left: 40px;
-    gap: 49px;
-    border-radius: 30px;
-    opacity: 0px;
 
-    @keyframes slide-in {
-      from {
-        transform: translateY(
-          100%
-        ); /* Startposition außerhalb des Bildschirms */
-      }
-      to {
-        transform: translateY(0); /* Endposition oben auf dem Bildschirm */
-      }
-    }
-  }
-
-  @media (max-width: 700px) {
-    .overlay-content1 {
-      animation: slide-in 0.3s both; /* Animation von unten nach oben */
-    }
-  }
-  /* ------------------------------------------------- */
-  /* @media (max-width: 700px) {
-  .overlay-content1 {
-    width: 496px;
-    height: 760px;
-    margin-top: 120px;
-    margin-left: 40px;
-    gap: 49px;
-    border-radius: 30px;
-    opacity: 0;
-    animation: slide-in 0.5s forwards; /* Animation von unten nach oben *
-  }
-
-  @keyframes slide-in {
-    from {
-      transform: translateY(100%); /* Startposition außerhalb des Bildschirms *
-    }
-    to {
-      transform: translateY(0); /* Endposition oben auf dem Bildschirm *
-      opacity: 1;
-    }
-  }
- */
-  /* ---------------------------------------------------- */
-
-  .addPersonPic {
-    position: fixed;
-    z-index: 2; /* Stellen Sie sicher, dass das Element über anderen Elementen liegt */
-    margin-top: 88px;
-
-    width: 120px;
-    height: 120px;
-    left: 184px;
-    gap: 0px;
-    border-radius: 70px 0px 0px 0px;
-    border: 3px 0px 0px 0px;
-    opacity: 0px;
-  }
-
-  .editLook {
-    position: fixed;
-    margin-top: -20px;
-    margin-left: -22px;
-    width: 544px;
-    height: 352px;
-    border-radius: 30px 30px 0 0;
-    gap: 12px;
-    opacity: 0px;
-  }
-
-  .addUserDaten {
-    margin-top: 300px;
-    margin-left: -40px;
-  }
-  input {
-    width: 364px;
-  }
-  .imgClose {
-    margin-left: 80px;
-  }
-  input {
-    width: 364px;
-  }
-  .cancel-createContact-btn {
-    width: auto;
-  }
-  /*  */
-  .img-info-edit-delete {
+@media(max-width: 700px){
+  .img-info-edit-delete{
     margin-left: 16px;
   }
 
-  .contactLeft {
+  .contactLeft{
     width: 300px;
   }
 
-  #userInfo {
+  #userInfo{
     margin-left: 340px;
   }
 
-  .addUserButtonDiv {
+  .addUserButtonDiv{
     width: 300px;
   }
 
-  .btn {
+  .btn{
     font-size: 16px;
     width: 200px;
     margin-left: calc(50% - 100px);
   }
 
-  .btn img {
+  .btn img{
     height: 30px;
     width: auto;
   }
 }
-/* -------------------------------- 590 */
-@media (max-width: 590px) {
-  .overlay-content1 {
-    width: 476px;
-    height: 760px;
-    margin-top: 120px;
-    margin-left: 8px;
-    gap: 49px;
-    border-radius: 30px;
-    opacity: 0px;
-  }
-  .addPersonPic {
-    left: 180px;
-  }
 
-  .editLook {
-    position: fixed;
-    margin-top: -20px;
-    margin-left: -22px;
-    width: 520px;
-    height: 352px;
-    border-radius: 30px 30px 0 0;
-    gap: 12px;
-    opacity: 0px;
-  }
+@media(max-width: 600px){
 
-  .addUserDaten {
-    margin-top: 300px;
-    margin-left: -40px;
-  }
-  input {
-    width: 364px;
-  }
-  .imgClose {
-    margin-left: 80px;
-  }
-  input {
-    width: 364px;
-  }
-  .cancel-createContact-btn {
-    width: auto;
-  }
-}
-/* -------------------------- 530 -------------------------- */
-@media (max-width: 530px) {
-  .overlay-content1 {
-    width: 396px;
-    height: 760px;
-    margin-top: 120px;
-    margin-left: 40px;
-    gap: 49px;
-    border-radius: 30px;
-    opacity: 0px;
-  }
-
-  .addPersonPic {
-    position: fixed;
-    z-index: 2; /* Stellen Sie sicher, dass das Element über anderen Elementen liegt */
-    margin-top: 208px;
-    top: 88px;
-    width: 120px;
-    height: 120px;
-    left: 140px;
-    gap: 0px;
-    border-radius: 70px 0px 0px 0px;
-    border: 3px 0px 0px 0px;
-    opacity: 0px;
-  }
-
-  .editLook {
-    position: fixed;
-    margin-top: -20px;
-    margin-left: -22px;
-    width: 440px;
-    height: 352px;
-    border-radius: 30px 30px 0 0;
-    gap: 12px;
-    opacity: 0px;
-  }
-
-  .addUserDaten {
-    margin-top: 300px;
-    margin-left: -88px;
-  }
-  input {
-    width: 364px;
-  }
-  .imgClose {
-    margin-left: 80px;
-  }
-  /*  */
-  .user-list-container {
-    margin-top: -40px;
-  }
-  .addNewUserPic {
-    display: block;
-    width: 56px;
-    height: 56px;
-    margin-top: 790px;
-    margin-left: 356px;
-  }
-  .contactLeft {
+  .contactLeft{
     width: 100%;
-    height: 100vh;
+    height:100vh;
     overflow-y: scroll;
   }
-  /*  */
-  #userList {
-    height: 72vh;
-  }
-  .user-name-info {
-    padding-left: 24px;
-    margin-top: -72px;
-    margin-left: 80px;
 
-    font-size: 43px;
-    font-weight: 500;
-  }
-  .img-info-edit-delete {
-    margin-top: 40px;
-    margin-left: 16px;
-  }
-  .initials-circle-info3 {
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-    margin-top: 56px;
-    line-height: 80px;
-    font-size: 32px;
-    border-radius: 70px;
-    margin-right: 320px;
-  }
-  .overlay-content3 {
-    width: 420px;
-    height: 74vh;
-    margin-left: 16px;
-    margin-top: 120px;
-    background-color: #88ef54;
-    padding: 8px 40px;
-    cursor: pointer;
-  }
-  .small-overlay-content {
-    background-color: aliceblue;
-    position: fixed;
-    width: 116px;
-    height: 100px;
-    margin-top: 640px;
-    margin-left: 400px;
-    padding: 10px 0px 0px 0px;
-    gap: 0px;
-    border-radius: 20px 20px 0px 20px;
-    opacity: 0px;
-  }
-  .imgMenuOption {
-    position: fixed;
-    margin-bottom: -144px;
-    width: 56px;
-    height: 56px;
-    padding-left: 364px;
-  }
-  /*  position: fixed;
-  margin-bottom: -144px;
-  width: 56px;
-  height: 56px;
-  padding-left: 376px; */
-
-  /* #userInfo {
+  #userInfo{
     margin-left: 20px;
-    margin-top: 65vh;
+    margin-top: 100vh;
     margin-right: 0;
     margin-bottom: 0;
     height: 100%;
-  } */
-  .frame40 {
+  }
+
+  .frame40{
     display: none;
     margin-top: 0;
   }
 
-  .addUserButtonDiv {
+  .addUserButtonDiv{
     width: 100vw;
     display: flex;
     justify-content: center;
   }
 
-  .btn {
+  .btn{
     width: 90vw;
     margin-left: 0;
-  }
-}
-/* ---------------------- 490 ---------------- */
-
-@media (max-width: 490px) {
-  .overlay-content1 {
-    margin-left: 16px;
-  }
-}
-/* ----------------- 460 */
-@media (max-width: 460px) {
-  .overlay-content1 {
-    margin-left: 0px;
-  }
-}
-/* ----------------------------------- */
-@media (max-width: 430px) {
-  .overlay-content1 {
-    width: 344px;
-    height: 760px;
-    margin-top: 120px;
-    margin-left: 16px;
-    gap: 49px;
-    border-radius: 30px;
-    opacity: 0px;
-
-    @keyframes slide-in {
-      from {
-        transform: translateY(
-          100%
-        ); /* Startposition außerhalb des Bildschirms */
-      }
-      to {
-        transform: translateY(0); /* Endposition oben auf dem Bildschirm */
-      }
-    }
-  }
-
-  .addPersonPic {
-    position: fixed;
-    z-index: 2; /* Stellen Sie sicher, dass das Element über anderen Elementen liegt */
-    margin-top: 208px;
-
-    width: 120px;
-    height: 120px;
-    left: 120px;
-    gap: 0px;
-    border-radius: 70px 0px 0px 0px;
-    border: 3px 0px 0px 0px;
-    opacity: 0px;
-  }
-
-  .editLook {
-    position: fixed;
-    margin-top: -20px;
-    margin-left: -22px;
-    width: 388px;
-    height: 352px;
-    border-radius: 30px 30px 0 0;
-    gap: 12px;
-    opacity: 0px;
-  }
-
-  .addUserDaten {
-    margin-top: 300px;
-    margin-left: -88px;
-  }
-  input {
-    width: 300px;
-  }
-  .imgClose {
-    margin-left: 80px;
-  }
-  /*  */
-  .user-list-container {
-    margin-top: -40px;
-  }
-  .addNewUserPic {
-    display: block;
-    width: 56px;
-    height: 56px;
-    margin-top: 790px;
-    margin-left: 356px;
-  }
-  .contactLeft {
-    width: 100%;
-    height: 100vh;
-    overflow-y: scroll;
-  }
-  /*  */
-  #userList {
-    height: 72vh;
-  }
-  .user-name-info {
-    padding-left: 24px;
-    margin-top: -72px;
-    margin-left: 80px;
-
-    font-size: 43px;
-    font-weight: 500;
-  }
-  .img-info-edit-delete {
-    margin-top: 40px;
-    margin-left: 16px;
-  }
-  .initials-circle-info3 {
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-    margin-top: 56px;
-    line-height: 80px;
-    font-size: 32px;
-    border-radius: 70px;
-    margin-right: 320px;
-  }
-  .overlay-content3 {
-    width: 420px;
-    height: 74vh;
-    margin-left: 16px;
-    margin-top: 120px;
-    background-color: #88ef54;
-    padding: 8px 40px;
-    cursor: pointer;
-  }
-  .small-overlay-content {
-    background-color: aliceblue;
-    position: fixed;
-    width: 116px;
-    height: 100px;
-    margin-top: 640px;
-    margin-left: 400px;
-    padding: 10px 0px 0px 0px;
-    gap: 0px;
-    border-radius: 20px 20px 0px 20px;
-    opacity: 0px;
-  }
-  .imgMenuOption {
-    position: fixed;
-    margin-bottom: -144px;
-    width: 56px;
-    height: 56px;
-    padding-left: 364px;
-  }
-  /*  position: fixed;
-  margin-bottom: -144px;
-  width: 56px;
-  height: 56px;
-  padding-left: 376px; */
-
-  /* #userInfo {
-    margin-left: 20px;
-    margin-top: 65vh;
-    margin-right: 0;
-    margin-bottom: 0;
-    height: 100%;
-  } */
-  .frame40 {
-    display: none;
-    margin-top: 0;
-  }
-
-  .addUserButtonDiv {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-  }
-
-  .btn {
-    width: 90vw;
-    margin-left: 0;
-  }
-
-  /* ---------------------------------------------------------------------- */
-  #userList {
-    height: 90vh;
-  }
-  .user-name-info {
-    padding-left: 8px;
-    margin-top: -72px;
-    margin-left: 80px;
-
-    font-size: 43px;
-    font-weight: 500;
-  }
-  .img-info-edit-delete {
-    margin-top: 40px;
-    margin-left: 16px;
-  }
-  .initials-circle-info3 {
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-    margin-top: 56px;
-    line-height: 80px;
-    font-size: 32px;
-    border-radius: 70px;
-    margin-right: 240px;
-  }
-  .overlay-content3 {
-    width: 320px;
-    height: 74vh;
-    margin-left: 16px;
-    margin-top: 120px;
-    background-color: #88ef54;
-    padding: 8px 40px;
-    cursor: pointer;
-  }
-  /*  @keyframes slide-in {
-    from {
-      transform: translateY(100%); /* Startposition außerhalb des Bildschirms *
-    }
-    to {
-      transform: translateY(0); /* Endposition oben auf dem Bildschirm *
-    }
-  } */
-}
-
-/* ---------------------------- 410 */
-@media (max-width: 410px) {
-  .overlay-content1 {
-    margin-left: 8px;
-  }
-}
-/* ------------------------------ 400 ------------------ */
-@media (max-width: 400px) {
-  .overlay-content1 {
-    width: 280px;
-    height: 740px;
-    margin-top: 120px;
-    margin-left: 24px;
-    gap: 49px;
-    border-radius: 30px;
-    opacity: 0px;
-  }
-
-  .addPersonPic {
-    position: fixed;
-    z-index: 2; /* Stellen Sie sicher, dass das Element über anderen Elementen liegt */
-    margin-top: 208px;
-
-    width: 120px;
-    height: 120px;
-    left: 80px;
-    gap: 0px;
-    border-radius: 70px 0px 0px 0px;
-    border: 3px 0px 0px 0px;
-    opacity: 0px;
-  }
-
-  .editLook {
-    position: fixed;
-    margin-top: -20px;
-    margin-left: -22px;
-    width: 325px;
-    height: 352px;
-    border-radius: 30px 30px 0 0;
-    gap: 12px;
-    opacity: 0px;
-  }
-
-  .addUserDaten {
-    margin-top: 300px;
-    margin-left: -104px;
-  }
-  input {
-    width: 280px;
-  }
-  .imgClose {
-    margin-left: 80px;
-  }
-}
-/*  */
-/* --------------- 360 --------------- */
-
-@media (max-width: 360px) {
-  .overlay-content1 {
-    margin-left: 16px;
-  }
-}
-/* -------------- 350 --------- */
-@media (max-width: 350px) {
-  .overlay-content1 {
-    margin-left: 8px;
-  }
-}
-/* ------------------------------ 335 */
-@media (max-width: 335px) {
-  .overlay-content1 {
-    width: 256px;
-    height: 760px;
-    margin-top: 120px;
-    margin-left: 16px;
-    gap: 49px;
-    border-radius: 30px;
-    opacity: 0px;
-  }
-
-  .addPersonPic {
-    position: fixed;
-    z-index: 2; /* Stellen Sie sicher, dass das Element über anderen Elementen liegt */
-    margin-top: 208px;
-
-    width: 120px;
-    height: 120px;
-    left: 80px;
-    gap: 0px;
-    border-radius: 70px 0px 0px 0px;
-    border: 3px 0px 0px 0px;
-    opacity: 0px;
-  }
-
-  .editLook {
-    position: fixed;
-    margin-top: -20px;
-    margin-left: -22px;
-    width: 300px;
-    height: 352px;
-    border-radius: 30px 30px 0 0;
-    gap: 12px;
-    opacity: 0px;
-  }
-
-  .addUserDaten {
-    margin-top: 300px;
-    margin-left: -104px;
-  }
-  input {
-    width: 240px;
-  }
-  .imgClose {
-    margin-left: 80px;
-  }
-  .cancel-createContact-btn {
-    width: 50%;
-  }
-}
-
-/* ---------------------- 320 --------- */
-@media (max-width: 335px) {
-  .overlay-content1 {
-    margin-left: 12px;
   }
 }
