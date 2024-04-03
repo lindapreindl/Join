@@ -545,6 +545,10 @@ button img {
     border-radius: 50%;
 }
 
+.overflowYHidden {
+    overflow-y: hidden;
+}
+
 @media (max-width: 1400px) {
 
     .summaryOuterFrame {

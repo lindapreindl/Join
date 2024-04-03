@@ -47,90 +47,95 @@
 
         <div class="bigAddTask">
             <form onsubmit="createTask('AT'); return false">
-            <h1 class="h1">Add Task</h1>
-            <div class="form">
-                <div class="form-left">
-                    <div class="title">
-                        <p>Title<mark>*</mark></p>
-                        <div class="inputBoxAddTask">
-                            <input type="text" name="title" id="titleAddTaskAT" placeholder="Enter a title" required>
+                <h1 class="h1">Add Task</h1>
+                <div class="form">
+                    <div class="form-left">
+                        <div class="title">
+                            <p>Title<mark>*</mark></p>
+                            <div class="inputBoxAddTask">
+                                <input type="text" name="title" id="titleAddTaskAT" placeholder="Enter a title"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <p>Description</p>
+                            <div class="inputBoxAddTask" style="height: 150px !important; display: table;">
+                                <textarea type="text" name="description" id="descriptionAddTaskAT"
+                                    placeholder="Enter a description" cols="30" rows="10"></textarea>
+                            </div>
+                        </div>
+                        <div class="assignedTo">
+                            <label for="assignedTo">Assigned to</label>
+                            <div class="searchBoxAssigne">
+                                <input class="inputSearch inputField" id="searchFieldAddTaskAT"
+                                    placeholder="Select contacs to assign" onclick="searchAssignedPeople('AT')"
+                                    onkeyup="searchSpecificUser('AT')">
+                                <div class="icons" onclick="searchAssignedPeople('AT')">&#9207;</div>
+                            </div>
+                            <div class="dropDownUserListToAssigne d-none" id="dropDownUserListToAssigneAT"></div>
+                            <div class="showAssignedUsersStickers" id="showAssignedUsersStickersAT"></div>
                         </div>
                     </div>
-                    <div class="description">
-                        <p>Description</p>
-                        <div class="inputBoxAddTask" style="height: 150px !important; display: table;">
-                            <textarea type="text" name="description" id="descriptionAddTaskAT"
-                                placeholder="Enter a description" cols="30" rows="10"></textarea>
-                        </div>
-                    </div>
-                    <div class="assignedTo">
-                        <label for="assignedTo">Assigned to</label>
-                        <div class="searchBoxAssigne">
-                            <input class="inputSearch inputField" id="searchFieldAddTaskAT"
-                                placeholder="Select contacs to assign" onclick="searchAssignedPeople('AT')"
-                                onkeyup="searchSpecificUser('AT')">
-                            <div class="icons" onclick="searchAssignedPeople('AT')">&#9207;</div>
-                        </div>
-                        <div class="dropDownUserListToAssigne d-none" id="dropDownUserListToAssigneAT"></div>
-                        <div class="showAssignedUsersStickers" id="showAssignedUsersStickersAT"></div>
-                    </div>
-                </div>
 
-                <div class="addTaskLine"></div>
+                    <div class="addTaskLine"></div>
 
-                <div class="form-right">
-                    <div class="dueDate">
-                        <p>Due Date<mark>*</mark></p>
-                        <div class="inputBoxAddTask">
-                            <input type="date" id="dueDateAddTaskAT" name="dueDate" required>
+                    <div class="form-right">
+                        <div class="dueDate">
+                            <p>Due Date<mark>*</mark></p>
+                            <div class="inputBoxAddTask">
+                                <input type="date" id="dueDateAddTaskAT" name="dueDate" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="prio">
-                        <p>Prio</p>
-                        <div class="prio-button">
-                            <button id="button-urgentAT" onclick="changePrio('urgent', 'AT')" type="button">Urgent <img
-                                    id="img-urgentAT" src="./img/urgent.png" alt=""> <img id="img-urgent-whiteAT"
-                                    class="d-none" src="./img/urgent_white.png" alt=""> </button>
-                            <button id="button-mediumAT" class="medium" onclick="changePrio('medium', 'AT')" type="button">Medium
-                                <img id="img-mediumAT" class="d-none" src="./img/medium.png" alt=""> <img
-                                    id="img-medium-whiteAT" src="./img/medium_white.png" alt=""> </button>
-                            <button id="button-lowAT" onclick="changePrio('low', 'AT')" type="button">Low <img id="img-lowAT"
-                                    src="./img/low.png" alt=""> <img id="img-low-whiteAT" class="d-none"
-                                    src="./img/low_white.png" alt="">
-                            </button>
-                            <p id="button-valueAT" class="d-none">medium</p>
+                        <div class="prio">
+                            <p>Prio</p>
+                            <div class="prio-button">
+                                <button id="button-urgentAT" onclick="changePrio('urgent', 'AT')" type="button">Urgent
+                                    <img id="img-urgentAT" src="./img/urgent.png" alt=""> <img id="img-urgent-whiteAT"
+                                        class="d-none" src="./img/urgent_white.png" alt=""> </button>
+                                <button id="button-mediumAT" class="medium" onclick="changePrio('medium', 'AT')"
+                                    type="button">Medium
+                                    <img id="img-mediumAT" class="d-none" src="./img/medium.png" alt=""> <img
+                                        id="img-medium-whiteAT" src="./img/medium_white.png" alt=""> </button>
+                                <button id="button-lowAT" onclick="changePrio('low', 'AT')" type="button">Low <img
+                                        id="img-lowAT" src="./img/low.png" alt=""> <img id="img-low-whiteAT"
+                                        class="d-none" src="./img/low_white.png" alt="">
+                                </button>
+                                <p id="button-valueAT" class="d-none">medium</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="task-category">
-                        <p>Category<mark>*</mark></p>
-                        <select id="categoryAddTaskAT" name="category" class="noBorder" required>
-                            <option selected disabled hidden value="selectCategory">Select Category</option>
-                            <option value="User Story">User Story</option>
-                            <option value="Technical Task">Technical Task</option>
-                        </select>
-                    </div>
-                    <div class="subtasks">
-                        <p>Subtasks</p>
-                        <div class="inputBoxAddTask" id="buttonAddSubtaskAT" onclick="changeToSubtaskInput('AT')">
-                            <p>Add new subtask</p><img src="./img/add.png" alt="">
+                        <div class="task-category">
+                            <p>Category<mark>*</mark></p>
+                            <select id="categoryAddTaskAT" name="category" class="noBorder" required>
+                                <option selected disabled hidden value="selectCategory">Select Category</option>
+                                <option value="User Story">User Story</option>
+                                <option value="Technical Task">Technical Task</option>
+                            </select>
                         </div>
-                        <div class="inputBoxAddTask" style="display: none;" id="inputDivAddSubtaskAT">
-                            <input id="inputAddSubtaskAT" type="text">
-                            <img onclick="cancelSubtask('AT')" src="./img/cancel.png" alt="">
-                            <p>|</p>
-                            <img onclick="addSubtask('AT')" src="./img/check_dark.png" alt="">
+                        <div class="subtasks">
+                            <p>Subtasks</p>
+                            <div class="inputBoxAddTask" id="buttonAddSubtaskAT" onclick="changeToSubtaskInput('AT')">
+                                <p>Add new subtask</p><img src="./img/add.png" alt="">
+                            </div>
+                            <div class="inputBoxAddTask" style="display: none;" id="inputDivAddSubtaskAT">
+                                <input id="inputAddSubtaskAT" type="text">
+                                <div class="d-flex">
+                                    <img onclick="cancelSubtask('AT')" src="./img/cancel.png" alt="">
+                                    <p>|</p>
+                                    <img onclick="addSubtask('AT')" src="./img/check_dark.png" alt="">
+                                </div>
+                            </div>
+                            <ul id="subtasksAddTaskAT"></ul>
                         </div>
-                        <ul id="subtasksAddTaskAT"></ul>
                     </div>
                 </div>
-            </div>
-            <div class="bottom">
-                <p class="black"><mark>*</mark>This field is required</p>
-                <div class="bottom-button">
-                    <button onclick="clearAddTask('AT')" type="button" class="clear">Clear <img src="./img/cancel.png"></button>
-                    <button class="create">Create Task <img src="./img/check.png"></button>
+                <div class="bottom">
+                    <p class="black"><mark>*</mark>This field is required</p>
+                    <div class="bottom-button">
+                        <button onclick="clearAddTask('AT')" type="button" class="clear">Clear <img
+                                src="./img/cancel.png"></button>
+                        <button class="create">Create Task <img src="./img/check.png"></button>
+                    </div>
                 </div>
-            </div>
             </form>
         </div>
     </div>
