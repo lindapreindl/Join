@@ -66,7 +66,7 @@
   cursor: pointer;
 }
 
-.headlineUserInfo{
+.headlineUserInfo {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -74,23 +74,23 @@
   padding: 30px 0;
 }
 
-.headlineUserInfo h1{
+.headlineUserInfo h1 {
   font-size: 61px;
   font-weight: 700;
 }
 
-.headlineUserInfo h2{
+.headlineUserInfo h2 {
   font-size: 27px;
   font-weight: 400;
 }
 
-.blueLineUserInfo{
+.blueLineUserInfo {
   width: 4px;
   height: 50px;
   background-color: #29abe2;
 }
 
-.user-info-contactInformation h2{
+.user-info-contactInformation h2 {
   font-size: 20px;
   font-weight: 400;
 }
@@ -324,15 +324,15 @@ a {
 
 .overlay {
   z-index: 999;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
 
 .overlay-content2 {
@@ -358,7 +358,7 @@ a {
   }
 }
 
-.addUserDaten{
+.addUserDaten {
   width: 40vw;
   display: flex;
   flex-direction: column;
@@ -368,7 +368,7 @@ a {
   padding-bottom: 40px;
 }
 
-.editUserDaten{
+.editUserDaten {
   width: 40vw;
   display: flex;
   flex-direction: column;
@@ -386,7 +386,7 @@ a {
   border-radius: 8px 0px 0px 8px;
 }
 
-.center{
+.center {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -396,7 +396,7 @@ a {
   margin-bottom: 8vh;
 }
 
-.center input{
+.center input {
   width: 90%;
   height: 50px;
   border-radius: 8px;
@@ -405,11 +405,11 @@ a {
   padding-left: 8px;
 }
 
-.center input:hover{
+.center input:hover {
   border-color: #29abe2;
 }
 
-.contact-popup-left{
+.contact-popup-left {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -423,19 +423,19 @@ a {
   padding-left: 5%;
 }
 
-.contact-popup-left img{
+.contact-popup-left img {
   width: 50px;
 }
 
-.contact-popup-left h3{
+.contact-popup-left h3 {
   font-weight: lighter !important;
 }
 
-.contact-popup-left h1{
+.contact-popup-left h1 {
   font-size: 40px;
 }
 
-.blue-line-add-Contact{
+.blue-line-add-Contact {
   width: 10vw;
   height: 4px;
   background-color: #29abe2;
@@ -462,7 +462,7 @@ a {
   margin-top: -8px;
 }
 
-.imgClose{
+.imgClose {
   display: flex;
   justify-content: flex-end;
   width: 90%;
@@ -515,7 +515,7 @@ a {
   width: 95%;
 }
 
-.check-btn{
+.check-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -533,7 +533,7 @@ a {
   justify-content: center;
 }
 
-.delete-btn:hover{
+.delete-btn:hover {
   color: #29abe2;
   border-color: #29abe2;
   background-color: white !important;
@@ -551,13 +551,13 @@ a {
   justify-content: center;
 }
 
-.cancel-btn:hover{
+.cancel-btn:hover {
   color: #29abe2;
   border-color: #29abe2;
   background-color: white !important;
 }
 
-.cancel-btn:hover img{
+.cancel-btn:hover img {
   content: url(../img/cancel_lightblue.png);
 }
 
@@ -590,7 +590,7 @@ a {
   font-size: 16px;
 }
 
-.addUserButtonDiv{
+.addUserButtonDiv {
   position: fixed;
   background-color: white;
   width: 40vw;
@@ -624,7 +624,7 @@ a {
   margin-left: -480px;
 }
 
-li{
+li {
   word-wrap: break-word;
 }
 
@@ -642,23 +642,23 @@ li{
 
 /* -------------------media queries */
 
-@media(max-width: 1250px){
-  
-  .headlineUserInfo h1{
+@media(max-width: 1250px) {
+
+  .headlineUserInfo h1 {
     font-size: 50px;
   }
-  
-  .headlineUserInfo h2{
+
+  .headlineUserInfo h2 {
     font-size: 24px;
   }
-  
-  .blueLineUserInfo{
+
+  .blueLineUserInfo {
     height: 45px;
   }
 }
 
-@media(max-width: 1150px){
-  .headlineUserInfo{
+@media(max-width: 1150px) {
+  .headlineUserInfo {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -667,97 +667,151 @@ li{
     padding: 30px 0;
   }
 
-  .headlineUserInfo h2{
+  .headlineUserInfo h2 {
     margin-top: 0;
     font-size: 20px;
   }
-  
-  .blueLineUserInfo{
+
+  .blueLineUserInfo {
     width: 10vw;
     height: 4px;
   }
 }
 
-@media(max-width: 1100px){
-  
-  .initials-circle-info{
+@media(max-width: 1100px) {
+
+  .initials-circle-info {
     width: 100px;
     height: 100px;
     line-height: 100px;
     font-size: 40px;
   }
 
-  .user-name-info{
+  .user-name-info {
     font-size: 35px;
-}
+  }
 }
 
-@media(max-width: 1000px){
-  
-  .circle2-user{
+@media(max-width: 1000px) {
+
+  .circle2-user {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-  .user-name-info{
+  .user-name-info {
     font-size: 30px;
   }
 
-  .img-info-edit-delete img{
+  .img-info-edit-delete img {
     height: 20px;
     width: auto;
   }
 
-  .btn{
+  .btn {
     font-size: 18px;
   }
 }
 
-@media(max-width: 725px){
-  .img-info-edit-delete{
+@media(max-width: 900px) {
+  .overlay-content1 {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    height: 90vh;
+    gap: 0;
+  }
+
+  .overlay-content2 {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    height: 90vh;
+    gap: 0;
+  }
+
+  .contact-popup-left {
+    width: calc(70vw - 10%);
+    padding-left: 10%;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 9px;
+    padding-top: 10vh;
+    padding-bottom: 15vh;
+  }
+
+  .contact-popup-left img{
+    display: none;
+  }
+
+  .addPersonPic{
+    position: relative;
+    top: -80px;
+  }
+
+  .addUserDaten{
+    width: 70vw;
+    padding-top: 0;
+    padding-bottom: 0;
+    position: relative;
+    top: -7vh;
+  }
+
+  .imgClose{
+    position: relative;
+    top: -350px;
+  }
+
+  .imgClose img{
+    content: url(../img/close_white.png);
+  }
+  
+}
+
+@media(max-width: 725px) {
+  .img-info-edit-delete {
     margin-left: 0;
   }
 }
 
-@media(max-width: 700px){
-  .img-info-edit-delete{
+@media(max-width: 700px) {
+  .img-info-edit-delete {
     margin-left: 16px;
   }
 
-  .contactLeft{
+  .contactLeft {
     width: 300px;
   }
 
-  #userInfo{
+  #userInfo {
     margin-left: 340px;
   }
 
-  .addUserButtonDiv{
+  .addUserButtonDiv {
     width: 300px;
   }
 
-  .btn{
+  .btn {
     font-size: 16px;
     width: 200px;
     margin-left: calc(50% - 100px);
   }
 
-  .btn img{
+  .btn img {
     height: 30px;
     width: auto;
   }
 }
 
-@media(max-width: 600px){
+@media(max-width: 600px) {
 
-  .contactLeft{
+  .contactLeft {
     width: 100%;
-    height:100vh;
+    height: 100vh;
     overflow-y: scroll;
   }
 
-  #userInfo{
+  #userInfo {
     margin-left: 20px;
     margin-top: 100vh;
     margin-right: 0;
@@ -765,19 +819,35 @@ li{
     height: 100%;
   }
 
-  .frame40{
+  .frame40 {
     display: none;
     margin-top: 0;
   }
 
-  .addUserButtonDiv{
+  .addUserButtonDiv {
     width: 100vw;
     display: flex;
     justify-content: center;
   }
 
-  .btn{
+  .btn {
     width: 90vw;
     margin-left: 0;
+  }
+
+  .overlay-content1{
+    width: 90vw;
+  }
+
+  .overlay-content2{
+    width: 90vw;
+  }
+
+  .contact-popup-left{
+    width: calc(90vw - 10%);
+  }
+
+  .addUserDaten{
+    width: 90vw;
   }
 }
