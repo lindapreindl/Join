@@ -347,9 +347,9 @@ function createEditOverlay(user, index) {
             <h3>Tasks are better with a Team!</h3>
             <div class="blue-line-add-Contact"></div>
       </div>
-    <div>
+    <div class="initialsEdit">
         <div
-          class="initials-circle-info initialsEdit"
+          class="initials-circle-info"
           style="background-color: ${userColors[user.name]}; color: white;">
           ${getInitials(user.name)}
         </div>
