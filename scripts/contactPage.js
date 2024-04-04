@@ -40,10 +40,11 @@ function createOverlay() {
   overlay.style.display = "none";
   overlay.innerHTML = /* HTML */ `
     <div class="overlay-content1">
-      <div class="contact-popup-left"> <img src="./img/logo_white.png" alt="">
-            <h1>Add contact</h1>
-            <h3>Tasks are better with a Team!</h3>
-            <div class="blue-line-add-Contact"></div>
+      <div class="contact-popup-left">
+        <img src="./img/logo_white.png" alt="" />
+        <h1>Add contact</h1>
+        <h3>Tasks are better with a Team!</h3>
+        <div class="blue-line-add-Contact"></div>
       </div>
       <div class="addPersonPic"><img src="./img/addPerson.png" alt="" /></div>
 
@@ -57,28 +58,32 @@ function createOverlay() {
             type="text"
             id="newUserName"
             placeholder="Name"
-            required/>
+            required
+          />
 
           <input
             class="iconMail"
             type="email"
             id="newUserEmail"
             placeholder="Email"
-            required/>
+            required
+          />
 
           <input
             class="iconCall"
             type="text"
             id="newUserPhone"
             placeholder="Phone"
-            required/>
+            required
+          />
 
           <div class="cancel-createContact-btn ">
             <button class="cancel-btn" onclick="closeOverlay()">
               Cancel <img class="imgCancel" src="./img/cancel.png" alt="" />
             </button>
             <button onclick="addNewUser()" class="check-btn ">
-              Create contact <img class="imgCheck" src="./img/check.png" alt="" />
+              Create contact
+              <img class="imgCheck" src="./img/check.png" alt="" />
             </button>
           </div>
         </div>
@@ -93,6 +98,37 @@ function closeOverlay() {
   overlay.style.display = "none";
   overlay.remove(); // Overlay aus dem DOM entfernen
 }
+// Funktion zum Generieren einer eindeutigen Farbe für einen neuen Benutzer
+function generateUniqueColor() {
+  // Array mit allen verfügbaren Farben
+  const allColors = [
+    "#FF5733",
+    "#FFC300",
+    "#DAF7A6",
+    "#9AECDB",
+    "#A3E4D7",
+    "#85C1E9",
+    "#A569BD",
+    "#F1948A",
+    "#B2BABB",
+    "#F0B27A",
+  ];
+
+  // Array mit den Farben, die bereits von Benutzern verwendet werden
+  const usedColors = Object.values(userColors);
+
+  // Filtere die verfügbaren Farben und entferne die, die bereits verwendet werden
+  const availableColors = allColors.filter(
+    (color) => !usedColors.includes(color)
+  );
+
+  // Wähle eine zufällige verfügbare Farbe aus
+  const randomColor =
+    availableColors[Math.floor(Math.random() * availableColors.length)];
+
+  return randomColor;
+}
+
 // Funktion zum Hinzufügen eines neuen Benutzers
 async function addNewUser() {
   // Die Werte aus den Eingabefeldern für Name, E-Mail und Telefonnummer abrufen
@@ -102,7 +138,7 @@ async function addNewUser() {
 
   /* NEU 1 */
   const password = ""; // Ein leeres Passwort wird vorerst definiert
-  const color = getColorForUser();
+  const color = generateUniqueColor();
 
   // Überprüfen, ob alle Felder ausgefüllt sind
   if (name && email && phone) {
@@ -342,15 +378,17 @@ function createEditOverlay(user, index) {
   overlay.style.display = "none";
   overlay.innerHTML = /* HTML */ `
     <div class="overlay-content2">
-    <div class="contact-popup-left"> <img src="./img/logo_white.png" alt="">
-            <h1>Edit contact</h1>
-            <h3>Tasks are better with a Team!</h3>
-            <div class="blue-line-add-Contact"></div>
+      <div class="contact-popup-left">
+        <img src="./img/logo_white.png" alt="" />
+        <h1>Edit contact</h1>
+        <h3>Tasks are better with a Team!</h3>
+        <div class="blue-line-add-Contact"></div>
       </div>
-    <div class="initialsEdit">
+      <div class="initialsEdit">
         <div
           class="initials-circle-info"
-          style="background-color: ${userColors[user.name]}; color: white;">
+          style="background-color: ${userColors[user.name]}; color: white;"
+        >
           ${getInitials(user.name)}
         </div>
       </div>
@@ -365,7 +403,8 @@ function createEditOverlay(user, index) {
             id="editUserName"
             placeholder="Name"
             value="${user.name}"
-            required/>
+            required
+          />
 
           <input
             class="iconMail"
@@ -373,7 +412,8 @@ function createEditOverlay(user, index) {
             id="editUserEmail"
             placeholder="E-Mail"
             value="${user.email}"
-            required/>
+            required
+          />
 
           <input
             class="iconCall"
@@ -381,24 +421,28 @@ function createEditOverlay(user, index) {
             id="editUserPhone"
             placeholder="Telefon"
             value="${user.phone}"
-            required/>
+            required
+          />
 
           <input
             class="iconLock"
             type="password"
             id="editUserPassword"
             placeholder="new Password"
-            required/>
+            required
+          />
 
           <!-- Passwort-Eingabe hinzugefügt -->
           <div class="delete-save-btn">
-          <button
-            class="delete-btn"
-            onclick="deleteUser('${user.name}'), clearUserInfo()">
-            Delete</button>
-          <button class="save-btn" onclick="editUser(${index})">
-            Save <img class="imgCheck" src="./img/check.png" alt="" />
-          </button>
+            <button
+              class="delete-btn"
+              onclick="deleteUser('${user.name}'), clearUserInfo()"
+            >
+              Delete
+            </button>
+            <button class="save-btn" onclick="editUser(${index})">
+              Save <img class="imgCheck" src="./img/check.png" alt="" />
+            </button>
           </div>
         </div>
       </div>
