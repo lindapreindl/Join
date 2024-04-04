@@ -303,6 +303,7 @@ function getColorForUser(username) {
 
 // Funktion zum Rendern der Benutzerinformationen mit Bearbeitungsfunktion
 function renderUserInfo(user) {
+  document.getElementById('userInfo').style = 'z-index: 2';
   let contactName = user.name;
   let contactIndex = users.findIndex((contact) => contact.name === contactName);
   const userInfoElement = document.getElementById("userInfo");
@@ -313,7 +314,7 @@ function renderUserInfo(user) {
       <div class="blueLineUserInfo"></div>
       <h2>Better with a team</h2>
     </div>
-    <img class="back-to-contacts" onclick="history.back()" src="../img/arrowLeft.png" alt="">
+    <img class="back-to-contacts" onclick="goBackToUserList()" src="../img/arrowLeft.png" alt="">
     <div class="userInfo-div">
       <div class="circle2-user">
         <div
@@ -355,6 +356,11 @@ function renderUserInfo(user) {
     </div>
   `;
 }
+
+function goBackToUserList(){
+  document.getElementById('userInfo').style = 'z-index: 0';
+}
+
 // Funktion zum Öffnen des Overlays für die Bearbeitung eines Benutzers
 function openEditOverlay(index) {
   const user = users[index]; // Benutzer aus dem Index erhalten
