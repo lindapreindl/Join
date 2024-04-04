@@ -277,6 +277,7 @@ function renderUserInfo(user) {
       <div class="blueLineUserInfo"></div>
       <h2>Better with a team</h2>
     </div>
+    <img class="back-to-contacts" onclick="history.back()" src="../img/arrowLeft.png" alt="">
     <div class="userInfo-div">
       <div class="circle2-user">
         <div

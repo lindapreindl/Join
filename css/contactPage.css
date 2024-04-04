@@ -16,6 +16,10 @@
   z-index: 997;
 } */
 
+.back-to-contacts{
+  display: none;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -309,6 +313,7 @@ a {
 
 .img-edit:hover {
   scale: 1.02;
+  content: url(../img/editHover.png);
 }
 
 .img-delete {
@@ -317,11 +322,10 @@ a {
 
 .img-delete:hover {
   scale: 1.02;
+  content: url(../img/deleteHover.png);
 }
 
 /* --------------------- */
-
-/* --------------- */
 
 .overlay {
   z-index: 999;
@@ -826,11 +830,17 @@ li {
   }
 
   #userInfo {
-    margin-left: 20px;
-    margin-top: 100vh;
+    margin-left: 0px;
+    margin-top: 120px;
     margin-right: 0;
     margin-bottom: 0;
-    height: 100%;
+    padding-left: 20px;
+    height: 100vh;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    overflow-y: scroll;
   }
 
   .frame40 {
@@ -867,5 +877,45 @@ li {
 
   .editUserDaten{
     width: 90vw;
+  }
+
+  .headlineUserInfo{
+    display: none;
+  }
+
+  .back-to-contacts{
+    display: block;
+    cursor: pointer;
+  }
+}
+
+@media(max-height: 400px){
+  .overlay-content1{
+    overflow-y: scroll;
+  }
+
+  .overlay-content2{
+    overflow-y: scroll;
+  }
+
+  .imgClose{
+    position: relative;
+    top: -280px;
+  }
+
+  .addUserButtonDiv{
+    height: 120px;
+  }
+
+  .btn{
+    margin-top: 40px;
+  }
+
+  #userList{
+    margin-top: 80px;
+  }
+
+  #userInfo{
+    margin-top: 20px;
   }
 }
