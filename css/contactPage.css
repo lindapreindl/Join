@@ -1,25 +1,32 @@
-/* ---------------------- header ------------------------------ */
-/* .header1 {
-  width: 100%;
-  height: 96px;
-  padding-left: 40px;
-  padding-right: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  box-shadow: 0px 4px 4px 0px #0000001a;
-  font-size: 20px;
-  top: 0;
-  left: 232px;
-  position: fixed;
-  z-index: 997;
-} */
-
-.back-to-contacts{
-  display: none;
+/* ------------------------neu */
+/* CSS-Klasse für den Schatteneffekt, die Hintergrundfarbe und die Größe beim Hovern */
+.hover-effect {
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Schatteneffekt definieren */
+  background-color: whitesmoke; /* Hintergrundfarbe festlegen */
+}
+.hover-farbe {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Schatteneffekt definieren */
+  background-color: rgb(42, 54, 71); /* Hintergrundfarbe festlegen */
+  transform: scale(1.03); /* Größe ändern */
 }
 
+/* Zusätzliche CSS-Klasse für das übergeordnete <li>-Element der Benutzerzeile */
+.user-list-item {
+  padding-top: 8px;
+  list-style-type: none; /* Entfernen der Aufzählungspunkte */
+  /* margin-left: 20px;  Einrückung für die Benutzerzeile */
+  cursor: pointer; /* Ändern des Cursors, um anzuzeigen, dass das Element klickbar ist */
+  transition: transform 0.3s ease; /* Animationsübergang für die Transformation */
+}
+
+/* ------------------------------------------- */
+
+.back-to-contacts {
+  display: none;
+}
+/* ---------------------- header ------------------------------ */
 .header {
   display: flex;
   justify-content: space-between;
@@ -121,7 +128,6 @@
 main {
   width: 100%;
   display: flex;
-
 }
 
 #addUserBtn {
@@ -406,7 +412,7 @@ a {
   height: 50px;
   border-radius: 8px;
   gap: 8px;
-  border: 1px solid #D1D1D1;
+  border: 1px solid #d1d1d1;
   padding-left: 8px;
 }
 
@@ -531,8 +537,8 @@ a {
   width: auto;
   height: auto;
   background-color: white;
-  border: 1px solid #2A3647;
-  color: #2A3647;
+  border: 1px solid #2a3647;
+  color: #2a3647;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -549,8 +555,8 @@ a {
   width: auto;
   height: auto;
   background-color: white;
-  border: 1px solid #2A3647;
-  color: #2A3647;
+  border: 1px solid #2a3647;
+  color: #2a3647;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -647,8 +653,7 @@ li {
 
 /* -------------------media queries */
 
-@media(max-width: 1250px) {
-
+@media (max-width: 1250px) {
   .headlineUserInfo h1 {
     font-size: 50px;
   }
@@ -662,7 +667,7 @@ li {
   }
 }
 
-@media(max-width: 1150px) {
+@media (max-width: 1150px) {
   .headlineUserInfo {
     display: flex;
     flex-direction: column;
@@ -683,8 +688,7 @@ li {
   }
 }
 
-@media(max-width: 1100px) {
-
+@media (max-width: 1100px) {
   .initials-circle-info {
     width: 100px;
     height: 100px;
@@ -697,8 +701,7 @@ li {
   }
 }
 
-@media(max-width: 1000px) {
-
+@media (max-width: 1000px) {
   .circle2-user {
     flex-direction: column;
     justify-content: center;
@@ -719,7 +722,7 @@ li {
   }
 }
 
-@media(max-width: 900px) {
+@media (max-width: 900px) {
   .overlay-content1 {
     display: flex;
     flex-direction: column;
@@ -745,21 +748,21 @@ li {
     padding-bottom: 15vh;
   }
 
-  .contact-popup-left img{
+  .contact-popup-left img {
     display: none;
   }
 
-  .addPersonPic{
+  .addPersonPic {
     position: relative;
     top: -80px;
   }
 
-  .initialsEdit{
+  .initialsEdit {
     position: relative;
     top: -80px;
   }
 
-  .addUserDaten{
+  .addUserDaten {
     width: 70vw;
     padding-top: 0;
     padding-bottom: 0;
@@ -767,7 +770,7 @@ li {
     top: -5vh;
   }
 
-  .editUserDaten{
+  .editUserDaten {
     width: 70vw;
     padding-top: 0;
     padding-bottom: 0;
@@ -775,24 +778,23 @@ li {
     top: -7vh;
   }
 
-  .imgClose{
+  .imgClose {
     position: relative;
     top: -350px;
   }
 
-  .imgClose img{
+  .imgClose img {
     content: url(../img/close_white.png);
   }
-  
 }
 
-@media(max-width: 725px) {
+@media (max-width: 725px) {
   .img-info-edit-delete {
     margin-left: 0;
   }
 }
 
-@media(max-width: 700px) {
+@media (max-width: 700px) {
   .img-info-edit-delete {
     margin-left: 16px;
   }
@@ -820,13 +822,12 @@ li {
     width: auto;
   }
 
-  .circle2-user{
+  .circle2-user {
     padding-left: 0 !important;
   }
 }
 
-@media(max-width: 600px) {
-
+@media (max-width: 600px) {
   .contactLeft {
     width: 100%;
     height: 100vh;
@@ -862,63 +863,63 @@ li {
     margin-left: 0;
   }
 
-  .overlay-content1{
+  .overlay-content1 {
     width: 90vw;
   }
 
-  .overlay-content2{
+  .overlay-content2 {
     width: 90vw;
   }
 
-  .contact-popup-left{
+  .contact-popup-left {
     width: calc(90vw - 10%);
   }
 
-  .addUserDaten{
+  .addUserDaten {
     width: 90vw;
   }
 
-  .editUserDaten{
+  .editUserDaten {
     width: 90vw;
   }
 
-  .headlineUserInfo{
+  .headlineUserInfo {
     display: none;
   }
 
-  .back-to-contacts{
+  .back-to-contacts {
     display: block;
     cursor: pointer;
   }
 }
 
-@media(max-height: 400px){
-  .overlay-content1{
+@media (max-height: 400px) {
+  .overlay-content1 {
     overflow-y: scroll;
   }
 
-  .overlay-content2{
+  .overlay-content2 {
     overflow-y: scroll;
   }
 
-  .imgClose{
+  .imgClose {
     position: relative;
     top: -280px;
   }
 
-  .addUserButtonDiv{
+  .addUserButtonDiv {
     height: 120px;
   }
 
-  .btn{
+  .btn {
     margin-top: 40px;
   }
 
-  #userList{
+  #userList {
     margin-top: 80px;
   }
 
-  #userInfo{
+  #userInfo {
     margin-top: 20px;
   }
 }

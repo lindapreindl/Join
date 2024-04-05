@@ -10,9 +10,13 @@ let overlay;
 async function initContacts() {
   await loadUsers(); // Lade Benutzerdaten
   renderUsersList(); // Rendere Benutzerinformationen
-  await loadLoginUser();
-  renderLoginUserName('Contacts');
 }
+/* ———————————————————————————————————————————————————————————— */
+/* // Funktion zum Öffnen des Overlays
+function openOverlay() {
+  createOverlay(); // Erstelle das Overlay
+  overlay.style.display = "block"; // Zeige das Overlay an
+} */
 
 // Funktion zum Öffnen des Overlays
 function openOverlay() {
@@ -25,13 +29,67 @@ function openOverlay() {
     renderUserInfo(firstUser); // Benutzerinformationen rendern
   }
 }
+/* -------------test test -------------------------------------------- */
 
+/* -------------------------------------------------------------------- */
+// Funktion zum Erstellen des Overlays
 // Funktion zum Erstellen des Overlays
 function createOverlay() {
   overlay = document.createElement("div");
   overlay.className = "overlay";
   overlay.style.display = "none";
-  overlay.innerHTML = templateAddContact();
+  overlay.innerHTML = /* HTML */ `
+    <div class="overlay-content1">
+      <div class="contact-popup-left">
+        <img src="./img/logo_white.png" alt="" />
+        <h1>Add contact</h1>
+        <h3>Tasks are better with a Team!</h3>
+        <div class="blue-line-add-Contact"></div>
+      </div>
+      <div class="addPersonPic"><img src="./img/addPerson.png" alt="" /></div>
+
+      <div class="addUserDaten">
+        <div class="imgClose" onclick="closeOverlay()">
+          <img src="./img/close.png" alt="" />
+        </div>
+        <div class="center">
+          <input
+            class="iconPerson"
+            type="text"
+            id="newUserName"
+            placeholder="Name"
+            required
+          />
+
+          <input
+            class="iconMail"
+            type="email"
+            id="newUserEmail"
+            placeholder="Email"
+            required
+          />
+
+          <input
+            class="iconCall"
+            type="text"
+            id="newUserPhone"
+            placeholder="Phone"
+            required
+          />
+
+          <div class="cancel-createContact-btn ">
+            <button class="cancel-btn" onclick="closeOverlay()">
+              Cancel <img class="imgCancel" src="./img/cancel.png" alt="" />
+            </button>
+            <button onclick="addNewUser()" class="check-btn ">
+              Create contact
+              <img class="imgCheck" src="./img/check.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
   document.body.appendChild(overlay);
 }
 
@@ -40,7 +98,6 @@ function closeOverlay() {
   overlay.style.display = "none";
   overlay.remove(); // Overlay aus dem DOM entfernen
 }
-
 // Funktion zum Generieren einer eindeutigen Farbe für einen neuen Benutzer
 function generateUniqueColor() {
   // Array mit allen verfügbaren Farben
@@ -129,7 +186,7 @@ function clearUserInfo() {
   userInfoElement.innerHTML = "";
 }
 
-// Funktion zum Rendern der Benutzerliste
+/* // Funktion zum Rendern der Benutzerliste
 async function renderUsersList() {
   const userListElement = document.getElementById("userList");
   userListElement.innerHTML = ""; // Vorherigen Inhalt löschen
@@ -164,6 +221,7 @@ async function renderUsersList() {
       listItem.textContent = user.name;
       listItem.style.listStyleType = "none"; // Entferne Aufzählungspunkte
       listItem.style.marginLeft = "20px"; //Einrückung für die Benutzernamen
+      listItem.style.cursor = "pointer"; // Cursor ändern, um anzuzeigen, dass das Element klickbar ist
 
       // Erstelle ein Kreis-Element für die Initialen des Benutzers
       const initials = getInitials(user.name);
@@ -191,7 +249,179 @@ async function renderUsersList() {
       userListElement.appendChild(line);
     });
   }
+} */
+/* -------------------------------- Benutzerliste -------------------------------------------- */
+// Funktion zum Rendern der Benutzerliste
+async function renderUsersList() {
+  const userListElement = document.getElementById("userList");
+  userListElement.innerHTML = "";
+
+  // Benutzerliste alphabetisch sortieren
+  users.sort((a, b) => a.name.localeCompare(b.name));
+
+  // Benutzer nach Anfangsbuchstaben gruppieren
+  const groupedUsers = groupUsersByFirstLetter(users);
+
+  // Farben für jeden Benutzer generieren und speichern
+  assignUserColors(groupedUsers);
+
+  // Benutzerliste rendern
+  renderGroupedUsers(userListElement, groupedUsers);
 }
+
+// Funktion zum Gruppieren von Benutzern nach dem ersten Buchstaben ihres Namens
+function groupUsersByFirstLetter(users) {
+  const groupedUsers = {};
+  users.forEach((user) => {
+    const firstLetter = user.name.charAt(0).toUpperCase();
+    if (!(firstLetter in groupedUsers)) {
+      groupedUsers[firstLetter] = [];
+    }
+    groupedUsers[firstLetter].push(user);
+  });
+  return groupedUsers;
+}
+
+// Funktion zum Zuweisen von Farben für jeden Benutzer
+function assignUserColors(groupedUsers) {
+  Object.keys(groupedUsers).forEach((letter) => {
+    groupedUsers[letter].forEach((user) => {
+      userColors[user.name] = getColorForUser(user.name);
+    });
+  });
+}
+
+// Funktion zum Rendern der gruppierten Benutzerliste
+function renderGroupedUsers(userListElement, groupedUsers) {
+  for (const letter in groupedUsers) {
+    const usersStartingWithLetter = groupedUsers[letter];
+
+    // Überschrift für den Buchstaben erstellen
+    const letterHeader = document.createElement("h2");
+    letterHeader.textContent = letter;
+    userListElement.appendChild(letterHeader);
+
+    // Benutzerliste für den aktuellen Buchstaben rendern
+    usersStartingWithLetter.forEach((user) => {
+      renderUser(userListElement, user);
+    });
+  }
+}
+/* ------------------------------------------------------------------ */
+/* // Funktion zum Rendern eines einzelnen Benutzers
+function renderUser(userListElement, user) {
+  // Benutzername rendern
+  const userNameListItem = createUserNameListItem(user.name, user);
+  userListElement.appendChild(userNameListItem);
+
+  // E-Mail rendern
+  const emailListItem = createUserEmailListItem(user.email);
+  userListElement.appendChild(emailListItem);
+
+  // Horizontale Linie rendern
+  const line = createHorizontalLine();
+  userListElement.appendChild(line);
+} */
+let clickedUserItem = null; // Variable, um die zuletzt geklickte Zeile zu verfolgen
+// Funktion zum Rendern eines einzelnen Benutzers
+function renderUser(userListElement, user) {
+  // Erstellen des <li>-Elements für den Benutzer
+  const userListItem = createUserListItem(user);
+  userListElement.appendChild(userListItem);
+}
+
+function createUserListItem(user) {
+  const userListItem = document.createElement("li");
+  userListItem.classList.add("user-list-item"); // Füge die Klasse "user-list-item" hinzu
+
+  // Benutzernamen rendern
+  const userNameListItem = createUserNameListItem(user.name, user); // Erstelle das Listenelement für den Benutzernamen
+  userListItem.appendChild(userNameListItem); // Füge das Benutzernamen-Listenelement dem Benutzer-Listenelement hinzu
+
+  // E-Mail rendern
+  userListItem.appendChild(createUserEmailListItem(user.email)); // Füge das Listenelement für die E-Mail hinzu
+
+  // Horizontale Linie rendern
+  userListItem.appendChild(createHorizontalLine()); // Füge eine horizontale Linie hinzu, um Benutzer zu trennen
+
+  // Event-Listener für den Hover-Effekt hinzufügen
+  addHoverEffect(userListItem);
+
+  // Event-Listener für den Klick-Effekt hinzufügen
+  addClickEffect(userListItem);
+
+  return userListItem;
+}
+
+function addHoverEffect(element) {
+  element.addEventListener("mouseover", () => {
+    element.classList.add("hover-effect"); // Füge "hover-effect" beim Überfahren hinzu
+  });
+  element.addEventListener("mouseout", () => {
+    if (element !== clickedUserItem) {
+      element.classList.remove("hover-effect"); // Entferne "hover-effect", wenn der Mauszeiger das Element verlässt
+    }
+  });
+}
+
+function addClickEffect(element) {
+  element.addEventListener("click", () => {
+    if (clickedUserItem && clickedUserItem !== element) {
+      clickedUserItem.classList.remove("hover-farbe", "hover-effect"); // Entferne den Effekt von der zuvor geklickten Zeile
+    }
+    element.classList.add("hover-farbe", "hover-effect"); // Füge den Effekt zur neu geklickten Zeile hinzu
+    clickedUserItem = element; // Aktualisiere die zuletzt geklickte Zeile
+  });
+}
+
+/* --------------------------------------------------------------- */
+
+// Funktion zum Erstellen eines Listenelements für den Benutzernamen
+let previousUserNameItem = null; // Variable, um den vorherigen geklickten Benutzernamen zu verfolgen
+// Funktion zum Erstellen eines Listenelements für den Benutzernamen
+function createUserNameListItem(name, user) {
+  const userNameListItem = document.createElement("li");
+  userNameListItem.textContent = name;
+  userNameListItem.style =
+    "list-style-type: none; margin-left: 20px; cursor: pointer;";
+  userNameListItem.addEventListener("click", () => {
+    if (previousUserNameItem) previousUserNameItem.style.color = "";
+    userNameListItem.style.color = "white";
+    previousUserNameItem = userNameListItem;
+    renderUserInfo(user);
+  });
+  const initials = getInitials(name);
+  userNameListItem.insertBefore(
+    createInitialsCircle(initials, userColors[name]),
+    userNameListItem.firstChild
+  );
+  return userNameListItem;
+}
+/* ------------------------------------------------------------------ */
+// Funktion zum Erstellen eines Listenelements für die E-Mail
+function createUserEmailListItem(email) {
+  // Listenelement für die E-Mail erstellen
+  const emailListItem = document.createElement("li");
+  emailListItem.textContent = email;
+  emailListItem.style.listStyleType = "none";
+  emailListItem.style.marginLeft = "70px";
+  emailListItem.style.color = "rgb(128, 189, 246)";
+  return emailListItem;
+}
+
+// Funktion zum Hinzufügen von mehreren Elementen zu einem übergeordneten Element
+function appendElements(parentElement, elements) {
+  elements.forEach((element) => {
+    parentElement.appendChild(element);
+  });
+}
+
+// Funktion zum Erstellen einer horizontalen Linie
+function createHorizontalLine() {
+  return document.createElement("hr");
+}
+
+/* ------------------------- Benutzerliste End ------------------------------- */
 
 // Funktion zum Generieren einer Farbe basierend auf dem Benutzernamen
 function getColorForUser(username) {
@@ -246,18 +476,57 @@ function getColorForUser(username) {
 
 // Funktion zum Rendern der Benutzerinformationen mit Bearbeitungsfunktion
 function renderUserInfo(user) {
-  document.getElementById('userInfo').style = 'z-index: 2';
   let contactName = user.name;
   let contactIndex = users.findIndex((contact) => contact.name === contactName);
   const userInfoElement = document.getElementById("userInfo");
   // Benutzerinformationen rendern
-  userInfoElement.innerHTML = templateRenderUserInfo(user, contactIndex);
+  userInfoElement.innerHTML = /* HTML */ `
+    <div class="headlineUserInfo">
+      <h1>Contacts</h1>
+      <div class="blueLineUserInfo"></div>
+      <h2>Better with a team</h2>
+    </div>
+    <div class="userInfo-div">
+      <div class="circle2-user">
+        <div
+          class="initials-circle-info"
+          style="background-color: ${userColors[user.name]}; color: white;"
+        >
+          ${getInitials(user.name)}
+        </div>
+        <div>
+          <p class="user-name-info">${user.name}</p>
+          <div class="img-info-edit-delete">
+            <img
+              class="img-edit"
+              onclick="openEditOverlay(${contactIndex})"
+              src="./img/edit.png"
+              alt=""
+            />
+            <img
+              class="img-delete"
+              onclick="deleteUser('${user.name}'), clearUserInfo()"
+              src="./img/Delete contact.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <div class="user-info-contactInformation">
+        <h2>Contact Information</h2>
+        <div class="user-mail-info">
+          <h5>Email</h5>
+          <a href="#">${user.email}</a>
+        </div>
+        <div>
+          <h5>Phone</h5>
+          <span>${user.phone}</span>
+        </div>
+      </div>
+    </div>
+  `;
 }
-
-function goBackToUserList(){
-  document.getElementById('userInfo').style = 'z-index: 0';
-}
-
 // Funktion zum Öffnen des Overlays für die Bearbeitung eines Benutzers
 function openEditOverlay(index) {
   const user = users[index]; // Benutzer aus dem Index erhalten
@@ -280,7 +549,78 @@ function createEditOverlay(user, index) {
   overlay.className = "overlay";
   overlay.id = overlayId; // Eindeutige ID für das Overlay setzen
   overlay.style.display = "none";
-  overlay.innerHTML = templateCreateEditOverlay(user, index);
+  overlay.innerHTML = /* HTML */ `
+    <div class="overlay-content2">
+      <div class="contact-popup-left">
+        <img src="./img/logo_white.png" alt="" />
+        <h1>Edit contact</h1>
+        <h3>Tasks are better with a Team!</h3>
+        <div class="blue-line-add-Contact"></div>
+      </div>
+      <div class="initialsEdit">
+        <div
+          class="initials-circle-info"
+          style="background-color: ${userColors[user.name]}; color: white;"
+        >
+          ${getInitials(user.name)}
+        </div>
+      </div>
+      <div class="editUserDaten">
+        <div class="imgClose" onclick="closeOverlay()">
+          <img src="./img/close.png" alt="" />
+        </div>
+        <div class="center">
+          <input
+            class="iconPerson"
+            type="text"
+            id="editUserName"
+            placeholder="Name"
+            value="${user.name}"
+            required
+          />
+
+          <input
+            class="iconMail"
+            type="email"
+            id="editUserEmail"
+            placeholder="E-Mail"
+            value="${user.email}"
+            required
+          />
+
+          <input
+            class="iconCall"
+            type="text"
+            id="editUserPhone"
+            placeholder="Telefon"
+            value="${user.phone}"
+            required
+          />
+
+          <input
+            class="iconLock"
+            type="password"
+            id="editUserPassword"
+            placeholder="new Password"
+            required
+          />
+
+          <!-- Passwort-Eingabe hinzugefügt -->
+          <div class="delete-save-btn">
+            <button
+              class="delete-btn"
+              onclick="deleteUser('${user.name}'), clearUserInfo()"
+            >
+              Delete
+            </button>
+            <button class="save-btn" onclick="editUser(${index})">
+              Save <img class="imgCheck" src="./img/check.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
 
   document.body.appendChild(overlay);
 }
@@ -289,7 +629,16 @@ function createEditOverlay(user, index) {
 async function saveUsers() {
   await setItem("users", JSON.stringify(users));
 }
-
+/* // Funktion zum Laden der Benutzerdaten aus dem lokalen Speicher
+async function loadUsers() {
+  const usersData = await getItem("users");
+  if (usersData) {
+    users = JSON.parse(usersData);
+  } else {
+    users = [];
+    await saveUsers(); // Speichere die Beispieldaten
+  }
+} */
 async function loadUsers() {
   const usersData = await getItem("users");
   if (usersData) {
