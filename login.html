@@ -39,11 +39,13 @@
                 <p class="alertNotification d-none" id="wrongPassword">Wrong password. Ups! Try again.</p>
                 <div class="row marginBottom rememberMe" style="margin-left: -132px;">
                     <input type="checkbox" class="checkbox" id="rememberMeCheck">
+                    <img src="./img/unchecked.png" class="checkerOverlay" id="rememberMeChecker" onclick="changeChecker('rememberMe')">
                     <p>Remember me</p>
                 </div>
                 <div class="loginButtons marginBottom32 marginTop16">
                     <button id="logInButton">Log in</button>
                     <a href="./summary.html"><button type="button" class="whiteButton" onclick="guestLogin()">Guest Log in</button></a>
+                    <a href="./signup.html" id="secondSignupButton"><button type="button">Sign up</button></a>
                 </div>
             </form>
         </div>

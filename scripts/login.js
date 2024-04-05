@@ -139,3 +139,15 @@ async function initConsent(location) {
   await loadLoginUser();
   renderLoginUserName(location);
 }
+
+function changeChecker(location) {
+  let check = document.getElementById(`${location}Check`);
+  let checker = document.getElementById(`${location}Checker`);
+  if (check.checked == false) {
+    checker.src = './img/checked.png';
+    check.checked = true;
+  } else {
+    checker.src = './img/unchecked.png';
+    check.checked = false;
+  }
+}

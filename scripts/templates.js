@@ -109,3 +109,182 @@ function templateUserListInDropDown(i, initialColor, initials, me, checkValue, l
         <img id="userListChecker${location}${i}" src="${checkValue}">
     </div>`;
 }
+
+function templateAddContact() {
+    return `<div class="overlay-content1">
+    <div class="contact-popup-left">
+      <img src="./img/logo_white.png" alt="" />
+      <h1>Add contact</h1>
+      <h3>Tasks are better with a Team!</h3>
+      <div class="blue-line-add-Contact"></div>
+    </div>
+    <div class="addPersonPic"><img src="./img/addPerson.png" alt="" /></div>
+
+    <div class="addUserDaten">
+      <div class="imgClose" onclick="closeOverlay()">
+        <img src="./img/close.png" alt="" />
+      </div>
+      <div class="center">
+        <input
+          class="iconPerson"
+          type="text"
+          id="newUserName"
+          placeholder="Name"
+          required
+        />
+
+        <input
+          class="iconMail"
+          type="email"
+          id="newUserEmail"
+          placeholder="Email"
+          required
+        />
+
+        <input
+          class="iconCall"
+          type="text"
+          id="newUserPhone"
+          placeholder="Phone"
+          required
+        />
+
+        <div class="cancel-createContact-btn ">
+          <button class="cancel-btn" onclick="closeOverlay()">
+            Cancel <img class="imgCancel" src="./img/cancel.png" alt="" />
+          </button>
+          <button onclick="addNewUser()" class="check-btn ">
+            Create contact
+            <img class="imgCheck" src="./img/check.png" alt="" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
+}
+
+function templateRenderUserInfo(user, contactIndex) {
+    return `
+    <div class="headlineUserInfo">
+      <h1>Contacts</h1>
+      <div class="blueLineUserInfo"></div>
+      <h2>Better with a team</h2>
+    </div>
+    <img class="back-to-contacts" onclick="goBackToUserList()" src="../img/arrowLeft.png" alt="">
+    <div class="userInfo-div">
+      <div class="circle2-user">
+        <div
+          class="initials-circle-info"
+          style="background-color: ${userColors[user.name]}; color: white;"
+        >
+          ${getInitials(user.name)}
+        </div>
+        <div>
+          <p class="user-name-info">${user.name}</p>
+          <div class="img-info-edit-delete">
+            <img
+              class="img-edit"
+              onclick="openEditOverlay(${contactIndex})"
+              src="./img/edit.png"
+              alt=""
+            />
+            <img
+              class="img-delete"
+              onclick="deleteUser('${user.name}'), clearUserInfo()"
+              src="./img/Delete contact.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <div class="user-info-contactInformation">
+        <h2>Contact Information</h2>
+        <div class="user-mail-info">
+          <h5>Email</h5>
+          <a href="#">${user.email}</a>
+        </div>
+        <div>
+          <h5>Phone</h5>
+          <span>${user.phone}</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function templateCreateEditOverlay(user, index) {
+    return `
+    <div class="overlay-content2">
+      <div class="contact-popup-left">
+        <img src="./img/logo_white.png" alt="" />
+        <h1>Edit contact</h1>
+        <h3>Tasks are better with a Team!</h3>
+        <div class="blue-line-add-Contact"></div>
+      </div>
+      <div class="initialsEdit">
+        <div
+          class="initials-circle-info"
+          style="background-color: ${userColors[user.name]}; color: white;"
+        >
+          ${getInitials(user.name)}
+        </div>
+      </div>
+      <div class="editUserDaten">
+        <div class="imgClose" onclick="closeOverlay()">
+          <img src="./img/close.png" alt="" />
+        </div>
+        <div class="center">
+          <input
+            class="iconPerson"
+            type="text"
+            id="editUserName"
+            placeholder="Name"
+            value="${user.name}"
+            required
+          />
+
+          <input
+            class="iconMail"
+            type="email"
+            id="editUserEmail"
+            placeholder="E-Mail"
+            value="${user.email}"
+            required
+          />
+
+          <input
+            class="iconCall"
+            type="text"
+            id="editUserPhone"
+            placeholder="Telefon"
+            value="${user.phone}"
+            required
+          />
+
+          <input
+            class="iconLock"
+            type="password"
+            id="editUserPassword"
+            placeholder="new Password"
+            required
+          />
+
+          <!-- Passwort-Eingabe hinzugefügt -->
+          <div class="delete-save-btn">
+            <button
+              class="delete-btn"
+              onclick="deleteUser('${user.name}'), clearUserInfo()"
+            >
+              Delete
+            </button>
+            <button class="save-btn" onclick="editUser(${index})">
+              Save <img class="imgCheck" src="./img/check.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}

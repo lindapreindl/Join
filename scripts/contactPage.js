@@ -10,13 +10,9 @@ let overlay;
 async function initContacts() {
   await loadUsers(); // Lade Benutzerdaten
   renderUsersList(); // Rendere Benutzerinformationen
+  await loadLoginUser();
+  renderLoginUserName('Contacts');
 }
-/* ———————————————————————————————————————————————————————————— */
-/* // Funktion zum Öffnen des Overlays
-function openOverlay() {
-  createOverlay(); // Erstelle das Overlay
-  overlay.style.display = "block"; // Zeige das Overlay an
-} */
 
 // Funktion zum Öffnen des Overlays
 function openOverlay() {
@@ -29,67 +25,13 @@ function openOverlay() {
     renderUserInfo(firstUser); // Benutzerinformationen rendern
   }
 }
-/* -------------test test -------------------------------------------- */
 
-/* -------------------------------------------------------------------- */
-// Funktion zum Erstellen des Overlays
 // Funktion zum Erstellen des Overlays
 function createOverlay() {
   overlay = document.createElement("div");
   overlay.className = "overlay";
   overlay.style.display = "none";
-  overlay.innerHTML = /* HTML */ `
-    <div class="overlay-content1">
-      <div class="contact-popup-left">
-        <img src="./img/logo_white.png" alt="" />
-        <h1>Add contact</h1>
-        <h3>Tasks are better with a Team!</h3>
-        <div class="blue-line-add-Contact"></div>
-      </div>
-      <div class="addPersonPic"><img src="./img/addPerson.png" alt="" /></div>
-
-      <div class="addUserDaten">
-        <div class="imgClose" onclick="closeOverlay()">
-          <img src="./img/close.png" alt="" />
-        </div>
-        <div class="center">
-          <input
-            class="iconPerson"
-            type="text"
-            id="newUserName"
-            placeholder="Name"
-            required
-          />
-
-          <input
-            class="iconMail"
-            type="email"
-            id="newUserEmail"
-            placeholder="Email"
-            required
-          />
-
-          <input
-            class="iconCall"
-            type="text"
-            id="newUserPhone"
-            placeholder="Phone"
-            required
-          />
-
-          <div class="cancel-createContact-btn ">
-            <button class="cancel-btn" onclick="closeOverlay()">
-              Cancel <img class="imgCancel" src="./img/cancel.png" alt="" />
-            </button>
-            <button onclick="addNewUser()" class="check-btn ">
-              Create contact
-              <img class="imgCheck" src="./img/check.png" alt="" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
+  overlay.innerHTML = templateAddContact();
   document.body.appendChild(overlay);
 }
 
@@ -98,6 +40,7 @@ function closeOverlay() {
   overlay.style.display = "none";
   overlay.remove(); // Overlay aus dem DOM entfernen
 }
+
 // Funktion zum Generieren einer eindeutigen Farbe für einen neuen Benutzer
 function generateUniqueColor() {
   // Array mit allen verfügbaren Farben
@@ -308,53 +251,7 @@ function renderUserInfo(user) {
   let contactIndex = users.findIndex((contact) => contact.name === contactName);
   const userInfoElement = document.getElementById("userInfo");
   // Benutzerinformationen rendern
-  userInfoElement.innerHTML = /* HTML */ `
-    <div class="headlineUserInfo">
-      <h1>Contacts</h1>
-      <div class="blueLineUserInfo"></div>
-      <h2>Better with a team</h2>
-    </div>
-    <img class="back-to-contacts" onclick="goBackToUserList()" src="../img/arrowLeft.png" alt="">
-    <div class="userInfo-div">
-      <div class="circle2-user">
-        <div
-          class="initials-circle-info"
-          style="background-color: ${userColors[user.name]}; color: white;"
-        >
-          ${getInitials(user.name)}
-        </div>
-        <div>
-          <p class="user-name-info">${user.name}</p>
-          <div class="img-info-edit-delete">
-            <img
-              class="img-edit"
-              onclick="openEditOverlay(${contactIndex})"
-              src="./img/edit.png"
-              alt=""
-            />
-            <img
-              class="img-delete"
-              onclick="deleteUser('${user.name}'), clearUserInfo()"
-              src="./img/Delete contact.png"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-      <!--  -->
-      <div class="user-info-contactInformation">
-        <h2>Contact Information</h2>
-        <div class="user-mail-info">
-          <h5>Email</h5>
-          <a href="#">${user.email}</a>
-        </div>
-        <div>
-          <h5>Phone</h5>
-          <span>${user.phone}</span>
-        </div>
-      </div>
-    </div>
-  `;
+  userInfoElement.innerHTML = templateRenderUserInfo(user, contactIndex);
 }
 
 function goBackToUserList(){
@@ -383,78 +280,7 @@ function createEditOverlay(user, index) {
   overlay.className = "overlay";
   overlay.id = overlayId; // Eindeutige ID für das Overlay setzen
   overlay.style.display = "none";
-  overlay.innerHTML = /* HTML */ `
-    <div class="overlay-content2">
-      <div class="contact-popup-left">
-        <img src="./img/logo_white.png" alt="" />
-        <h1>Edit contact</h1>
-        <h3>Tasks are better with a Team!</h3>
-        <div class="blue-line-add-Contact"></div>
-      </div>
-      <div class="initialsEdit">
-        <div
-          class="initials-circle-info"
-          style="background-color: ${userColors[user.name]}; color: white;"
-        >
-          ${getInitials(user.name)}
-        </div>
-      </div>
-      <div class="editUserDaten">
-        <div class="imgClose" onclick="closeOverlay()">
-          <img src="./img/close.png" alt="" />
-        </div>
-        <div class="center">
-          <input
-            class="iconPerson"
-            type="text"
-            id="editUserName"
-            placeholder="Name"
-            value="${user.name}"
-            required
-          />
-
-          <input
-            class="iconMail"
-            type="email"
-            id="editUserEmail"
-            placeholder="E-Mail"
-            value="${user.email}"
-            required
-          />
-
-          <input
-            class="iconCall"
-            type="text"
-            id="editUserPhone"
-            placeholder="Telefon"
-            value="${user.phone}"
-            required
-          />
-
-          <input
-            class="iconLock"
-            type="password"
-            id="editUserPassword"
-            placeholder="new Password"
-            required
-          />
-
-          <!-- Passwort-Eingabe hinzugefügt -->
-          <div class="delete-save-btn">
-            <button
-              class="delete-btn"
-              onclick="deleteUser('${user.name}'), clearUserInfo()"
-            >
-              Delete
-            </button>
-            <button class="save-btn" onclick="editUser(${index})">
-              Save <img class="imgCheck" src="./img/check.png" alt="" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
+  overlay.innerHTML = templateCreateEditOverlay(user, index);
 
   document.body.appendChild(overlay);
 }
@@ -463,16 +289,7 @@ function createEditOverlay(user, index) {
 async function saveUsers() {
   await setItem("users", JSON.stringify(users));
 }
-/* // Funktion zum Laden der Benutzerdaten aus dem lokalen Speicher
-async function loadUsers() {
-  const usersData = await getItem("users");
-  if (usersData) {
-    users = JSON.parse(usersData);
-  } else {
-    users = [];
-    await saveUsers(); // Speichere die Beispieldaten
-  }
-} */
+
 async function loadUsers() {
   const usersData = await getItem("users");
   if (usersData) {

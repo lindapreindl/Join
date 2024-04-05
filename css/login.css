@@ -21,6 +21,20 @@ body {
     left: 45%;
 }
 
+.checkerOverlay {
+    z-index: 5;
+    margin-left: -39px;
+    position: relative;
+    background-color: white;
+}
+
+.checkerOverlaySignup {
+    z-index: 5;
+    margin-left: -31px;
+    position: relative;
+    background-color: white;
+}
+
 @keyframes animateLogo {
     0%      {height: 250px; top: 40%; left: 45%;}
     100%    {height: 96px; top: 20px; left: 97px;}
@@ -116,6 +130,10 @@ h1 {
     justify-content: space-between;
 }
 
+#secondSignupButton {
+    display: none;
+}
+
 .goToSignUp {
     display: flex;
     width: 250px;
@@ -151,7 +169,7 @@ a {
 
 .bottom-part {
     position: absolute;
-    bottom: 40px;
+    bottom: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -214,17 +232,10 @@ a {
 
 @media(max-height: 400px){
 
-    .mainLogo{
-        display: none;
-    }
-
     .goToSignUp{
         display: none;
     }
 
-    .bottom-part{
-        display: none;
-    }
 }
 
 @media(max-height: 700px) {
@@ -233,6 +244,22 @@ a {
         height: 48px;
         margin-top: 17px;
         margin-left: 18px;
+    }
+
+}
+
+@media(max-height: 500px) {
+
+    #secondSignupButton {
+        display: flex;
+    }
+
+    .goToSignUp {
+        display: none;
+    }
+
+    .loginButtons {
+        width: 100%;
     }
 
 }
@@ -251,4 +278,8 @@ a {
         gap: 156px;
     }
 
+    .popUpBox {
+        margin-top: -32px;
+    }
+   
 }
