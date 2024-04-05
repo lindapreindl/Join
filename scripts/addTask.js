@@ -65,8 +65,6 @@ function removePrioSymbols(location) {
 }
 
 function changeToSubtaskInput(location) {
-    // document.getElementById('buttonAddSubtask' + location).style = 'display: none';
-    // document.getElementById('inputDivAddSubtask' + location).style = 'display: flex';
     document.getElementById('addImg1' + location).classList.add('d-none');
     document.getElementById('subtasksController' + location).classList.remove('d-none');
     document.getElementById('subtasksController' + location).classList.add('d-flex');
@@ -92,10 +90,14 @@ async function searchAssignedPeople(location) {
         let initials = getInitials(users[i].name);
         let initialColor = users[i].color;
         let checkValue = './img/unchecked.png';
-        if (users[i].name == loginUser[0]) { thatIsMe = " (You)" }
+        let bgcolor = '#FFFFFF';
+        if (users[i].name == loginUser[0]) { thatIsMe = ' (You)' }
         else { thatIsMe = '' };
-        if (assignedUsers.includes(users[i].name)) { checkValue = './img/checked.png' }
-        dropDown.innerHTML += templateUserListInDropDown(i, initialColor, initials, thatIsMe, checkValue, location);
+        if (assignedUsers.includes(users[i].name)) { 
+            checkValue = './img/checked.png' 
+            bgcolor = '#29ABE2'
+        }
+        dropDown.innerHTML += templateUserListInDropDown(i, initialColor, initials, thatIsMe, checkValue, bgcolor, location);
         ;
     }
 }
@@ -136,11 +138,7 @@ async function searchSpecificUser(location) {
                 foundUsers.push(i);
             }
         }
-        console.log(foundUsers);
-        if (foundUsers.length > 0) {
-            // document.getElementById('dropDownUserListToAssigne').innerHTML = '';
-            fillFoundUsersInDropDown(foundUsers, location);
-        }
+        if (foundUsers.length > 0) { fillFoundUsersInDropDown(foundUsers, location); }
     }
 }
 
@@ -175,19 +173,7 @@ function renderSubtasks(location) {
     list.innerHTML = '';
     for (let id = 0; id < subtasks.length; id++) {
         nextSubtaskInList = subtasks[id].subtask;
-        list.innerHTML += /*html*/`
-             <li id="subtask${id}">
-                <div class="subtaskLIST" id="listBox${id}" onmouseover="showSubtaskEditor(${id})" onmouseout="hideSubtaskEditor(${id})">
-                    <p id="subTitle${id}" onclick="openSubtaskEditor(${id})">${nextSubtaskInList}</p>
-                    <div class="subtaskEditor">
-                        <input class="d-none" id="subtaskEditInput${id}" value="${nextSubtaskInList}">
-                        <img src="./img/editIcon.png" class="d-none miniIcons" id="btnEdit${id}" onclick="openSubtaskEditor(${id})">
-                        <img src="./img/check_dark.png" class="d-none miniIcons" id="btnSave${id}" onclick="saveNewSubtaskEditor(${id}, '${location}')">
-                        <img src="./img/deleteIcon.png" class="d-none miniIcons" id="btnDelete${id}" onclick="deleteSubtaskEditor(${id}, '${location}')">
-                    </div>
-                </div>
-            </li>
-        `;
+        list.innerHTML += templateRenderSubtasks(location, id, nextSubtaskInList);
     }
     document.getElementById('inputAddSubtask' + location).value = '';
 }
@@ -259,8 +245,6 @@ async function createTask(location) {
     if (location == 'IB') { closeAddTaskInBoard(); }
     initBoard();
     window.location.href = "board.html?msg=Task added to board";
-
-    // console.log('task created successfully', tasks)
 }
 
 async function saveChanges(location, i) {
@@ -290,10 +274,7 @@ async function saveChanges(location, i) {
     if (location == 'IB') { closeAddTaskInBoard(); }
     initBoard();
     window.location.href = "board.html?msg=Task added to board";
-
-    // console.log('task created successfully', tasks)
 }
-
 
 function deleteTask(i) {
     tasks.splice(i, 1);
@@ -301,7 +282,6 @@ function deleteTask(i) {
     closeTaskDetails();
     initBoard();
 }
-
 
 async function editTask(i, location) {
     document.getElementById('body').style = 'overflow: hidden';
@@ -318,7 +298,6 @@ async function editTask(i, location) {
     editPosition = tasks[i]['position'];    
     if (location == 'IB') { openAddTaskInBoard('edit'); }
     fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks, category, location);
-    
 }
 
 function fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks, category, location) {

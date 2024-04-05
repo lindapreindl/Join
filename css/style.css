@@ -225,8 +225,33 @@ button img {
     font-weight: bold;
     height: 20px;
     position: fixed;
-    top: 50px;
+    top: 120px;
+    left: 50%;
+    animation: slide-in-out 1.5s both;
+    z-index: 150;
 }
+
+@keyframes slide-in-out {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  
+    30% {
+      transform: translateY(100%);
+      opacity: 1;
+    }
+
+    70% {
+        transform: translateY(100%);
+        opacity: 1;
+      }
+
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+  }
 
 .activeUserInitials {
     color: #29ABE2;
@@ -522,6 +547,12 @@ button img {
     box-shadow: 0px 0px 4px 0px #0000001A;
     top: 105px;
     right: 5px;
+    animation: userMenuAnimation 0.5s;
+}
+
+@keyframes userMenuAnimation {
+    0%      {opacity: 0;}
+    100%    {opacity: 1;}
 }
 
 .userMenuOption {

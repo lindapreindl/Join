@@ -144,6 +144,7 @@ p {
     margin-bottom: 12px;
     padding: 68px 40px 38px 40px;
     border-radius: 30px;
+    animation: slide-in 0.8s both;
 }
 
 .widthTaskDetails::-webkit-scrollbar {

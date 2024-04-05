@@ -10,6 +10,8 @@ let overlay;
 async function initContacts() {
   await loadUsers(); // Lade Benutzerdaten
   renderUsersList(); // Rendere Benutzerinformationen
+  await loadLoginUser();
+  renderLoginUserName('Contacts');
 }
 
 // Funktion zum Öffnen des Overlays
@@ -33,68 +35,7 @@ function createOverlay() {
   document.body.appendChild(overlay);
 }
 
-function createOverlayContent() {
-  return /* HTML */ `
-    <div class="overlay-content1">
-      ${createContactPopupLeft()}
-      <div class="addPersonPic"><img src="./img/addPerson.png" alt="" /></div>
-      ${createAddUserDaten()}
-    </div>
-  `;
-}
 
-function createContactPopupLeft() {
-  return /* HTML */ `
-    <div class="contact-popup-left">
-      <img src="./img/logo_white.png" alt="" />
-      <h1>Add contact</h1>
-      <h3>Tasks are better with a Team!</h3>
-      <div class="blue-line-add-Contact"></div>
-    </div>
-  `;
-}
-
-function createAddUserDaten() {
-  return /* HTML */ `
-    <div class="addUserDaten">
-      <div class="imgClose" onclick="closeOverlay()">
-        <img src="./img/close.png" alt="" />
-      </div>
-      <div class="center">
-        <input
-          class="iconPerson"
-          type="text"
-          id="newUserName"
-          placeholder="Name"
-          required
-        />
-        <input
-          class="iconMail"
-          type="email"
-          id="newUserEmail"
-          placeholder="Email"
-          required
-        />
-        <input
-          class="iconCall"
-          type="text"
-          id="newUserPhone"
-          placeholder="Phone"
-          required
-        />
-        <div class="cancel-createContact-btn ">
-          <button class="cancel-btn" onclick="closeOverlay()">
-            Cancel <img class="imgCancel" src="./img/cancel.png" alt="" />
-          </button>
-          <button onclick="addNewUser()" class="check-btn ">
-            Create contact
-            <img class="imgCheck" src="./img/check.png" alt="" />
-          </button>
-        </div>
-      </div>
-    </div>
-  `;
-}
 /* ---------------------- createOverlay() END -------------------- */
 
 // Funktion zum Schließen des Overlays und Entfernen aus dem DOM
@@ -165,11 +106,9 @@ async function addNewUser() {
     document.getElementById("newUserEmail").value = "";
     document.getElementById("newUserPhone").value = "";
 
-    // Benachrichtigung anzeigen, dass der Benutzer erfolgreich hinzugefügt wurde
-    alert("User added successfully.");
-  } else {
-    // Falls nicht alle Felder ausgefüllt sind, eine Benachrichtigung anzeigen
-    alert("Please fill in all fields.");
+    window.location.href = 'contactPage.html?msg=User added successfully.';
+    } else {
+    window.location.href = 'contactPage.html?msg=Please fill in all fields.';
   }
 }
 
@@ -403,66 +342,6 @@ function renderUserInfo(user) {
   userInfoElement.innerHTML = createUserInfoHTML(user, contactIndex);
 }
 
-function createUserInfoHTML(user, contactIndex) {
-  return /* HTML */ `
-    <div class="headlineUserInfo">
-      <h1>Contacts</h1>
-      <div class="blueLineUserInfo"></div>
-      <h2>Better with a team</h2>
-    </div>
-    <div class="userInfo-div">
-      ${createCircleUserInfo(user, contactIndex)}
-      ${createContactInformation(user)}
-    </div>
-  `;
-}
-
-function createCircleUserInfo(user, contactIndex) {
-  return /* HTML */ `
-    <div class="circle2-user">
-      <div
-        class="initials-circle-info"
-        style="background-color: ${userColors[user.name]}; color: white;"
-      >
-        ${getInitials(user.name)}
-      </div>
-      <div>
-        <p class="user-name-info">${user.name}</p>
-        <div class="img-info-edit-delete">
-          <img
-            class="img-edit"
-            onclick="openEditOverlay(${contactIndex})"
-            src="./img/edit.png"
-            alt=""
-          />
-          <img
-            class="img-delete"
-            onclick="deleteUser('${user.name}'), clearUserInfo()"
-            src="./img/Delete contact.png"
-            alt=""
-          />
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-function createContactInformation(user) {
-  return /* HTML */ `
-    <div class="user-info-contactInformation">
-      <h2>Contact Information</h2>
-      <div class="user-mail-info">
-        <h5>Email</h5>
-        <a href="#">${user.email}</a>
-      </div>
-      <div>
-        <h5>Phone</h5>
-        <span>${user.phone}</span>
-      </div>
-    </div>
-  `;
-}
-
 // Funktion zum Öffnen des Overlays für die Bearbeitung eines Benutzers
 function openEditOverlay(index) {
   const user = users[index]; // Benutzer aus dem Index erhalten
@@ -485,84 +364,10 @@ function createEditOverlay(user, index) {
   overlay.className = "overlay";
   overlay.id = overlayId; // Eindeutige ID für das Overlay setzen
   overlay.style.display = "none";
-  overlay.innerHTML = /* HTML */ `
-    <div class="overlay-content2">
-      <div class="contact-popup-left">
-        <img src="./img/logo_white.png" alt="" />
-        <h1>Edit contact</h1>
-        <h3>Tasks are better with a Team!</h3>
-        <div class="blue-line-add-Contact"></div>
-      </div>
-      <div class="initialsEdit">
-        <div
-          class="initials-circle-info"
-          style="background-color: ${userColors[user.name]}; color: white;"
-        >
-          ${getInitials(user.name)}
-        </div>
-      </div>
-      <div class="editUserDaten">
-        <div class="imgClose" onclick="closeOverlay()">
-          <img src="./img/close.png" alt="" />
-        </div>
-        <div class="center">
-          <input
-            class="iconPerson"
-            type="text"
-            id="editUserName"
-            placeholder="Name"
-            value="${user.name}"
-            required
-          />
-
-          <input
-            class="iconMail"
-            type="email"
-            id="editUserEmail"
-            placeholder="E-Mail"
-            value="${user.email}"
-            required
-          />
-
-          <input
-            class="iconCall"
-            type="text"
-            id="editUserPhone"
-            placeholder="Telefon"
-            value="${user.phone}"
-            required
-          />
-
-          <input
-            class="iconLock"
-            type="password"
-            id="editUserPassword"
-            placeholder="new Password"
-            required
-          />
-
-          <!-- Passwort-Eingabe hinzugefügt -->
-          <div class="delete-save-btn">
-            <button
-              class="delete-btn"
-              onclick="deleteUser('${user.name}'), clearUserInfo()"
-            >
-              Delete
-            </button>
-            <button class="save-btn" onclick="editUser(${index})">
-              Save <img class="imgCheck" src="./img/check.png" alt="" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-
+  overlay.innerHTML = templateEditOverlay(user, index);
+  
   document.body.appendChild(overlay);
 }
-/* ---------------------------------------------------- */
-
-/* ----------------------------------------------------- */
 
 // Funktion zum Speichern der Benutzerdaten im lokalen Speicher
 async function saveUsers() {
@@ -597,12 +402,21 @@ async function editUser(index) {
     if (editedUser) {
       updateUserList(editedUser, index);
       closeOverlay();
-      alert("User updated successfully.");
+      window.location.href = 'contactPage.html?msg=User updated successfully.';
     } else {
-      alert("Failed to update user.");
+      window.location.href = 'contactPage.html?msg=Failed to update user.';
     }
   } else {
     alert("Please fill in all fields.");
+  }
+}
+
+function messageContacts() {
+  const urlMessage = new URLSearchParams(window.location.search);
+  const msg = urlMessage.get("msg");
+  if (msg) {
+    document.getElementById("sucessBoxContacts").classList.remove("d-none");
+    document.getElementById("sucessBoxContacts").innerHTML = msg;
   }
 }
 

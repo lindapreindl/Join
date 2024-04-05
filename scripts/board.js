@@ -204,6 +204,14 @@ async function fillSearchedTaskInBoard() {
     }
 }
 
+function messageBoard() {
+    const urlMessage = new URLSearchParams(window.location.search);
+    const msg = urlMessage.get("msg");
+    if (msg) {
+      document.getElementById("sucessBoxBoard").classList.remove("d-none");
+      document.getElementById("sucessBoxBoard").innerHTML = msg;
+    }
+  }
 
 
 

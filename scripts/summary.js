@@ -26,6 +26,15 @@ function greeting() {
     if (loginUser[0] == '') { document.getElementById('greeting').innerHTML = daytime + '!'; }
 }
 
+function messageSummary() {
+    const urlMessage = new URLSearchParams(window.location.search);
+    const msg = urlMessage.get("msg");
+    if (msg) {
+      document.getElementById("sucessBoxLogin").classList.remove("d-none");
+      document.getElementById("sucessBoxLogin").innerHTML = msg;
+    }
+}
+
 function findOutDayTime() {
     let now = new Date().getHours();
     if (now >= 5 && now < 12) { now = 'Good morning' };

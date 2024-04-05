@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join | Summary</title>
     <link rel="stylesheet" href="./css/consent.css">
+    <link rel="stylesheet" href="./css/summary.css">
     <link rel="stylesheet" href="./css/board.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/addTask.css">
@@ -21,7 +22,7 @@
     <script src="./scripts/summary.js"></script>
 </head>
 
-<body onload="initSummary()">
+<body onload="initSummary(), messageSummary()">
 
     <div class="navigation">
         <img class="logo" src="./img/logo_white.png">
@@ -50,6 +51,7 @@
         </div>
 
         <div class="helpBorder">
+            <div class="infoBox d-none" id="sucessBoxLogin">You logged in successfully</div>
 
             <div class="headlineSummary">
                 <h1>Join 360</h1>

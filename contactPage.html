@@ -19,7 +19,7 @@
     <script src="./scripts/templates.js"></script>
 </head>
 
-<body onload="initContacts()">
+<body onload="initContacts(), messageContacts()">
     <div class="navigation">
         <img class="logo" src="./img/logo_white.png">
         <div class="menu">
@@ -53,7 +53,7 @@
             </a>
 
             <!-- Bereich zur Anzeige der Benutzerliste -->
-
+            <div class="infoBox d-none" id="sucessBoxContacts">Sucess</div>
             <div class="contactLeft">
                 <div class="user-list-container">
                     <div class="addUserButtonDiv">

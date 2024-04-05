@@ -19,7 +19,7 @@
     <title>Join | Board</title>
 </head>
 
-<body onload="initBoard()" id="body">
+<body onload="initBoard(), messageBoard()" id="body">
     <div class="navigation">
         <img class="logo" src="./img/logo_white.png">
         <div class="menu">
@@ -48,6 +48,7 @@
             <div class="headBox">
                 <div class="boardTitleBox">
                     <h1 class="boardTitle">Board</h1>
+                    <div class="infoBox d-none" id="sucessBoxBoard">Task added on Board</div>
                     <a href="./addTask.html">
                         <div class="boardTitleAddTaskResponsive"><img src="./img/addWhite.png"></div>
                 </div></a>
@@ -81,6 +82,7 @@
             </div>
         </div>
         <!--Content-Part-->
+        
         <div class="boardTable d-flex">
             <div class="categoryBoard" id="categoryToDo">
                 <div class="boardTopicResponsive">
@@ -129,7 +131,7 @@
                     <div class="headerAddTaskInBoard">
                         <h1 id="titleAddTask" class="h1">Add Task</h1>
                         <h1 id="titleEditTask" class="h1 d-none">Edit Task</h1>
-                        <img onclick="closeAddTaskInBoard()" src="./img/close.png" alt="">
+                        <img onclick="closeAddTaskInBoard()" src="./img/close.png" class="closeIcon" alt="">
                     </div>
 
                     <div class="form">
@@ -166,7 +168,7 @@
 
                         <div class="form-right">
                             <div class="dueDate">
-                                <p>Due Date</p>
+                                <p>Due Date<mark>*</mark></p>
                                 <div class="inputBoxAddTask">
                                     <input type="date" id="dueDateAddTaskIB" name="dueDate" required>
                                 </div>
