@@ -330,9 +330,34 @@ nav {
     }
 }
 
+@media(max-height: 600px){
+    .logo {
+        width: 48px;
+    }
+
+    .menu {
+        gap: 5px;
+    }
+
+    .navigation {
+        height: calc(100vh - 94px);
+        padding-top: 30px;
+    }
+}
+
+@media(max-height: 450px){
+    .logo {
+        width: 48px;
+    }
+
+    .menu {
+        gap: 5px;
+    }
+}
+
 @media(max-height: 400px){
-    .logo{
-        display: none;
+    .logo {
+        width: 32px;
     }
 
     .navigation{

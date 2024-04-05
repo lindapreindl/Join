@@ -744,6 +744,10 @@ button img {
 
 @media (max-width: 700px) {
 
+    body {
+        overflow-x: hidden;
+    }
+
     .helpBorder{
         margin-top: 128px;
         margin-bottom: 80px;
@@ -772,6 +776,7 @@ button img {
 
     .allContent {
         width: 100%;
+        overflow-x: hidden;
     }
 
     .horizontal {
