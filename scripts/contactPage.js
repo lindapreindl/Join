@@ -337,9 +337,14 @@ function getColorForUser(username) {
 /* ------------------------------------------ */
 // Funktion zum Rendern der Benutzerinformationen mit Bearbeitungsfunktion
 function renderUserInfo(user) {
+  document.getElementById('userInfo').style = 'z-index: 2';
   const contactIndex = users.findIndex((contact) => contact.name === user.name);
   const userInfoElement = document.getElementById("userInfo");
   userInfoElement.innerHTML = createUserInfoHTML(user, contactIndex);
+}
+
+function goBackToUserList(){
+  document.getElementById('userInfo').style = 'z-index: 0';
 }
 
 // Funktion zum Öffnen des Overlays für die Bearbeitung eines Benutzers
