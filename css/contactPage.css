@@ -889,8 +889,25 @@ li {
   .back-to-contacts {
     display: block;
     cursor: pointer;
-    margin-top: 200px;
+    margin-top: 50px;
   }
+}
+
+@media (max-height: 750px) {
+
+  .contact-popup-left {
+    padding-top: 5vh;
+    padding-bottom: 10vh;
+  }
+
+  .addUserDaten {
+    top: -15vh;
+  }
+  
+  .center {
+    gap: 15px;
+  }
+
 }
 
 @media (max-height: 400px) {
