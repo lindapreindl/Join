@@ -19,19 +19,35 @@
     padding-top: 220px;
 }
 
-/* .boardHeader {
-    width: 100%;
-    top: 0;
-    left: 232px;
-    padding-right: 232px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: fixed;
+.topicHover {
+    background-color: #09193111;
+}
+
+.changeTopicArrows {
+    font-size: 32px;
+    display: none;
     z-index: 10;
-    background-color: #F6F7F8;
-    padding-top: 0;
-} */
+}
+
+.arrowRed {
+    color: red;
+    padding: 2px;
+}
+
+.arrowRed:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+.arrowGreen:hover {
+    background-color: rgba(0, 128, 0, 0.1);
+    border-radius: 50%;
+}
+
+.arrowGreen {
+    color: green;
+    padding: 2px;
+}
 
 .verticalLine {
     height: 24px;
@@ -485,6 +501,10 @@ progress[value]::-webkit-progress-value {
 
     .titleLine {
         display: none;
+    }
+
+    .changeTopicArrows {
+        display: flex;
     }
 
 }

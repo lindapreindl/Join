@@ -81,11 +81,10 @@ function cancelSubtask(location) {
 
 async function searchAssignedPeople(location) {
     let dropDown = document.getElementById('dropDownUserListToAssigne' + location);
-    let thatIsMe = '';
     dropDown.innerHTML = '';
     if (dropDown.classList.contains('d-none')) { dropDown.classList.remove('d-none') }
     else { dropDown.classList.add('d-none') };
-
+    let thatIsMe = '';
     for (let i = 0; i < users.length; i++) {
         let initials = getInitials(users[i].name);
         let initialColor = users[i].color;

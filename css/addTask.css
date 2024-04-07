@@ -574,11 +574,12 @@ select:hover {
 }
 
 .userInDropDown:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: lightgrey !important;
+    cursor: pointer;
 }
 
 .userDropdownChosen {
-    background-color: #29ABE2;
+    background-color: #29ABE2 !important;
 }
 
 .showAssignedUsersStickers {

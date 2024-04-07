@@ -89,7 +89,7 @@
                     <h3 class="topics">To do</h3>
                     <div class="addButton mr24" onclick="openAddTaskInBoard('add')">+</div>
                 </div>
-                <div id="contentToDo" class="taskContentBox" ondrop="moveTaskTo('ToDo')" ondragover="allowDrop(event)">
+                <div id="contentToDo" class="taskContentBox" ondrop="moveTaskTo('ToDo'), dragHoverOver('contentToDo')" ondragover="allowDrop(event), dragHover('contentToDo')" ondragleave="dragHoverOver('contentToDo')">
                 </div>
             </div>
             <div class="categoryBoard" id="categoryInProgress">
@@ -97,24 +97,21 @@
                     <h3 class="topics">In progress</h3>
                     <div class="addButton mr24" onclick="openAddTaskInBoard('add')">+</div>
                 </div>
-                <div id="contentInProgress" class="taskContentBox" ondrop="moveTaskTo('InProgress')"
-                    ondragover="allowDrop(event)"></div>
+                <div id="contentInProgress" class="taskContentBox" ondrop="moveTaskTo('InProgress'), dragHoverOver('contentInProgress')" ondragover="allowDrop(event), dragHover('contentInProgress')" ondragleave="dragHoverOver('contentInProgress')"></div>
             </div>
             <div class="categoryBoard" id="categoryAwaitFeedback">
                 <div class="boardTopicResponsive">
                     <h3 class="topics">Await feedback</h3>
                     <div class="addButton mr24" onclick="openAddTaskInBoard('add')">+</div>
                 </div>
-                <div id="contentAwaitFeedback" class="taskContentBox" ondrop="moveTaskTo('AwaitFeedback')"
-                    ondragover="allowDrop(event)"></div>
+                <div id="contentAwaitFeedback" class="taskContentBox" ondrop="moveTaskTo('AwaitFeedback'), dragHoverOver('contentAwaitFeedback')" ondragover="allowDrop(event), dragHover('contentAwaitFeedback')" ondragleave="dragHoverOver('contentAwaitFeedback')"></div>
             </div>
             <div class="categoryBoard" id="categoryDone">
                 <div class="boardTopicResponsive">
                     <h3 class="topics">Done</h3>
                     <div class="addButton mr24" onclick="openAddTaskInBoard('add')">+</div>
                 </div>
-                <div id="contentDone" class="taskContentBox mbDone" ondrop="moveTaskTo('Done')"
-                    ondragover="allowDrop(event)">
+                <div id="contentDone" class="taskContentBox mbDone" ondrop="moveTaskTo('Done'), dragHoverOver('contentDone')" ondragover="allowDrop(event), dragHover('contentDone')" ondragleave="dragHoverOver('contentDone')">
                 </div>
             </div>
         </div>

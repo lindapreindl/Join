@@ -32,17 +32,20 @@ async function fillBoardWithTasks() {
     setItem('tasks', tasks);
     for (let i = 0; i < tasks.length; i++) {
         getTasksInformation(i);
-        document.getElementById(`content${process}`).innerHTML += templateTasksInBoard(i, categoryColor, currentSubtasks, prio);
+        let topicChange = topicChanger(process, i);
+        document.getElementById(`content${process}`).innerHTML += templateTasksInBoard(i, categoryColor, currentSubtasks, prio, topicChange);
         fillAssignedStaff(i);
         if (tasks[i].subtasks.length == 0) { document.getElementById(`taskProgress${i}`).classList.add('d-none'); }
     }
     checkForEmptyColums()
 }
 
-// function loadActiveUser() {
-//     loginUser = 'CB';
-//     document.getElementById('activeUserCircle').innerHTML = loginUser;
-// }
+function topicChanger(process, i) {
+    if (process == 'ToDo') { return `<div onclick="startDragging(${i}), moveTaskTo('InProgress')" class="arrowGreen">&#x2BB7;</div>`; }
+    if (process == 'InProgress') { return `<div onclick="startDragging(${i}), moveTaskTo('ToDo')" class="arrowRed">&#x2BB4;     </div><div onclick="startDragging(${i}), moveTaskTo('AwaitFeedback')" class="arrowGreen">&#x2BB7;</div>`; }
+    if (process == 'AwaitFeedback') { return `<div onclick="startDragging(${i}), moveTaskTo('InProgress')" class="arrowRed">&#x2BB4;     </div><div onclick="startDragging(${i}), moveTaskTo('Done')" class="arrowGreen">&#x2BB7;</div>`; }
+    if (process == 'Done') { return `<div onclick="startDragging(${i}), moveTaskTo('AwaitFeedback')" class="arrowRed">&#x2BB4;</div>`; }
+}
 
 // Picks the task-details
 function getTasksInformation(i) {
@@ -160,6 +163,14 @@ function openTaskDetails(i) {
 
 function closeTaskDetails() {
     document.getElementById('taskDetailsBox').classList.add('d-none');
+}
+
+function dragHover(topic) {
+    document.getElementById(topic).classList.add('topicHover');
+}
+
+function dragHoverOver(topic) {
+    document.getElementById(topic).classList.remove('topicHover');
 }
 
 async function changeBoolean(i, j) {

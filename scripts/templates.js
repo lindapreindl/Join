@@ -1,8 +1,9 @@
-function templateTasksInBoard(i, categoryColor, subtasks, prio) {
+function templateTasksInBoard(i, categoryColor, subtasks, prio, topicChange) {
     return `
     <div draggable="true" ondragstart="startDragging(${i}), rotateBox(${i})" class="popUpBox widthTaskBox" id="task${i}" onclick="openTaskDetails(${i})">
         <div class="categoryLine">
             <div class="categoryBox" style="background-color:${categoryColor}">${tasks[i].category}</div>
+            <div class="changeTopicArrows" type="button">${topicChange}</div>
         </div>
         <h3 class="mb12">${tasks[i].titel}</h3>
         <p class="mb24 fontLightgrey">${tasks[i].description}</p>
@@ -12,7 +13,7 @@ function templateTasksInBoard(i, categoryColor, subtasks, prio) {
         </div>
         <div class="d-flex justify-between align-center w100">
             <div id="assign${i}" class="d-flex"></div>
-            <div><img class="prioItem" src="../img/${prio}"></div>
+            <div><img class="prioItem" src="./img/${prio}"></div>
         </div>
     </div>
     `
@@ -32,7 +33,7 @@ function templateFoundTasksInBoard(i) {
         </div>
         <div class="d-flex justify-between align-center w100">
             <div id="assign${i}" class="d-flex"></div>
-            <div><img class="prioItem" src="../img/${prio}"></div>
+            <div><img class="prioItem" src="./img/${prio}"></div>
         </div>
     </div>
     `
@@ -53,7 +54,7 @@ function templateTaskDetails(i, categoryColor, subtasks, prio, prioWritten) {
     <div class="widthTaskDetails" id="taskDetails">
         <div class="categoryLine">
             <div class="categoryBox" style="background-color:${categoryColor}">${tasks[i].category}</div>
-            <div><img src="../img/close.png" onclick="closeTaskDetails()"></div>
+            <div><img src="./img/close.png" onclick="closeTaskDetails()"></div>
         </div>
         <div class="mb12 fontTitle">${tasks[i].titel}</div>
         <p class="mb24">${tasks[i].description}</p>
@@ -64,7 +65,7 @@ function templateTaskDetails(i, categoryColor, subtasks, prio, prioWritten) {
         <div class="w100 d-flex mb24 align-center">
             <div class="w150px"><p class="fontDarkGrey">Priority:</p></div>
             <p class="mr8">${prioWritten}</p>
-            <div class="d-flex align-center"><img class="prioItem" src="../img/${prio}"></div>
+            <div class="d-flex align-center"><img class="prioItem" src="./img/${prio}"></div>
         </div>
         <div class="w100">
             <p class="fontDarkGrey mb12">Assigned To:</p>
@@ -75,8 +76,8 @@ function templateTaskDetails(i, categoryColor, subtasks, prio, prioWritten) {
             <div id="subtasksDetails" class="subtasksDetails mb24"></div>
         </div>
         <div class="w100 d-flex mb24 justify-end">
-            <div onclick="deleteTask(${i})" class="d-flex ml align-center detailsButton widthFixed"><img class="mr8" src="../img/delete.png" onmouseover="this.src='./img/deleteHover.png';" onmouseout="this.src='./img/delete.png';"></div>
-            <div id="btnEditBig" onclick="editTask(${i}, 'IB')" class="btnEditBig ml align-center detailsButton widthFixed"><img class="mr8" src="../img/edit.png" onmouseover="this.src='./img/editHover.png';" onmouseout="this.src='./img/edit.png';"></div>
+            <div onclick="deleteTask(${i})" class="d-flex ml align-center detailsButton widthFixed"><img class="mr8" src="./img/delete.png" onmouseover="this.src='./img/deleteHover.png';" onmouseout="this.src='./img/delete.png';"></div>
+            <div id="btnEditBig" onclick="editTask(${i}, 'IB')" class="btnEditBig ml align-center detailsButton widthFixed"><img class="mr8" src="./img/edit.png" onmouseover="this.src='./img/editHover.png';" onmouseout="this.src='./img/edit.png';"></div>
         </div>
     </div>
     `;
@@ -173,7 +174,7 @@ function templateRenderUserInfo(user, contactIndex) {
     </div>
     
     <div class="userInfo-div">
-      <img class="back-to-contacts" onclick="goBackToUserList()" src="../img/arrowLeft.png" alt="">
+      <img class="back-to-contacts" onclick="goBackToUserList()" src="./img/arrowLeft.png" alt="">
       <div class="circle2-user">
         <div
           class="initials-circle-info"
@@ -360,7 +361,7 @@ function createOverlayContent() {
         <div class="blueLineUserInfo"></div>
         <h2>Better with a team</h2>
       </div>
-      <img class="back-to-contacts" onclick="goBackToUserList()" src="../img/arrowLeft.png" alt="">
+      <img class="back-to-contacts" onclick="goBackToUserList()" src="./img/arrowLeft.png" alt="">
       <div class="userInfo-div">
         ${createCircleUserInfo(user, contactIndex)}
         ${createContactInformation(user)}
