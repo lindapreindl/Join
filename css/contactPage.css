@@ -172,7 +172,7 @@ main {
 
 #userList {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 185px);
   margin-top: 145px;
   margin-left: 16px;
   /* Linker Abstand beibehalten */
@@ -181,7 +181,6 @@ main {
   overflow-y: auto;
   /* Vertikales Scrollen aktivieren */
   overflow-x: hidden;
-  height: 76vh;
   cursor: pointer;
   padding: 40px;
 }
@@ -822,7 +821,8 @@ li {
   }
 
   #userList {
-    height: 67vh;
+    height: calc(100vh - 265px) ;
+    margin-bottom: 80px;
    }
 }
 
