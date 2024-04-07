@@ -173,7 +173,7 @@ function templateRenderUserInfo(user, contactIndex) {
     </div>
     
     <div class="userInfo-div">
-      <img class="back-to-contacts" onclick="goBackToUserList()" src="./img/arrowLeft.png" alt="">
+      <img class="back-to-contacts" onclick="goBackToUserList()" src="../img/arrowLeft.png" alt="">
       <div class="circle2-user">
         <div
           class="initials-circle-info"
