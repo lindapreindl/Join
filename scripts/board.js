@@ -85,8 +85,8 @@ function showDetailsSubtasks(i) {
     let showSubtask = document.getElementById('subtasksDetails');
     let status;
     for (let j = 0; j < tasks[i].subtasks.length; j++) {
-        if (tasks[i].subtasks[j].finished == true) { status = '../img/checked.png' }
-        else { status = '../img/unchecked.png' }
+        if (tasks[i].subtasks[j].finished == true) { status = './img/checked.png' }
+        else { status = './img/unchecked.png' }
         showSubtask.innerHTML += templateShowDetailsSubtasks(i, j, status);
     }
 }
