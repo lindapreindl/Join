@@ -821,9 +821,9 @@ li {
   }
 
   #userList {
-    height: calc(100vh - 265px) ;
+    height: calc(100vh - 265px);
     margin-bottom: 80px;
-   }
+  }
 }
 
 @media (max-width: 700px) {
@@ -891,10 +891,23 @@ li {
     cursor: pointer;
     margin-top: 50px;
   }
+  /* ---------------------------NEU */
+  .addUserSentence {
+    display: none;
+  }
+  .btn {
+    border-radius: 50%;
+    width: 80px; /* Adjust width for smaller screens */
+    height: 80px; /* Adjust height for smaller screens */
+    margin-top: 720px; /* Adjust margin-top for smaller screens */
+    margin-left: calc(96% - 90px); /* Center the button horizontally */
+    position: absolute;
+    transform: translate(-8%, 30%); /* Zentrieren des Buttons */
+  }
+  /* -------------------------END */
 }
 
 @media (max-height: 750px) {
-
   .contact-popup-left {
     padding-top: 5vh;
     padding-bottom: 10vh;
@@ -903,11 +916,10 @@ li {
   .addUserDaten {
     top: -15vh;
   }
-  
+
   .center {
     gap: 15px;
   }
-
 }
 
 @media (max-height: 400px) {

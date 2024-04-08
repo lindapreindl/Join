@@ -11,7 +11,7 @@ async function initContacts() {
   await loadUsers(); // Lade Benutzerdaten
   renderUsersList(); // Rendere Benutzerinformationen
   await loadLoginUser();
-  renderLoginUserName('Contacts');
+  renderLoginUserName("Contacts");
 }
 
 // Funktion zum Öffnen des Overlays
@@ -34,7 +34,6 @@ function createOverlay() {
   overlay.innerHTML = createOverlayContent();
   document.body.appendChild(overlay);
 }
-
 
 /* ---------------------- createOverlay() END -------------------- */
 
@@ -106,9 +105,9 @@ async function addNewUser() {
     document.getElementById("newUserEmail").value = "";
     document.getElementById("newUserPhone").value = "";
 
-    window.location.href = 'contactPage.html?msg=User added successfully.';
-    } else {
-    window.location.href = 'contactPage.html?msg=Please fill in all fields.';
+    window.location.href = "contactPage.html?msg=User added successfully.";
+  } else {
+    window.location.href = "contactPage.html?msg=Please fill in all fields.";
   }
 }
 
@@ -334,17 +333,61 @@ function getColorForUser(username) {
   }
   return color;
 }
-/* ------------------------------------------ */
+/* --------------------test heute---------------------- */
 // Funktion zum Rendern der Benutzerinformationen mit Bearbeitungsfunktion
 function renderUserInfo(user) {
-  document.getElementById('userInfo').style = 'z-index: 2';
+  document.getElementById("userInfo").style = "z-index: 2";
   const contactIndex = users.findIndex((contact) => contact.name === user.name);
   const userInfoElement = document.getElementById("userInfo");
   userInfoElement.innerHTML = createUserInfoHTML(user, contactIndex);
 }
+/* function createUserInfoHTML(user, contactIndex) {
+  return `
+    <div class="overlay-content2">
+      <div class="contact-popup-left">
+        <img src="./img/logo_white.png" alt="" />
+        <h1>Edit contact</h1>
+        <h3>Tasks are better with a Team!</h3>
+        <div class="blue-line-add-Contact"></div>
+      </div>
+      <div class="initialsEdit">
+        <div class="initials-circle-info" style="background-color: ${
+          userColors[user.name]
+        }; color: white;">
+          ${getInitials(user.name)}
+        </div>
+      </div>
+      <div class="editUserDaten">
+        <div class="imgClose" onclick="closeOverlay()">
+          <img src="./img/close.png" alt="" />
+        </div>
+        <div class="center">
+          <input class="iconPerson" type="text" id="editUserName" placeholder="Name" value="${
+            user.name
+          }" required />
+          <input class="iconMail" type="email" id="editUserEmail" placeholder="E-Mail" value="${
+            user.email
+          }" required />
+          <input class="iconCall" type="text" id="editUserPhone" placeholder="Telefon" value="${
+            user.phone
+          }" required />
+          <input class="iconLock" type="password" id="editUserPassword" placeholder="new Password" required />
+          <div class="delete-save-btn">
+            <button class="delete-btn" onclick="deleteUser('${
+              user.name
+            }'), clearUserInfo()">Delete</button>
+            <button class="save-btn" onclick="editUser(${contactIndex})">Save <img class="imgCheck" src="./img/check.png" alt="" /></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+ */
+/* -------------------------------------------- */
 
-function goBackToUserList(){
-  document.getElementById('userInfo').style = 'z-index: 0';
+function goBackToUserList() {
+  document.getElementById("userInfo").style = "z-index: 0";
 }
 
 // Funktion zum Öffnen des Overlays für die Bearbeitung eines Benutzers
@@ -370,7 +413,7 @@ function createEditOverlay(user, index) {
   overlay.id = overlayId; // Eindeutige ID für das Overlay setzen
   overlay.style.display = "none";
   overlay.innerHTML = templateEditOverlay(user, index);
-  
+
   document.body.appendChild(overlay);
 }
 
@@ -407,9 +450,9 @@ async function editUser(index) {
     if (editedUser) {
       updateUserList(editedUser, index);
       closeOverlay();
-      window.location.href = 'contactPage.html?msg=User updated successfully.';
+      window.location.href = "contactPage.html?msg=User updated successfully.";
     } else {
-      window.location.href = 'contactPage.html?msg=Failed to update user.';
+      window.location.href = "contactPage.html?msg=Failed to update user.";
     }
   } else {
     alert("Please fill in all fields.");
