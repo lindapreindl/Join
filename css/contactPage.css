@@ -897,12 +897,12 @@ li {
   }
   .btn {
     border-radius: 50%;
-    width: 80px; /* Adjust width for smaller screens */
-    height: 80px; /* Adjust height for smaller screens */
-    margin-top: 720px; /* Adjust margin-top for smaller screens */
+    width: 56px; /* Adjust width for smaller screens */
+    height: 56px; /* Adjust height for smaller screens */
+    margin-top: 758px; /* Adjust margin-top for smaller screens */
     margin-left: calc(96% - 90px); /* Center the button horizontally */
     position: absolute;
-    transform: translate(-8%, 30%); /* Zentrieren des Buttons */
+    transform: translate(-8%, 20%); /* Zentrieren des Buttons */
   }
   /* -------------------------END */
 }
