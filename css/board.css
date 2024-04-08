@@ -503,10 +503,6 @@ progress[value]::-webkit-progress-value {
         display: none;
     }
 
-    .changeTopicArrows {
-        display: flex;
-    }
-
 }
 
 @media (max-width: 1200px) {
@@ -573,6 +569,10 @@ progress[value]::-webkit-progress-value {
 
     .boardTitle{
         padding-left: 0;
+    }
+    
+    .changeTopicArrows {
+        display: flex;
     }
 }
 

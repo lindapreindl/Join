@@ -143,6 +143,7 @@ async function moveTaskTo(process) {
     tasks[draggedTask].position = process;
     fillBoardWithTasks();
     setItem('tasks', tasks);
+    closeTaskDetails();
 }
 
 function allowDrop(event) {
