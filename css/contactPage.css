@@ -891,20 +891,7 @@ li {
     cursor: pointer;
     margin-top: 50px;
   }
-  /* ---------------------------NEU */
-  .addUserSentence {
-    display: none;
-  }
-  .btn {
-    border-radius: 50%;
-    width: 56px; /* Adjust width for smaller screens */
-    height: 56px; /* Adjust height for smaller screens */
-    margin-top: 758px; /* Adjust margin-top for smaller screens */
-    margin-left: calc(96% - 90px); /* Center the button horizontally */
-    position: absolute;
-    transform: translate(-8%, 20%); /* Zentrieren des Buttons */
-  }
-  /* -------------------------END */
+  
 }
 
 @media (max-height: 750px) {
