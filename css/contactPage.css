@@ -101,6 +101,10 @@
   background-color: #29abe2;
 }
 
+.user-info-contactInformation{
+  margin-left: 16px;
+}
+
 .user-info-contactInformation h2 {
   font-size: 20px;
   font-weight: 400;
@@ -282,6 +286,7 @@ hr {
 .circle2-user {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .user-name-info {
@@ -659,6 +664,7 @@ li {
   .blueLineUserInfo {
     height: 45px;
   }
+  
 }
 
 @media (max-width: 1150px) {
@@ -693,14 +699,15 @@ li {
   .user-name-info {
     font-size: 35px;
   }
-}
 
-@media (max-width: 1000px) {
   .circle2-user {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+}
+
+@media (max-width: 1000px) {
 
   .user-name-info {
     font-size: 30px;
@@ -780,62 +787,16 @@ li {
   .imgClose img {
     content: url(../img/close_white.png);
   }
-}
-
-@media (max-width: 725px) {
-  .img-info-edit-delete {
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 700px) {
-  .img-info-edit-delete {
-    margin-left: 16px;
-  }
 
   .contactLeft {
-    width: 300px;
-  }
-
-  #userInfo {
-    margin-left: 340px;
-  }
-
-  .addUserButtonDiv {
-    width: 300px;
-  }
-
-  .btn {
-    font-size: 16px;
-    width: 200px;
-    margin-left: calc(50% - 100px);
-  }
-
-  .btn img {
-    height: 30px;
-    width: auto;
-  }
-
-  .circle2-user {
-    padding-left: 0 !important;
-  }
-
-  #userList {
-    height: calc(100vh - 265px);
-    margin-bottom: 80px;
-  }
-}
-
-@media (max-width: 700px) {
-  .contactLeft {
-    width: 100%;
+    width: calc(100% - 232px);
     height: 100vh;
     overflow-y: hidden;
   }
 
   #userInfo {
     margin-left: 0px;
-    margin-top: 120px;
+    margin-top: 100px;
     margin-right: 0;
     margin-bottom: 0;
     padding-left: 20px;
@@ -846,21 +807,74 @@ li {
     overflow-y: scroll;
   }
 
+  .circle2-user {
+    padding-left: 0 !important;
+    width: calc(100% - 232px);
+  }
+
   .frame40 {
     display: none;
     margin-top: 0;
   }
 
+  .img-info-edit-delete{
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+  }
+
   .addUserButtonDiv {
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
   }
 
   .btn {
-    width: 90vw;
+    width: 90%;
     margin-left: 0;
   }
+
+  .headlineUserInfo {
+    display: none;
+  }
+
+  .back-to-contacts {
+    display: block;
+    cursor: pointer;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 700px) {
+  .img-info-edit-delete {
+    margin-left: 16px;
+  }
+
+  .btn img {
+    height: 30px;
+    width: auto;
+  }
+
+  .contactLeft{
+    width: 100%;
+  }
+
+  #userList {
+    height: calc(100vh - 265px);
+    margin-bottom: 80px;
+    width: 100%;
+  }
+
+  .addUserButtonDiv{
+    width: 100vw;
+  }
+
+  .circle2-user{
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
 
   .overlay-content1 {
     width: 90vw;
@@ -880,16 +894,6 @@ li {
 
   .editUserDaten {
     width: 90vw;
-  }
-
-  .headlineUserInfo {
-    display: none;
-  }
-
-  .back-to-contacts {
-    display: block;
-    cursor: pointer;
-    margin-top: 50px;
   }
   
 }
