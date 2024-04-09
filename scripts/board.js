@@ -201,11 +201,9 @@ async function searchTasks() {
     if (search.value.length > 0) {
         let searchValue = search.value.toLowerCase();
         foundTasks = [];
-        console.log(searchValue);
         for (let j = 0; j < tasks.length; j++) {
             if (tasks[j].titel.toLowerCase().includes(searchValue) || tasks[j].description.toLowerCase().includes(searchValue)) {
                 foundTasks.push(j);
-                console.log(j);
             }
         }
         if (foundTasks.length > 0) {

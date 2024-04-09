@@ -6,10 +6,13 @@
 
 .bold {
     font-weight: bold;
-    padding-top: 64px;
 }
 
 .center {
     text-align: center;
     width: 100%;
+}
+
+a {
+    color: black;
 }
