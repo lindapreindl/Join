@@ -101,6 +101,10 @@
   background-color: #29abe2;
 }
 
+.user-info-contactInformation{
+  margin-left: 16px;
+}
+
 .user-info-contactInformation h2 {
   font-size: 20px;
   font-weight: 400;
@@ -282,6 +286,7 @@ hr {
 .circle2-user {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .user-name-info {
@@ -660,9 +665,6 @@ li {
     height: 45px;
   }
   
-  .circle2-user{
-    flex-wrap: wrap;
-  }
 }
 
 @media (max-width: 1150px) {
