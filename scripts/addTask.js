@@ -24,7 +24,7 @@ function openAddTaskInBoard(use) {
         document.getElementById('titleAddTask').classList.remove('d-none');
         document.getElementById('titleEditTask').classList.add('d-none');
         clearAddTask('IB');
-        clearAddTask('AT');
+        // clearAddTask('AT');
     }
 }
 
@@ -45,8 +45,8 @@ function clearAddTask(location) {
     document.getElementById('subtasksAddTask' + location).innerHTML = '';
     document.getElementById('showAssignedUsersStickers' + location).innerHTML = '';
     for (let i = 0; i < users.length; i++) {
-        document.getElementById(`userListChecker${location}${i}`).src = './img/unchecked.png';
-        document.getElementById(`userDropDown${i}`).classList.remove('userDropdownChosen');
+        if (document.getElementById(`userListChecker${location}${i}`)) {document.getElementById(`userListChecker${location}${i}`).src = './img/unchecked.png';}
+        if (document.getElementById(`userDropDown${i}`)) {document.getElementById(`userDropDown${i}`).classList.remove('userDropdownChosen');}
     }
     cancelSubtask(location);
 }
