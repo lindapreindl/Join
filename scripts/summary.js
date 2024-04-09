@@ -30,8 +30,8 @@ function messageSummary() {
     const urlMessage = new URLSearchParams(window.location.search);
     const msg = urlMessage.get("msg");
     if (msg) {
-      document.getElementById("sucessBoxLogin").classList.remove("d-none");
-      document.getElementById("sucessBoxLogin").innerHTML = msg;
+        document.getElementById("sucessBoxLogin").classList.remove("d-none");
+        document.getElementById("sucessBoxLogin").innerHTML = msg;
     }
 }
 
@@ -45,13 +45,25 @@ function findOutDayTime() {
 }
 
 function checkAmountFromJSON(category, value) {
+    let limitDone = '';
     let result = 0;
+    let actualDay = Date.parse(new Date());
     for (let i = 0; i < tasks.length; i++) {
         if (category == 1) {
             if (tasks[i].position == value) { result++; }
         }
         if (category == 2) {
-            if (tasks[i].prio == value) { result++; }
+            if (tasks[i].prio == value) {
+                result++;
+                let TaskDate = Date.parse(tasks[i].dueDate);
+                let limit = TaskDate - actualDay;
+                if (limitDone == '' && limit >= 0) { limitDone = limit };
+                if (limit < limitDone && limit >= 0) {
+                    limitDone = limit;
+                    document.getElementById('limitDate').innerHTML = tasks[i].dueDate;
+                    document.getElementById('limitTitle').innerHTML = tasks[i].titel;
+                }
+            }
         }
     }
     return result;
@@ -65,3 +77,4 @@ function fillSummary() {
     document.getElementById('amountProgress').innerHTML = amountProgress;
     document.getElementById('amountFeedback').innerHTML = amountFeedback;
 }
+

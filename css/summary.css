@@ -3,3 +3,13 @@
         width: 92%;
     }
 }
+
+.bold {
+    font-weight: bold;
+    padding-top: 64px;
+}
+
+.center {
+    text-align: center;
+    width: 100%;
+}

@@ -27,11 +27,12 @@
     font-size: 32px;
     display: none;
     z-index: 10;
+    justify-content: space-around;
+    width: 100%
 }
 
-.arrowRed {
-    color: red;
-    padding: 2px;
+.arrows {
+    height: 24px;
 }
 
 .arrowRed:hover {
@@ -44,9 +45,18 @@
     border-radius: 50%;
 }
 
-.arrowGreen {
-    color: green;
-    padding: 2px;
+.previewTask {
+    height: 200px;
+    width: 250px;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: dotted lightcoral 1px;
+    border-radius: 8px;
+    color: gray;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 150px;
 }
 
 .verticalLine {
@@ -501,6 +511,11 @@ progress[value]::-webkit-progress-value {
 
     .titleLine {
         display: none;
+    }
+
+    .previewTask {
+        margin-top: 0;
+        margin-left: 150px;
     }
 
 }

@@ -37,14 +37,22 @@ async function fillBoardWithTasks() {
         fillAssignedStaff(i);
         if (tasks[i].subtasks.length == 0) { document.getElementById(`taskProgress${i}`).classList.add('d-none'); }
     }
-    checkForEmptyColums()
+    checkForEmptyColums();
+    addPreview();
+}
+
+function addPreview() {
+    document.getElementById('contentToDo').innerHTML += `<div id="previewcontentToDo" class="previewTask d-none">Drag in here!</div>`;
+    document.getElementById('contentInProgress').innerHTML += `<div id="previewcontentInProgress" class="previewTask d-none">Drag in here!</div>`;
+    document.getElementById('contentAwaitFeedback').innerHTML += `<div id="previewcontentAwaitFeedback" class="previewTask d-none">Drag in here!</div>`;
+    document.getElementById('contentDone').innerHTML += `<div id="previewcontentDone" class="previewTask d-none">Drag in here!</div>`;
 }
 
 function topicChanger(process, i) {
-    if (process == 'ToDo') { return `<div onclick="startDragging(${i}), moveTaskTo('InProgress')" class="arrowGreen">&#x2BB7;</div>`; }
-    if (process == 'InProgress') { return `<div onclick="startDragging(${i}), moveTaskTo('ToDo')" class="arrowRed">&#x2BB4;     </div><div onclick="startDragging(${i}), moveTaskTo('AwaitFeedback')" class="arrowGreen">&#x2BB7;</div>`; }
-    if (process == 'AwaitFeedback') { return `<div onclick="startDragging(${i}), moveTaskTo('InProgress')" class="arrowRed">&#x2BB4;     </div><div onclick="startDragging(${i}), moveTaskTo('Done')" class="arrowGreen">&#x2BB7;</div>`; }
-    if (process == 'Done') { return `<div onclick="startDragging(${i}), moveTaskTo('AwaitFeedback')" class="arrowRed">&#x2BB4;</div>`; }
+    if (process == 'ToDo') { return `<div onclick="startDragging(${i}), moveTaskTo('InProgress')" class="arrowGreen"><img class="arrows" src="./img/arrowDown.png"></div>`; }
+    if (process == 'InProgress') { return `<div onclick="startDragging(${i}), moveTaskTo('ToDo')" class="arrowRed"><img class="arrows" src="./img/arrowUp.png"></div><div onclick="startDragging(${i}), moveTaskTo('AwaitFeedback')" class="arrowGreen"><img class="arrows" src="./img/arrowDown.png"></div>`; }
+    if (process == 'AwaitFeedback') { return `<div onclick="startDragging(${i}), moveTaskTo('InProgress')" class="arrowRed"><img class="arrows" src="./img/arrowUp.png"></div><div onclick="startDragging(${i}), moveTaskTo('Done')" class="arrowGreen"><img class="arrows" src="./img/arrowDown.png"></div>`; }
+    if (process == 'Done') { return `<div onclick="startDragging(${i}), moveTaskTo('AwaitFeedback')" class="arrowRed"><img class="arrows" src="./img/arrowUp.png"></div>`; }
 }
 
 // Picks the task-details
@@ -143,7 +151,6 @@ async function moveTaskTo(process) {
     tasks[draggedTask].position = process;
     fillBoardWithTasks();
     setItem('tasks', tasks);
-    closeTaskDetails();
 }
 
 function allowDrop(event) {
@@ -168,10 +175,12 @@ function closeTaskDetails() {
 
 function dragHover(topic) {
     document.getElementById(topic).classList.add('topicHover');
+    document.getElementById('preview' + topic).classList.remove('d-none');
 }
 
 function dragHoverOver(topic) {
     document.getElementById(topic).classList.remove('topicHover');
+    document.getElementById('preview' + topic).classList.add('d-none');
 }
 
 async function changeBoolean(i, j) {
