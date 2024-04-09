@@ -38,8 +38,16 @@ function clearAddTask(location) {
     document.getElementById('descriptionAddTask' + location).value = '';
     document.getElementById('dueDateAddTask' + location).value = '';
     chosenPrio = 'medium';
+    changePrio('medium', location);
+    subtasks = [];
+    assignedUsers = [];
     document.getElementById('categoryAddTask' + location).value = 'selectCategory';
     document.getElementById('subtasksAddTask' + location).innerHTML = '';
+    document.getElementById('showAssignedUsersStickers' + location).innerHTML = '';
+    for (let i = 0; i < users.length; i++) {
+        document.getElementById(`userListChecker${location}${i}`).src = './img/unchecked.png';
+        document.getElementById(`userDropDown${i}`).classList.remove('userDropdownChosen');
+    }
     cancelSubtask(location);
 }
 
@@ -92,8 +100,8 @@ async function searchAssignedPeople(location) {
         let bgcolor = '#FFFFFF';
         if (users[i].name == loginUser[0]) { thatIsMe = ' (You)' }
         else { thatIsMe = '' };
-        if (assignedUsers.includes(users[i].name)) { 
-            checkValue = './img/checked.png' 
+        if (assignedUsers.includes(users[i].name)) {
+            checkValue = './img/checked.png'
             bgcolor = '#29ABE2'
         }
         dropDown.innerHTML += templateUserListInDropDown(i, initialColor, initials, thatIsMe, checkValue, bgcolor, location);
@@ -284,7 +292,7 @@ function deleteTask(i) {
 
 async function editTask(i, location) {
     document.getElementById('body').style = 'overflow: hidden';
-    
+
     if (location == 'IB') { closeTaskDetails(); }
     await loadTasksFromServer();
     let title = tasks[i]['titel'];
@@ -294,7 +302,7 @@ async function editTask(i, location) {
     let assignedTo = tasks[i]['assigned'];
     let category = tasks[i]['category'];
     let subtasks = tasks[i]['subtasks'];
-    editPosition = tasks[i]['position'];    
+    editPosition = tasks[i]['position'];
     if (location == 'IB') { openAddTaskInBoard('edit'); }
     fillPopUpWithStuff(i, title, description, dueDate, prio, assignedTo, subtasks, category, location);
 }
